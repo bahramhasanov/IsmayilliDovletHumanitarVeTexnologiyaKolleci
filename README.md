@@ -1,0 +1,2 @@
+# IsmayilliDovletHumanitarVeTexnologiyaKolleci
+İsmayıllı Dövlət Humanitar və Texnologiya Kolleci
