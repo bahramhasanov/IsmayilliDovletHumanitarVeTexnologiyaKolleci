@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from core.models import Blog
 
 
 from about.models import News
@@ -10,7 +11,7 @@ from rest_framework import permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAdminUser
-from api.serializers import NewsSerializer
+from api.serializers import BlogSerializer, NewsSerializer
 
 from api.serializers import NewsSerializer
 
@@ -24,7 +25,16 @@ class ApiNews(APIView):
         qs = News.objects.all()
         serializer = NewsSerializer(qs, many=True)
         return Response(serializer.data)
-
+    
+    
+class ApiBlog(APIView):
+    serializer_class = BlogSerializer
+    permission_classes = (IsAdminUser,)
+    
+    def get(self, request, format=None):
+        qs = Blog.objects.all()
+        serializer = BlogSerializer(qs, many=True)
+        return Response(serializer.data)
     
     
     
