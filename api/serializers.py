@@ -2,27 +2,67 @@
 from django.contrib.auth import get_user_model
 from django.db.models import fields
 from rest_framework import serializers
-from about.models import News
-from core.models import Blog
+from about.models import News, NewsImage
+from core.models import Blog, BlogImage
 
 User = get_user_model()
 
+
+class NewsImagesSerializer(serializers.ModelSerializer):
+    url = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = NewsImage
+        fields = ('id',
+                  'name',
+                  'url',
+            )
+    
+    def get_url(self, obj):
+        request = self.context.get('request')
+        return request.build_absolute_uri(obj.image.url)
+  
+  
 class NewsSerializer(serializers.ModelSerializer):
+    images = serializers.SerializerMethodField()
     class Meta:
         model = News
-        fields = '__all__'
+        fields = ('id',
+                  'name',
+                  'subtitle',
+                  'description',
+                  'images',
+            )
         
-    def get_serializer(self,obj):
-        return NewsSerializer(obj, many=True) 
-        
+    def get_images(self, obj):
+        request = self.context.get('request')
+        return NewsImagesSerializer(obj.images.all(), many=True, context={'request':request}).data
 
+
+class BlogImagesSerializer(serializers.ModelSerializer):
+    url = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = BlogImage
+        fields = ('id',
+                  'url',
+            )
+    
+    def get_url(self, obj):
+        request = self.context.get('request')
+        return request.build_absolute_uri(obj.image.url)
+    
+    
 class BlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Blog
-        fields = '__all__'
-        
-    def get_serializer(self,obj):
-        return NewsSerializer(obj, many=True) # buna gerek var mi?
-        
-
+        fields = ('id',
+                  'title',
+                  'subtitle',
+                  'description',
+                  'images',)
     
+    def get_images(self, obj):
+        request = self.context.get('request')
+        return BlogImagesSerializer(obj.images.all(), many=True, context={'request':request}).data
+        

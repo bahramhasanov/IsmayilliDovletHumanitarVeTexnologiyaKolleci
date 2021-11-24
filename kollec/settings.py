@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'about',
     'core',
     'staff',
-
     
     'rest_framework',
 ]

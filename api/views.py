@@ -23,7 +23,7 @@ class ApiNews(APIView):
     
     def get(self, request, format=None):
         qs = News.objects.all()
-        serializer = NewsSerializer(qs, many=True)
+        serializer = NewsSerializer(qs, many=True, context={'request':request})
         return Response(serializer.data)
     
     
@@ -33,7 +33,7 @@ class ApiBlog(APIView):
     
     def get(self, request, format=None):
         qs = Blog.objects.all()
-        serializer = BlogSerializer(qs, many=True)
+        serializer = BlogSerializer(qs, many=True, context={'request':request})
         return Response(serializer.data)
     
     
