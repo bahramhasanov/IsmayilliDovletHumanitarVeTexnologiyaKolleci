@@ -5,8 +5,8 @@ button2 = document.querySelector('#button2');
 newsfetch = document.querySelector('.newsfetch');
 blogfetch = document.querySelector('#blogfetch');
 
+
 button.addEventListener('click', () => {
-    
     fetch("http://127.0.0.1:8000/api/newsapi/").then(
         response => response.json()
     ).then(responseJson => {
@@ -46,7 +46,7 @@ button2.addEventListener('click', () => {
             </div>
             </div>
             `
-            
+            console.log(item.images[0]['url']);
             blogfetch.appendChild(dom)
             
         });
