@@ -6,7 +6,7 @@ fetch("http://127.0.0.1:8000/api/newsapi/").then(
         let dom = document.createElement('li')
         dom.innerHTML = item.name
         newsfetch.appendChild(dom)
-        
+
     });
 });
 
