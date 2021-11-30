@@ -39,15 +39,7 @@ button:focus {
   box-shadow: none !important;
   outline-width: 0;
 }
-
-.next {
-  display: block !important;
-  position: relative;
-  transform: scale(0.9);
-  transition-duration: 0.3s;
-}
-
-.prev {
+.beforeSides {
   display: block !important;
   position: relative;
   transform: scale(0.9);
@@ -78,7 +70,7 @@ button:focus {
   }
 }
 
-.btn-floating{
+.btn-floating {
   color: black;
   margin: 0 10px;
 }
