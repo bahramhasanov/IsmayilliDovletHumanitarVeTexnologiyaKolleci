@@ -30,10 +30,9 @@ $(document).ready(function () {
         touchDrag: true,
         autoplay: true,
         autoplayTimeout: 3000,
-        keyboard: true,
         autoplayHoverPause: true,
         loop: true,
-        margin: 2,
+        margin: 0,
         nav: true,
         navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
         responsive: {
