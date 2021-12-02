@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#kabinetid {
+  background-color: #0444e2;
+  width: 128px;
+  height: 40px;
+  border-radius: 5px;
+  border-radius: 2px;
+  border: none;
+  color: white;
+}
+
+.headercenter {
+  font-size: 14px;
+}
+
+#kabinetid {
+  font-size: 13px;
+  background-color: #024aff;
+}
+
+#kabinetid:hover {
+  background-color: #0444e2;
+  font-size: 13.5px;
+}
+
+.rehberlik {
+  /* margin: 10px; */
+  width: 100%;
+  margin-bottom: 0 !important;
+}
+
+.rehberlik li {
+  display: block;
+  width: 25%;
+  float: left;
+}
+.rehberlik li a {
+  color: #000;
+  text-decoration: none;
+}
+
+.rehberlik li ul {
+  position: absolute;
+  top: 55px;
+  display: none;
+  border: 1px solid #ccc;
+  width: 120px;
+  background-color: #fff;
+}
+
+.rehberlik li:hover ul {
+  display: block;
+}
+
+.rehberlik li ul li {
+  display: block;
+  width: 120px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.rehberlik li ul li a {
+  display: block;
+  width: 100%;
+  float: left;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.rehberlik ul {
+  z-index: 1;
+}
+
+.footer {
+  width: 100%;
+  background-color: #11182d;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.footersubs {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  /* top: 64px;   */
+  /* left: 72px; */
+  width: 300px;
+  height: 300px;
+  /* background-color: red; */
+}
+
+.iconfootersosial {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  /* margin-top: 56px;     */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+
+.fab {
+  font-size: 20px;
+  color: white;
+}
+
+.iconfootersosiala {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: #28324f;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer ul li {
+  list-style: none;
+}
+
+.footer p,
+h5,
+h6,
+li,
+a,
+table {
+  color: white;
+}
+
+.footer table td {
+  padding: 0px;
+  margin: 0px;
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.footer table tr {
+  padding: 0px;
+  margin: 0px;
+}
+
+.footer table th {
+  padding: 0px;
+  margin: 0px;
+  font-size: 16px;
+}
+#scrollTopicon {
+  position: absolute;
+  right: 25px;
+  font-size: 20px;
+  color: #ffffff;
+  /* cursor: pointer; */
+}
+#scrollTopicon:hover {
+  color: #333b53;
+  cursor: pointer;
+}
+table tr td a:hover {
+  /* text-decoration: none; */
+  color: #ffffff;
+  opacity: 0.5;
+}
