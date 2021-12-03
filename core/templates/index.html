@@ -1,0 +1,654 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+<title>
+    {% block title %}
+    Homepage
+    {% endblock title %}
+</title>
+
+{% block css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://kit.fontawesome.com/a94e9ac94f.js" crossorigin="anonymous"></script>
+{% endblock css %}
+
+
+{% block base %}
+
+
+<div class="container">
+    <div class="branches container">
+        <h2 class="text-center my-3">Şöbələrimiz</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <span
+                            style="color: #FFFFFF; background-color: #356EFF; border-radius: 20px; font-size: 2rem; padding: 14px 23.11px; font-weight: 800;">
+                            1
+                        </span>
+                        <p style="margin-top: 16px;" class="card-text">Lorem, ipsum dolor sit amet consectetur
+                            adipisicing elit. Neque hic cumque labore, itaque eos fuga incidunt inventore sit illum
+                            numquam?
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <span
+                            style="color: #FFFFFF; background-color: #356EFF; border-radius: 20px; font-size: 2rem; padding: 14px 23.11px; font-weight: 800;">
+                            2
+                        </span>
+                        <p style="margin-top: 16px;" class="card-text">Lorem, ipsum dolor sit amet consectetur
+                            adipisicing elit. Neque hic cumque labore, itaque eos fuga incidunt inventore sit illum
+                            numquam?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="branches mx-5">
+        <h2 class="ml-5 mb-3">Şöbələrimiz</h2>
+        <div class="row" style="justify-content: space-around;">
+            <div class="col-lg-3 mr-5">
+                <i style="font-size: 2rem; border-radius: 35%;" class="far fa-check-square bg-info p-3 mb-2"></i>
+                <h5 class="font-weight-bold my-3">Əyani Şöbə</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eligendi ea saepe facere
+                    praesentium
+                    cumque ut. Animi eius alias quos, vero veniam, laboriosam obcaecati voluptatibus, ipsam rerum
+                    sapiente
+                    ipsa doloremque.</p>
+            </div>
+            <div class="col-lg-3 mr-5">
+                <i style="font-size: 2rem; border-radius: 35%;" class="far fa-check-square bg-info p-3 mb-2"></i>
+                <h5 class="font-weight-bold my-3">Qiyabi Şöbə</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eligendi ea saepe facere
+                    praesentium
+                    cumque ut. Animi eius alias quos, vero veniam, laboriosam obcaecati voluptatibus, ipsam rerum
+                    sapiente
+                    ipsa doloremque.</p>
+            </div>
+            <div class="col-lg-3 mr-5">
+                <i style="font-size: 2rem; border-radius: 35%;" class="far fa-check-square bg-info p-3 mb-2"></i>
+                <h5 class="font-weight-bold my-3">Kənd Təsərrüfatı</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eligendi ea saepe facere
+                    praesentium
+                    cumque ut. Animi eius alias quos, vero veniam, laboriosam obcaecati voluptatibus, ipsam rerum
+                    sapiente
+                    ipsa doloremque.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="news" class="carousel slide carousel-multi-item container-fluid" data-ride="carousel">
+
+        <div style="margin-bottom: 17px;">
+            <a style="font-style: normal; font-weight: 500; font-size: 33px; line-height: 40px;  letter-spacing: 0.25px; color: #000000;"
+                href="#">Xəbərlər</a>
+        </div>
+        <!-- <div class="controls-top" style="float: right;">
+                <a class="btn-floating" href="#news" data-slide="prev"><i class="fas fa-arrow-left"></i></a>
+                <a class="btn-floating" href="#news" data-slide="next"><i class="fas fa-arrow-right"></i></a>
+            </div> -->
+
+
+        <div class="carousel-inner" role="listbox">
+
+            <div class="carousel-item active">
+
+                <div class="col-md-3" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top news-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text news-date"><small class="text-muted">20 Dekabr 2020</small></p>
+                            <h4 class="card-title news-title">Card title</h4>
+                            <p class="card-text news-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <a style="cursor: pointer;" class="news-readmore text-primary btn btn-primary-outline">Daha
+                                ətraflı <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top news-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text news-date"><small class="text-muted">20 Dekabr 2020</small></p>
+                            <h4 class="card-title news-title">Card title</h4>
+                            <p class="card-text news-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <a style="cursor: pointer;" class="news-readmore text-primary btn btn-primary-outline">Daha
+                                ətraflı <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top news-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text news-date"><small class="text-muted">20 Dekabr 2020</small></p>
+                            <h4 class="card-title news-title">Card title</h4>
+                            <p class="card-text news-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <a style="cursor: pointer;" class="news-readmore text-primary btn btn-primary-outline">Daha
+                                ətraflı <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top news-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text news-date"><small class="text-muted">20 Dekabr 2020</small></p>
+                            <h4 class="card-title news-title">Card title</h4>
+                            <p class="card-text news-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <a style="cursor: pointer;" class="news-readmore text-primary btn btn-primary-outline">Daha
+                                ətraflı <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="carousel-item">
+
+                <div class="col-md-3" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top news-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text news-date"><small class="text-muted">20 Dekabr 2020</small></p>
+                            <h4 class="card-title news-title">Card title</h4>
+                            <p class="card-text news-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <a style="cursor: pointer;" class="news-readmore text-primary btn btn-primary-outline">Daha
+                                ətraflı <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top news-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text news-date"><small class="text-muted">20 Dekabr 2020</small></p>
+                            <h4 class="card-title news-title">Card title</h4>
+                            <p class="card-text news-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <a style="cursor: pointer;" class="news-readmore text-primary btn btn-primary-outline">Daha
+                                ətraflı <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top news-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text news-date"><small class="text-muted">20 Dekabr 2020</small></p>
+                            <h4 class="card-title news-title">Card title</h4>
+                            <p class="card-text news-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <a style="cursor: pointer;" class="news-readmore text-primary btn btn-primary-outline">Daha
+                                ətraflı <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top news-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text news-date"><small class="text-muted">20 Dekabr 2020</small></p>
+                            <h4 class="card-title news-title">Card title</h4>
+                            <p class="card-text news-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <a style="cursor: pointer;" class="news-readmore text-primary btn btn-primary-outline">Daha
+                                ətraflı <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <!-- <div class="mt-3">
+            <a style="cursor: pointer; float: right; text-transform: uppercase;"
+                class="news-readmore text-primary btn btn-primary-outline">Hamısına bax</a>
+        </div> -->
+    </div>
+
+    <div class="gallery my-5 text-center">
+        <h4 class="mb-3 font-weight-bold">Qalereya</h4>
+        <p class="text-center w-50 mx-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
+            necessitatibus laborum dicta atque rerum
+            deleniti ducimus facere nihil totam excepturi, laudantium eum architecto temporibus eaque sed nisi iusto
+            velit nesciunt?</p>
+        <div class="owl-carousel owl-theme">
+            <div class="item first prev">
+                <div class="row justify-content-center"> <img src="https://i.imgur.com/gazoShk.jpg"
+                        class="img-fluid profile-pic">
+                </div>
+            </div>
+            <div class="item next">
+                <div class="row justify-content-center"> <img src="https://i.imgur.com/ndQx2Rg.jpg"
+                        class="img-fluid profile-pic">
+                </div>
+            </div>
+            <div class="item show">
+                <div class="row justify-content-center"> <img src="https://i.imgur.com/oW8Wpwi.jpg"
+                        class="img-fluid profile-pic">
+                </div>
+            </div>
+            <div class="item next">
+                <div class="row justify-content-center"> <img src="https://i.imgur.com/bgKXGOr.jpg"
+                        class="img-fluid profile-pic">
+                </div>
+            </div>
+            <div class="item next">
+                <div class="row justify-content-center"> <img
+                        src="https://i.pinimg.com/736x/6e/f7/86/6ef7863846a3f06ad581323d2454ac9e.jpg"
+                        class="img-fluid profile-pic">
+                </div>
+            </div>
+            <div class="item last">
+                <div class="row justify-content-center"> <img src="https://i.imgur.com/T5aOhwh.jpg"
+                        class="img-fluid profile-pic">
+                </div>
+            </div>
+        </div>
+        <button
+            style="background-color: transparent; padding: 10px 32px; border: 2px solid #0444E2; box-sizing: border-box; border-radius: 2px; text-transform: uppercase; font-style: normal; font-weight: 500; font-size: 13px; line-height: 16px; letter-spacing: 1.25px; text-transform: uppercase; color: #0444E2; flex: none; order: 0; flex-grow: 0; margin: 32px 10px;">Hamısına
+            Bax</button>
+    </div>
+
+
+    <div id="event" class="carousel slide carousel-multi-item container-fluid" data-ride="carousel">
+
+        <div style="margin-bottom: 17px;">
+            <a style="font-style: normal; font-weight: 500; font-size: 33px; line-height: 40px;  letter-spacing: 0.25px; color: #000000;"
+                href="#">Tədbirlər</a>
+        </div>
+        <!-- <div class="controls-top" style="float: right;">
+                <a class="btn-floating" href="#event" data-slide="prev"><i class="fas fa-arrow-left"></i></a>
+                <a class="btn-floating" href="#event" data-slide="next"><i class="fas fa-arrow-right"></i></a>
+            </div> -->
+
+
+        <div class="carousel-inner" role="listbox">
+
+            <div class="carousel-item active">
+
+                <div class="col-md-4" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top event-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title event-title">Card title</h4>
+                            <p class="card-text event-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <p class="card-text event-date"><small class="text-muted">20 Dekabr, 2020 | 13:00
+                                </small></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top event-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title event-title">Card title</h4>
+                            <p class="card-text event-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <p class="card-text event-date"><small class="text-muted">20 Dekabr, 2020 | 13:00
+                                </small></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top event-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title event-title">Card title</h4>
+                            <p class="card-text event-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <p class="card-text event-date"><small class="text-muted">20 Dekabr, 2020 | 13:00
+                                </small></p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="carousel-item">
+
+                <div class="col-md-4" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top event-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title event-title">Card title</h4>
+                            <p class="card-text event-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <p class="card-text event-date"><small class="text-muted">20 Dekabr, 2020 | 13:00
+                                </small></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top event-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title event-title">Card title</h4>
+                            <p class="card-text event-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <p class="card-text event-date"><small class="text-muted">20 Dekabr, 2020 | 13:00
+                                </small></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" style="float:left">
+                    <div class="card mb-2" style="border-radius: 5%;">
+                        <img style="border-top-left-radius: 5%; border-top-right-radius: 5%;"
+                            class="card-img-top event-img"
+                            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title event-title">Card title</h4>
+                            <p class="card-text event-text">Some quick example text to build on the card title and
+                                make
+                                up the bulk
+                                of the
+                                card's content.</p>
+                            <p class="card-text event-date"><small class="text-muted">20 Dekabr, 2020 | 13:00
+                                </small></p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+        <!-- <div class="mt-3">
+            <a style="cursor: pointer; float: right; text-transform: uppercase;"
+                class="news-readmore text-primary btn btn-primary-outline">Hamısına bax</a>
+        </div> -->
+    </div>
+    <div id="faq" style="padding: 0 72px;">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1"
+                        aria-expanded="true" aria-controls="collapse1">
+                        Accordion Item #1
+                    </button>
+                </h2>
+                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the
+                        collapse plugin adds the appropriate classes that we use to style each element. These
+                        classes control the overall appearance, as well as the showing and hiding via CSS
+                        transitions. You can modify any of this with custom CSS or overriding our default variables.
+                        It's also worth noting that just about any HTML can go within the
+                        <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        Accordion Item #2
+                    </button>
+                </h2>
+                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until
+                        the collapse plugin adds the appropriate classes that we use to style each element. These
+                        classes control the overall appearance, as well as the showing and hiding via CSS
+                        transitions. You can modify any of this with custom CSS or overriding our default variables.
+                        It's also worth noting that just about any HTML can go within the
+                        <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                        Accordion Item #3
+                    </button>
+                </h2>
+                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
+                        collapse plugin adds the appropriate classes that we use to style each element. These
+                        classes control the overall appearance, as well as the showing and hiding via CSS
+                        transitions. You can modify any of this with custom CSS or overriding our default variables.
+                        It's also worth noting that just about any HTML can go within the
+                        <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="students" class="mt-5">
+        <div class="student-header">
+            <div class="my-5">Opinions Matter</div>
+        </div>
+        <div class="row" style="justify-content: center">
+            <div class="student-card card col-md-2 mx-2">
+                <div class="card-content">
+                    <div class="student-body p-0">
+                        <div class="profile"> <img
+                                src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583336/AAA/4.jpg">
+                        </div>
+                        <div class="card-title"> Angelina Frederic<br /> <small
+                                style="text-transform: uppercase">Student</small> </div>
+                        <div class="card-subtitle">
+                            <p> <small class="text-muted"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Doloremque pariatur sunt fuga facilis officiis doloribus magni perferendis.
+                                    Officiis, eveniet eum? </small> </p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card card col-md-2 mx-2">
+                <div class="card-content">
+                    <div class="student-body p-0">
+                        <div class="profile"> <img
+                                src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583319/AAA/3.jpg">
+                        </div>
+                        <div class="card-title"> Jackson Totham<br /> <small
+                                style="text-transform: uppercase">Student</small> </div>
+                        <div class="card-subtitle">
+                            <p> <small class="text-muted"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Doloremque pariatur sunt fuga facilis officiis doloribus magni perferendis.
+                                    Officiis, eveniet eum? </small> </p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card card col-md-2 mx-2">
+                <div class="card-content">
+                    <div class="student-body p-0">
+                        <div class="profile"> <img
+                                src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583246/AAA/2.jpg">
+                        </div>
+                        <div class="card-title"> David Gregory<br /> <small
+                                style="text-transform: uppercase">Student</small> </div>
+                        <div class="card-subtitle">
+                            <p> <small class="text-muted"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Doloremque pariatur sunt fuga facilis officiis doloribus magni perferendis.
+                                    Officiis, eveniet eum? </small> </p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card card col-md-2 mx-2">
+                <div class="card-content">
+                    <div class="student-body p-0">
+                        <div class="profile"> <img
+                                src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583246/AAA/2.jpg">
+                        </div>
+                        <div class="card-title"> David Gregory<br /> <small
+                                style="text-transform: uppercase">Student</small> </div>
+                        <div class="card-subtitle">
+                            <p> <small class="text-muted"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Doloremque pariatur sunt fuga facilis officiis doloribus magni perferendis.
+                                    Officiis, eveniet eum? </small> </p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock base %}
+
+{% block js %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+<script type='text/javascript'
+    src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+<script type='text/javascript' src="{% static 'js/index.js' %}"></script>
+{% endblock js %}
