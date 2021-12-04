@@ -23,66 +23,94 @@
 	{% endblock css %}
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<title>{% block title %}{% endblock %}</title>
+	<style>
+
+		/* headerdaki blur uchundur */
+		.the-blur{
+   position: fixed;
+   top:0;
+   width: 1140px;
+   min-height: 57px;
+   margin-bottom: 20px;
+   background: rgba(65, 51, 51, 0.4);
+   z-index:1010;
+   -webkit-filter: blur(5px);
+   -moz-filter: blur(5px);
+   -o-filter: blur(5px);
+   -ms-filter: blur(5px); 
+	filter: blur(5px);
+    left: 265px; 
+}
+	</style>
+
 </head>
 
 <body>
 	<!-- header section start -->
 
-	<div class="container-fluid ">
-		<div class="row" style="background-color: rgb(228, 241, 214); width: 100; height: 72px;">
-			<div class="col" style="display: flex;justify-content: center; align-items: center; margin-left: 72px;">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light container"
+		style="padding-left: 72px; padding-right: 72px;">
+		<a class="navbar-brand" href="#"><img src="../../media/media/hat.jpeg" width="28px" alt="Logo"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
 				<div class="col"><img src="../../../../Downloads/logo.png" width="28px" alt=""></div>
 				<div class="col"></div>
 				<div class="col"></div>
 			</div>
 			<div class="col-5 headercenter" style="display: flex;justify-content: center; align-items: center;">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav m-auto">
+				<li class="nav-item active">
+					<a class="nav-link"  id="xəbərlər" href="#">Xəbərlər <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item active" >
+					<a class="nav-link" id="rəhbərlik" href="#">Rəhbərlik</a>
+					<ul>
+						<li><a href="#">Direktor</a></li>
+						<li><a href="#">Müavin</a></li>
+						<li><a href="#">Şöbə</a></li>
+						<li><a href="#">FBK</a></li>
+						<li><a href="#">Təcrübə</a></li>
+					</ul>
+				</li>
+				<li class="nav-item active" >
+					<a class="nav-link" id="haqqımızda" href="#">Haqqımızda</a>
+					<ul>
+						<li><a href="#">Tədbirlər</a></li>
+						<li><a href="#">Əlaqə</a></li>
+						<li><a href="#">Ən son</a></li>
+						<li><a href="#">Xəbər</a></li>
+					</ul>
+				</li>
+				<li class="nav-item active" >
+					<a class="nav-link" id="onlinekitabxana" href="#">Online Kitabaxana</a>
+					<ul>
+						<li><a href="#">Texniki</a></li>
+						<li><a href="#">Humanitar</a></li>
+						<li><a href="#">İKT</a></li>
+						<li><a href="#">9 illik basa</a></li>
+					</ul>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
 
-				<ul class="rehberlik">
-					<li><a href="#">Xəbərlər</a></li>
-					<li><a href="#">Rəhbərlik</a>
-						<ul>
-							<li><a href="#">Direktor</a></li>
-							<li><a href="#">Müavinlər</a></li>
-							<li><a href="#">Müəllimler</a></li>
-							<li><a href="#">Təcrübələr</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Rəhbərlik</a>
-						<ul>
-							<li><a href="#">Tədbirlər</a></li>
-							<li><a href="#">Əlaqə</a></li>
-							<li><a href="#">Ən son</a></li>
-							<li><a href="#">Xəbər</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Onlayn Kitabaxana</a>
-						<ul>
-							<li><a href="#">Texniki</a></li>
-							<li><a href="#">Humanitar</a></li>
-							<li><a href="#">İKT</a></li>
-							<li><a href="#">9 illik baza</a></li>
-						</ul>
-					</li>
-				</ul>
+				<button id="kabinetid">KABINET</button>
 
-			</div>
-			<div class="col" style="display: flex;justify-content: center; align-items: center; margin-right: 80px;">
+				<i class="fas fa-search" style="padding-left: 25px; padding-right: 33px;"></i>
 
-				<div class="col-6" style="display: flex;justify-content: center; align-items: center;">
-					<button id="kabinetid">KABINET</button>
-				</div>
-				<div class="col-3" style="display: flex;justify-content: center; align-items: center;"><i
-						class="fas fa-search"></i></div>
-				<div class="col-3" style="display: flex;justify-content: center; align-items: center;">
-					<a class="btn dropdown-toggle" href="#">
-						AZ
-					</a>
-				</div>
+				<a class="btn dropdown-toggle" href="#">
+					AZ
+				</a>
 
-			</div>
+			</form>
 		</div>
-	</div>
+		<div class="the-blur"></div>
+	</nav>
 
 
 	<!-- header section end -->
@@ -93,8 +121,7 @@
 
 	<!-- footer-top area start -->
 
-	<div class="container-fluid footer"
-		style="padding-top: 64px; padding-left: 72px; padding-right: 72px;">
+	<div class="container-fluid footer" style="padding-top: 64px; padding-left: 72px; padding-right: 72px;">
 		<div style="border-bottom: 1px solid #333B53; padding-bottom: 100px;">
 			<div class="row">
 				<div class="col-md-5">
@@ -243,21 +270,21 @@
 		</div>
 	</div>
 
-		<!-- footer section end -->
+	<!-- footer section end -->
 
 
-		<!--js script-->
-		<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+	<!--js script-->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 			crossorigin="anonymous"></script> -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-			crossorigin="anonymous"></script>
-		<script src="{% static 'js/script.js' %}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+		crossorigin="anonymous"></script>
+	<script src="{% static 'js/script.js' %}"></script>
 
-		{% block js %}
+	{% block js %}
 
-		{% endblock js %}
+	{% endblock js %}
 
 </body>
 

@@ -39,7 +39,8 @@ class News(BaseModel):  # news, xeber
     description = models.TextField(verbose_name="Description")
     images = models.ManyToManyField(
         'about.NewsImage', related_name="news")
-
+     
+    
     def __str__(self) -> str:
         return f"{self.name}"
     
@@ -54,6 +55,6 @@ class NewsImage(BaseModel):
                               upload_to="media/", null=True, blank=True)
 
     def __str__(self) -> str:
-        return f"{self.name}"
+        return f"{self.name}"   
     
 # qs = New.objects.order_by('created_at')[0:3][::-1]
