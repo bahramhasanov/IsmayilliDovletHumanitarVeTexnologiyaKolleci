@@ -26,9 +26,8 @@ def news(request):
     return render(request, 'news.html', context=context)
 
 def fetch_news(request):
-    qs = News.objects.all()
+
     context = {
-            'title': 'Fetch Xəbərlər kollec',
-            'qs' : qs,
+            'title': 'Fetch Xəbərlər kollec',     
     }
     return render(request, 'fetch.html', context=context)
