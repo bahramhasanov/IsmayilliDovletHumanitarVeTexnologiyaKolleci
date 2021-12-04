@@ -23,56 +23,68 @@
 	{% endblock css %}
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<title>{% block title %}{% endblock %}</title>
+
 </head>
 
 <body>
 	<!-- header section start -->
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light container" style="padding-left: 72px; padding-right: 72px;">
-        <a class="navbar-brand" href="#"><img src="../../../../Downloads/logo.png" width="28px" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light container"
+		style="padding-left: 72px; padding-right: 72px;">
+		<a class="navbar-brand" href="#"><img src="../../media/media/hat.jpeg" width="28px" alt="Logo"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav m-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link " href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Disabled</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav m-auto">
+				<li class="nav-item active">
+					<a class="nav-link"  id="xəbərlər" href="#">Xəbərlər <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item active" >
+					<a class="nav-link" id="rəhbərlik" href="#">Rəhbərlik</a>
+					<ul>
+						<li><a href="#">Direktor</a></li>
+						<li><a href="#">Müavinlər</a></li>
+						<li><a href="#">Müəllimler</a></li>
+						<li><a href="#">Təcrübə</a></li>
+					</ul>
+				</li>
+				<li class="nav-item active" >
+					<a class="nav-link" id="haqqımızda" href="#">Haqqımızda</a>
+					<ul>
+						<li><a href="#">Tədbirlər</a></li>
+						<li><a href="#">Əlaqə</a></li>
+						<li><a href="#">Ən son</a></li>
+						<li><a href="#">Xəbər</a></li>
+					</ul>
+				</li>
+				<li class="nav-item active" >
+					<a class="nav-link" id="onlinekitabxana" href="#">Online Kitabaxana</a>
+					<ul>
+						<li><a href="#">Texniki</a></li>
+						<li><a href="#">Humanitar</a></li>
+						<li><a href="#">İKT</a></li>
+						<li><a href="#">9 illik basa</a></li>
+					</ul>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
 
-                <button id="kabinetid">KABINET</button>
-                
-                    <i class="fas fa-search" style="padding-left: 25px; padding-right: 33px;"></i>
-                    
-                    <a class="btn dropdown-toggle" href="#">
-                        AZ
-                    </a>
-                
-            </form>
-        </div>
-    </nav>
+				<button id="kabinetid">KABINET</button>
+
+				<i class="fas fa-search" style="padding-left: 25px; padding-right: 33px;"></i>
+
+				<a class="btn dropdown-toggle" href="#">
+					AZ
+				</a>
+
+			</form>
+		</div>
+	</nav>
 
 
 	<!-- header section end -->
@@ -83,8 +95,7 @@
 
 	<!-- footer-top area start -->
 
-	<div class="container-fluid footer"
-		style="padding-top: 64px; padding-left: 72px; padding-right: 72px;">
+	<div class="container-fluid footer" style="padding-top: 64px; padding-left: 72px; padding-right: 72px;">
 		<div style="border-bottom: 1px solid #333B53; padding-bottom: 100px;">
 			<div class="row">
 				<div class="col-md-5">
@@ -233,21 +244,21 @@
 		</div>
 	</div>
 
-		<!-- footer section end -->
+	<!-- footer section end -->
 
 
-		<!--js script-->
-		<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+	<!--js script-->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 			crossorigin="anonymous"></script> -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-			crossorigin="anonymous"></script>
-		<script src="{% static 'js/script.js' %}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+		crossorigin="anonymous"></script>
+	<script src="{% static 'js/script.js' %}"></script>
 
-		{% block js %}
+	{% block js %}
 
-		{% endblock js %}
+	{% endblock js %}
 
 </body>
 
