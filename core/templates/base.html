@@ -23,6 +23,26 @@
 	{% endblock css %}
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<title>{% block title %}{% endblock %}</title>
+	<style>
+
+		/* headerdaki blur uchundur */
+		.the-blur{
+   position: fixed;
+   top:0;
+   width: 1140px;
+   min-height: 57px;
+   margin-bottom: 20px;
+   background: rgba(65, 51, 51, 0.4);
+   z-index:1010;
+
+   -webkit-filter: blur(5px);
+   -moz-filter: blur(5px);
+   -o-filter: blur(5px);
+   -ms-filter: blur(5px); 
+	filter: blur(5px);
+    left: 265px; 
+}
+	</style>
 
 </head>
 
@@ -46,8 +66,9 @@
 					<a class="nav-link" id="rəhbərlik" href="#">Rəhbərlik</a>
 					<ul>
 						<li><a href="#">Direktor</a></li>
-						<li><a href="#">Müavinlər</a></li>
-						<li><a href="#">Müəllimler</a></li>
+						<li><a href="#">Müavin</a></li>
+						<li><a href="#">Şöbə</a></li>
+						<li><a href="#">FBK</a></li>
 						<li><a href="#">Təcrübə</a></li>
 					</ul>
 				</li>
@@ -84,6 +105,7 @@
 
 			</form>
 		</div>
+		<div class="the-blur"></div>
 	</nav>
 
 
