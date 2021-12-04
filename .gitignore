@@ -107,6 +107,7 @@ celerybeat.pid
 .env
 .venv
 .venv/
+/.venv/
 env/
 venv/
 ENV/
@@ -134,4 +135,3 @@ dmypy.json
 */migrations/
 postgredb/
 media/
-
