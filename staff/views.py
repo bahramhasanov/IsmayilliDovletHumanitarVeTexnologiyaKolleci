@@ -1,10 +1,22 @@
 from django.db.models.aggregates import Avg
 from django.shortcuts import render
 from django.db.models import Q
-from django.views.generic import ListView
+from django.views.generic import ListView, View
 
 
 from staff.models import Teacher
+
+class Deputies(View):
+
+    def get(self, request):
+        context = {
+            'title': 'Rehberlik',
+        }
+        return render(request, 'deputies.html', context=context)
+
+
+# ************************************ 
+
 
 # class teacher(ListView):
 #     model = Teacher
