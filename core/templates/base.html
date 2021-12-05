@@ -42,15 +42,20 @@
     left: 265px; 
 }
 	</style> -->
+	<style>
+		#overlay {
+			box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.5);;
+		}
+	</style>
 
 </head>
 
 <body>
 	<!-- header section start -->
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light container"
-		style="padding-left: 72px; padding-right: 72px;">
-		<a class="navbar-brand" href="#"><img src="../../media/media/hat.jpeg" width="28px" alt="Logo"></a>
+	<nav id="overlay" class="navbar navbar-expand-lg navbar-light fixed-top"
+		style="padding: 8px 72px;">
+		<a class="navbar-brand" href="#"><img src="http://idhtk.edu.az/assets/img/logo.png" width="28px" alt="Logo"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -61,53 +66,53 @@
 				<div class="col"></div> -->
 		</div>
 		<!-- <div class="col-5 headercenter" style="display: flex;justify-content: center; align-items: center;"> -->
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav m-auto">
-					<li class="nav-item active">
-						<a class="nav-link" id="xəbərlər" href="#">Xəbərlər <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" id="rəhbərlik" href="#">Rəhbərlik</a>
-						<ul>
-							<li><a href="#">Direktor</a></li>
-							<li><a href="#">Müavin</a></li>
-							<li><a href="#">Şöbə</a></li>
-							<li><a href="#">FBK</a></li>
-							<li><a href="#">Təcrübə</a></li>
-						</ul>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" id="haqqımızda" href="#">Haqqımızda</a>
-						<ul>
-							<li><a href="#">Tədbirlər</a></li>
-							<li><a href="#">Əlaqə</a></li>
-							<li><a href="#">Ən son</a></li>
-							<li><a href="#">Xəbər</a></li>
-						</ul>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" id="onlinekitabxana" href="#">Online Kitabaxana</a>
-						<ul>
-							<li><a href="#">Texniki</a></li>
-							<li><a href="#">Humanitar</a></li>
-							<li><a href="#">İKT</a></li>
-							<li><a href="#">9 illik basa</a></li>
-						</ul>
-					</li>
-				</ul>
-				<form class="form-inline my-2 my-lg-0">
-					<!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav m-auto">
+				<li class="nav-item active">
+					<a class="nav-link" id="xəbərlər" href="#">Xəbərlər <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" id="rəhbərlik" href="#">Rəhbərlik</a>
+					<ul>
+						<li><a href="#">Direktor</a></li>
+						<li><a href="#">Müavin</a></li>
+						<li><a href="#">Şöbə</a></li>
+						<li><a href="#">FBK</a></li>
+						<li><a href="#">Təcrübə</a></li>
+					</ul>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" id="haqqımızda" href="#">Haqqımızda</a>
+					<ul>
+						<li><a href="#">Tədbirlər</a></li>
+						<li><a href="#">Əlaqə</a></li>
+						<li><a href="#">Ən son</a></li>
+						<li><a href="#">Xəbər</a></li>
+					</ul>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" id="onlinekitabxana" href="#">Online Kitabaxana</a>
+					<ul>
+						<li><a href="#">Texniki</a></li>
+						<li><a href="#">Humanitar</a></li>
+						<li><a href="#">İKT</a></li>
+						<li><a href="#">9 illik basa</a></li>
+					</ul>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
 
-					<button id="kabinetid">KABINET</button>
+				<button id="kabinetid">KABINET</button>
 
-					<i class="fas fa-search" style="padding-left: 25px; padding-right: 33px;"></i>
+				<i class="fas fa-search" style="padding-left: 25px; padding-right: 33px;"></i>
 
-					<a class="btn dropdown-toggle" href="#">
-						AZ
-					</a>
+				<a class="btn dropdown-toggle" href="#">
+					AZ
+				</a>
 
-				</form>
+			</form>
 			<!-- </div> -->
 			<!-- <div class="the-blur"></div> -->
 	</nav>
@@ -135,7 +140,7 @@
 								style="background-color: #11182D; height: 40px;width: 220px; padding-left: 6px; color: #ffffff; border: 1px solid #ffffff;">
 							<button
 								style="background-color: white; border-top-right-radius: 2px;border-bottom-right-radius: 2px;  width: 56px; height: 40px; border: none;"><i
-									class="far fa-long-arrow-right"></i></button>
+									class="fas fa-arrow-right"></i></button>
 						</div>
 					</div>
 				</div>
@@ -152,7 +157,7 @@
 								</tr>
 								<tr>
 									<td scope="row"><a href="#" class="text-light"><i
-												class="far fa-map-marker-alt"></i></a>
+												class="fas fa-map-marker-alt"></i></a>
 									</td>
 									<td>
 										<p>2972 Westheimer Rd. <br>
@@ -160,7 +165,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td scope="row"><a href="#" class="text-light"><i class="far fa-phone"></i></a>
+									<td scope="row"><a href="#" class="text-light"><i class="fas fa-phone"></i></a>
 									</td>
 									<td>
 										<p>(480) 555-0103</p>
