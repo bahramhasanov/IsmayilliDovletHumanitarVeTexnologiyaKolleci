@@ -14,6 +14,12 @@ class Deputies(View):
         }
         return render(request, 'deputies.html', context=context)
 
+class Director(View):
+    def get(self, request):
+        context = {
+            'title': 'Director',
+        }
+        return render(request, 'director.html', context=context)
 
 # ************************************ 
 
