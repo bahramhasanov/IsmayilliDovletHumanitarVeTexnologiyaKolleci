@@ -45,5 +45,5 @@ window.addEventListener('DOMContentLoaded', (event) => {
 more_button = document.getElementById('more-button');
 more_button.addEventListener('click', (event) => {
     console.log(news.children[0].children.length);
-    getAllNews(news.children[0].children.length, news.children[0].children.length + 1);
+    getAllNews(news.children[0].children.length, news.children[0].children.length + 8);
 });
