@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 {% block title %}
-News
+{{title}}
 {% endblock title %}
 
 {% block css %}
@@ -14,13 +14,13 @@ News
 {% endblock css %}
 
 {% block base %}
-<div class="container-fluid text-center" style="margin-top: 57px;">
+<div class="container text-center" style="margin-top: 57px;">
     <h2>Xəbərlər</h2>
-    <div class="mt-4 mb-3">
-        <button type="button" class="btn btn-light">Hamısı</button>
-        <button type="button" class="btn btn-light">Təhsil</button>
-        <button type="button" class="btn btn-light">Məhşur</button>
-        <button type="button" class="btn btn-light">Digər</button>
+    <div id="filter-button" class="mt-4 mb-3">
+        <button type="button" class="btn btn-light btn-outline-primary" disabled>Hamısı</button>
+        {% for category in categories %}
+        <button type="button" class="btn btn-light">{{category.title}}</button>
+        {% endfor %}
     </div>
     <div id="news">
         <div class="row">
