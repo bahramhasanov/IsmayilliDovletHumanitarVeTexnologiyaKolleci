@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 {% block title %}
-News
+{{title}}
 {% endblock title %}
 
 {% block css %}
@@ -19,40 +19,21 @@ News
 		<div class="card-body">
 			<p class="card-text text-center"
 				style="font-weight: 600; font-size: 19px; line-height: 28px; text-align: center; letter-spacing: 0.15px; color: rgba(0, 0, 0, 0.38); margin: 8px 0px;">
-				January 1,2022</p>
+				{{news.created_at | date:"F j, Y"}}</p>
 			<h4 class="card-title text-center"
 				style="font-weight: 600; font-size: 58px; line-height: 70px; text-align: center; letter-spacing: -0.5px; color: rgba(0, 0, 0, 0.87); margin: 8px 0px;">
-				Make Money Doing What You Love: From Hobby to Business in 8 Steps</h4>
+				{{news.title}}</h4>
 			<div class="row justify-content-center text-center">
 				<div class="col-3"><a href="#"><i class="fab fa-facebook"></i>Share</a></div>
 				<div class="col-3"><a href="#"><i class="fab fa-twitter"></i>Tweet</a></div>
 				<div class="col-3"><a href="#"><i class="fas fa-link"></i>Link</a></div>
 			</div>
 		</div>
-		<img class="card-img-top" style="border-radius: 16px;" src="{% static 'img/image 14.png' %}" alt="Card image">
+		<img class="card-img-top" style="border-radius: 16px;" src="{{news.image.url}}" alt="Card image">
 		<div class="card-body">
 			<p class="card-text"
 				style="font-weight: normal; font-size: 18px; line-height: 24px; letter-spacing: 0.5px; color: rgba(0, 0, 0, 0.87); margin: 32px 0px;">
-				The incident prompted an internal investigation, and the names of the LAPD officers
-				involved are being withheld.Moore and Marino were in France as part of a weeklong trip that had been
-				organized so the top cops could meet with French law enforcement officials to discuss security plans for
-				both the 2024 Summer Olympic Games in France and the 2028 Olympics in Los Angeles.
-
-				The arrest led the man who was detained and others who were walking with him to file a complaint with
-				the French authorities. Those complaints were then reported to the U.S. consulate.Moore called the
-				debacle an “unfortunate incident” and apologized to local officials in Marseille for the stop, the Times
-				reported.Police officers don’t generally have the authority to make arrests outside their own
-				jurisdiction, let alone in other countries.“When law enforcement officers leave the country, they don’t
-				have any authority, even in other states,” Brian Higgins, a professor at John Jay College of Criminal
-				Justice, in New York, told VICE News. “They were outside their jurisdiction, they don’t have authority,
-				and they were completely wrong.”
-
-				Higgins said the encounter could have become an international incident.“I would have been a lot more
-				sure of the allegations before you made an action,” he said. “Even if it was in the U.S., you should
-				have been more sure. But to do it when you’re in another country during what we can call diplomatic
-				efforts, it’s obviously embarrassing.” Moore and Marino were in France as part of a weeklong trip that
-				had been organized so the top cops could meet with French law enforcement officials to discuss security
-				plans for both the 2024 Summer Olympic Games in France and the 2028 Olympics in Los Angeles.</p>
+				{{news.description}}</p>
 		</div>
 	</div>
 	<h2
