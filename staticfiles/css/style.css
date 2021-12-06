@@ -32,20 +32,12 @@ nav ul li ul {
 
 nav ul li:hover ul {
     display: block;
-    background-color: #fff;
-    width: auto;
-    height: auto;
-    /* padding: 5px; */
-    border: 1px solid rgb(245, 244, 244);
-    border-radius: 2px;
     position: absolute;
 }
 
 nav ul li ul li {
-    margin-bottom: 0px;
-    padding: 5px;
-    list-style: none;
-    text-decoration: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li ul li a {
@@ -74,7 +66,7 @@ nav ul li ul li a:hover {
 }
 
 #kabinetid:hover {
-    background-color: #0444E2;
+    background-color: #0444e2;
     font-size: 13.5px;
 }
 
@@ -171,4 +163,8 @@ table tr td a:hover {
     /* text-decoration: none; */
     color: #ffffff;
     opacity: 0.5;
+}
+
+#overlay {
+    box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.5);
 }

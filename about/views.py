@@ -1,33 +1,29 @@
 from django.shortcuts import render
 from django.db.models import Q
+from django.views.generic import ListView, DetailView
 
 from about.models import News
 # Create your views here.
 
-  
-def news(request):
-    qs = None
-    wrongSearch = None
-    
-    # qs = New.objects.all()
-    qs = News.objects.order_by('created_at')[::-1][0:3]
-    if request.GET.get("search_news"):
-        qs = News.objects.filter(Q(name__icontains=request.GET.get("search_news")) | Q(
-            description__icontains=request.GET.get("search_news")))
-        if not qs:
-            wrongSearch = "Netice tapilmadi"
-        
+class SingleNews(DetailView):
+    model = News
+    template_name = 'single-news.html'
 
-    context = {
-            'title': 'Yeni xəbərlər kollec',
-            'news': qs,
-            'wrongsearch': wrongSearch,
-    }
-    return render(request, 'news.html', context=context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['news'] = self.object
+        context['title'] = self.object.title
+        return context
+
+class AllNews(ListView):
+    model = News
+    template_name = 'all-news.html'
+    context_object_name = 'news'
+
 
 def fetch_news(request):
 
     context = {
-            'title': 'Fetch Xəbərlər kollec',     
+        'title': 'Fetch Xəbərlər kollec',
     }
     return render(request, 'fetch.html', context=context)
