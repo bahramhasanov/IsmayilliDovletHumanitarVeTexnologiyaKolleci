@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from django.db.models import Q
 from django.views.generic import ListView, DetailView
 
 from about.models import Category, News
 # Create your views here.
+
 
 class SingleNews(DetailView):
     model = News
@@ -15,6 +15,7 @@ class SingleNews(DetailView):
         context['title'] = self.object.title
         return context
 
+
 class AllNews(ListView):
     model = News
     template_name = 'all-news.html'
@@ -25,11 +26,3 @@ class AllNews(ListView):
         context['categories'] = Category.objects.all()
         context['title'] = 'All News'
         return context
-
-
-def fetch_news(request):
-
-    context = {
-        'title': 'Fetch Xəbərlər kollec',
-    }
-    return render(request, 'fetch.html', context=context)
