@@ -19,8 +19,6 @@ class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
         fields = '__all__'
-    
+
     def get_created_at(self, obj):
         return obj.created_at.strftime('%d %B %Y')
-        return obj.created_at.strftime('%d %m %Y')
-

@@ -1,6 +1,6 @@
 
 function getAllNews(start, end, category) {
-    fetch('http://127.0.0.1:8000/api/newsapi', {
+    fetch(`http://127.0.0.1:8000/api/newsapi?start=${start}&end=${end}&category=${category}`, {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -9,25 +9,22 @@ function getAllNews(start, end, category) {
     })
         .then(response => response.json())
         .then(data => {
-            if (category != 'Hamısı') {
-                data = data.filter(item => item.category.title == category);
-            }
-            slicedData = data.slice(start, end);
+            console.log(data);
             news = document.getElementById('news');
-            for (let i = 0; i < slicedData.length; i++) {
+            for (let i = 0; i < data.length; i++) {
                 newsCounter += 1;
                 news.children[0].innerHTML += `
                             ${newsCounter % 8 != 0 && newsCounter % 8 != 1 ? `
                             <div class="col-sm-4 my-3">
                                 <div class="card">
-                                    <a href="${slicedData[i]['id']}"><img class="card-img-top" style="height: 284px;" src="${slicedData[i].image}" alt="Card image cap"></a>` :
+                                    <a href="${data[i]['id']}"><img class="card-img-top" style="height: 284px;" src="${data[i].image}" alt="Card image cap"></a>` :
                         `<div class="col-sm-6 my-3">
                             <div class="card">
-                            <a href="${slicedData[i]['id']}"><img class="card-img-top" style="height: 440px;" src="${slicedData[i]['image']}" alt="Card image cap"> </a>`}
+                            <a href="${data[i]['id']}"><img class="card-img-top" style="height: 440px;" src="${data[i]['image']}" alt="Card image cap"> </a>`}
                                 <div class="card-body text-left">
-                                    <p class="card-text">${slicedData[i]['created_at']} | ${slicedData[i]['category']['title']}</p>
-                                    <p class="card-title">${slicedData[i]['title']} </p>
-                                    <p class="card-text">${slicedData[i]['description']} </p>
+                                    <p class="card-text">${data[i]['created_at']} | ${data[i]['category']['title']}</p>
+                                    <p class="card-title">${data[i]['title']} </p>
+                                    <p class="card-text">${data[i]['description']} </p>
                                 </div>
                             </div>
                         </div>
@@ -36,8 +33,7 @@ function getAllNews(start, end, category) {
             if (start > 0) {
                 window.scrollTo(0, news.scrollHeight);
             }
-
-            if (news.children[0].children.length == data.length) {
+            if (data.length < end - start) {
                 more_button.classList.add('d-none');
             } else {
                 more_button.classList.remove('d-none');
@@ -50,12 +46,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
     newsCounter = -1;
 });
 
+filter_button = document.getElementById('filter-button');
 more_button = document.getElementById('more-button');
 more_button.addEventListener('click', (event) => {
-    getAllNews(news.children[0].children.length, news.children[0].children.length + 5, 'Təhsil');
+    for (let i = 0; i < filter_button.children.length; i++) {
+        if (filter_button.children[i].disabled) {
+            category = filter_button.children[i].innerText;
+        }
+    }
+    getAllNews(news.children[0].children.length, news.children[0].children.length + 5, category);
 });
 
-filter_button = document.getElementById('filter-button');
 
 for (let i = 0; i < filter_button.children.length; i++) {
     filter_button.children[i].addEventListener('click', (event) => {
