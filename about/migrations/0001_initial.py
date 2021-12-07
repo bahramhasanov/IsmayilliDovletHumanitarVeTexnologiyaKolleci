@@ -26,23 +26,6 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='Subject',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=30)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Topic',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=30)),
-                ('description', models.TextField(verbose_name='Description')),
-                ('choices', models.IntegerField(choices=[(1, 'I'), (2, 'II'), (3, 'III'), (4, 'IV'), (5, '9 illik baza')], default=5)),
-                ('subject', models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, related_name='fenn', to='about.subject')),
-            ],
-        ),
-        migrations.CreateModel(
             name='News',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),

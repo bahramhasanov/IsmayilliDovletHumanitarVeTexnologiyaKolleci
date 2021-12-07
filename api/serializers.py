@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.db.models import fields
 from rest_framework import serializers
 from about.models import Category, News
-from core.models import Blog, BlogImage
+from staff.models import Subject, Teacher
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -19,8 +19,20 @@ class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
         fields = '__all__'
-    
+
     def get_created_at(self, obj):
         return obj.created_at.strftime('%d %B %Y')
-        return obj.created_at.strftime('%d %m %Y')
 
+
+class SubjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subject
+        fields = ('title',)
+
+
+class TeacherSerializer(serializers.ModelSerializer):
+    subject = SubjectSerializer()
+
+    class Meta:
+        model = Teacher
+        fields = '__all__'
