@@ -9,7 +9,7 @@ from staff.models import Teacher
 class Deputies(View):
 
     def get(self, request):
-        context = {
+        context = { 
             'title': 'Rehberlik',
         }
         return render(request, 'deputies.html', context=context)
