@@ -35,18 +35,19 @@ function getAllTeachers(start, end, search) {
                     <div class="modal-body">
                         <h5 class="modal-title" id="teacher${data[i]['id']}Label" style="display: none;"></h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="z-index: 1; position: absolute; top: 20px; left: 20px;"></button>
-                        <div class="card" style="border-radius: 20px; border: none;">
+                        <div class="card" style="border-radius: 20px; border: none; position: relative;">
                         <img class="card-img-top" style="height: 400px; border-top-left-radius: 20px; border-top-right-radius: 20px;"
                             src="${data[i]['photo']}"
                             alt="Card image">
-                        <div style="position: absolute; bottom: 0; padding: 2.5rem; top: inherit;"
-                            class="card-img-overlay text-light text-left mb-5">
-                            <p class="card-text"
+                        <div class="card-img-overlay text-light text-left">
+                            <div style="margin-top: 80%;"> 
+                                <p class="card-text"
                                 style="font-weight: 500; font-size: 15px; line-height: 18px; letter-spacing: 0.15px; color: #FFFFFF;">
                                 ${data[i]['subject']['title']}</p>
-                            <h4 class="card-title"
+                                <h4 class="card-title"
                                 style="font-weight: 600; font-size: 24px; line-height: 29px; color: #FFFFFF;">${data[i]['full_name']} 
-                            </h4>
+                                </h4>
+                            </div>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title" style="font-size: 20px; line-height: 28px; letter-spacing: 0.15px; color: rgba(0, 0, 0, 0.6); ">${data[i]['description']}</h5>
