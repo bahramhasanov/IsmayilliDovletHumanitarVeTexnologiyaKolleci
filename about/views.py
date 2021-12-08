@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, View
 
 from about.models import Category, News
 # Create your views here.
@@ -28,17 +28,20 @@ class AllNews(ListView):
         return context
 
 
-def contact(request):
 
-    context = {
-        'title': 'Əlaqə',
-    }
-    return render(request, 'contact.html', context=context)
+class Contact(View):
+    
+    def get(self, request):
+        context = {
+           'title': 'Əlaqə',
+        }
+        return render(request, 'contact.html', context=context)
 
 
-def about(request):
-
-    context = {
-        'title': 'Haqqımızda',
-    }
-    return render(request, 'about.html', context=context)
+class About(View):
+    
+    def get(self, request):
+        context = {
+           'title': 'Haqqımızda',
+        }
+        return render(request, 'about.html', context=context)

@@ -1,17 +1,16 @@
-
 function getAllTeachers(start, end, search) {
     fetch(`http://127.0.0.1:8000/api/teacherapi?start=${start}&end=${end}&search=${search}`, {
-        method: 'GET',
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
         .then(response => response.json())
         .then(data => {
             teachers = document.getElementById('teachers');
             for (let i = 0; i < data.length; i++) {
-                teachers.children[0].innerHTML += `<div class="col-3">
+                teachers.children[0].innerHTML += `<div class="col-12 col-md-6 col-lg-3 ">
                     <div class="card my-2" style="height: 328px; border-radius: 20px;">
                         <a data-bs-target="#teacher${data[i]['id']}" data-bs-toggle="modal" style="cursor: pointer; height: 100%">
                             <img class="card-img-top" style="border-radius: 20px; height: 100%"
@@ -39,15 +38,6 @@ function getAllTeachers(start, end, search) {
                         <img class="card-img-top" style="height: 400px; border-top-left-radius: 20px; border-top-right-radius: 20px;"
                             src="${data[i]['photo']}"
                             alt="Card image">
-                        <div style="position: absolute; bottom: 0; padding: 2.5rem; top: inherit;"
-                            class="card-img-overlay text-light text-left mb-5">
-                            <p class="card-text"
-                                style="font-weight: 500; font-size: 15px; line-height: 18px; letter-spacing: 0.15px; color: #FFFFFF;">
-                                ${data[i]['subject']['title']}</p>
-                            <h4 class="card-title"
-                                style="font-weight: 600; font-size: 24px; line-height: 29px; color: #FFFFFF;">${data[i]['full_name']} 
-                            </h4>
-                        </div>
                         <div class="card-body">
                             <h5 class="card-title" style="font-size: 20px; line-height: 28px; letter-spacing: 0.15px; color: rgba(0, 0, 0, 0.6); ">${data[i]['description']}</h5>
                         </div>
@@ -80,8 +70,5 @@ search.addEventListener('keyup', (event) => {
 });
 more_button = document.getElementById('more-button');
 more_button.addEventListener('click', () => {
-    getAllTeachers(teachers.children[0].children.length/2, teachers.children[0].children.length/2 + 4, search.value);
+    getAllTeachers(teachers.children[0].children.length / 2, teachers.children[0].children.length / 2 + 4, search.value);
 });
-
-
-
