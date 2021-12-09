@@ -35,7 +35,6 @@ class TeacherAPIView(APIView):
             teachers = Teacher.objects.filter(
                 Q(full_name__icontains=search) | Q(subject__title__icontains=search))
         else:
-            print(search, start, end)
             teachers = Teacher.objects.all()
         serializer = TeacherSerializer(teachers[start:end], many=True)
         return Response(serializer.data)

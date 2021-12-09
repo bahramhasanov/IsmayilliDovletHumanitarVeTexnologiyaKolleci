@@ -1,18 +1,18 @@
 function getAllNews(start, end, category) {
     fetch(`http://127.0.0.1:8000/api/newsapi?start=${start}&end=${end}&category=${category}`, {
-        method: 'GET',
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            news = document.getElementById('news');
-            for (let i = 0; i < data.length; i++) {
-                newsCounter += 1;
-                news.children[0].innerHTML += `
+                console.log(data);
+                news = document.getElementById('news');
+                for (let i = 0; i < data.length; i++) {
+                    newsCounter += 1;
+                    news.children[0].innerHTML += `
                             ${newsCounter % 8 != 0 && newsCounter % 8 != 1 ? `
                             <div class="col-sm-4 my-3">
                                 <div class="card">
@@ -23,7 +23,7 @@ function getAllNews(start, end, category) {
                                 <div class="card-body text-left">
                                     <p class="card-text">${data[i]['created_at']} | ${data[i]['category']['title']}</p>
                                     <p class="card-title">${data[i]['title']} </p>
-                                    <p class="card-text">${data[i]['description']} </p>
+                                    <p class="card-text">${data[i]['description']}</p>
                                 </div>
                             </div>
                         </div>

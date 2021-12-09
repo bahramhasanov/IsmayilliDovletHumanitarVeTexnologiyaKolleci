@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'staff',
     'rest_framework_simplejwt',
     'rest_framework',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

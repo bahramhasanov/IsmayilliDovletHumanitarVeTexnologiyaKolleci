@@ -31,3 +31,11 @@ class TeacherListView(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Teachers'
         return context
+
+
+class Departments(View):
+    def get(self, request):
+        context = {
+            'title': 'Şöbələr',
+        }
+        return render(request, 'departments.html', context=context)
