@@ -2,7 +2,7 @@
 from django.contrib.auth import get_user_model
 from django.db.models import fields
 from rest_framework import serializers
-from about.models import Category, News
+from about.models import Category, News, Specialty, Faculty
 from staff.models import Subject, Teacher
 
 
@@ -35,4 +35,17 @@ class TeacherSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Teacher
+        fields = '__all__'
+
+# *************
+
+class FacultySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Faculty
+        fields =  '__all__'
+
+        
+class SpecialtySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Specialty
         fields = '__all__'

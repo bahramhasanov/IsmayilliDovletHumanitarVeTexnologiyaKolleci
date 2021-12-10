@@ -16,4 +16,7 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('newsapi/', views.NewsAPIView.as_view(), name='newsapi'),
     path('teacherapi/', views.TeacherAPIView.as_view(), name='teacherapi'),
+    path('facultyapi/', views.FacultyAPIView.as_view(), name='facultyapi'),
+    path('facultyapi/<int:pk>/', views.FacultyDetailAPIView.as_view(), name='faculty_detail'),
+    
 ]

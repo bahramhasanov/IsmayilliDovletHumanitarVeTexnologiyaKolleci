@@ -1,10 +1,10 @@
 from django.db.models import Q
 
 from rest_framework.response import Response
-from rest_framework import permissions
+from rest_framework import permissions, status
 from rest_framework.views import APIView
-from about.models import Category, News
-from api.serializers import NewsSerializer, TeacherSerializer
+from about.models import Category, News, Faculty, Specialty
+from api.serializers import NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer
 from staff.models import Teacher
 
 
@@ -38,3 +38,41 @@ class TeacherAPIView(APIView):
             teachers = Teacher.objects.all()
         serializer = TeacherSerializer(teachers[start:end], many=True)
         return Response(serializer.data)
+
+
+class FacultyAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request):
+        faculties = Faculty.objects.all()
+        serializer = FacultySerializer(faculties, many=True)
+        return Response(serializer.data)
+
+class FacultyDetailAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request, pk):
+        faculty = Faculty.objects.get(id=pk)
+        serializer = FacultySerializer(faculty)
+        return Response(serializer.data)
+
+
+class SpecialtyAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request):
+        faculties = Specialty.objects.all()
+        serializer = SpecialtySerializer(faculties, many=True)
+        return Response(serializer.data)
+
+# class FacultyAPIView(APIView):
+#     serializer_class = FacultySerializer
+
+#     def get(self, request, *args, **kwargs):
+#         if kwargs.get("pk"):
+#             obj = Faculty.objects.get(pk=kwargs.get("pk"))
+#             serializer = self.serializer_class(obj)
+#         else:
+#             obj = Faculty.objects.all()
+#             serializer = self.serializer_class(obj, many=True)
+#         return Response(serializer.data, status=status.HTTP_200_OK)

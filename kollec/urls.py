@@ -29,6 +29,7 @@ urlpatterns = [
     path("staff/", include("staff.urls")),
     path("", HomePage.as_view(), name="home"),
     path("api/", include("api.urls")),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 
