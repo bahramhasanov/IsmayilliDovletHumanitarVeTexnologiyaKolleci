@@ -9,7 +9,6 @@ function getAllPDFs(start, end, subject) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             pdfs = document.getElementById('pdfs');
             for (let i = 0; i < data.length; i++) {
                 pdfs.children[0].innerHTML += `<div class="col-lg-3 col-md-6 my-3">
@@ -39,15 +38,47 @@ window.addEventListener('DOMContentLoaded', () => {
     getAllPDFs(0, 4, 'all');
 });
 
-subject = document.getElementById('subject');
-subject.addEventListener('keyup', (event) => {
-    pdfs.children[0].innerHTML = '';
-    getAllPDFs(0, 4, event.target.value);
-});
 more_button = document.getElementById('more-button');
 more_button.addEventListener('click', () => {
-    getAllPDFs(pdfs.children[0].children.length, pdfs.children[0].children.length + 4, subject.value);
+    getAllPDFs(pdfs.children[0].children.length, pdfs.children[0].children.length + 4, input.value);
 });
 
 
 
+input = document.getElementById("subjects");
+subjectDropdown = document.getElementById('subjectDropdown');
+function filterFunction() {
+    txtValue = input.value;
+    if (txtValue != "") {
+        getAllSubjects(txtValue);
+    } else {
+        subjectDropdown.innerHTML = '';
+    }
+}
+
+
+
+function getAllSubjects(subject) {
+    fetch(`http://127.0.0.1:8000/api/subjectapi?subject=${subject}`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            subjectDropdown.innerHTML = '';
+            for (let i = 0; i < data.length; i++) {
+                subjectDropdown.innerHTML += `<a class="dropdown-item" onclick="selectSubject(this)">${data[i]['title']}</a>`;
+            }
+            getAllPDFs(0, 4, subject);
+            pdfs.children[0].innerHTML = '';
+        });
+}
+
+function selectSubject(d) {
+    subject = d.innerText;
+    input.value = subject;
+    getAllSubjects(subject);
+}

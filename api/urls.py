@@ -17,4 +17,5 @@ urlpatterns = [
     path('newsapi/', views.NewsAPIView.as_view(), name='newsapi'),
     path('teacherapi/', views.TeacherAPIView.as_view(), name='teacherapi'),
     path('pdfapi/', views.PDFAPIView.as_view(), name='pdfapi'),
+    path('subjectapi/', views.SubjectAPIView.as_view(), name='subjectapi'),
 ]
