@@ -57,13 +57,23 @@ class FacultyDetailAPIView(APIView):
         return Response(serializer.data)
 
 
-class SpecialtyAPIView(APIView):
+class SpecialityAPIView(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def get(self, request):
         faculties = Specialty.objects.all()
         serializer = SpecialtySerializer(faculties, many=True)
         return Response(serializer.data)
+
+
+class SpecialityDetailAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request, pk2):
+        faculty = Specialty.objects.get(id=pk2)
+        serializer = SpecialtySerializer(faculty)
+        return Response(serializer.data)
+
 
 # class FacultyAPIView(APIView):
 #     serializer_class = FacultySerializer

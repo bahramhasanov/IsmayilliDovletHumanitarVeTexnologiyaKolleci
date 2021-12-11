@@ -9,4 +9,6 @@ urlpatterns = [
     path("fbk/", views.FBK.as_view(), name="fbk"),
     path("faculty/", views.AllFaculty.as_view(), name="allfaculty"),
     path("faculty/<int:pk>", views.SingleFaculty.as_view(), name="faculty"),
+    path("faculty/<int:pk>/speciality/", views.AllSpeciality.as_view(), name="allspeciality"),
+    path("faculty/<int:pk>/speciality/<int:pk2>", views.SingleSpeciality.as_view(), name="speciality"),
 ]

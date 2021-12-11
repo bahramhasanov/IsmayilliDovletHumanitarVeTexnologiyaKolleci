@@ -20,35 +20,15 @@
 
 
 <div class="container mt-5">
-    <div class="card mb-3 mx-auto" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title text-dark">
-                        {{faculty.title}}
-                    </h5>
-                    <p class="card-text text-dark">{{faculty.description|safe}}</p>
-                </div>
+    <p>{{ specialty.title }} ixtisası haqqinda etrafli</p>
 
-            </div>
-            <div class="col-md-4">
-                <img src="{{faculty.image.url}}" class="img-fluid rounded-start" alt="...">
-            </div>
-        </div>
-    </div>
-    <br><br>
-    <p>Ixtisaslar</p>
-    {% for i in faculty.specialty_faculty.all %}
     <div class="card mb-3 d-flex">
-        <img src="{{i.image_icon.url}}" class="card-img-top" style="width: 100px;" alt="...">
         <div class="card-body">
-            <h5 class="card-title text-dark">
-                <a class="text-dark" style="text-decoration: none;" href="{{i.id}}/speciality/{{i.id}}">{{ i.title }}</a>
-            </h5>
-            <p class="card-text">{{i.description|safe}}</p>
+            <h5 class="card-title text-dark">{{ specialty.title }}</h5>
+            <p class="card-text">{{specialty.description|safe}}</p>
         </div>
     </div>
-    {% endfor %}
+
 </div>
 {% endblock base %} {% block js %}
 

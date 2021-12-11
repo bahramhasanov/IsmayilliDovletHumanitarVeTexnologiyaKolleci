@@ -80,3 +80,25 @@ class SingleFaculty(DetailView):
         context['title'] = self.object.title
         return context
     
+class AllSpeciality(ListView):
+    model = Specialty
+    template_name = 'specialties.html'
+    context_object_name = 'specialties'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['specialties'] = Specialty.objects.all()
+        context['title'] = 'Ixtisaslar'
+        return context
+    
+
+class SingleSpeciality(DetailView):
+    model = Specialty
+    template_name = 'single-specialty.html'
+    context_object_name = 'specialty'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['specialty'] = self.object
+        context['title'] = self.object.title
+        return context
