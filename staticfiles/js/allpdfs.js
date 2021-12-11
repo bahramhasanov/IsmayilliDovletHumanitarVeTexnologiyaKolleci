@@ -17,7 +17,7 @@ function getAllPDFs(start, end, subject) {
                         <div class="card-body">
                             <img style="width: 64px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="">
                             <a href="${data[i]['id']}/show"><p class="card-title text-dark">${data[i]['title']}</p></a>
-                            <p class="card-text">${data[i]['size']}</p>
+                            <p class="card-text">${data[i]['category']['title']}</p>
                             <a href="${data[i]['id']}/download" class="btn btn-outline-primary"><i
                                     class="fas fa-arrow-down"></i>Endir</a>
                         </div>
@@ -69,11 +69,13 @@ function getAllSubjects(subject) {
     })
         .then(response => response.json())
         .then(data => {
+            pdfs.children[0].innerHTML = '';
             subjectDropdown.innerHTML = '';
             for (let i = 0; i < data.length; i++) {
-                subjectDropdown.innerHTML += `<a class="dropdown-item" onclick="selectSubject(this)">${data[i]['title']}</a>`;
+                if (data[i]['title'] != subject) {
+                    subjectDropdown.innerHTML += `<a class="dropdown-item" onclick="selectSubject(this)">${data[i]['title']}</a>`;
+                }
             }
-            pdfs.children[0].innerHTML = '';
             getAllPDFs(0, 16, subject);
         });
 }

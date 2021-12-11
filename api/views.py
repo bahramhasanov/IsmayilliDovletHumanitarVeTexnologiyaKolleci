@@ -50,11 +50,12 @@ class PDFAPIView(APIView):
         category = request.GET.get('category')
         if Subject.objects.filter(
                 Q(title__icontains=category)).exists():
-            print(category)
             pdf = PDF.objects.filter(
                 category__title__icontains=category)
-        else:
+        elif category == 'all':
             pdf = PDF.objects.all()
+        else:
+            pdf = PDF.objects.filter(category__title=category)
         serializer = PDFserializer(pdf[start:end], many=True)
         return Response(serializer.data)
 
