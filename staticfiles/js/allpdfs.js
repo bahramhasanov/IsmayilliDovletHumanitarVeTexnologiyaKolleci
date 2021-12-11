@@ -1,5 +1,7 @@
 
 function getAllPDFs(start, end, subject) {
+    spinner = document.getElementById('spinner');
+    spinner.classList.remove('d-none');
     fetch(`http://127.0.0.1:8000/api/pdfapi?start=${start}&end=${end}&category=${subject}`, {
         method: 'GET',
         credentials: 'include',
@@ -13,17 +15,18 @@ function getAllPDFs(start, end, subject) {
             for (let i = 0; i < data.length; i++) {
                 pdfs.children[0].innerHTML += `
                 <div class="col-lg-3 col-md-6 my-3">
-                    <div class="card text-center" style="background: #F9F9F9; border-radius: 20px; height: 100%">
-                        <div class="card-body">
-                            <img style="width: 64px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="">
-                            <a href="${data[i]['id']}/show"><p class="card-title text-dark">${data[i]['title']}</p></a>
-                            <p class="card-text">${data[i]['category']['title']}</p>
-                            <a href="${data[i]['id']}/download" class="btn btn-outline-primary"><i
-                                    class="fas fa-arrow-down"></i>Endir</a>
-                        </div>
-                    </div>
+                <div class="card text-center" style="background: #F9F9F9; border-radius: 20px; height: 100%">
+                <div class="card-body">
+                <img style="width: 64px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="">
+                <a href="${data[i]['id']}/show"><p class="card-title text-dark">${data[i]['title']}</p></a>
+                <p class="card-text">${data[i]['category']['title']}</p>
+                <a href="${data[i]['id']}/download" class="btn btn-outline-primary"><i
+                class="fas fa-arrow-down"></i>Endir</a>
+                </div>
+                </div>
                 </div>`;
             }
+            spinner.classList.add('d-none');
             if (start > 0) {
                 window.scrollTo(0, pdfs.scrollHeight);
             }

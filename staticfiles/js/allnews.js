@@ -1,4 +1,6 @@
 function getAllNews(start, end, category) {
+    spinner = document.getElementById('spinner');
+    spinner.classList.remove('d-none');
     fetch(`http://127.0.0.1:8000/api/newsapi?start=${start}&end=${end}&category=${category}`, {
         method: 'GET',
         credentials: 'include',
@@ -12,22 +14,23 @@ function getAllNews(start, end, category) {
             for (let i = 0; i < data.length; i++) {
                 newsCounter += 1;
                 news.children[0].innerHTML += `
-                            ${newsCounter % 8 != 0 && newsCounter % 8 != 1 ? `
-                            <div class="col-sm-4 my-3">
-                                <div class="card" style="height: 100%">
-                                    <a href="${data[i]['id']}"><img class="card-img-top" style="height: 284px;" src="${data[i].image}" alt="Card image cap"></a>` :
+                ${newsCounter % 8 != 0 && newsCounter % 8 != 1 ? `
+                <div class="col-sm-4 my-3">
+                <div class="card" style="height: 100%">
+                <a href="${data[i]['id']}"><img class="card-img-top" style="height: 284px;" src="${data[i].image}" alt="Card image cap"></a>` :
                         `<div class="col-sm-6 my-3">
-                            <div class="card" style="height: 100%">
-                            <a href="${data[i]['id']}"><img class="card-img-top" style="height: 440px;" src="${data[i]['image']}" alt="Card image cap"> </a>`}
-                                <div class="card-body text-left">
-                                    <p class="card-text">${data[i]['created_at']} | ${data[i]['category']['title']}</p>
-                                    <p class="card-title">${data[i]['title']} </p>
-                                    <p class="card-text">${data[i]['description']}</p>
-                                </div>
+                <div class="card" style="height: 100%">
+                <a href="${data[i]['id']}"><img class="card-img-top" style="height: 440px;" src="${data[i]['image']}" alt="Card image cap"> </a>`}
+                <div class="card-body text-left">
+                <p class="card-text">${data[i]['created_at']} | ${data[i]['category']['title']}</p>
+                <p class="card-title">${data[i]['title']} </p>
+                <p class="card-text">${data[i]['description']}</p>
+                </div>
                             </div>
-                        </div>
-            `;
+                            </div>
+                            `;
             }
+            spinner.classList.add('d-none');
             if (start > 0) {
                 window.scrollTo(0, news.scrollHeight);
             }
