@@ -22,3 +22,18 @@ class Subject(BaseModel):
 
     def __str__(self):
         return self.title
+
+
+class PDF(BaseModel):
+    title = models.CharField(
+        max_length=30, verbose_name='Title', help_text="Max 30 char.")
+    category = models.ForeignKey(
+        'staff.Subject', on_delete=models.CASCADE, related_name="pdf_category", default=None)
+    file = models.FileField(upload_to='pdf/', default=None)
+
+    def __str__(self) -> str:
+        return f"{self.title}"
+
+    class Meta:
+        verbose_name = "PDF"
+        verbose_name_plural = "PDF"

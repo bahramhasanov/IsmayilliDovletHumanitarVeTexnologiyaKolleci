@@ -1,24 +1,23 @@
 function getAllNews(start, end, category) {
     fetch(`http://127.0.0.1:8000/api/newsapi?start=${start}&end=${end}&category=${category}`, {
-            method: 'GET',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
         .then(response => response.json())
         .then(data => {
-                console.log(data);
-                news = document.getElementById('news');
-                for (let i = 0; i < data.length; i++) {
-                    newsCounter += 1;
-                    news.children[0].innerHTML += `
+            news = document.getElementById('news');
+            for (let i = 0; i < data.length; i++) {
+                newsCounter += 1;
+                news.children[0].innerHTML += `
                             ${newsCounter % 8 != 0 && newsCounter % 8 != 1 ? `
                             <div class="col-sm-4 my-3">
-                                <div class="card">
+                                <div class="card" style="height: 100%">
                                     <a href="${data[i]['id']}"><img class="card-img-top" style="height: 284px;" src="${data[i].image}" alt="Card image cap"></a>` :
                         `<div class="col-sm-6 my-3">
-                            <div class="card">
+                            <div class="card" style="height: 100%">
                             <a href="${data[i]['id']}"><img class="card-img-top" style="height: 440px;" src="${data[i]['image']}" alt="Card image cap"> </a>`}
                                 <div class="card-body text-left">
                                     <p class="card-text">${data[i]['created_at']} | ${data[i]['category']['title']}</p>
@@ -53,7 +52,7 @@ more_button.addEventListener('click', (event) => {
             category = filter_button.children[i].innerText;
         }
     }
-    getAllNews(news.children[0].children.length, news.children[0].children.length + 5, category);
+    getAllNews(news.children[0].children.length, news.children[0].children.length + 8, category);
 });
 
 

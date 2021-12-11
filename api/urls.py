@@ -17,8 +17,11 @@ urlpatterns = [
     path('newsapi/', views.NewsAPIView.as_view(), name='newsapi'),
     path('teacherapi/', views.TeacherAPIView.as_view(), name='teacherapi'),
     path('facultyapi/', views.FacultyAPIView.as_view(), name='facultyapi'),
-    path('facultyapi/<int:pk>/', views.FacultyDetailAPIView.as_view(), name='faculty_detail'),
+    path('facultyapi/<int:pk>/',
+         views.FacultyDetailAPIView.as_view(), name='faculty_detail'),
     path('specialityapi/', views.SpecialityAPIView.as_view(), name='specialityapi'),
-    path('specialityapi/<int:pk>/', views.SpecialityDetailAPIView.as_view(), name='speciality_detail'),
-    
+    path('specialityapi/<int:pk>/',
+         views.SpecialityDetailAPIView.as_view(), name='speciality_detail'),
+    path('pdfapi/', views.PDFAPIView.as_view(), name='pdfapi'),
+    path('subjectapi/', views.SubjectAPIView.as_view(), name='subjectapi'),
 ]

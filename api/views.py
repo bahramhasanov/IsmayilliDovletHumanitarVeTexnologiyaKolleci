@@ -1,11 +1,15 @@
+from staff.models import PDF, Subject, Teacher
+from api.serializers import NewsSerializer, PDFserializer, SubjectSerializer, TeacherSerializer
+from about.models import Category, News
+from staff.models import Teacher
+from api.serializers import NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer
+from about.models import Category, News, Faculty, Specialty
+import re
 from django.db.models import Q
 
 from rest_framework.response import Response
 from rest_framework import permissions, status
 from rest_framework.views import APIView
-from about.models import Category, News, Faculty, Specialty
-from api.serializers import NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer
-from staff.models import Teacher
 
 
 class NewsAPIView(APIView):
@@ -48,6 +52,7 @@ class FacultyAPIView(APIView):
         serializer = FacultySerializer(faculties, many=True)
         return Response(serializer.data)
 
+
 class FacultyDetailAPIView(APIView):
     permission_classes = (permissions.AllowAny,)
 
@@ -86,3 +91,36 @@ class SpecialityDetailAPIView(APIView):
 #             obj = Faculty.objects.all()
 #             serializer = self.serializer_class(obj, many=True)
 #         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class PDFAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request):
+        start = int(request.GET.get('start'))
+        end = int(request.GET.get('end'))
+        category = request.GET.get('category')
+        if Subject.objects.filter(
+                Q(title__icontains=category)).exists():
+            pdf = PDF.objects.filter(
+                category__title__icontains=category)
+        elif category == 'all':
+            pdf = PDF.objects.all()
+        else:
+            pdf = PDF.objects.filter(category__title=category)
+        serializer = PDFserializer(pdf[start:end], many=True)
+        return Response(serializer.data)
+
+
+class SubjectAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request):
+        subject = request.GET.get('subject')
+        if subject:
+            subjects = Subject.objects.filter(
+                Q(title__icontains=subject))
+        else:
+            subjects = Subject.objects.all()
+        serializer = SubjectSerializer(subjects, many=True)
+        return Response(serializer.data)

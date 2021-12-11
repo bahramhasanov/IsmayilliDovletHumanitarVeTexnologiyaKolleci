@@ -13,6 +13,7 @@ class SingleNews(DetailView):
         context = super().get_context_data(**kwargs)
         context['news'] = self.object
         context['title'] = self.object.title
+        context['related_news'] = News.objects.filter(category=self.object.category).exclude(id=self.object.id)[0:4]
         return context
 
 

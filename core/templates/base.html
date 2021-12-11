@@ -35,7 +35,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light px-5 container" style="background: rgba(255, 255, 255, 0.6);">
-        <a class="navbar-brand" style="color: #0444E2;" href="{% url 'home' %}">Sapiens Collage</a>
+        <a class="navbar-brand" style="color: #0444E2; text-transform: uppercase;" href="{% url 'home' %}">idhtk</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -87,6 +87,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownAcademic">
                         <li><a class="dropdown-item" href="#">Direktor</a></li>
                         <li><a class="dropdown-item" href="#">Müavin</a></li>
+                        <li><a class="dropdown-item" href="{% url 'teachers' %}">Müəllim</a></li>
                         <li><a class="dropdown-item" href="#">Şöbə</a></li>
                         <li><a class="dropdown-item" href="{% url 'allfaculty' %}">FBK</a></li>
                         <li><a class="dropdown-item" href="#">Müəllim</a></li>
@@ -108,17 +109,18 @@
                         Xəbərlər
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownNews">
-                        <li><a class="dropdown-item" href="#">Xəbərlər</a></li>
+                        <li><a class="dropdown-item" href="{% url 'allnews' %}">Xəbərlər</a></li>
                         <li><a class="dropdown-item" href="#">Tədbirlər</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" id="navbarDropdownLibrary" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown" id="navbarDropdownLibrary" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         Onlayn Kitabxana
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
                         <li><a class="dropdown-item" href="#">Ümumi məlumat</a></li>
-                        <li><a class="dropdown-item" href="#">Kitabxana</a></li>
+                        <li><a class="dropdown-item" href="{% url 'library' %}">Kitabxana</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
