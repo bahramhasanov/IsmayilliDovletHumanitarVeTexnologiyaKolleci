@@ -8,7 +8,6 @@ function getAllNews(start, end, category) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             news = document.getElementById('news');
             for (let i = 0; i < data.length; i++) {
                 newsCounter += 1;
