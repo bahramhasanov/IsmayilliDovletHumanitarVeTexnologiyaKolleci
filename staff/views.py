@@ -46,14 +46,16 @@ class LibraryListView(ListView):
 
 
 class LibraryDetailView(View):
-    def get(self, request, pk):
+    def get(self, request, pk, status):
         try:
             pdf = PDF.objects.get(pk=pk)
         except PDF.DoesNotExist:
             raise Http404("File does not exist")
         response = FileResponse(open(pdf.file.path, 'rb'))
-        response['Content-Disposition'] = 'attachment; filename="{}"'.format(
+        if status == 'download':
+            response['Content-Disposition'] = 'attachment; filename="{}"'.format(
                 pdf.file.name)
-        # response['Content-Disposition'] = 'inline; filename="{}"'.format(
-            # pdf.file.name)
+        else:
+            response['Content-Disposition'] = 'inline; filename="{}"'.format(
+                pdf.file.name)
         return response

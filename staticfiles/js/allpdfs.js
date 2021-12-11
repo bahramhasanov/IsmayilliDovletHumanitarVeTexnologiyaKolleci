@@ -11,17 +11,18 @@ function getAllPDFs(start, end, subject) {
         .then(data => {
             pdfs = document.getElementById('pdfs');
             for (let i = 0; i < data.length; i++) {
-                pdfs.children[0].innerHTML += `<div class="col-lg-3 col-md-6 my-3">
-                <div class="card text-center" style="background: #F9F9F9; border-radius: 20px;">
-                <div class="card-body">
-                    <img style="width: 64px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="">
-                    <p class="card-title">${data[i]['title']}</p>
-                    <p class="card-text">${data[i]['size']}</p>
-                    <a href="${data[i]['id']}" class="btn btn-outline-primary"><i
-                            class="fas fa-arrow-down"></i>Endir</a>
-                </div>
-            </div>
-        </div>`;
+                pdfs.children[0].innerHTML += `
+                <div class="col-lg-3 col-md-6 my-3">
+                    <div class="card text-center" style="background: #F9F9F9; border-radius: 20px; height: 100%">
+                        <div class="card-body">
+                            <img style="width: 64px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="">
+                            <a href="${data[i]['id']}/show"><p class="card-title text-dark">${data[i]['title']}</p></a>
+                            <p class="card-text">${data[i]['size']}</p>
+                            <a href="${data[i]['id']}/download" class="btn btn-outline-primary"><i
+                                    class="fas fa-arrow-down"></i>Endir</a>
+                        </div>
+                    </div>
+                </div>`;
             }
             if (start > 0) {
                 window.scrollTo(0, pdfs.scrollHeight);
@@ -35,12 +36,12 @@ function getAllPDFs(start, end, subject) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    getAllPDFs(0, 4, 'all');
+    getAllPDFs(0, 16, 'all');
 });
 
 more_button = document.getElementById('more-button');
 more_button.addEventListener('click', () => {
-    getAllPDFs(pdfs.children[0].children.length, pdfs.children[0].children.length + 4, input.value);
+    getAllPDFs(pdfs.children[0].children.length, pdfs.children[0].children.length + 8, input.value);
 });
 
 
@@ -72,8 +73,8 @@ function getAllSubjects(subject) {
             for (let i = 0; i < data.length; i++) {
                 subjectDropdown.innerHTML += `<a class="dropdown-item" onclick="selectSubject(this)">${data[i]['title']}</a>`;
             }
-            getAllPDFs(0, 4, subject);
             pdfs.children[0].innerHTML = '';
+            getAllPDFs(0, 16, subject);
         });
 }
 

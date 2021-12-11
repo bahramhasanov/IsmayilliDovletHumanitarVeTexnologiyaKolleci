@@ -36,8 +36,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light px-5" style="background: rgba(255, 255, 255, 0.6);">
-        <a class="navbar-brand" style="color: #0444E2;" href="{% url 'home' %}">Sapiens Collage</a>
+    <nav class="navbar navbar-expand-lg navbar-light px-5 container-fluid" style="background: rgba(255, 255, 255, 0.6);">
+        <a class="navbar-brand" style="color: #0444E2; text-transform: uppercase;" href="{% url 'home' %}">idhtk</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -91,7 +91,7 @@
                         <li><a class="dropdown-item" href="#">Direktor</a></li>
                         <li><a class="dropdown-item" href="#">Müavin</a></li>
                         <li><a class="dropdown-item" href="#">FBK</a></li>
-                        <li><a class="dropdown-item" href="#">Müəllim</a></li>
+                        <li><a class="dropdown-item" href="{% url 'teachers' %}">Müəllim</a></li>
                         <li><a class="dropdown-item" href="#">Şöbə</a></li>
                         <li><a class="dropdown-item" href="#">Təcrübə</a></li>
                     </ul>
@@ -113,7 +113,7 @@
                         Xəbərlər
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownNews">
-                        <li><a class="dropdown-item" href="#">Xəbərlər</a></li>
+                        <li><a class="dropdown-item" href="{% url 'allnews' %}">Xəbərlər</a></li>
                         <li><a class="dropdown-item" href="#">Tədbirlər</a></li>
                     </ul>
                 </li>
