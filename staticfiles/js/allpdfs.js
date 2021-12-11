@@ -58,8 +58,7 @@ function filterFunction() {
 }
 
 
-
-function getAllSubjects(subject) {
+function getAllSubjects(subject, type = null) {
     fetch(`http://127.0.0.1:8000/api/subjectapi?subject=${subject}`, {
         method: 'GET',
         credentials: 'include',
@@ -69,19 +68,26 @@ function getAllSubjects(subject) {
     })
         .then(response => response.json())
         .then(data => {
-            pdfs.children[0].innerHTML = '';
             subjectDropdown.innerHTML = '';
-            for (let i = 0; i < data.length; i++) {
-                if (data[i]['title'] != subject) {
-                    subjectDropdown.innerHTML += `<a class="dropdown-item" onclick="selectSubject(this)">${data[i]['title']}</a>`;
+            if (data.length > 0) {
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i]['title'] != subject) {
+                        subjectDropdown.innerHTML += `<a class="dropdown-item" onclick="selectSubject(this)">${data[i]['title']}</a>`;
+                    }
                 }
+            } else {
+                subjectDropdown.innerHTML = `<a class="dropdown-item disabled">Subject not found</a>`;
             }
-            getAllPDFs(0, 16, subject);
+            if (type == "getPDFs") {
+                pdfs.children[0].innerHTML = '';
+                getAllPDFs(0, 16, subject);
+            }
         });
 }
 
 function selectSubject(d) {
     subject = d.innerText;
     input.value = subject;
-    getAllSubjects(subject);
+    type = "getPDFs"
+    getAllSubjects(subject, type);
 }
