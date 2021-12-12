@@ -1,12 +1,11 @@
-
 function getAllPDFs(start, end, subject) {
     fetch(`http://127.0.0.1:8000/api/pdfapi?start=${start}&end=${end}&category=${subject}`, {
-        method: 'GET',
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
         .then(response => response.json())
         .then(data => {
             pdfs = document.getElementById('pdfs');
@@ -16,7 +15,7 @@ function getAllPDFs(start, end, subject) {
                     <div class="card text-center" style="background: #F9F9F9; border-radius: 20px; height: 100%">
                         <div class="card-body">
                             <img style="width: 64px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="">
-                            <a href="${data[i]['id']}/show"><p class="card-title text-dark">${data[i]['title']}</p></a>
+                            <a href="${data[i]['id']}/show" target="_blank"><p class="card-title text-dark">${data[i]['title']}</p></a>
                             <p class="card-text">${data[i]['category']['title']}</p>
                             <a href="${data[i]['id']}/download" class="btn btn-outline-primary"><i
                                     class="fas fa-arrow-down"></i>Endir</a>
@@ -48,6 +47,7 @@ more_button.addEventListener('click', () => {
 
 input = document.getElementById("subjects");
 subjectDropdown = document.getElementById('subjectDropdown');
+
 function filterFunction() {
     txtValue = input.value;
     if (txtValue != "") {
@@ -61,12 +61,12 @@ function filterFunction() {
 
 function getAllSubjects(subject) {
     fetch(`http://127.0.0.1:8000/api/subjectapi?subject=${subject}`, {
-        method: 'GET',
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
         .then(response => response.json())
         .then(data => {
             pdfs.children[0].innerHTML = '';

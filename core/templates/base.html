@@ -35,7 +35,8 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light px-5 container" style="background: rgba(255, 255, 255, 0.6);">
-        <a class="navbar-brand" style="color: #0444E2; text-transform: uppercase;" href="{% url 'home' %}">idhtk</a>
+        <a class="navbar-brand" style="color: #0444E2; text-transform: uppercase;" href="{% url 'home' %}"><img src="http://idhtk.edu.az/assets/img/logo.png" alt="" width="50px"></a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -75,9 +76,10 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
                         <li><a class="dropdown-item" href="#">Yaranma tarixi</a></li>
+                        <li><a class="dropdown-item" href="{% url 'about' %}">About</a></li>
                         <li><a class="dropdown-item" href="#">Missiyamiz</a></li>
                         <li><a class="dropdown-item" href="#">Karyera dəstəyi</a></li>
-                        <li><a class="dropdown-item" href="#">Bizimlə əlaqə</a></li>
+                        <li><a class="dropdown-item" href="{% url 'contact' %}">Bizimlə əlaqə</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -85,12 +87,11 @@
                         Akademik
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownAcademic">
-                        <li><a class="dropdown-item" href="#">Direktor</a></li>
-                        <li><a class="dropdown-item" href="#">Müavin</a></li>
+                        <li><a class="dropdown-item" href="{% url 'director' %}">Direktor</a></li>
+                        <li><a class="dropdown-item" href="{% url 'deputies' %}">Müavin</a></li>
                         <li><a class="dropdown-item" href="{% url 'teachers' %}">Müəllim</a></li>
-                        <li><a class="dropdown-item" href="#">Şöbə</a></li>
+                        <li><a class="dropdown-item" href="{% url 'departments' %}">Şöbə</a></li>
                         <li><a class="dropdown-item" href="{% url 'allfaculty' %}">FBK</a></li>
-                        <li><a class="dropdown-item" href="#">Müəllim</a></li>
                         <li><a class="dropdown-item" href="#">Təcrübə</a></li>
                     </ul>
                 </li>
@@ -114,8 +115,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown" id="navbarDropdownLibrary" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown" id="navbarDropdownLibrary" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Onlayn Kitabxana
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">

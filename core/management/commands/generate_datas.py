@@ -30,24 +30,24 @@ class Command(BaseCommand):
                 random_subject = Subject.objects.all(
                 )[random.randint(0, subjects - 1)]
                 PDF.objects.create(
-                    title=Faker().name(), category=random_subject, file='pdf/Tech_CV_14.pdf')
+                    title=Faker().name(), category=random_subject, file='pdf/my_cv_1.pdf')
         elif data == 'news':
             categories = Category.objects.all().count()
             for i in range(total):
                 random_categories = Category.objects.all(
                 )[random.randint(0, categories - 1)]
                 News.objects.create(
-                    title=Faker().name(), description=Faker().text(), category=random_categories, image='teachers/1540580465108_rkNGJkW.jpeg')
+                    title=Faker().name(), description=Faker().text(), category=random_categories, image='news/hat_SVCApIZ.jpeg')
         elif data == 'faculties':
             for i in range(total):
                 Faculty.objects.create(
-                    title=Faker().name(), description=Faker().text(), image='teachers/1540580465108_rkNGJkW.jpeg')
+                    title=Faker().name(), description=Faker().text(), image='faculty/riyaz_ZQWV2CI.png')
         elif data == 'specialities':
             categories = Faculty.objects.all().count()
             for i in range(total):
                 random_faculties = Faculty.objects.all(
                 )[random.randint(0, categories - 1)]
                 Specialty.objects.create(
-                    title=Faker().name(), description=Faker().text(), faculty=random_faculties, image_icon='teachers/1540580465108_rkNGJkW.jpeg')
+                    title=Faker().name(), description=Faker().text(), faculty=random_faculties, image_icon='specialty/logo_7HIRLrP.png')
         self.stdout.write(self.style.SUCCESS(
             'Successfully created {} {}'.format(total, data)))

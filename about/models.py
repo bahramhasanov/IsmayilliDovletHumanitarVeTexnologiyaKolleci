@@ -1,8 +1,9 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.db.models.fields.related import OneToOneField
 
 from kollec.utils.base_models import BaseModel
-
+from staff.models import Teacher
 
 class News(BaseModel):
     title = models.CharField(
@@ -18,8 +19,8 @@ class News(BaseModel):
         return f"{self.title}"
 
     class Meta:
-        verbose_name = "News"
-        verbose_name_plural = "News"
+        verbose_name = "Xəbərlər"
+        verbose_name_plural = "Xəbərlər"
 
 
 class Category(BaseModel):
@@ -30,23 +31,24 @@ class Category(BaseModel):
         return f"{self.title}"
 
     class Meta:
-        verbose_name = "Category"
-        verbose_name_plural = "Categories"
+        verbose_name = "Kateqoriya"
+        verbose_name_plural = "Kateqoriyalar"
 
-
+        
 class Faculty(BaseModel):
     title = models.CharField(
         max_length=30, verbose_name='Title', help_text="Max 30 char.")
     description = RichTextField(
         verbose_name="Description", blank=True, null=True)
     image = models.ImageField(upload_to='faculty/', default=None)
-
+    # FBK = models.OneToOneField(Teacher, on_delete=models.CASCADE, related_name='faculty_teacher', default=1, null=True, blank=True)
+    
     def __str__(self) -> str:
         return f"{self.title}"
 
     class Meta:
-        verbose_name = "Faculty"
-        verbose_name_plural = "Faculties"
+        verbose_name = "FBK"
+        verbose_name_plural = "FBK"
 
 
 class Specialty(BaseModel):
@@ -62,5 +64,5 @@ class Specialty(BaseModel):
         return f"{self.title}"
 
     class Meta:
-        verbose_name = "Specialty"
-        verbose_name_plural = "Specialties"
+        verbose_name = "Ixtisas"
+        verbose_name_plural = "Ixtisaslar"

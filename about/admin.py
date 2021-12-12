@@ -22,10 +22,10 @@ class FacultyAdmin(admin.ModelAdmin):
         'get_facultyofspecialty'
         )
 
-    def get_readonly_fields(self, request, obj=None):
-        if obj:                      
-            return self.readonly_fields + ('title',)
-        return self.readonly_fields
+    # def get_readonly_fields(self, request, obj=None):
+    #     if obj:                      
+    #         return self.readonly_fields + ('title',)
+    #     return self.readonly_fields
     
     
     def get_facultyofspecialty(self, obj):

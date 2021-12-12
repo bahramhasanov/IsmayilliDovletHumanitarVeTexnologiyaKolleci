@@ -67,7 +67,7 @@ class AllFaculty(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['faculities'] = Faculty.objects.all()
+        context['faculities'] = Faculty.objects.all().order_by('updated_at')
         context['title'] = 'fbklar'
         return context
 
