@@ -30,6 +30,7 @@ urlpatterns = [
     path("", HomePage.as_view(), name="home"),
     path("api/", include("api.urls")),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('rosetta/', include('rosetta.urls'))
 ]
 
 
