@@ -62,7 +62,7 @@
     <p>We’re happy to answer any questions you may have, just send us a message via our in-app chat</p>
 
     <div id="myDropdown" class="dropdown-content">
-        <input type="text" placeholder="Search.." id="subjects" onkeyup="filterFunction()">
+        <input type="text" placeholder="{% translate 'Search' %}.." id="subjects" onkeyup="filterFunction()">
         <div id="subjectDropdown">
         </div>
     </div>
@@ -73,7 +73,7 @@
     </div>
     <div id="spinner" class="spinner-border d-none"></div>
     <br>
-    <button id="more-button" type="button" class="btn btn-outline-primary my-5">Daha çox</button>
+    <button id="more-button" type="button" class="btn btn-outline-primary my-5">{% translate 'Daha çox' %}</button>
 </div>
 {% endblock base %}
 

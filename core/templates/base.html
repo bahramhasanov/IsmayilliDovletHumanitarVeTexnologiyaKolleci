@@ -57,6 +57,10 @@
                         <li><a class="dropdown-item" href="{% url 'set_language'%}?lang=az&next={{request.path}}"><img
                                     src="{% static 'img/AZE.png' %}" alt="">{% translate 'AZ' %}</a></li>
                         {% endifnotequal %}
+                        {% ifnotequal lang 'en' %}
+                        <li><a class="dropdown-item" href="{% url 'set_language'%}?lang=en&next={{request.path}}"><img
+                                    src="{% static 'img/AZE.png' %}" alt="">{% translate 'EN' %}</a></li>
+                        {% endifnotequal %}
                         {% ifnotequal lang 'ru' %}
                         <li><a class="dropdown-item" href="{% url 'set_language'%}?lang=ru&next={{request.path}}"><img
                                     src="{% static 'img/AZE.png' %}" alt="">{% translate 'RU' %}</a></li>

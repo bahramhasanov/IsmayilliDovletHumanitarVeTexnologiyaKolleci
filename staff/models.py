@@ -26,7 +26,7 @@ class Subject(BaseModel):
 
 class PDF(BaseModel):
     title = models.CharField(
-        max_length=30, verbose_name='Title', help_text="Max 30 char.")
+        max_length=50, verbose_name='Title', help_text="Max 50 char.")
     category = models.ForeignKey(
         'staff.Subject', on_delete=models.CASCADE, related_name="pdf_category", default=None)
     file = models.FileField(upload_to='pdf/', default=None)
