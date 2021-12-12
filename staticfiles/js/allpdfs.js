@@ -15,13 +15,13 @@ function getAllPDFs(start, end, subject) {
             for (let i = 0; i < data.length; i++) {
                 pdfs.children[0].innerHTML += `
                 <div class="col-lg-3 col-md-6 my-3">
-                <div class="card text-center" style="background: #F9F9F9; border-radius: 20px; height: 100%">
+                <div class="card text-center" style="background: #F9F9F9; border-radius: 20px; height: 100%; border: none;">
                 <div class="card-body">
                 <img style="width: 64px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="">
-                <a href="${data[i]['id']}/show"><p class="card-title text-dark">${data[i]['title']}</p></a>
+                <a style="font-weight: 600; font-size: 20px; line-height: 28px; text-align: center; letter-spacing: 0.15px; color: #000000;" href="${data[i]['id']}/show"><p class="card-title text-dark">${data[i]['title']}</p></a>
                 <p class="card-text">${data[i]['category']['title']}</p>
-                <a href="${data[i]['id']}/download" class="btn btn-outline-primary"><i
-                class="fas fa-arrow-down"></i>Endir</a>
+                <a href="${data[i]['id']}/download" class="btn btn-primary-outline text-primary"><i
+                class="fas fa-arrow-down"></i>  Endir</a>
                 </div>
                 </div>
                 </div>`;
@@ -70,9 +70,10 @@ function getAllSubjects(subject, type = null) {
         },
     })
         .then(response => response.json())
-        .then(data => { 
+        .then(data => {
             subjectDropdown.innerHTML = '';
             if (data.length > 0) {
+                // subjectDropdown.innerHTML += `<a class="dropdown-item" onclick="selectSubject(this)">Bütün fənnlər</a>`;
                 for (let i = 0; i < data.length; i++) {
                     if (data[i]['title'] != subject) {
                         subjectDropdown.innerHTML += `<a class="dropdown-item" onclick="selectSubject(this)">${data[i]['title']}</a>`;

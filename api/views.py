@@ -114,10 +114,8 @@ class PDFAPIView(APIView):
             elif lang == 'az':
                 pdf = PDF.objects.filter(
                     category__title_az__icontains=category)
-        elif category == 'all':
-            pdf = PDF.objects.all()
         else:
-            pdf = PDF.objects.filter(category__title=category)
+            pdf = PDF.objects.all()
         serializer = PDFserializer(pdf[start:end], many=True)
         return Response(serializer.data)
 
@@ -129,7 +127,6 @@ class SubjectAPIView(APIView):
         subject = request.GET.get('subject')
         lang = get_language()
         if subject:
-            print('subject', subject)
             if lang == 'en':
                 subjects = Subject.objects.filter(
                     title_en__icontains=subject)
