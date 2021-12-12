@@ -78,6 +78,7 @@ search = document.getElementById('search');
 search.addEventListener('keyup', (event) => {
     // len = teachers.children[0].children.length/2;
     teachers.children[0].innerHTML = '';
+    console.log(event.target.value);
     getAllTeachers(0, 4, event.target.value);
     // getAllTeachers(0, len, event.target.value);
 });

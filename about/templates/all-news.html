@@ -19,7 +19,16 @@
     <div id="filter-button" class="mt-4 mb-3">
         <button type="button" class="btn btn-light btn-outline-primary" disabled>Hamısı</button>
         {% for category in categories %}
-        <button type="button" class="btn btn-light">{{category.title}}</button>
+        {% ifequal lang 'en' %}
+        <button type="button" class="btn btn-light">{{category.title_en}}</button>
+        {% endifequal %}
+        {% ifequal lang 'az' %}
+        <button type="button" class="btn btn-light">{{category.title_az}}</button>
+        {% endifequal %}
+        {% ifequal lang 'ru' %}
+        <button type="button" class="btn btn-light">{{category.title_ru}}</button>
+        {% endifequal %}
+            
         {% endfor %}
     </div>
     <div id="news">

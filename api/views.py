@@ -1,14 +1,14 @@
+from django.utils.translation import get_language
 from staff.models import PDF, Subject, Teacher
 from api.serializers import NewsSerializer, PDFserializer, SubjectSerializer, TeacherSerializer
 from about.models import Category, News
 from staff.models import Teacher
 from api.serializers import NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer
 from about.models import Category, News, Faculty, Specialty
-import re
 from django.db.models import Q
 
 from rest_framework.response import Response
-from rest_framework import permissions, status
+from rest_framework import permissions
 from rest_framework.views import APIView
 
 
@@ -19,9 +19,17 @@ class NewsAPIView(APIView):
         start = int(request.GET.get('start'))
         end = int(request.GET.get('end'))
         category = request.GET.get('category')
-        if Category.objects.filter(title=category).exists():
-            news = News.objects.filter(
-                category=Category.objects.get(title=category))
+        lang = get_language()
+        if Category.objects.filter(title_en=category).exists() or Category.objects.filter(title_ru=category).exists() or Category.objects.filter(title_az=category).exists():
+            if lang == 'en':
+                news = News.objects.filter(
+                    category=Category.objects.get(title_en=category))
+            elif lang == 'ru':
+                news = News.objects.filter(
+                    category=Category.objects.get(title_ru=category))
+            elif lang == 'az':
+                news = News.objects.filter(
+                    category=Category.objects.get(title_az=category))
         else:
             news = News.objects.all()
         serializer = NewsSerializer(news[start:end], many=True)
@@ -35,9 +43,17 @@ class TeacherAPIView(APIView):
         start = int(request.GET.get('start'))
         end = int(request.GET.get('end'))
         search = request.GET.get('search')
+        lang = get_language()
         if search != 'all':
-            teachers = Teacher.objects.filter(
-                Q(full_name__icontains=search) | Q(subject__title__icontains=search))
+            if lang == 'ru':
+                teachers = Teacher.objects.filter(
+                    Q(full_name_ru__icontains=search) | Q(subject__title_ru__icontains=search))
+            elif lang == 'en':
+                teachers = Teacher.objects.filter(
+                    Q(full_name_en__icontains=search) | Q(subject__title_en__icontains=search))
+            elif lang == 'az':
+                teachers = Teacher.objects.filter(
+                    Q(full_name_az__icontains=search) | Q(subject__title_az__icontains=search))
         else:
             teachers = Teacher.objects.all()
         serializer = TeacherSerializer(teachers[start:end], many=True)
@@ -80,19 +96,6 @@ class SpecialityDetailAPIView(APIView):
         return Response(serializer.data)
 
 
-# class FacultyAPIView(APIView):
-#     serializer_class = FacultySerializer
-
-#     def get(self, request, *args, **kwargs):
-#         if kwargs.get("pk"):
-#             obj = Faculty.objects.get(pk=kwargs.get("pk"))
-#             serializer = self.serializer_class(obj)
-#         else:
-#             obj = Faculty.objects.all()
-#             serializer = self.serializer_class(obj, many=True)
-#         return Response(serializer.data, status=status.HTTP_200_OK)
-
-
 class PDFAPIView(APIView):
     permission_classes = (permissions.AllowAny,)
 
@@ -100,10 +103,17 @@ class PDFAPIView(APIView):
         start = int(request.GET.get('start'))
         end = int(request.GET.get('end'))
         category = request.GET.get('category')
-        if Subject.objects.filter(
-                Q(title__icontains=category)).exists():
-            pdf = PDF.objects.filter(
-                category__title__icontains=category)
+        lang = get_language()
+        if Subject.objects.filter(title_en=category).exists() or Subject.objects.filter(title_ru=category).exists() or Subject.objects.filter(title_az=category).exists():
+            if lang == 'en':
+                pdf = PDF.objects.filter(
+                    category__title_en__icontains=category)
+            elif lang == 'ru':
+                pdf = PDF.objects.filter(
+                    category__title_ru__icontains=category)
+            elif lang == 'az':
+                pdf = PDF.objects.filter(
+                    category__title_az__icontains=category)
         elif category == 'all':
             pdf = PDF.objects.all()
         else:
@@ -117,9 +127,18 @@ class SubjectAPIView(APIView):
 
     def get(self, request):
         subject = request.GET.get('subject')
+        lang = get_language()
         if subject:
-            subjects = Subject.objects.filter(
-                Q(title__icontains=subject))
+            print('subject', subject)
+            if lang == 'en':
+                subjects = Subject.objects.filter(
+                    title_en__icontains=subject)
+            elif lang == 'ru':
+                subjects = Subject.objects.filter(
+                    title_ru__icontains=subject)
+            elif lang == 'az':
+                subjects = Subject.objects.filter(
+                    title_az__icontains=subject)
         else:
             subjects = Subject.objects.all()
         serializer = SubjectSerializer(subjects, many=True)
