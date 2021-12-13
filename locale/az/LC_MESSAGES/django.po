@@ -8,48 +8,191 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 19:46+0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2021-12-14 01:11+0400\n"
+"PO-Revision-Date: 2021-12-13 21:11+0000\n"
+"Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.4\n"
 
-#: core/templates/base.html:55
+#: about/apps.py:8
+msgid "About"
+msgstr "Haqqımızda"
+
+#: about/models.py:10 about/models.py:28 about/models.py:40 about/models.py:56
+#: staff/models.py:27 staff/models.py:39
+msgid "Title"
+msgstr "Başlıq"
+
+#: about/models.py:13 about/models.py:42 about/models.py:58 about/models.py:73
+#: about/models.py:75 about/models.py:77 about/models.py:89 staff/models.py:12
+msgid "Description"
+msgstr "Təsvir"
+
+#: about/models.py:15 staff/models.py:41
+msgid "Category"
+msgstr "Kateqoriya"
+
+#: about/models.py:16 about/models.py:43 about/models.py:59 about/models.py:90
+msgid "Image"
+msgstr "Şəkil"
+
+#: about/models.py:22
+msgid "Xəbər"
+msgstr "Xəbər"
+
+#: about/models.py:23
+msgid "Xəbərlər"
+msgstr "Xəbərlər"
+
+#: about/models.py:34
+msgid "Kateqoriya"
+msgstr "Kateqoriya"
+
+#: about/models.py:35
+msgid "Kateqoriyalar"
+msgstr "Kateqoriyalar"
+
+#: about/models.py:50
+msgid "FBK"
+msgstr "FBK"
+
+#: about/models.py:51
+msgid "FBKlar"
+msgstr "FBKlar"
+
+#: about/models.py:61
+msgid "Faculty"
+msgstr "Fakültə"
+
+#: about/models.py:67
+msgid "Ixtisas"
+msgstr "Ixtisas"
+
+#: about/models.py:68
+msgid "Ixtisaslar"
+msgstr "Ixtisaslar"
+
+#: about/models.py:83 about/models.py:84
+msgid "qəbul qaydaları"
+msgstr "Qəbul qaydaları"
+
+#: about/models.py:96 about/models.py:97
+msgid "Haqqımızda"
+msgstr "Haqqımızda"
+
+#: core/apps.py:8
+msgid "Core"
+msgstr "Özək"
+
+#: core/models.py:9 core/models.py:17
+msgid "Sual"
+msgstr "Sual"
+
+#: core/models.py:11
+msgid "Cavab"
+msgstr "Cavab"
+
+#: core/models.py:18
+msgid "Suallar"
+msgstr "Suallar"
+
+#: core/templates/base.html:49 core/templates/base.html:462
 msgid "Lang"
-msgstr ""
+msgstr "Dil"
 
-#: core/templates/base.html:58
+#: core/templates/base.html:52
 msgid "AZ"
-msgstr ""
+msgstr "AZ"
 
-#: core/templates/base.html:62
+#: core/templates/base.html:56
 msgid "EN"
-msgstr ""
+msgstr "EN"
 
-#: core/templates/base.html:66
+#: core/templates/base.html:60
 msgid "RU"
-msgstr ""
+msgstr "RU"
+
+#: core/templates/base.html:466
+msgid "Azərbaycanca"
+msgstr "Azərbaycanca"
+
+#: core/templates/base.html:472
+msgid "İngiliscə"
+msgstr "İngiliscə"
+
+#: core/templates/base.html:477
+msgid "Rusca"
+msgstr "Rusca"
 
 #: kollec/settings.py:137
 msgid "English"
-msgstr ""
+msgstr "İngiliscə"
 
 #: kollec/settings.py:138
 msgid "Azerbaijani"
-msgstr ""
+msgstr "Azərbaycanca"
 
 #: kollec/settings.py:139
 msgid "Russian"
-msgstr ""
+msgstr "Rusca"
 
-#: staff/templates/library.html:65
+#: staff/apps.py:8
+msgid "Staff"
+msgstr "İşçi heyəti"
+
+#: staff/models.py:10
+msgid "Full Name"
+msgstr "Tam Ad"
+
+#: staff/models.py:14
+msgid "Photo"
+msgstr "Foto"
+
+#: staff/models.py:16
+msgid "Subject"
+msgstr "Fənn"
+
+#: staff/models.py:22
+msgid "Müəllim"
+msgstr "Müəllim"
+
+#: staff/models.py:23
+msgid "Müəllimlər"
+msgstr "Müəllimlər"
+
+#: staff/models.py:33
+msgid "Fənn"
+msgstr "Fənn"
+
+#: staff/models.py:34
+msgid "Fənnlər"
+msgstr "Fənnlər"
+
+#: staff/models.py:42
+msgid "File"
+msgstr "Fayl"
+
+#: staff/models.py:48
+msgid "PDF"
+msgstr "PDF"
+
+#: staff/models.py:49
+msgid "PDFs"
+msgstr "PDFlər"
+
+#: staff/templates/library.html:79
 msgid "Search"
-msgstr ""
+msgstr "Axtar"
 
-#: staff/templates/library.html:76
+#: staff/templates/library.html:90
 msgid "Daha çox"
-msgstr ""
+msgstr "Daha çox"
+
+#: staff/templates/teachers.html:70
+msgid "Müəllimin adı və fənn üzrə axtarış"
+msgstr "Müəllimin adı və fənn üzrə axtarış"

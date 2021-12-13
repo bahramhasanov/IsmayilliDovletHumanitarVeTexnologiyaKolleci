@@ -7,27 +7,27 @@ from about.models import News, Category, Specialty, Faculty, Admissionrules, Abo
 
 admin.site.register([News, Category, Specialty, Admissionrules, About])
 
+
 @admin.register(Faculty)
 class FacultyAdmin(admin.ModelAdmin):
     search_fields = ("title",)
     list_display = (
-        'title', 
- 
-        )
+        'title',
+
+    )
     readonly_fields = ("get_facultyofspecialty",)
     fields = (
-        'title', 
+        'title',
         'description',
         'image',
         'get_facultyofspecialty'
-        )
+    )
 
     # def get_readonly_fields(self, request, obj=None):
-    #     if obj:                      
+    #     if obj:
     #         return self.readonly_fields + ('title',)
     #     return self.readonly_fields
-    
-    
+
     def get_facultyofspecialty(self, obj):
         html = """
         <table class="table">
@@ -40,11 +40,10 @@ class FacultyAdmin(admin.ModelAdmin):
                 <tbody>
         """
         for i in obj.specialty_faculty.all():
-            html +=f'''
+            html += f'''
                     <tr>
                         <td>{i.title}</td>
                     </tr>
             '''
         return format_html(html + "</tbody></table>")
     get_facultyofspecialty.short_description = 'FBK-da olan ixtisaslar'
-

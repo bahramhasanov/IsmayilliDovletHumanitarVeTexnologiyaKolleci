@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 19:46+0400\n"
-"PO-Revision-Date: 2021-12-12 15:47+0000\n"
+"POT-Creation-Date: 2021-12-14 01:11+0400\n"
+"PO-Revision-Date: 2021-12-13 21:12+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,21 +19,115 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.9.4\n"
 
-#: core/templates/base.html:55
+#: about/apps.py:8
+msgid "About"
+msgstr ""
+
+#: about/models.py:10 about/models.py:28 about/models.py:40 about/models.py:56
+#: staff/models.py:27 staff/models.py:39
+msgid "Title"
+msgstr ""
+
+#: about/models.py:13 about/models.py:42 about/models.py:58 about/models.py:73
+#: about/models.py:75 about/models.py:77 about/models.py:89 staff/models.py:12
+msgid "Description"
+msgstr "Description"
+
+#: about/models.py:15 staff/models.py:41
+msgid "Category"
+msgstr ""
+
+#: about/models.py:16 about/models.py:43 about/models.py:59 about/models.py:90
+msgid "Image"
+msgstr ""
+
+#: about/models.py:22
+msgid "Xəbər"
+msgstr "News"
+
+#: about/models.py:23
+msgid "Xəbərlər"
+msgstr "News"
+
+#: about/models.py:34
+msgid "Kateqoriya"
+msgstr "Category"
+
+#: about/models.py:35
+msgid "Kateqoriyalar"
+msgstr "Categories"
+
+#: about/models.py:50
+msgid "FBK"
+msgstr ""
+
+#: about/models.py:51
+msgid "FBKlar"
+msgstr "FBKs"
+
+#: about/models.py:61
+msgid "Faculty"
+msgstr "Faculty"
+
+#: about/models.py:67
+msgid "Ixtisas"
+msgstr "Specialty"
+
+#: about/models.py:68
+msgid "Ixtisaslar"
+msgstr "Specialties"
+
+#: about/models.py:83 about/models.py:84
+msgid "qəbul qaydaları"
+msgstr "Admission rules"
+
+#: about/models.py:96 about/models.py:97
+msgid "Haqqımızda"
+msgstr "About"
+
+#: core/apps.py:8
+msgid "Core"
+msgstr ""
+
+#: core/models.py:9 core/models.py:17
+msgid "Sual"
+msgstr "Question"
+
+#: core/models.py:11
+msgid "Cavab"
+msgstr "Answer"
+
+#: core/models.py:18
+msgid "Suallar"
+msgstr "Questions"
+
+#: core/templates/base.html:49 core/templates/base.html:462
 msgid "Lang"
 msgstr ""
 
-#: core/templates/base.html:58
+#: core/templates/base.html:52
 msgid "AZ"
 msgstr ""
 
-#: core/templates/base.html:62
+#: core/templates/base.html:56
 msgid "EN"
 msgstr ""
 
-#: core/templates/base.html:66
+#: core/templates/base.html:60
 msgid "RU"
 msgstr ""
+
+#: core/templates/base.html:466
+msgid "Azərbaycanca"
+msgstr "Azebaijani"
+
+#: core/templates/base.html:472
+msgid "İngiliscə"
+msgstr "English"
+
+#: core/templates/base.html:477
+msgid "Rusca"
+msgstr "Russian"
 
 #: kollec/settings.py:137
 msgid "English"
@@ -47,10 +141,58 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: staff/templates/library.html:65
-msgid "Search"
+#: staff/apps.py:8
+msgid "Staff"
 msgstr ""
 
-#: staff/templates/library.html:76
+#: staff/models.py:10
+msgid "Full Name"
+msgstr "Full Name"
+
+#: staff/models.py:14
+msgid "Photo"
+msgstr "Photo"
+
+#: staff/models.py:16
+msgid "Subject"
+msgstr "Subject"
+
+#: staff/models.py:22
+msgid "Müəllim"
+msgstr "Teacher"
+
+#: staff/models.py:23
+msgid "Müəllimlər"
+msgstr "Teachers"
+
+#: staff/models.py:33
+msgid "Fənn"
+msgstr "Subject"
+
+#: staff/models.py:34
+msgid "Fənnlər"
+msgstr "Subjects"
+
+#: staff/models.py:42
+msgid "File"
+msgstr "File"
+
+#: staff/models.py:48
+msgid "PDF"
+msgstr "PDF"
+
+#: staff/models.py:49
+msgid "PDFs"
+msgstr "PDFs"
+
+#: staff/templates/library.html:79
+msgid "Search"
+msgstr "Search"
+
+#: staff/templates/library.html:90
 msgid "Daha çox"
 msgstr "Load more"
+
+#: staff/templates/teachers.html:70
+msgid "Müəllimin adı və fənn üzrə axtarış"
+msgstr "Search by teacher name and subject"
