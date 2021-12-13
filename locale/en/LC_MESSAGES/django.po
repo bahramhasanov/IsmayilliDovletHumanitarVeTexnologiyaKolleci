@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 19:46+0400\n"
+"POT-Creation-Date: 2021-12-13 18:54+0000\n"
 "PO-Revision-Date: 2021-12-12 15:47+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,20 +19,110 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.9.4\n"
 
-#: core/templates/base.html:55
+#: core/templates/base.html:49 core/templates/base.html:407
 msgid "Lang"
 msgstr ""
 
-#: core/templates/base.html:58
+#: core/templates/base.html:51
 msgid "AZ"
 msgstr ""
 
-#: core/templates/base.html:62
+#: core/templates/base.html:55
 msgid "EN"
 msgstr ""
 
-#: core/templates/base.html:66
+#: core/templates/base.html:59
 msgid "RU"
+msgstr ""
+
+#: core/templates/base.html:81
+#, fuzzy
+#| msgid "Haqqında"
+msgid "Haqqımızda"
+msgstr "About"
+
+#: core/templates/base.html:84
+msgid "Yaranma tarixi"
+msgstr "Date of create"
+
+#: core/templates/base.html:86
+msgid "Haqqında"
+msgstr "About"
+
+#: core/templates/base.html:89
+msgid "Karyera dəstəyi"
+msgstr "Career support "
+
+#: core/templates/base.html:92
+msgid "Bizimlə əlaqə"
+msgstr "Contact Us"
+
+#: core/templates/base.html:98
+msgid "Akademik"
+msgstr "Academic"
+
+#: core/templates/base.html:102
+msgid "Direktor"
+msgstr "Director"
+
+#: core/templates/base.html:105
+msgid "Müavin"
+msgstr "Deputy"
+
+#: core/templates/base.html:107
+msgid "Müəllim"
+msgstr "Teacher"
+
+#: core/templates/base.html:109
+msgid "Şöbə"
+msgstr "Department"
+
+#: core/templates/base.html:112
+msgid "FBK"
+msgstr "Faculty"
+
+#: core/templates/base.html:115
+msgid "Təcrübə"
+msgstr "Practic"
+
+#: core/templates/base.html:121
+msgid "Qəbul"
+msgstr "Admission"
+
+#: core/templates/base.html:126
+msgid "Qəbul qaydaları"
+msgstr "Admission rules"
+
+#: core/templates/base.html:131 core/templates/base.html:134
+msgid "Xəbərlər"
+msgstr "News"
+
+#: core/templates/base.html:135
+msgid "Tədbirlər"
+msgstr "Party"
+
+#: core/templates/base.html:140
+msgid "Onlayn Kitabxana"
+msgstr "Online library"
+
+#: core/templates/base.html:143
+msgid "Ümumi məlumat"
+msgstr "General information"
+
+#: core/templates/base.html:145
+msgid "Kitabxana"
+msgstr "Library"
+
+#: core/templates/base.html:409
+msgid "Azərbaycanca"
+msgstr ""
+
+#: core/templates/base.html:413
+msgid "İngiliscə"
+msgstr ""
+
+#: core/templates/base.html:417
+msgid "Rusca"
 msgstr ""
 
 #: kollec/settings.py:137
@@ -47,10 +137,14 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: staff/templates/library.html:65
+#: staff/templates/library.html:79
 msgid "Search"
-msgstr ""
+msgstr "Axtarış"
 
-#: staff/templates/library.html:76
+#: staff/templates/library.html:90
 msgid "Daha çox"
 msgstr "Load more"
+
+#: staff/templates/teachers.html:70
+msgid "Müəllimin adı və fənn üzrə axtarış"
+msgstr "Search for teacher name and subject"

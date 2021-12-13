@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 19:46+0400\n"
+"POT-Creation-Date: 2021-12-13 18:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,20 +18,108 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: core/templates/base.html:55
+#: core/templates/base.html:49 core/templates/base.html:407
 msgid "Lang"
 msgstr ""
 
-#: core/templates/base.html:58
+#: core/templates/base.html:51
 msgid "AZ"
 msgstr ""
 
-#: core/templates/base.html:62
+#: core/templates/base.html:55
 msgid "EN"
 msgstr ""
 
-#: core/templates/base.html:66
+#: core/templates/base.html:59
 msgid "RU"
+msgstr ""
+
+#: core/templates/base.html:81
+msgid "Haqqımızda"
+msgstr ""
+
+#: core/templates/base.html:84
+msgid "Yaranma tarixi"
+msgstr ""
+
+#: core/templates/base.html:86
+msgid "Haqqında"
+msgstr ""
+
+#: core/templates/base.html:89
+msgid "Karyera dəstəyi"
+msgstr ""
+
+#: core/templates/base.html:92
+msgid "Bizimlə əlaqə"
+msgstr ""
+
+#: core/templates/base.html:98
+msgid "Akademik"
+msgstr ""
+
+#: core/templates/base.html:102
+msgid "Direktor"
+msgstr ""
+
+#: core/templates/base.html:105
+msgid "Müavin"
+msgstr ""
+
+#: core/templates/base.html:107
+msgid "Müəllim"
+msgstr ""
+
+#: core/templates/base.html:109
+msgid "Şöbə"
+msgstr ""
+
+#: core/templates/base.html:112
+msgid "FBK"
+msgstr ""
+
+#: core/templates/base.html:115
+msgid "Təcrübə"
+msgstr ""
+
+#: core/templates/base.html:121
+msgid "Qəbul"
+msgstr ""
+
+#: core/templates/base.html:126
+msgid "Qəbul qaydaları"
+msgstr ""
+
+#: core/templates/base.html:131 core/templates/base.html:134
+msgid "Xəbərlər"
+msgstr ""
+
+#: core/templates/base.html:135
+msgid "Tədbirlər"
+msgstr ""
+
+#: core/templates/base.html:140
+msgid "Onlayn Kitabxana"
+msgstr ""
+
+#: core/templates/base.html:143
+msgid "Ümumi məlumat"
+msgstr ""
+
+#: core/templates/base.html:145
+msgid "Kitabxana"
+msgstr ""
+
+#: core/templates/base.html:409
+msgid "Azərbaycanca"
+msgstr ""
+
+#: core/templates/base.html:413
+msgid "İngiliscə"
+msgstr ""
+
+#: core/templates/base.html:417
+msgid "Rusca"
 msgstr ""
 
 #: kollec/settings.py:137
@@ -46,10 +134,14 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-#: staff/templates/library.html:65
+#: staff/templates/library.html:79
 msgid "Search"
 msgstr ""
 
-#: staff/templates/library.html:76
+#: staff/templates/library.html:90
 msgid "Daha çox"
+msgstr ""
+
+#: staff/templates/teachers.html:70
+msgid "Müəllimin adı və fənn üzrə axtarış"
 msgstr ""

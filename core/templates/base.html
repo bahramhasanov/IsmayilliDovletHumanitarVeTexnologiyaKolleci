@@ -13,9 +13,7 @@
     <!-- all css here -->
     <script src="https://kit.fontawesome.com/a94e9ac94f.js" crossorigin="anonymous"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    {% block css %} {% endblock css %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> {% block css %} {% endblock css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title %}{% endblock %}</title>
     <!-- 
@@ -36,34 +34,30 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light px-5 container-fluid"
-        style="background: rgba(255, 255, 255, 0.6);">
+    <nav class="navbar navbar-expand-lg navbar-light px-5 container-fluid" style="background: rgba(255, 255, 255, 0.6);">
         <a class="navbar-brand" style="color: #0444E2; text-transform: uppercase;" href="{% url 'home' %}">idhtk</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px;" class="nav-link dropdown-toggle"
-                        href="#" id="navbarDropdownLanguage" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
+                    <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="{% static 'img/AZE.png' %}" alt=""> {{lang|upper}}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
-                        <input type="hidden" value="{% translate 'Lang' %}">
-                        {% ifnotequal lang 'az' %}
-                        <li><a class="dropdown-item" href="{% url 'set_language'%}?lang=az&next={{request.path}}"><img
-                                    src="{% static 'img/AZE.png' %}" alt="">{% translate 'AZ' %}</a></li>
-                        {% endifnotequal %}
-                        {% ifnotequal lang 'en' %}
-                        <li><a class="dropdown-item" href="{% url 'set_language'%}?lang=en&next={{request.path}}"><img
-                                    src="{% static 'img/AZE.png' %}" alt="">{% translate 'EN' %}</a></li>
-                        {% endifnotequal %}
-                        {% ifnotequal lang 'ru' %}
-                        <li><a class="dropdown-item" href="{% url 'set_language'%}?lang=ru&next={{request.path}}"><img
-                                    src="{% static 'img/AZE.png' %}" alt="">{% translate 'RU' %}</a></li>
+                        <input type="hidden" value="{% translate 'Lang' %}"> {% ifnotequal lang 'az' %}
+                        <li>
+                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=az&next={{request.path}}"><img src="{% static 'img/AZE.png' %}" alt="">{% translate 'AZ' %}</a>
+                        </li>
+                        {% endifnotequal %} {% ifnotequal lang 'en' %}
+                        <li>
+                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=en&next={{request.path}}"><img src="{% static 'img/AZE.png' %}" alt="">{% translate 'EN' %}</a>
+                        </li>
+                        {% endifnotequal %} {% ifnotequal lang 'ru' %}
+                        <li>
+                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=ru&next={{request.path}}"><img src="{% static 'img/AZE.png' %}" alt="">{% translate 'RU' %}</a>
+                        </li>
                         {% endifnotequal %}
                     </ul>
                 </li>
@@ -83,61 +77,73 @@
         <div style="justify-content: center;" class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" id="navbarDropdownAbout" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Haqqımızda
+                    <a class="nav-link dropdown" href="#" id="navbarDropdownAbout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% trans 'Haqqımızda' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
-                        <li><a class="dropdown-item" href="#">Yaranma tarixi</a></li>
-                        <li><a class="dropdown-item" href="{% url 'about' %}">About</a></li>
-                        <li><a class="dropdown-item" href="#">Missiyamiz</a></li>
-                        <li><a class="dropdown-item" href="#">Karyera dəstəyi</a></li>
-                        <li><a class="dropdown-item" href="{% url 'contact' %}">Bizimlə əlaqə</a></li>
+                        <li><a class="dropdown-item" href="{% url 'dateofcreate' %}">{% trans 'Yaranma tarixi' %}</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'about' %}">{% trans 'Haqqında' %}</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">{% trans 'Karyera dəstəyi' %}</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'contact' %}">{% trans 'Bizimlə əlaqə' %}</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" id="navbarDropdownAcademic" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Akademik
+                    <a class="nav-link dropdown" href="#" id="navbarDropdownAcademic" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {% trans 'Akademik' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownAcademic">
-                        <li><a class="dropdown-item" href="{% url 'director' %}">Direktor</a></li>
-                        <li><a class="dropdown-item" href="{% url 'deputies' %}">Müavin</a></li>
-                        <li><a class="dropdown-item" href="{% url 'teachers' %}">Müəllim</a></li>
-                        <li><a class="dropdown-item" href="{% url 'departments' %}">Şöbə</a></li>
-                        <li><a class="dropdown-item" href="{% url 'allfaculty' %}">FBK</a></li>
-                        <li><a class="dropdown-item" href="#">Təcrübə</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'director' %}">{% trans 'Direktor' %}</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'deputies' %}">{% trans 'Müavin' %}</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'teachers' %}">{% trans 'Müəllim' %}</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'departments' %}">{% trans 'Şöbə' %}</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'allfaculty' %}">{% trans 'FBK' %}</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">{% trans 'Təcrübə' %}</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" id="navbarDropdownApply" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Qəbul
+                    <a class="nav-link dropdown" href="#" id="navbarDropdownApply" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+{% trans 'Qəbul' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownApply">
                         <li><a class="dropdown-item" href="{% url 'from11admissionrules' %}">11</a></li>
                         <li><a class="dropdown-item" href="{% url 'from9admissionrules' %}">9</a></li>
-                        <li><a class="dropdown-item" href="{% url 'totaladmission' %}">Qəbul qaydaları</a></li>
+                        <li><a class="dropdown-item" href="{% url 'totaladmission' %}">{% trans 'Qəbul qaydaları' %}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" id="navbarDropdownNews" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Xəbərlər
+                    <a class="nav-link dropdown" href="#" id="navbarDropdownNews" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {% trans 'Xəbərlər' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownNews">
-                        <li><a class="dropdown-item" href="{% url 'allnews' %}">Xəbərlər</a></li>
-                        <li><a class="dropdown-item" href="#">Tədbirlər</a></li>
+                        <li><a class="dropdown-item" href="{% url 'allnews' %}">{% trans 'Xəbərlər' %}</a></li>
+                        <li><a class="dropdown-item" href="#">{% trans 'Tədbirlər' %}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown" id="navbarDropdownLibrary" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Onlayn Kitabxana
+                    <a class="nav-link dropdown" id="navbarDropdownLibrary" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {% trans 'Onlayn Kitabxana' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
-                        <li><a class="dropdown-item" href="#">Ümumi məlumat</a></li>
-                        <li><a class="dropdown-item" href="{% url 'library' %}">Kitabxana</a></li>
+                        <li><a class="dropdown-item" href="#">{% trans 'Ümumi məlumat' %}</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'library' %}">{% trans 'Kitabxana' %}</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -149,8 +155,7 @@
         <div style="justify-content: end;" class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <button type="button" style="background: #0B52FE; border-radius: 12px;"
-                        class="btn btn-primary">Kabinet</button>
+                    <button type="button" style="background: #0B52FE; border-radius: 12px;" class="btn btn-primary">Kabinet</button>
                 </li>
             </ul>
         </div>
@@ -395,36 +400,28 @@
             <div class="navbar-collapse col-lg-2 col-md-12" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px;"
-                            class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="{% static 'img/AZE.png' %}" alt=""> {{lang|upper}}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
-                            <input type="hidden" value="{% translate 'Lang' %}">
-                            {% ifnotequal lang 'az' %}
-                            <li><a class="dropdown-item"
-                                    href="{% url 'set_language'%}?lang=az&next={{request.path}}"><img
-                                        src="{% static 'img/AZE.png' %}" alt="">{% translate 'Azərbaycanca' %}</a>
+                            <input type="hidden" value="{% translate 'Lang' %}"> {% ifnotequal lang 'az' %}
+                            <li>
+                                <a class="dropdown-item" href="{% url 'set_language'%}?lang=az&next={{request.path}}"><img src="{% static 'img/AZE.png' %}" alt="">{% translate 'Azərbaycanca' %}</a>
                             </li>
-                            {% endifnotequal %}
-                            {% ifnotequal lang 'en' %}
-                            <li><a class="dropdown-item"
-                                    href="{% url 'set_language'%}?lang=en&next={{request.path}}"><img
-                                        src="{% static 'img/AZE.png' %}" alt="">{% translate 'İngiliscə' %}</a></li>
-                            {% endifnotequal %}
-                            {% ifnotequal lang 'ru' %}
-                            <li><a class="dropdown-item"
-                                    href="{% url 'set_language'%}?lang=ru&next={{request.path}}"><img
-                                        src="{% static 'img/AZE.png' %}" alt="">{% translate 'Rusca' %}</a></li>
+                            {% endifnotequal %} {% ifnotequal lang 'en' %}
+                            <li>
+                                <a class="dropdown-item" href="{% url 'set_language'%}?lang=en&next={{request.path}}"><img src="{% static 'img/AZE.png' %}" alt="">{% translate 'İngiliscə' %}</a>
+                            </li>
+                            {% endifnotequal %} {% ifnotequal lang 'ru' %}
+                            <li>
+                                <a class="dropdown-item" href="{% url 'set_language'%}?lang=ru&next={{request.path}}"><img src="{% static 'img/AZE.png' %}" alt="">{% translate 'Rusca' %}</a>
+                            </li>
                             {% endifnotequal %}
                         </ul>
                     </li>
                 </ul>
-                <p style="font-size: 13px; line-height: 20px; letter-spacing: 0.25px; color: rgba(0, 0, 0, 0.87); ">2972
-                    Westheimer Rd. Santa Ana, Illinois</p>
-                <p style="font-size: 12px;line-height: 16px;letter-spacing: 0.004em;color: rgba(0, 0, 0, 0.38);">© 2022
-                    Sapiens, Inc. All Rights Reserved</p>
+                <p style="font-size: 13px; line-height: 20px; letter-spacing: 0.25px; color: rgba(0, 0, 0, 0.87); ">2972 Westheimer Rd. Santa Ana, Illinois</p>
+                <p style="font-size: 12px;line-height: 16px;letter-spacing: 0.004em;color: rgba(0, 0, 0, 0.38);">© 2022 Sapiens, Inc. All Rights Reserved</p>
             </div>
             <div class="col-lg-2 col-md-6">
                 <p class="main-content">Haqqımızda</p>
@@ -477,12 +474,8 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="{% static 'js/script.js' %}"></script>
 
     {% block js %} {% endblock js %}

@@ -23,7 +23,7 @@ class Command(BaseCommand):
                 random_subject = Subject.objects.all(
                 )[random.randint(0, subjects - 1)]
                 Teacher.objects.create(
-                    full_name_az=Faker('tr_TR').name(), full_name_ru=Faker('ru_RU').name(),  description=Faker().text(), subject=random_subject, photo='teachers/1540580465108_rkNGJkW.jpeg')
+                    full_name_az=Faker('tr_TR').name(), full_name_ru=Faker('ru_RU').name(),  description=Faker().text(), subject=random_subject, photo='teachers/teacher2_B9SapV7.jpg')
         elif data == 'pdfs':
             subjects = Subject.objects.all().count()
             for i in range(total):
@@ -41,7 +41,7 @@ class Command(BaseCommand):
         elif data == 'faculties':
             for i in range(total):
                 Faculty.objects.create(
-                    title=Faker().name(), description=Faker().text(), image='faculty/riyaz_ZQWV2CI.png')
+                    title=Faker().name(), description=Faker().text(), image='faculty/riyaz_VihCBZ5.png')
         elif data == 'specialities':
             categories = Faculty.objects.all().count()
             for i in range(total):
