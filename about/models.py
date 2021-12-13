@@ -95,3 +95,18 @@ class About(BaseModel):
     class Meta:
         verbose_name = _("Haqqımızda")
         verbose_name_plural = _("Haqqımızda")
+
+class Event(BaseModel):
+    title = models.CharField(
+        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+    description = RichTextField(
+        verbose_name=_("Description"))
+    image = models.ImageField(upload_to='event/', default=None, verbose_name=_("Image"))
+    date = models.DateField(verbose_name=_("Date"))
+
+    def __str__(self) -> str:
+        return f"{self.title}"
+
+    class Meta:
+        verbose_name = _("Event")
+        verbose_name_plural = _("Events")
