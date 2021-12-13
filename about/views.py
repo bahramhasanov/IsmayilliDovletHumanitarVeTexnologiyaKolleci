@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, View
 
-from about.models import Category, News, Specialty, Faculty, Admissionrules
+from about.models import Category, News, Specialty, Faculty, Admissionrules, About
 # Create your views here.
 
 
@@ -37,15 +37,6 @@ class Contact(View):
            'title': 'Əlaqə',
         }
         return render(request, 'contact.html', context=context)
-
-
-class About(View):
-    
-    def get(self, request):
-        context = {
-           'title': 'Haqqımızda',
-        }
-        return render(request, 'about.html', context=context)
 
 
 class FBK(View):
@@ -138,4 +129,17 @@ class From11admissionrules(ListView):
         context = super().get_context_data(**kwargs)
         context['totaladmissionrules'] = Admissionrules.objects.all()
         context['title'] = '11-cu sinifdən qəbul qaydaları'
+        return context
+    
+    
+
+class AboutView(ListView):
+    model = About
+    template_name = 'about.html'
+    context_object_name = 'abouts'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['abouts'] = About.objects.all()
+        context['title'] = 'Haqqımızda'
         return context

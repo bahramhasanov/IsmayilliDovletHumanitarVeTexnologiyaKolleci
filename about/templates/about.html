@@ -23,16 +23,17 @@
         <iframe width="850" height="482px" style="border-radius: 20px;" src="https://www.youtube.com/embed/uPPQQrX_HBA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
     </div>
+    {% for about in abouts %}
     <div style="width: 850px; margin: 80px auto 96px auto;">
         <p style=" font-size: 33px; ">Who we are</p>
-        <p style="font-size: 20px; opacity: 0.6; ">We are building the world’s first truly global financial superapp. In 2015, Revolut launched in the UK offering money transfer and exchange. Today, our customers around the world use dozens of Revolut’s innovative products to make more than 100
-            million transactions a month.<br><br> Across our personal and business accounts, we help customers improve their financial health, give them more control, and connect people seamlessly across the world.</p>
+        <p style="font-size: 20px; opacity: 0.6; ">{{about.description|safe}}</p>
     </div>
-    <div style="width: 850px; margin: 0 auto 96px auto;">
+    {% endfor%}
+    <!-- <div style="width: 850px; margin: 0 auto 96px auto;">
         <p style=" font-size: 33px; ">Who we are</p>
         <p style="font-size: 20px; opacity: 0.6; ">We are building the world’s first truly global financial superapp. In 2015, Revolut launched in the UK offering money transfer and exchange. Today, our customers around the world use dozens of Revolut’s innovative products to make more than 100
             million transactions a month.<br><br> Across our personal and business accounts, we help customers improve their financial health, give them more control, and connect people seamlessly across the world.</p>
-    </div>
+    </div> -->
 </div>
 
 {% endblock base %} {% block js %}

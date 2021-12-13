@@ -3,9 +3,9 @@ from django.contrib import admin
 # Register your models here.
 from django.utils.html import format_html
 
-from about.models import News, Category, Specialty, Faculty, Admissionrules
+from about.models import News, Category, Specialty, Faculty, Admissionrules, About
 
-admin.site.register([News, Category, Specialty, Admissionrules])
+admin.site.register([News, Category, Specialty, Admissionrules, About])
 
 @admin.register(Faculty)
 class FacultyAdmin(admin.ModelAdmin):

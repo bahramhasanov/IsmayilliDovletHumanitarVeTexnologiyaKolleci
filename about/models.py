@@ -81,3 +81,16 @@ class Admissionrules(BaseModel):
     class Meta:
         verbose_name = "qəbul qaydaları"
         verbose_name_plural = "qəbul qaydaları"
+   
+        
+class About(BaseModel):
+    description = RichTextField(
+        verbose_name="Description", blank=True, null=True)
+    image = models.ImageField(upload_to='about/', default=None)
+    
+    def __str__(self) -> str:
+        return 'Haqqımızda'
+    
+    class Meta:
+        verbose_name = "Haqqımızda"
+        verbose_name_plural = "Haqqımızda"
