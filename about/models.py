@@ -66,3 +66,18 @@ class Specialty(BaseModel):
     class Meta:
         verbose_name = "Ixtisas"
         verbose_name_plural = "Ixtisaslar"
+
+class Admissionrules(BaseModel):
+    total_rules = RichTextField(
+        verbose_name="Description", blank=True, null=True)
+    from_9_rules = RichTextField(
+        verbose_name="Description", blank=True, null=True)
+    from_11_rules = RichTextField(
+        verbose_name="Description", blank=True, null=True)
+    
+    def __str__(self) -> str:
+        return 'qəbul'
+
+    class Meta:
+        verbose_name = "qəbul qaydaları"
+        verbose_name_plural = "qəbul qaydaları"
