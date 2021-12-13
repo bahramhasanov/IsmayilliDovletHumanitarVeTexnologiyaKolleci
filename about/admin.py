@@ -68,7 +68,7 @@ class AdmissionrulesAdmin(admin.ModelAdmin):
     fields = (
         'total_rules',
         'from_9_rules',
-        'from_11_rule',
+        'from_11_rules',
         )
     def has_add_permission(self, request):
         return False
