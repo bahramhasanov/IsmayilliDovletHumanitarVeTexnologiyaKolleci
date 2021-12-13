@@ -51,6 +51,16 @@
     .dropdown-item {
         white-space: pre-wrap;
     }
+
+    #more-button {
+        padding: 12px 24px;
+        background: rgba(11, 82, 254, 0.08);
+        border-radius: 12px;
+    }
+
+    #more-button:hover {
+        color: #000;
+    }
 </style>
 {% endblock css %}
 
@@ -58,11 +68,15 @@
 
 
 <div class="container text-center" style="margin-top: 57px;">
-    <h2>Onlayn Kitabxana</h2>
-    <p>We’re happy to answer any questions you may have, just send us a message via our in-app chat</p>
+    <h1
+        style="font-weight: 600; font-size: 48px; line-height: 58px; text-align: center; letter-spacing: 0.25px; color: #000000;">
+        Onlayn Kitabxana</h1>
+    <p
+        style="font-size: 20px; line-height: 28px; text-align: center; letter-spacing: 0.15px; color: rgba(0, 0, 0, 0.6);">
+        We’re happy to answer any questions you may have, just send us a message via our in-app chat</p>
 
     <div id="myDropdown" class="dropdown-content">
-        <input type="text" placeholder="Search.." id="subjects" onkeyup="filterFunction()">
+        <input type="text" placeholder="{% translate 'Search' %}.." id="subjects" onkeyup="filterFunction()">
         <div id="subjectDropdown">
         </div>
     </div>
@@ -71,7 +85,9 @@
 
         </div>
     </div>
-    <button id="more-button" type="button" class="btn btn-outline-primary my-5">Daha çox</button>
+    <div id="spinner" class="spinner-border d-none"></div>
+    <br>
+    <button id="more-button" type="button" class="btn btn-outline-primary my-5">{% translate 'Daha çox' %}</button>
 </div>
 {% endblock base %}
 
