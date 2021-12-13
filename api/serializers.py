@@ -3,7 +3,6 @@ from staff.models import PDF, Subject, Teacher
 from about.models import Category, News
 from staff.models import Subject, Teacher
 from about.models import Category, News, Specialty, Faculty
-from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
 class CategorySerializer(serializers.ModelSerializer):

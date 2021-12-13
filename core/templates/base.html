@@ -27,12 +27,6 @@
         }
     </style> -->
 
-    <style>
-        .nav-link {
-            color: black !important;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -369,15 +363,15 @@
         <div class="row">
             <div class="col-md-12">
                 <div
-                    style="color: white; opacity: 0.5; margin-top: 14px; font-size: 12px;display: flex; justify-content: space-between; ">
-                    <div>
-                        <p>© 2022 Taleh.Vusal.Khazar, Inc. All Rights Reserved</p>
-                    </div>
-                    <div>
-                        <p>
-                            AZ
-                            </a>
-                        </p>
+                style="color: white; opacity: 0.5; margin-top: 14px; font-size: 12px;display: flex; justify-content: space-between; ">
+                <div>
+                    <p>© 2022 Taleh.Vusal.Khazar, Inc. All Rights Reserved</p>
+                </div>
+                <div>
+                    <p>
+                        AZ
+                    </a>
+                </p>
                     </div>
                      <p><a class="btn dropdown-toggle" href="#" >
 				AZ
@@ -385,20 +379,84 @@
                 </div>
 
             </div>
-
+            
         </div>
     </div> -->
-    <footer style="background-color: #F7F9FF;">
+    <!-- Section: Form -->
+    <!-- footer section end -->
+    <footer style="background-color: #F7F9FF; padding-top: 2%; position: relative; margin-top: 4%;">
+        <form action="" id="footer-form" class="container" style="bottom: 80%;">
+            <!--Grid row-->
+            <div class="row d-flex justify-content-center"
+                style="background: #FFFFFF; border: 1px solid #E6E6E6; box-sizing: border-box; border-radius: 24px; padding-top: 29px;">
+                <!--Grid column-->
+                <div class="col-auto">
+                    <p class="pt-2" style="font-size: 24px; line-height: 32px; color: rgba(0, 0, 0, 0.87); ">
+                        <strong>Let’s stay in touch!</strong>
+                    </p>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-5 col-12">
+                    <!-- Email input -->
+                    <div class="form-outline form-white mb-4">
+                        <input type="email" id="form5Example21"
+                            style="width: 80%; padding: 16px 16px 16px 40px; background: rgba(0, 0, 0, 0.04); border-radius: 32px; border: none;"
+                            placeholder="Enter email" />
+                        <button type="submit" class="btn btn-primary"
+                            style="background: #0B52FE; border-radius: 32px; padding: 16px 20px;">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <!-- Submit button -->
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-auto">
+                    <!-- Twitter -->
+                    <a class="btn btn-outline-dark btn-floating m-1" href="#!"
+                        style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);"
+                        role="button"><i class="fab fa-twitter"></i></a>
+                    <!-- Instagram -->
+                    <a class="btn btn-outline-dark btn-floating m-1" href="#!"
+                        style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);"
+                        role="button"><i class="fab fa-instagram"></i></a>
+                    <!-- Facebook -->
+                    <a class="btn btn-outline-dark btn-floating m-1" href="#!"
+                        style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);"
+                        role="button"><i class="fab fa-facebook"></i></a>
+                    <!-- Google -->
+                    <!-- <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-google"></i></a> -->
+                    <!-- Linkedin -->
+                    <!-- <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-linkedin-in"></i></a> -->
+                    <!-- Github -->
+                    <!-- <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-github"></i></a> -->
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </form>
 
         <div class="row container-fluid p-5">
 
             <div class="navbar-collapse col-lg-2 col-md-12" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px;"
+                        <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px; width: 60%; color: rgba(0, 0, 0, 0.6);"
                             class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <img src="{% static 'img/AZE.png' %}" alt=""> {{lang|upper}}
+                            <img src="{% static 'img/AZE.png' %}" alt="">
+                            {% ifequal lang 'az' %}
+                            Azərbaycanca
+                            {% endifequal %}
+                            {% ifequal lang 'en' %}
+                            English
+                            {% endifequal %}
+                            {% ifequal lang 'ru' %}
+                            Русский
+                            {% endifequal %}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
                             <input type="hidden" value="{% translate 'Lang' %}">
@@ -464,13 +522,15 @@
                 <ul>
                     <li>Description</li>
                     <li>Description</li>
+                    <a onclick="topFunction()" style="position: absolute; bottom: 5%; right: 20%;" id="scrollTopicon"><i
+                            class="fas fa-arrow-circle-up text-primary" style="padding: 8px; background: rgba(11, 82, 254, 0.1);
+                        border-radius: 12px;"></i></a>
                 </ul>
             </div>
 
         </div>
 
     </footer>
-    <!-- footer section end -->
 
 
     <!--js script-->

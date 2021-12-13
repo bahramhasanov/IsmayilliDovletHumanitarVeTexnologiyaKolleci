@@ -45,4 +45,4 @@ class PDF(BaseModel):
 
     class Meta:
         verbose_name = "PDF"
-        verbose_name_plural = "PDF"
+        verbose_name_plural = "PDFs"
