@@ -1,10 +1,10 @@
 
-from django.contrib.auth import get_user_model
-from django.db.models import fields
-from rest_framework import serializers
-from about.models import Category, News, Specialty, Faculty
+from staff.models import PDF, Subject, Teacher
+from about.models import Category, News
 from staff.models import Subject, Teacher
-
+from about.models import Category, News, Specialty, Faculty
+from django.contrib.auth import get_user_model
+from rest_framework import serializers
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,15 +37,26 @@ class TeacherSerializer(serializers.ModelSerializer):
         model = Teacher
         fields = '__all__'
 
-# *************
 
 class FacultySerializer(serializers.ModelSerializer):
     class Meta:
         model = Faculty
-        fields =  '__all__'
+        fields = '__all__'
 
-        
+
 class SpecialtySerializer(serializers.ModelSerializer):
     class Meta:
         model = Specialty
         fields = '__all__'
+
+
+class PDFserializer(serializers.ModelSerializer):
+    category = SubjectSerializer()
+    size = serializers.SerializerMethodField()
+
+    class Meta:
+        model = PDF
+        fields = '__all__'
+
+    def get_size(self, obj):
+        return obj.file.size

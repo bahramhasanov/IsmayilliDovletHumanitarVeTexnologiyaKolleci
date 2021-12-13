@@ -1,9 +1,10 @@
+from django.http import FileResponse, Http404
 from django.views.generic import ListView
 from django.shortcuts import render
 from django.views.generic import ListView, View
 
 
-from staff.models import Teacher
+from staff.models import PDF, Teacher
 
 
 class Deputies(View):
@@ -39,3 +40,29 @@ class Departments(View):
             'title': 'Şöbələr',
         }
         return render(request, 'departments.html', context=context)
+
+
+class LibraryListView(ListView):
+    model = PDF
+    template_name = 'library.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Onlayn Kitabxana'
+        return context
+
+
+class LibraryDetailView(View):
+    def get(self, request, pk, status):
+        try:
+            pdf = PDF.objects.get(pk=pk)
+        except PDF.DoesNotExist:
+            raise Http404("File does not exist")
+        response = FileResponse(open(pdf.file.path, 'rb'))
+        if status == 'download':
+            response['Content-Disposition'] = 'attachment; filename="{}"'.format(
+                pdf.file.name)
+        else:
+            response['Content-Disposition'] = 'inline; filename="{}"'.format(
+                pdf.file.name)
+        return response

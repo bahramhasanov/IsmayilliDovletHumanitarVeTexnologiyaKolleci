@@ -3,9 +3,9 @@ from django.contrib import admin
 # Register your models here.
 from django.utils.html import format_html
 
-from about.models import News, Category, Specialty, Faculty
+from about.models import News, Category, Specialty, Faculty, Admissionrules, About
 
-admin.site.register([News, Category, Specialty])
+admin.site.register([News, Category, Specialty, Admissionrules, About])
 
 @admin.register(Faculty)
 class FacultyAdmin(admin.ModelAdmin):
@@ -22,10 +22,10 @@ class FacultyAdmin(admin.ModelAdmin):
         'get_facultyofspecialty'
         )
 
-    def get_readonly_fields(self, request, obj=None):
-        if obj:                      
-            return self.readonly_fields + ('title',)
-        return self.readonly_fields
+    # def get_readonly_fields(self, request, obj=None):
+    #     if obj:                      
+    #         return self.readonly_fields + ('title',)
+    #     return self.readonly_fields
     
     
     def get_facultyofspecialty(self, obj):
