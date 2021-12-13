@@ -47,7 +47,7 @@ class FacultyAdmin(admin.ModelAdmin):
                     </tr>
             '''
         return format_html(html + "</tbody></table>")
-    get_facultyofspecialty.short_description = 'FBK-da olan ixtisaslar'
+    get_facultyofspecialty.short_description = 'FBK-da olan ixtisas'
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
