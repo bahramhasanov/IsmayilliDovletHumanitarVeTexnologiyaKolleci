@@ -101,6 +101,8 @@ class Event(BaseModel):
         max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
     description = RichTextField(
         verbose_name=_("Description"))
+    category = models.ForeignKey(
+        'about.Category', on_delete=models.CASCADE, related_name="event_category", default=None, verbose_name=_("Category"))
     image = models.ImageField(upload_to='event/', default=None, verbose_name=_("Image"))
     date = models.DateField(verbose_name=_("Date"))
 
