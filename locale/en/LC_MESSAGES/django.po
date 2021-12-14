@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-14 01:11+0400\n"
-"PO-Revision-Date: 2021-12-13 21:12+0000\n"
+"POT-Creation-Date: 2021-12-14 17:31+0400\n"
+"PO-Revision-Date: 2021-12-14 13:32+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,71 +19,90 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.9.4\n"
 
-#: about/apps.py:8
+#: about/apps.py:8 core/templates/base.html:86
 msgid "About"
 msgstr ""
 
-#: about/models.py:10 about/models.py:28 about/models.py:40 about/models.py:56
-#: staff/models.py:27 staff/models.py:39
+#: about/models.py:10 about/models.py:29 about/models.py:41 about/models.py:58
+#: about/models.py:106 staff/models.py:27 staff/models.py:39
 msgid "Title"
 msgstr ""
 
-#: about/models.py:13 about/models.py:42 about/models.py:58 about/models.py:73
-#: about/models.py:75 about/models.py:77 about/models.py:89 staff/models.py:12
+#: about/models.py:13 about/models.py:43 about/models.py:60 about/models.py:76
+#: about/models.py:78 about/models.py:80 about/models.py:92
+#: about/models.py:108 staff/models.py:12
 msgid "Description"
 msgstr "Description"
 
-#: about/models.py:15 staff/models.py:41
+#: about/models.py:15 about/models.py:110 staff/models.py:41
 msgid "Category"
 msgstr ""
 
-#: about/models.py:16 about/models.py:43 about/models.py:59 about/models.py:90
+#: about/models.py:17 about/models.py:45 about/models.py:62 about/models.py:94
+#: about/models.py:112
 msgid "Image"
 msgstr ""
 
-#: about/models.py:22
+#: about/models.py:23
 msgid "Xəbər"
 msgstr "News"
 
-#: about/models.py:23
+#: about/models.py:24 core/templates/base.html:120
 msgid "Xəbərlər"
 msgstr "News"
 
-#: about/models.py:34
+#: about/models.py:35
 msgid "Kateqoriya"
 msgstr "Category"
 
-#: about/models.py:35
+#: about/models.py:36
 msgid "Kateqoriyalar"
 msgstr "Categories"
 
-#: about/models.py:50
+#: about/models.py:52
 msgid "FBK"
 msgstr ""
 
-#: about/models.py:51
+#: about/models.py:53
 msgid "FBKlar"
 msgstr "FBKs"
 
-#: about/models.py:61
+#: about/models.py:64
 msgid "Faculty"
 msgstr "Faculty"
 
-#: about/models.py:67
+#: about/models.py:70
 msgid "Ixtisas"
 msgstr "Specialty"
 
-#: about/models.py:68
+#: about/models.py:71
 msgid "Ixtisaslar"
 msgstr "Specialties"
 
-#: about/models.py:83 about/models.py:84
+#: about/models.py:86 about/models.py:87
 msgid "qəbul qaydaları"
 msgstr "Admission rules"
 
-#: about/models.py:96 about/models.py:97
+#: about/models.py:100 about/models.py:101 core/templates/base.html:82
 msgid "Haqqımızda"
 msgstr "About"
+
+#: about/models.py:113
+msgid "Date"
+msgstr ""
+
+#: about/models.py:119
+msgid "Event"
+msgstr ""
+
+#: about/models.py:120
+msgid "Events"
+msgstr ""
+
+#: about/templates/events.html:43
+#| msgid "Xəbərlər"
+msgid "Tədbirlər"
+msgstr "Events"
 
 #: core/apps.py:8
 msgid "Core"
@@ -101,7 +120,7 @@ msgstr "Answer"
 msgid "Suallar"
 msgstr "Questions"
 
-#: core/templates/base.html:49 core/templates/base.html:462
+#: core/templates/base.html:49 core/templates/base.html:226
 msgid "Lang"
 msgstr ""
 
@@ -117,15 +136,55 @@ msgstr ""
 msgid "RU"
 msgstr ""
 
-#: core/templates/base.html:466
+#: core/templates/base.html:85
+msgid "Yaranma tarixi"
+msgstr "History"
+
+#: core/templates/base.html:87
+msgid "Missiyamiz"
+msgstr "Mission"
+
+#: core/templates/base.html:88
+msgid "Karyera dəstəyi"
+msgstr "Career support"
+
+#: core/templates/base.html:89
+msgid "Bizimlə əlaqə"
+msgstr "Contact us"
+
+#: core/templates/base.html:95
+msgid "Akademik"
+msgstr "About"
+
+#: core/templates/base.html:109
+msgid "Qəbul"
+msgstr "Admission"
+
+#: core/templates/base.html:130
+msgid "Onlayn Kitabxana"
+msgstr "Online Library"
+
+#: core/templates/base.html:147
+msgid "Kabinet"
+msgstr "Cabinet"
+
+#: core/templates/base.html:165
+msgid "Let’s stay in touch!"
+msgstr ""
+
+#: core/templates/base.html:174
+msgid "Enter email"
+msgstr ""
+
+#: core/templates/base.html:230
 msgid "Azərbaycanca"
 msgstr "Azebaijani"
 
-#: core/templates/base.html:472
+#: core/templates/base.html:236
 msgid "İngiliscə"
 msgstr "English"
 
-#: core/templates/base.html:477
+#: core/templates/base.html:241
 msgid "Rusca"
 msgstr "Russian"
 

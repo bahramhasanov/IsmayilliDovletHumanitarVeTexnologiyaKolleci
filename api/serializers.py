@@ -1,9 +1,10 @@
 
 from staff.models import PDF, Subject, Teacher
-from about.models import Category, News
+from about.models import Category, Event, News
 from staff.models import Subject, Teacher
 from about.models import Category, News, Specialty, Faculty
 from rest_framework import serializers
+
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -59,3 +60,15 @@ class PDFserializer(serializers.ModelSerializer):
 
     def get_size(self, obj):
         return obj.file.size
+
+
+class EventSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
+    date = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Event
+        fields = '__all__'
+
+    def get_date(self, obj):
+        return obj.date.strftime('%B %d, %Y')

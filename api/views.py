@@ -1,7 +1,8 @@
+from datetime import datetime
 from django.utils.translation import get_language
 from staff.models import PDF, Subject, Teacher
-from api.serializers import NewsSerializer, PDFserializer, SubjectSerializer, TeacherSerializer
-from about.models import Category, News
+from api.serializers import EventSerializer, NewsSerializer, PDFserializer, SubjectSerializer, TeacherSerializer
+from about.models import Category, Event, News
 from staff.models import Teacher
 from api.serializers import NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer
 from about.models import Category, News, Faculty, Specialty
@@ -139,4 +140,24 @@ class SubjectAPIView(APIView):
         else:
             subjects = Subject.objects.all()
         serializer = SubjectSerializer(subjects, many=True)
+        return Response(serializer.data)
+
+
+class FutureEventAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request):
+        events = Event.objects.filter(date__gte=datetime.now())
+        serializer = EventSerializer(events[2:], many=True)
+        return Response(serializer.data)
+
+
+class RecentEventAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request):
+        start = int(request.GET.get('start'))
+        end = int(request.GET.get('end'))
+        events = Event.objects.filter(date__lte=datetime.now())
+        serializer = EventSerializer(events[start:end], many=True)
         return Response(serializer.data)

@@ -30,8 +30,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light px-5 container-fluid"
-        style="background: rgba(255, 255, 255, 0.6);">
+    <nav class="navbar navbar-expand-lg navbar-light px-5 container-fluid position-fixed"
+        style="background: rgba(255, 255, 255, 0.6); z-index: 100; top: 0;">
         <a class="navbar-brand" style="color: #0444E2; text-transform: uppercase;" href="{% url 'home' %}">idhtk</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,20 +79,20 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" id="navbarDropdownAbout" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Haqqımızda
+                        {% translate 'Haqqımızda' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
-                        <li><a class="dropdown-item" href="#">Yaranma tarixi</a></li>
-                        <li><a class="dropdown-item" href="{% url 'about' %}">About</a></li>
-                        <li><a class="dropdown-item" href="#">Missiyamiz</a></li>
-                        <li><a class="dropdown-item" href="#">Karyera dəstəyi</a></li>
-                        <li><a class="dropdown-item" href="{% url 'contact' %}">Bizimlə əlaqə</a></li>
+                        <li><a class="dropdown-item" href="#">{% translate 'Yaranma tarixi' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'about' %}">{% translate 'About' %}</a></li>
+                        <li><a class="dropdown-item" href="#">{% translate 'Missiyamiz' %}</a></li>
+                        <li><a class="dropdown-item" href="#">{% translate 'Karyera dəstəyi' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'contact' %}">{% translate 'Bizimlə əlaqə' %}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" id="navbarDropdownAcademic" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Akademik
+                        {% translate 'Akademik' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownAcademic">
                         <li><a class="dropdown-item" href="{% url 'director' %}">Direktor</a></li>
@@ -106,7 +106,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" id="navbarDropdownApply" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Qəbul
+                        {% translate 'Qəbul' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownApply">
                         <li><a class="dropdown-item" href="{% url 'from11admissionrules' %}">11</a></li>
@@ -117,7 +117,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" id="navbarDropdownNews" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Xəbərlər
+                        {% translate 'Xəbərlər' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownNews">
                         <li><a class="dropdown-item" href="{% url 'allnews' %}">Xəbərlər</a></li>
@@ -127,7 +127,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown" id="navbarDropdownLibrary" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Onlayn Kitabxana
+                        {% translate 'Onlayn Kitabxana' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
                         <li><a class="dropdown-item" href="#">Ümumi məlumat</a></li>
@@ -144,7 +144,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <button type="button" style="background: #0B52FE; border-radius: 12px;"
-                        class="btn btn-primary">Kabinet</button>
+                        class="btn btn-primary">{% translate 'Kabinet' %}</button>
                 </li>
             </ul>
         </div>
@@ -162,7 +162,7 @@
                 style="background: #FFFFFF; border: 1px solid #E6E6E6; box-sizing: border-box; border-radius: 24px; padding-top: 29px;">
                 <div class="col-auto">
                     <p class="pt-2" style="font-size: 24px; line-height: 32px; color: rgba(0, 0, 0, 0.87); ">
-                        <strong>Let’s stay in touch!</strong>
+                        <strong>{% translate 'Let’s stay in touch!' %}</strong>
                     </p>
                 </div>
 
@@ -171,7 +171,7 @@
                     <div class="form-outline form-white mb-4">
                         <input type="email" id="form5Example21"
                             style="width: 80%; padding: 16px 16px 16px 40px; background: rgba(0, 0, 0, 0.04); border-radius: 32px; border: none;"
-                            placeholder="Enter email" />
+                            placeholder="{% translate 'Enter email' %}" />
                         <button type="submit" class="btn btn-primary"
                             style="background: #0B52FE; border-radius: 32px; padding: 16px 20px;">
                             <i class="fas fa-arrow-right"></i>

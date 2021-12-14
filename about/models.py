@@ -13,7 +13,8 @@ class News(BaseModel):
         verbose_name=_("Description"), blank=True, null=True)
     category = models.ForeignKey(
         'about.Category', on_delete=models.CASCADE, related_name="news_category", default=None, verbose_name=_("Category"))
-    image = models.ImageField(upload_to='news/', default=None, verbose_name=_("Image"))
+    image = models.ImageField(
+        upload_to='news/', default=None, verbose_name=_("Image"))
 
     def __str__(self) -> str:
         return f"{self.title}"
@@ -40,7 +41,8 @@ class Faculty(BaseModel):
         max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
-    image = models.ImageField(upload_to='faculty/', default=None, verbose_name=_("Image"))
+    image = models.ImageField(upload_to='faculty/',
+                              default=None, verbose_name=_("Image"))
     # FBK = models.OneToOneField(Teacher, on_delete=models.CASCADE, related_name='faculty_teacher', default=1, null=True, blank=True)
 
     def __str__(self) -> str:
@@ -56,7 +58,8 @@ class Specialty(BaseModel):
         max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
-    image_icon = models.ImageField(upload_to='specialty/', default=None, verbose_name=_("Image"))
+    image_icon = models.ImageField(
+        upload_to='specialty/', default=None, verbose_name=_("Image"))
     faculty = models.ForeignKey(
         Faculty, on_delete=models.CASCADE, related_name="specialty_faculty", default=None, verbose_name=_("Faculty"))
 
@@ -87,7 +90,8 @@ class Admissionrules(BaseModel):
 class About(BaseModel):
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
-    image = models.ImageField(upload_to='about/', default=None, verbose_name=_("Image"))
+    image = models.ImageField(
+        upload_to='about/', default=None, verbose_name=_("Image"))
 
     def __str__(self) -> str:
         return 'Haqqımızda'
@@ -96,6 +100,7 @@ class About(BaseModel):
         verbose_name = _("Haqqımızda")
         verbose_name_plural = _("Haqqımızda")
 
+
 class Event(BaseModel):
     title = models.CharField(
         max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
@@ -103,7 +108,8 @@ class Event(BaseModel):
         verbose_name=_("Description"))
     category = models.ForeignKey(
         'about.Category', on_delete=models.CASCADE, related_name="event_category", default=None, verbose_name=_("Category"))
-    image = models.ImageField(upload_to='event/', default=None, verbose_name=_("Image"))
+    image = models.ImageField(
+        upload_to='event/', default=None, verbose_name=_("Image"))
     date = models.DateField(verbose_name=_("Date"))
 
     def __str__(self) -> str:
