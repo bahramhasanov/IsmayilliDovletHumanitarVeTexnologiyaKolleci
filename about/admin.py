@@ -1,3 +1,4 @@
+from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
 
 # Register your models here.
@@ -29,12 +30,13 @@ class FacultyAdmin(admin.ModelAdmin):
     #     return self.readonly_fields
 
     def get_facultyofspecialty(self, obj):
-        html = """
+        name = _("Adları")
+        html = f"""
         <table class="table">
                 <thead class="thead-dark">
                     <tr>
                     
-                    <th scope="col">adları</th>
+                    <th scope="col">{name}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,4 +48,4 @@ class FacultyAdmin(admin.ModelAdmin):
                     </tr>
             '''
         return format_html(html + "</tbody></table>")
-    get_facultyofspecialty.short_description = 'FBK-da olan ixtisaslar'
+    get_facultyofspecialty.short_description = _('FBK-da olan ixtisaslar')

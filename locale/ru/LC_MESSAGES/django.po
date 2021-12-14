@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-14 17:31+0400\n"
+"POT-Creation-Date: 2021-12-14 20:34+0400\n"
 "PO-Revision-Date: 2021-12-12 15:47+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,14 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.4\n"
+
+#: about/admin.py:33
+msgid "Adları"
+msgstr ""
+
+#: about/admin.py:51
+msgid "FBK-da olan ixtisaslar"
+msgstr ""
 
 #: about/apps.py:8 core/templates/base.html:86
 msgid "About"

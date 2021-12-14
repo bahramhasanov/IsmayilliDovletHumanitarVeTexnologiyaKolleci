@@ -28,4 +28,5 @@ urlpatterns = [
          views.SpecialityDetailAPIView.as_view(), name='speciality_detail'),
     path('pdfapi/', views.PDFAPIView.as_view(), name='pdfapi'),
     path('subjectapi/', views.SubjectAPIView.as_view(), name='subjectapi'),
+    path('subscriberapi/', views.SubscriberAPIView.as_view(), name='subscriberapi'),
 ]

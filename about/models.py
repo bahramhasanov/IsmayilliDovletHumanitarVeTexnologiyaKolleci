@@ -118,3 +118,14 @@ class Event(BaseModel):
     class Meta:
         verbose_name = _("Event")
         verbose_name_plural = _("Events")
+
+
+class Subscriber(BaseModel):
+    email = models.EmailField(verbose_name=_("Email"))
+
+    def __str__(self) -> str:
+        return f"{self.email}"
+
+    class Meta:
+        verbose_name = _("Abunəçi")
+        verbose_name_plural = _("Abunəçilər")

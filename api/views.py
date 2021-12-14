@@ -1,7 +1,7 @@
 from datetime import datetime
 from django.utils.translation import get_language
 from staff.models import PDF, Subject, Teacher
-from api.serializers import EventSerializer, NewsSerializer, PDFserializer, SubjectSerializer, TeacherSerializer
+from api.serializers import EventSerializer, NewsSerializer, PDFserializer, SubjectSerializer, SubscriberSerializer, TeacherSerializer
 from about.models import Category, Event, News
 from staff.models import Teacher
 from api.serializers import NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer
@@ -9,7 +9,7 @@ from about.models import Category, News, Faculty, Specialty
 from django.db.models import Q
 
 from rest_framework.response import Response
-from rest_framework import permissions
+from rest_framework import permissions, status
 from rest_framework.views import APIView
 
 
@@ -161,3 +161,14 @@ class RecentEventAPIView(APIView):
         events = Event.objects.filter(date__lte=datetime.now())
         serializer = EventSerializer(events[start:end], many=True)
         return Response(serializer.data)
+
+
+class SubscriberAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def post(self, request):
+        serializer = SubscriberSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

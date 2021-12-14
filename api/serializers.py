@@ -1,6 +1,6 @@
 
 from staff.models import PDF, Subject, Teacher
-from about.models import Category, Event, News
+from about.models import Category, Event, News, Subscriber
 from staff.models import Subject, Teacher
 from about.models import Category, News, Specialty, Faculty
 from rest_framework import serializers
@@ -72,3 +72,9 @@ class EventSerializer(serializers.ModelSerializer):
 
     def get_date(self, obj):
         return obj.date.strftime('%B %d, %Y')
+
+
+class SubscriberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscriber
+        fields = '__all__'
