@@ -145,7 +145,7 @@ class SubjectAPIView(APIView):
 
 class SubscriberAPIView(APIView):
     permission_classes = (permissions.AllowAny,)
-    # serializer_class = SubscribSerializer
+    serializer_class = SubscribSerializer
 
     def post(self, request):
         serializer = SubscribSerializer(data=request.data)
