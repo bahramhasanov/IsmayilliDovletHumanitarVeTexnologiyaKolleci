@@ -1,14 +1,15 @@
 from django.utils.translation import get_language
 from staff.models import PDF, Subject, Teacher
-from api.serializers import NewsSerializer, PDFserializer, SubjectSerializer, TeacherSerializer
+from api.serializers import NewsSerializer, PDFserializer, SubjectSerializer, TeacherSerializer, SubscribSerializer
 from about.models import Category, News
 from staff.models import Teacher
+from core.models import Subscrib
 from api.serializers import NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer
 from about.models import Category, News, Faculty, Specialty
 from django.db.models import Q
 
 from rest_framework.response import Response
-from rest_framework import permissions
+from rest_framework import permissions, status
 from rest_framework.views import APIView
 
 
@@ -140,3 +141,15 @@ class SubjectAPIView(APIView):
             subjects = Subject.objects.all()
         serializer = SubjectSerializer(subjects, many=True)
         return Response(serializer.data)
+
+
+class SubscriberAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+    # serializer_class = SubscribSerializer
+
+    def post(self, request):
+        serializer = SubscribSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

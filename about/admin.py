@@ -2,10 +2,11 @@ from django.contrib import admin
 
 # Register your models here.
 from django.utils.html import format_html
+from django.utils.translation import check_for_language
 
-from about.models import News, Category, Specialty, Faculty, Admissionrules, About
+from about.models import News, Category, Specialty, Faculty, Admissionrules, About, Dateofcreate
 
-admin.site.register([News, Category, Specialty, Admissionrules, About])
+admin.site.register([News, Category, Specialty])
 
 @admin.register(Faculty)
 class FacultyAdmin(admin.ModelAdmin):
@@ -46,5 +47,46 @@ class FacultyAdmin(admin.ModelAdmin):
                     </tr>
             '''
         return format_html(html + "</tbody></table>")
-    get_facultyofspecialty.short_description = 'FBK-da olan ixtisaslar'
+    get_facultyofspecialty.short_description = 'FBK-da olan ixtisas'
 
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    fields = (
+        'description',
+        'image',
+        )
+    def has_add_permission(self, request):
+        return False
+    def has_delete_permission(self, request, obj=None):
+        return False
+    def has_change_permission(self, request, obj=None):
+        return True
+
+
+@admin.register(Admissionrules)
+class AdmissionrulesAdmin(admin.ModelAdmin):
+    fields = (
+        'total_rules',
+        'from_9_rules',
+        'from_11_rules',
+        )
+    def has_add_permission(self, request):
+        return False
+    def has_delete_permission(self, request, obj=None):
+        return False
+    def has_change_permission(self, request, obj=None):
+        return True
+    
+    
+@admin.register(Dateofcreate)
+class DateofcreateAdmin(admin.ModelAdmin):
+    fields = (
+        'description',
+        )
+    def has_add_permission(self, request):
+        return False
+    def has_delete_permission(self, request, obj=None):
+        return False
+    def has_change_permission(self, request, obj=None):
+        return True
+    

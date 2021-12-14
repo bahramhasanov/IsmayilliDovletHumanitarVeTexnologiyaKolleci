@@ -15,4 +15,14 @@ class Mostquestions(BaseModel):
     class Meta:
         verbose_name = 'Sual'
         verbose_name_plural = 'Suallar'
+
+
+class Subscrib(BaseModel):
+    email = models.EmailField(verbose_name="Email", unique=True)
+
+    def __str__(self) -> str:
+        return self.email
     
+    class Meta:
+        verbose_name = 'Subscriber'
+        verbose_name_plural = 'Subscribers'

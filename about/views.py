@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, View
 
-from about.models import Category, News, Specialty, Faculty, Admissionrules, About
+from about.models import Category, News, Specialty, Faculty, Admissionrules, About, Dateofcreate
 # Create your views here.
 
 
@@ -142,4 +142,16 @@ class AboutView(ListView):
         context = super().get_context_data(**kwargs)
         context['abouts'] = About.objects.all()
         context['title'] = 'Haqqımızda'
+        return context
+
+
+class DateofcreateView(ListView):
+    model = Dateofcreate
+    template_name = 'dateofcreate.html'
+    context_object_name = 'dateofcreates'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['dateofcreates'] = Dateofcreate.objects.all()
+        context['title'] = 'Yaradılma tarixi'
         return context

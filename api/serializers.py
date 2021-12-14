@@ -1,8 +1,11 @@
 
+from django.db.models import fields
 from staff.models import PDF, Subject, Teacher
 from about.models import Category, News
 from staff.models import Subject, Teacher
 from about.models import Category, News, Specialty, Faculty
+from core.models import Subscrib
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -59,3 +62,9 @@ class PDFserializer(serializers.ModelSerializer):
 
     def get_size(self, obj):
         return obj.file.size
+
+
+class SubscribSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscrib
+        fields = '__all__'

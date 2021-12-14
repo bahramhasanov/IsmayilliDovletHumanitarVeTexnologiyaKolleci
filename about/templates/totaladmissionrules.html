@@ -12,12 +12,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 {% endblock css %} {% block base %}
 
-
+<style>
+    @media screen and (min-width: 992px) {
+        .leftbtn {
+            margin-right: 2rem;
+        }
+    }
+</style>
 <div class="container" style="margin: 80px auto 100px auto;">
     <div class="mb-4">
         <h1 class="text-center">Ümumi qəbul qaydaları</h1>
     </div>
+
     {% for rule in totaladmissionrules %}
+<<<<<<< HEAD
     <div>
         <div>{{rule.total_rules|safe}}</div>
         <div class="text-center">
@@ -31,8 +39,14 @@
                     sinifdən qəbul qaydaları haqqında</a></button>
         </div>
     </div>
+=======
+    <div>{{rule.total_rules|safe}}</div>
+>>>>>>> 11f03f897f8f2824788710614ceff72ce978188b
     {% endfor%}
-
+    <div class="text-center">
+        <button class="border-0 mt-5 btnn leftbtn" style="border-radius: 15px;background-color: #F2F8FF; padding-left: 9px; padding-right: 9px; padding-top: 5px; padding-bottom: 5px;"><a style="text-decoration: none;color: #0B52FE; " href="{% url 'from9admissionrules' %}">Doqquzuncu sinifdən qəbul qaydaları haqqında</a></button>
+        <button class="border-0 mt-5 btnn" style="border-radius: 15px;background-color: #F2F8FF; padding-left: 9px; padding-right: 9px; padding-top: 5px; padding-bottom: 5px;"><a style="text-decoration: none;color: #0B52FE; " href="{% url 'from11admissionrules' %}">On birinci sinifdən qəbul qaydaları haqqında</a></button>
+    </div>
 </div>
 
 {% endblock base %} {% block js %}

@@ -44,7 +44,7 @@ class Faculty(BaseModel):
     # FBK = models.OneToOneField(Teacher, on_delete=models.CASCADE, related_name='faculty_teacher', default=1, null=True, blank=True)
     
     def __str__(self) -> str:
-        return f"{self.title}"
+        return 'f"{self.title}"'
 
     class Meta:
         verbose_name = "FBK"
@@ -69,11 +69,11 @@ class Specialty(BaseModel):
 
 class Admissionrules(BaseModel):
     total_rules = RichTextField(
-        verbose_name="Description", blank=True, null=True)
+        verbose_name="Ümumi qəbul", blank=True, null=True)
     from_9_rules = RichTextField(
-        verbose_name="Description", blank=True, null=True)
+        verbose_name="9-dan qəbul", blank=True, null=True)
     from_11_rules = RichTextField(
-        verbose_name="Description", blank=True, null=True)
+        verbose_name="11-dən qəbul", blank=True, null=True)
     
     def __str__(self) -> str:
         return 'qəbul'
@@ -94,3 +94,15 @@ class About(BaseModel):
     class Meta:
         verbose_name = "Haqqımızda"
         verbose_name_plural = "Haqqımızda"
+    
+    
+class Dateofcreate(BaseModel):
+    description = RichTextField(
+        verbose_name="Description", blank=True, null=True)
+    
+    def __str__(self) -> str:
+        return 'Yaradilma tarixi'
+    
+    class Meta:
+        verbose_name = "Yaradilma tarixi"
+        verbose_name_plural = "Yaradilma tarixi"
