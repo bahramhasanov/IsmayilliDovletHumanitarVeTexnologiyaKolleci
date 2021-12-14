@@ -17,9 +17,9 @@ function getAllPDFs(start, end, subject) {
                 <div class="card text-center" style="background: #F9F9F9; border-radius: 20px; height: 100%; border: none;">
                 <div class="card-body">
                 <img style="width: 64px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="">
-                <a style="font-weight: 600; font-size: 20px; line-height: 28px; text-align: center; letter-spacing: 0.15px; color: #000000;" href="${data[i]['id']}/show"><p class="card-title text-dark">${data[i]['title']}</p></a>
-                <p class="card-text">${data[i]['category']['title']}</p>
-                <a href="${data[i]['id']}/download" class="btn btn-primary-outline text-primary"><i
+                <a style="font-weight: 600; font-size: 20px; line-height: 28px; text-align: center; letter-spacing: 0.15px; color: #000000;" href="${data[i]['id']}/show"><p class="card-title text-dark">${data[i]['title'].substring(0, 10)}</p></a>
+                <p class="card-text mb-5">${data[i]['size']} KB</p>
+                <a href="${data[i]['id']}/download" class="btn btn-primary-outline text-primary" style="position: absolute; left: 0; right: 0; bottom: 5%;"><i
                 class="fas fa-arrow-down"></i>  Endir</a>
                 </div>
                 </div>

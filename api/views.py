@@ -1,16 +1,13 @@
+from rest_framework.views import APIView
+from rest_framework import permissions, status
+from rest_framework.response import Response
+from django.db.models import Q
+from about.models import Category, News, Faculty, Specialty, Event, Category
+from api.serializers import NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer
+from api.serializers import EventSerializer, NewsSerializer, PDFserializer, SubjectSerializer, SubscriberSerializer, TeacherSerializer
+from datetime import datetime
 from django.utils.translation import get_language
 from staff.models import PDF, Subject, Teacher
-from api.serializers import NewsSerializer, PDFserializer, SubjectSerializer, TeacherSerializer, SubscribSerializer
-from about.models import Category, News
-from staff.models import Teacher
-from core.models import Subscrib
-from api.serializers import NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer
-from about.models import Category, News, Faculty, Specialty
-from django.db.models import Q
-
-from rest_framework.response import Response
-from rest_framework import permissions, status
-from rest_framework.views import APIView
 
 
 class NewsAPIView(APIView):
@@ -143,12 +140,31 @@ class SubjectAPIView(APIView):
         return Response(serializer.data)
 
 
+class FutureEventAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request):
+        events = Event.objects.filter(date__gte=datetime.now())
+        serializer = EventSerializer(events[2:], many=True)
+        return Response(serializer.data)
+
+
+class RecentEventAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request):
+        start = int(request.GET.get('start'))
+        end = int(request.GET.get('end'))
+        events = Event.objects.filter(date__lte=datetime.now())
+        serializer = EventSerializer(events[start:end], many=True)
+        return Response(serializer.data)
+
+
 class SubscriberAPIView(APIView):
     permission_classes = (permissions.AllowAny,)
-    # serializer_class = SubscribSerializer
 
     def post(self, request):
-        serializer = SubscribSerializer(data=request.data)
+        serializer = SubscriberSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

@@ -1,12 +1,12 @@
 
 from django.db.models import fields
 from staff.models import PDF, Subject, Teacher
-from about.models import Category, News
+from about.models import Category, Event, News, Subscriber
 from staff.models import Subject, Teacher
 from about.models import Category, News, Specialty, Faculty
-from core.models import Subscrib
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
+
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -64,7 +64,19 @@ class PDFserializer(serializers.ModelSerializer):
         return obj.file.size
 
 
-class SubscribSerializer(serializers.ModelSerializer):
+class EventSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
+    date = serializers.SerializerMethodField()
+
     class Meta:
-        model = Subscrib
+        model = Event
+        fields = '__all__'
+
+    def get_date(self, obj):
+        return obj.date.strftime('%B %d, %Y')
+
+
+class SubscriberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscriber
         fields = '__all__'

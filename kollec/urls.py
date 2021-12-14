@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.views.i18n import JavaScriptCatalog
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -30,9 +31,9 @@ urlpatterns = [
     path("", HomePage.as_view(), name="home"),
     path("api/", include("api.urls")),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('rosetta/', include('rosetta.urls'))
+    path('rosetta/', include('rosetta.urls')),
+    path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

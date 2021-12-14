@@ -2,6 +2,6 @@ from django.contrib import admin
 
 # Register your models here.
 
-from core.models import Mostquestions, Subscrib
+from core.models import Mostquestions
 
-admin.site.register([Mostquestions, Subscrib])
+admin.site.register([Mostquestions])

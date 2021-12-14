@@ -1,7 +1,9 @@
+from datetime import datetime
+from about.models import Category, Event, News, Specialty, Faculty, Admissionrules, About
+from about.models import Category, News, Specialty, Faculty, Admissionrules, About, Dateofcreate
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, View
 
-from about.models import Category, News, Specialty, Faculty, Admissionrules, About, Dateofcreate
 # Create your views here.
 
 
@@ -13,7 +15,8 @@ class SingleNews(DetailView):
         context = super().get_context_data(**kwargs)
         context['news'] = self.object
         context['title'] = self.object.title
-        context['related_news'] = News.objects.filter(category=self.object.category).exclude(id=self.object.id)[0:4]
+        context['related_news'] = News.objects.filter(
+            category=self.object.category).exclude(id=self.object.id)[0:4]
         return context
 
 
@@ -29,26 +32,22 @@ class AllNews(ListView):
         return context
 
 
-
 class Contact(View):
-    
+
     def get(self, request):
         context = {
-           'title': 'Əlaqə',
+            'title': 'Əlaqə',
         }
         return render(request, 'contact.html', context=context)
 
 
 class FBK(View):
-    
+
     def get(self, request):
         context = {
-           'title': 'FBK',
+            'title': 'FBK',
         }
         return render(request, 'FBK.html', context=context)
-    
-    
-# **********************************
 
 
 class AllFaculty(ListView):
@@ -62,6 +61,7 @@ class AllFaculty(ListView):
         context['title'] = 'fbklar'
         return context
 
+
 class SingleFaculty(DetailView):
     model = Faculty
     template_name = 'single-faculty.html'
@@ -71,7 +71,8 @@ class SingleFaculty(DetailView):
         context['faculty'] = self.object
         context['title'] = self.object.title
         return context
-    
+
+
 class AllSpeciality(ListView):
     model = Specialty
     template_name = 'specialties.html'
@@ -82,7 +83,7 @@ class AllSpeciality(ListView):
         context['specialties'] = Specialty.objects.all()
         context['title'] = 'Ixtisaslar'
         return context
-    
+
 
 class SingleSpeciality(DetailView):
     model = Specialty
@@ -94,8 +95,8 @@ class SingleSpeciality(DetailView):
         context['specialty'] = self.object
         context['title'] = self.object.title
         return context
-  
-    
+
+
 class Totaladmissionrules(ListView):
     model = Admissionrules
     template_name = 'totaladmissionrules.html'
@@ -106,8 +107,8 @@ class Totaladmissionrules(ListView):
         context['totaladmissionrules'] = Admissionrules.objects.all()
         context['title'] = 'Ümumi qəbul qaydaları'
         return context
-    
-    
+
+
 class From9admissionrules(ListView):
     model = Admissionrules
     template_name = 'from9admissionrules.html'
@@ -130,8 +131,7 @@ class From11admissionrules(ListView):
         context['totaladmissionrules'] = Admissionrules.objects.all()
         context['title'] = '11-cu sinifdən qəbul qaydaları'
         return context
-    
-    
+
 
 class AboutView(ListView):
     model = About
@@ -149,9 +149,23 @@ class DateofcreateView(ListView):
     model = Dateofcreate
     template_name = 'dateofcreate.html'
     context_object_name = 'dateofcreates'
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['dateofcreates'] = Dateofcreate.objects.all()
         context['title'] = 'Yaradılma tarixi'
+        return context
+
+
+class EventsView(ListView):
+    model = Event
+    template_name = 'events.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['future_events'] = Event.objects.filter(
+            date__gte=datetime.now())
+        context['recent_events'] = Event.objects.filter(
+            date__lte=datetime.now())
+        context['title'] = 'Tədbirlər'
         return context
