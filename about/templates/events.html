@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block title %}
+{{title}}
+{% endblock title %}
+
+{% block css %}
+<link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<style>
+    #more-button {
+        border-radius: 12px !important;
+        padding: 12px 24px !important;
+        background: rgba(11, 82, 254, 0.08) !important;
+    }
+
+    #more-button:hover {
+        color: #000;
+    }
+
+    .card {
+        border: none;
+    }
+
+    .recent-event-title:hover {
+        text-decoration: none;
+    }
+
+    .recent-event-title>h5:hover {
+        color: #0B52FE !important;
+        text-decoration: none !important;
+    }
+</style>
+{% endblock css %}
+{% block base %}
+<div class="container mt-5">
+    <h1
+        style="font-weight: 600; font-size: 48px; line-height: 58px; letter-spacing: 0.25px; color: #000000; text-align: center;">
+        {% translate 'Tədbirlər' %}</h1>
+    <p
+        style="font-size: 20px; line-height: 28px; text-align: center; letter-spacing: 0.15px; color: rgba(0, 0, 0, 0.6); margin-bottom: 40px;">
+        We’re happy to answer any questions you may have, just send us a message via our in-app chat</p>
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+            <li data-target="#multi-item-example" data-slide-to="1"></li>
+        </ol>
+        <div id="event-carousel" class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                {% for event in future_events %}
+                {% if forloop.counter == 1 or forloop.counter == 2 %}
+
+                <div class="col-md-6" style="float:left">
+                    <div class="card mb-2">
+                        <img class="card-img-top" style="border-radius: 24px; height: 312px;" src="{{event.image.url}}"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <a class="btn"
+                                style="padding: 3px 16px 5px; background: rgba(11, 82, 254, 0.12); border-radius: 100px; color: #0B52FE;">{{event.category.title}}</a>
+                            <h4 class="card-title"
+                                style="font-weight: 600; font-size: 24px; line-height: 32px; color: #000000; ">
+                                {{event.title}}</h4>
+                            <p class="card-text"
+                                style="font-weight: 600; font-size: 15px; line-height: 24px; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(0, 0, 0, 0.6); ">
+                                {{event.date|date:"d F, Y"}}</p>
+                        </div>
+                    </div>
+                    <hr style="background: rgba(0, 0, 0, 0.08); border-radius: 1px; ">
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    <h2
+        style="font-weight: 600; font-size: 33px; line-height: 40px; letter-spacing: 0.25px; color: #000000; margin-bottom: 40px;">
+        Recent
+        Events
+    </h2>
+
+    <div class="row" id="recent-events">
+
+    </div>
+    <div style="text-align: center;">
+        <div id="spinner" class="spinner-border d-none"></div>
+        <br>
+        <button id="more-button" type="button" class="btn btn-outline-primary my-5">Daha çox</button>
+    </div>
+
+</div>
+{% endblock base %}
+
+{% block js %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+<script type='text/javascript'
+    src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+<script src="{% static 'js/allevents.js' %}"></script>
+<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+
+{% endblock js %}

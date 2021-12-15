@@ -66,3 +66,9 @@ class LibraryDetailView(View):
             response['Content-Disposition'] = 'inline; filename="{}"'.format(
                 pdf.file.name)
         return response
+class Libraryinfo(View):
+     def get(self, request):
+        context = {
+            'title': 'Kitabxana haqqında ümümi məlumat',
+        }
+        return render(request, 'libraryinfo.html', context=context)

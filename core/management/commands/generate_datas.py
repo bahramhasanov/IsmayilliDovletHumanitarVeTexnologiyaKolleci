@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from about.models import Category, Faculty, News, Specialty
+from about.models import Category, Event, Faculty, News, Specialty
 from staff.models import PDF, Subject, Teacher
 from faker import Faker
 import random
@@ -30,7 +30,7 @@ class Command(BaseCommand):
                 random_subject = Subject.objects.all(
                 )[random.randint(0, subjects - 1)]
                 PDF.objects.create(
-                    title_az=Faker('tr_TR').name(), title_ru=Faker('ru_RU').name(), category=random_subject, file='pdf/Tech_CV_14.pdf')
+                    title_az=Faker('tr_TR').name(), title_ru=Faker('ru_RU').name(), category=random_subject, file='pdf/Profile.pdf')
         elif data == 'news':
             categories = Category.objects.all().count()
             for i in range(total):
@@ -38,6 +38,13 @@ class Command(BaseCommand):
                 )[random.randint(0, categories - 1)]
                 News.objects.create(
                     title=Faker().name(), description=Faker().text(), category=random_categories, image='news/hat_SVCApIZ.jpeg')
+        elif data == 'events':
+            categories = Category.objects.all().count()
+            for i in range(total):
+                random_categories = Category.objects.all(
+                )[random.randint(0, categories - 1)]
+                Event.objects.create(
+                    title=Faker().name(), description=Faker().text(), category=random_categories, image='event/teacher.png', date=Faker().date())
         elif data == 'faculties':
             for i in range(total):
                 Faculty.objects.create(
