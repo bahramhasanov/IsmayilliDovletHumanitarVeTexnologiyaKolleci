@@ -77,9 +77,8 @@
                         {% translate 'Haqqımızda' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
-                        <li><a class="dropdown-item" href="#">{% translate 'Yaranma tarixi' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'dateofcreate' %}">{% translate 'Yaranma tarixi' %}</a></li>
                         <li><a class="dropdown-item" href="{% url 'about' %}">{% translate 'About' %}</a></li>
-                        <li><a class="dropdown-item" href="#">{% translate 'Missiyamiz' %}</a></li>
                         <li><a class="dropdown-item" href="#">{% translate 'Karyera dəstəyi' %}</a></li>
                         <li><a class="dropdown-item" href="{% url 'contact' %}">{% translate 'Bizimlə əlaqə' %}</a></li>
                     </ul>
@@ -104,7 +103,7 @@
                             <a class="dropdown-item" href="{% url 'allfaculty' %}">{% trans 'FBK' %}</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">{% trans 'Təcrübə' %}</a>
+                            <a class="dropdown-item" href="{% url 'allpractic' %}">{% trans 'Təcrübə' %}</a>
                         </li>
                     </ul>
                 </li>
@@ -132,12 +131,12 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown" id="navbarDropdownLibrary" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        {% translate 'Onlayn Kitabxana' %}
+                        {% translate 'Kitabxana' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
                         <li><a class="dropdown-item" href="{% url 'libraryinfo' %}">{% trans 'Ümumi məlumat' %}</a></li>
                         <li>
-                            <a class="dropdown-item" href="{% url 'library' %}">{% trans 'Kitabxana' %}</a>
+                            <a class="dropdown-item" href="{% url 'library' %}">{% trans 'Online kitabxana' %}</a>
                         </li>
                     </ul>
                 </li>
@@ -169,7 +168,7 @@
                 style="background: #FFFFFF; border: 1px solid #E6E6E6; box-sizing: border-box; border-radius: 24px; padding-top: 29px;">
                 <div class="col-auto">
                     <p class="pt-2" style="font-size: 24px; line-height: 32px; color: rgba(0, 0, 0, 0.87); ">
-                        <strong>{% translate 'Let’s stay in touch!' %}</strong>
+                        <strong>{% translate 'Ilk sən xəbərdar ol!' %}</strong>
                     </p>
                 </div>
 
@@ -187,6 +186,7 @@
                     <!-- Submit button -->
                 </div>
 
+                
                 <div class="col-auto">
                     <!-- Twitter -->
                     <a class="btn btn-outline-dark btn-floating m-1" href="#!"
@@ -197,7 +197,7 @@
                         style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);"
                         role="button"><i class="fab fa-instagram"></i></a>
                     <!-- Facebook -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="#!"
+                    <a class="btn btn-outline-dark btn-floating m-1" href="#!" 
                         style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);"
                         role="button"><i class="fab fa-facebook"></i></a>
                     <!-- Google -->

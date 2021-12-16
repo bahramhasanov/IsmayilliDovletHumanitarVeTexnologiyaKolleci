@@ -1,10 +1,10 @@
-from about.models import News, Category, Specialty, Faculty, Admissionrules, About, Event, Subscriber, Dateofcreate
+from about.models import News, Category, Specialty, Faculty, Admissionrules, About, Event, Subscriber, Dateofcreate, Practic, PracticPlace
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
 
 # Register your models here.
 from django.utils.html import format_html
-admin.site.register([News, Category, Specialty, Event, Subscriber])
+admin.site.register([News, Category, Specialty, Event, Subscriber, Practic, PracticPlace])
 
 
 @admin.register(Faculty)

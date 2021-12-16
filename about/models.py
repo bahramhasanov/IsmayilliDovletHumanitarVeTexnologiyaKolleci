@@ -46,7 +46,7 @@ class Faculty(BaseModel):
     # FBK = models.OneToOneField(Teacher, on_delete=models.CASCADE, related_name='faculty_teacher', default=1, null=True, blank=True)
 
     def __str__(self) -> str:
-        return 'f"{self.title}"'
+        return f"{self.title}"
 
     class Meta:
         verbose_name = _("FBK")
@@ -103,7 +103,7 @@ class About(BaseModel):
 
 class Event(BaseModel):
     title = models.CharField(
-        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+        max_length=50, verbose_name=_('Title'), help_text="Max 30 char.")
     description = RichTextField(
         verbose_name=_("Description"))
     category = models.ForeignKey(
@@ -141,3 +141,37 @@ class Dateofcreate(BaseModel):
     class Meta:
         verbose_name = _("Yaradilma tarixi")
         verbose_name_plural = _("Yaradilma tarixi")
+
+
+class Practic(BaseModel):
+    title = models.CharField(
+        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+    description = RichTextField(
+        verbose_name=_("Description"), blank=True, null=True)
+    image_icon = models.ImageField(
+        upload_to='practic/', default=None, verbose_name=_("Image"))
+
+    def __str__(self) -> str:
+        return f"{self.title}"
+
+    class Meta:
+        verbose_name = _("Practic")
+        verbose_name_plural = _("Practies")
+
+
+class PracticPlace(BaseModel):
+    title = models.CharField(
+        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+    description = RichTextField(
+        verbose_name=_("Description"), blank=True, null=True)
+    image = models.ImageField(upload_to='practicplace/',
+                              default=None, verbose_name=_("Image"))
+    practic = models.ForeignKey(
+        Practic, on_delete=models.CASCADE, related_name="practic_place", default=None, verbose_name=_("Faculty"))
+
+    def __str__(self) -> str:
+        return f"{self.title}"
+
+    class Meta:
+        verbose_name = _("PracticPlace")
+        verbose_name_plural = _("PracticPlaces")

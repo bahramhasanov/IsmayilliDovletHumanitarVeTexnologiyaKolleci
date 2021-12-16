@@ -117,3 +117,5 @@ more_button = document.getElementById('more-button');
 more_button.addEventListener('click', (event) => {
     getRecentEvents(recent_events.children.length, recent_events.children.length + 8);
 });
+
+

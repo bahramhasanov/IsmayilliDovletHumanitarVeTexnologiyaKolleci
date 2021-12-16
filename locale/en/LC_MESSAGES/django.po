@@ -212,8 +212,8 @@ msgid "Qəbul qaydaları"
 msgstr "Admission rules"
 
 #: core/templates/base.html:135
-msgid "Onlayn Kitabxana"
-msgstr "Online Library"
+msgid "Kitabxana"
+msgstr "Library"
 
 #: core/templates/base.html:138
 msgid "Ümumi məlumat"
@@ -230,12 +230,12 @@ msgid "Kabinet"
 msgstr "Cabinet"
 
 #: core/templates/base.html:172
-msgid "Let’s stay in touch!"
-msgstr ""
+msgid "Ilk sən xəbərdar ol!"
+msgstr "Let’s stay in touch!"
 
 #: core/templates/base.html:181
-msgid "Enter email"
-msgstr ""
+msgid "Email adresini daxil edin"
+msgstr "Enter email"
 
 #: core/templates/base.html:235
 msgid "Azərbaycanca"

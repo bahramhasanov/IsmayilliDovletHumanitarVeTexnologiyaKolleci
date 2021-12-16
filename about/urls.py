@@ -16,4 +16,6 @@ urlpatterns = [
     path("from9adminsion/", views.From9admissionrules.as_view(), name="from9admissionrules"),
     path("from11adminsion/", views.From11admissionrules.as_view(), name="from11admissionrules"),
     path("dateofcreate/", views.DateofcreateView.as_view(), name="dateofcreate"),
+    path("practies/", views.AllPractic.as_view(), name="allpractic"),
+    path("practies/<int:pk>", views.SinglePractic.as_view(), name="singlepractic"),
 ]

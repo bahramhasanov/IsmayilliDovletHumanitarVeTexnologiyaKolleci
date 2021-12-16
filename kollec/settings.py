@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'rosetta',
+    # 'django_social_share',
 ]
 
 MIDDLEWARE = [
@@ -142,9 +143,7 @@ LANGUAGES = (
     ('ru', _('Russian')),
 )
 
-# LOCALE_PATHS = [
-#     BASE_DIR / 'locale/',
-# ]
+
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]

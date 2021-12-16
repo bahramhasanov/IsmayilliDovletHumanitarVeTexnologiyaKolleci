@@ -1,5 +1,5 @@
 from datetime import datetime
-from about.models import Category, Event, News, Specialty, Faculty, Admissionrules, About
+from about.models import Category, Event, News, Specialty, Faculty, Admissionrules, About,Practic, PracticPlace
 from about.models import Category, News, Specialty, Faculty, Admissionrules, About, Dateofcreate
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, View
@@ -171,3 +171,72 @@ class EventsView(ListView):
         return context
 
 
+class AllPractic(ListView):
+    model = Practic
+    template_name = 'practies.html'
+    context_object_name = 'practies'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['practies'] = Practic.objects.all()
+        context['title'] = 'Təcrübə Adları'
+        return context
+
+class SinglePractic(DetailView):
+    model = Practic
+    template_name = 'single-practic.html'
+    context_object_name = 'practic'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['practic'] = self.object
+        context['title'] = self.object.title
+        return context
+
+
+# ***********************************
+class AllFaculty(ListView):
+    model = Faculty
+    template_name = 'faculties.html'
+    context_object_name = 'faculties'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['faculities'] = Faculty.objects.all().order_by('updated_at')
+        context['title'] = 'fbklar'
+        return context
+
+
+class SingleFaculty(DetailView):
+    model = Faculty
+    template_name = 'single-faculty.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['faculty'] = self.object
+        context['title'] = self.object.title
+        return context
+
+
+class AllSpeciality(ListView):
+    model = Specialty
+    template_name = 'specialties.html'
+    context_object_name = 'specialties'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['specialties'] = Specialty.objects.all()
+        context['title'] = 'Ixtisaslar'
+        return context
+
+
+class SingleSpeciality(DetailView):
+    model = Specialty
+    template_name = 'single-specialty.html'
+    context_object_name = 'specialty'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['specialty'] = self.object
+        context['title'] = self.object.title
+        return context
