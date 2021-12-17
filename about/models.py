@@ -149,6 +149,8 @@ class Practic(BaseModel):
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
     image_icon = models.ImageField(
+        upload_to='practic/', default=None, verbose_name=_("Image icon"))
+    image = models.ImageField(
         upload_to='practic/', default=None, verbose_name=_("Image"))
 
     def __str__(self) -> str:
@@ -164,8 +166,6 @@ class PracticPlace(BaseModel):
         max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
-    image = models.ImageField(upload_to='practicplace/',
-                              default=None, verbose_name=_("Image"))
     practic = models.ForeignKey(
         Practic, on_delete=models.CASCADE, related_name="practic_place", default=None, verbose_name=_("Faculty"))
 

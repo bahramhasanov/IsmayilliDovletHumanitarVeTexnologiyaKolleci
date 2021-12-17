@@ -11,31 +11,76 @@
     rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <style>
+    @media screen and (min-width: 1200px) {
+        .iconp {
+            margin-bottom: 0;
+            position: absolute;
+            bottom: 0;
+        }
+    }
 
+    @media screen and (max-width: 576px) {
+        .iconsp {
+            font-size: 1rem !important;
+        }
+    }
 </style>{% endblock css %} {% block base %}
 
 
 <div class="container mt-5">
-    <p>{{ practic.title }} ixtisasında təcrübə haqqinda etrafli</p>
+    <h1 style="margin-bottom: 20px;">Təcrübə programı</h1>
 
-    <div class="card mb-3 d-flex">
-        <div class="card-body">
-            <h5 class="card-title text-dark">{{ practic.title }}</h5>
-            <p class="card-text">{{practic.description|safe}}</p>
+    <div class="card mb-5 mx-auto border-0">
+        <div class="row g-0 ">
+            <div class="col-md-6 ">
+                <img src="{{practic.image.url}}" class="img-fluid" style="border-radius: 24px;" alt="...">
+            </div>
+            <div class="col-md-6 ">
+                <div class="card-body">
+                    <h2 class="card-title text-dark">
+                        {{practic.title}}
+                    </h2>
+                    <p class="card-text text-dark">{{practic.description|safe|truncatechars:300}}</p>
+                    <p class="iconp">
+                        <span class="iconsp" style="font-size: 18px;"><span
+                                style="color: #00C808; font-size: 25px;">&#10003;</span>&nbsp; Baza bilikliklərinin
+                            təkmilləşdirilməsi </span><br>
+                        <span class="iconsp" style="font-size: 18px;"><span
+                                style="color: #00C808; font-size: 25px;">&#10003;</span>&nbsp; Kollektivlə iş
+                            bacarığının əldə edilməsi</span><br>
+                        <span class="iconsp" style="font-size: 18px;"><span
+                                style="color: #00C808; font-size: 25px;">&#10003;</span>&nbsp; Sənədlərlə iş bacarığının
+                            yüksəldilməsi</span><br>
+                        <span class="iconsp" style="font-size: 18px;"><span
+                                style="color: #00C808; font-size: 25px;">&#10003;</span>&nbsp; Akademik kommunikasiya
+                            qurmaq </span>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-    <p>Tecrube yerleri</p>
-    {% for i in practic.practic_place.all %}
-    <div class="card mb-3" style="border-radius: 24px;">
-        <div class="card-body d-flex">
-            <img src="{{i.image_icon.url}} " class="card-img-top " style="width: 100px; " alt="... ">
-            <h7 class="  ">
-                <p><a class="text-dark card-title" style="text-decoration: none; font-size: 32px;" href="#">{{ i.title }}</a></p>
-                <p class="card-text text-dark" style="font-size: 18px;">{{i.description|safe}}</p>
-            </h7>
+
+    <div style="text-align: center; margin-bottom: 120px;">
+        <p style="margin-bottom: 40px; font-size: 46px;">Təcrübə formaları</p>
+        <div>
+            <p style="font-size: 28px;">Tədris təcrübəsi</p>
+            <p style="opacity: 0.8;font-size: 18px;">Müddət: 4 həftə</p>
+            <p style="opacity: 0.8;font-size: 18px;">Təcrübə yeri: Tədris müəsisəsi</p>
+        </div>
+        <div style="margin-top: 52px;">
+            <p style="font-size: 28px;">İstehsalat təcrübəsi</p>
+            <p style="opacity: 0.8;font-size: 18px;">Müddət: 12 həftə</p>
+        </div>
+        <div style="margin-top: 87px;">
+            <p style="font-size: 28px;"><b>İstehasalat Təcrübəsinin Ünvanları</b></p>
+            {% for i in practic.practic_place.all %}
+            <div>
+                <p style="font-size: 24px;">{{ i.title }}</p>
+                <p style="font-size: 18px; opacity: 0.6;">{{i.description|safe}}</p>
+            </div>
+            {% endfor %}
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock base %} {% block js %}
 
