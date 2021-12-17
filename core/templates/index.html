@@ -174,18 +174,18 @@
     </div>
 
 
-    <div id="news " class="carousel slide carousel-multi-item container-fluid carddiv" style="margin-top: 5rem;"
+    <div id="news " class="carousel slide carousel-multi-item container-fluid carddiv" style="margin-top: 5rem; padding: 0;"
         data-ride="carousel ">
 
         <div style="display: flex; justify-content: space-between;">
-            <b class="ml-3 titles">Xəbərlər</b>
-            <a href="#"
+            <b class="titles">Xəbərlər</b>
+            <a href="{% url 'allnews' %}"
                 style="color: #0B52FE; display: flex; align-items: end; justify-content: center; font-size: 15px; font-weight: bold;">Hamısına
                 bax</a>
         </div>
         <div class="carousel-inner " role="listbox " style="margin-top: 1.5rem;">
 
-            <div class="col-md-4 cardcol" style="float:left ">
+            <div class="col-md-4 cardcol" style="float:left; padding-left: 0; ">
                 <div class="card mb-2 " style="border-radius: 5%; overflow: hidden;">
                     <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
                         class="card-img-top news-img cardimg"
@@ -202,7 +202,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 cardcol" style="float:left ">
+            <div class="col-md-4 cardcol" style="float:left; padding-top: 0; ">
                 <div class="card mb-2 " style="border-radius: 5%;  overflow: hidden;">
                     <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
                         class="card-img-top news-img cardimg"
@@ -219,7 +219,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 cardcol" style="float:left ">
+            <div class="col-md-4 cardcol" style="float:left; padding-right: 0; ">
                 <div class="card mb-2 " style="border-radius: 5%;  overflow: hidden;">
                     <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
                         class="card-img-top news-img cardimg"
@@ -240,7 +240,7 @@
 
     <div class="gallery  text-center " style="margin-top: 5rem;">
         <p class="titles m-0"><b>Qalereya</b></p>
-        <p class="text-center mx-auto "> <a href="#"
+        <p class="text-center mx-auto "> <a href="{% url 'galleries' %}"
                 style="color: #0B52FE; font-size: 15px; font-weight: bold;">Hamısına bax</a></p>
         <!-- <a href="#" style="color: #0B52FE; font-size: 15px; font-weight: bold; margin-bottom: 1.75px; margin-top: 0.75px;">Hamısına bax</a> -->
         <div class="owl-carousel owl-theme ">
@@ -279,17 +279,17 @@
     </div>
 
 
-    <div id="event " class="carousel slide carousel-multi-item container-fluid " data-ride="carousel "
-        style="margin-top: 5rem;">
+    <div id="event " class="carousel slide carousel-multi-item container-fluid" data-ride="carousel "
+        style="margin-top: 5rem; padding: 0 !important;">
         <div style="display: flex; justify-content: space-between;">
-            <b class="ml-3 titles">Tədbirlər</b>
-            <a href="#"
+            <b class=" titles">Tədbirlər</b>
+            <a href="{% url 'allevents' %}"
                 style="color: #0B52FE; display: flex; align-items: end; justify-content: center; font-size: 15px; font-weight: bold;">Hamısına
                 bax</a>
         </div>
 
         <div class="carousel-inner " role="listbox " style="margin-top: 1.5rem;">
-            <div class="col-md-6 cardcol" style="float:left ">
+            <div class="col-md-6 cardcol" style="float:left; padding-left: 0; ">
                 <div class="card mb-2 " style="border-radius: 5%; overflow: hidden;">
                     <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
                         class="card-img-top news-img cardimg"

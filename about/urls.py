@@ -18,4 +18,6 @@ urlpatterns = [
     path("dateofcreate/", views.DateofcreateView.as_view(), name="dateofcreate"),
     path("practies/", views.AllPractic.as_view(), name="allpractic"),
     path("practies/<int:pk>", views.SinglePractic.as_view(), name="singlepractic"),
+    path('galleries/', views.GalleryView.as_view(), name='galleries'),
+    path('faq/', views.FAQView.as_view(), name='faq'),
 ]

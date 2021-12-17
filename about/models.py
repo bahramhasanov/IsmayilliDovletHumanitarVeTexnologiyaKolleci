@@ -175,3 +175,18 @@ class PracticPlace(BaseModel):
     class Meta:
         verbose_name = _("PracticPlace")
         verbose_name_plural = _("PracticPlaces")
+
+
+class Gallery(BaseModel):
+    name = models.CharField(
+        max_length=30, verbose_name=_('Title'), help_text="Max 30 char."
+    )
+    image = models.ImageField(
+        upload_to='gallery/', default=None, verbose_name=_("Image"))
+
+    def __str__(self) -> str:
+        return f'{self.name}'
+    
+    class Meta:
+        verbose_name = _("Gallery")
+        verbose_name_plural = _("Galleries")

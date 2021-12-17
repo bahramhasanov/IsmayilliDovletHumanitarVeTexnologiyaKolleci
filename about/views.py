@@ -1,10 +1,8 @@
 from datetime import datetime
-from about.models import Category, Event, News, Specialty, Faculty, Admissionrules, About,Practic, PracticPlace
-from about.models import Category, News, Specialty, Faculty, Admissionrules, About, Dateofcreate
+from about.models import Category, Event, News, Specialty, Faculty, Admissionrules, About, Practic, Dateofcreate, Gallery, PracticPlace
+from core.models import Mostquestions
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, View
-
-# Create your views here.
 
 
 class SingleNews(DetailView):
@@ -193,3 +191,24 @@ class SinglePractic(DetailView):
         context['title'] = self.object.title
         return context
 
+
+class GalleryView(ListView):
+    model = Gallery
+    template_name = 'galleries.html'
+    context_object_name = 'practies'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['galleries'] = Gallery.objects.all()
+        context['title'] = 'Qalereya'
+        return context
+
+
+class FAQView(ListView):
+    model = Mostquestions
+    template_name = "FAQ.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['faq'] = Mostquestions.objects.all()
+        return context
