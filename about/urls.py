@@ -20,4 +20,5 @@ urlpatterns = [
     path("practies/<int:pk>", views.SinglePractic.as_view(), name="singlepractic"),
     path('galleries/', views.GalleryView.as_view(), name='galleries'),
     path('faq/', views.FAQView.as_view(), name='faq'),
+    path('careersupport/', views.CareerSupportView.as_view(), name='careersupport')
 ]

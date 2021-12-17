@@ -1,5 +1,5 @@
 from datetime import datetime
-from about.models import Category, Event, News, Specialty, Faculty, Admissionrules, About, Practic, Dateofcreate, Gallery, PracticPlace
+from about.models import Category, Event, News, Specialty, Faculty, Admissionrules, About, Practic, Dateofcreate, Gallery,CareerSupport, PracticPlace
 from core.models import Mostquestions
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, View
@@ -211,4 +211,14 @@ class FAQView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['faq'] = Mostquestions.objects.all()
+        return context
+    
+
+class CareerSupportView(ListView):
+    model = CareerSupport
+    template_name = 'careersupport.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['careersupports'] = CareerSupport.objects.all()
         return context

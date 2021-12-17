@@ -190,3 +190,14 @@ class Gallery(BaseModel):
     class Meta:
         verbose_name = _("Gallery")
         verbose_name_plural = _("Galleries")
+
+class CareerSupport(BaseModel):
+    description = RichTextField(
+        verbose_name=_("Description"), blank=True, null=True)
+
+    def __str__(self) -> str:
+        return 'Career support'
+
+    class Meta:
+        verbose_name = _("karyera dəstəyi")
+        verbose_name_plural = _("karyera dəstəyi")
