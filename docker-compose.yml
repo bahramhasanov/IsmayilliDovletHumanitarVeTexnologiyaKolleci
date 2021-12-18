@@ -20,8 +20,8 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./IsmayilliDovletHumanitarVeTexnologiyaKolleci/media:/app/media
-      - ./IsmayilliDovletHumanitarVeTexnologiyaKolleci/staticfiles:/app/static
+      - ./Kollec/media:/app/media
+      - ./Kollec/staticfiles:/app/static
 
   app:
     container_name: app
