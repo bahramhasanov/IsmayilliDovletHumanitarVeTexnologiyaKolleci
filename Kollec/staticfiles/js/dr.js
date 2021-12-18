@@ -10,7 +10,7 @@ function getAllTeachers(start, end, search) {
     })
         .then(response => response.json())
         .then(data => {
-            teachers = document.getElementById('teachers');
+            teachers = document.getElementById('teachersdr');
             for (let i = 0; i < data.length; i++) {
                 teachers.children[0].innerHTML += `<div class="col-12 col-md-6 col-lg-3 ">
                 <div class="card my-2" style="height: 328px; border-radius: 20px;">
@@ -71,7 +71,7 @@ function getAllTeachers(start, end, search) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    getAllTeachers(0, 16, 'all');
+    getAllTeachers(0, 4, 'all');
 });
 
 search = document.getElementById('search');
@@ -82,7 +82,7 @@ search.addEventListener('keyup', (event) => {
     getAllTeachers(0, 4, event.target.value);
     // getAllTeachers(0, len, event.target.value);
 });
-more_button = document.getElementById('more-button');
-more_button.addEventListener('click', () => {
-    getAllTeachers(teachers.children[0].children.length / 2, teachers.children[0].children.length / 2 + 4, search.value);
-});
+// more_button = document.getElementById('more-button');
+// more_button.addEventListener('click', () => {
+//     getAllTeachers(teachers.children[0].children.length / 2, teachers.children[0].children.length / 2 + 4, search.value);
+// });
