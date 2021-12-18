@@ -261,8 +261,4 @@ msgstr "Load more"
 
 #: staff/templates/teachers.html:70
 msgid "Müəllimin adı və fənn üzrə axtarış"
-<<<<<<< HEAD
 msgstr "Search for teacher name and subject"
-=======
-msgstr "Search by teacher name and subject"
->>>>>>> Vusal
