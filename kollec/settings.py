@@ -95,11 +95,16 @@ WSGI_APPLICATION = 'kollec.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'kollecdb',
-        'USER': 'kollecuser',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'POST': 4321,
+        'NAME': os.environ.get('POSTGRES_NAME', 'kollecdb'),
+        # 'NAME': 'kollecdb',
+        'USER': os.environ.get('POSTGRES_USER', 'kollecuser'),
+        # 'USER': 'kollecuser',
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', '123456'),
+        # 'PASSWORD': '123456',
+        'HOST': os.environ.get('POSTGRES_HOST', 'postgres'),
+        # 'HOST': 'localhost',
+        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+        # 'PORT': 4321,
     }
 }
 
@@ -151,21 +156,19 @@ LOCALE_PATHS = [
 
 STATIC_URL = '/static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# static files
-STATIC_URL = '/static/'
-
 
 STATIC_ROOT = BASE_DIR / 'static'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'staticfiles'
 ]
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
 # media root path
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
