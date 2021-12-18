@@ -37,7 +37,7 @@ class Command(BaseCommand):
                 random_categories = Category.objects.all(
                 )[random.randint(0, categories - 1)]
                 News.objects.create(
-                    title=Faker().name(), description=Faker().text(), category=random_categories, image='news/hat_SVCApIZ.jpeg')
+                    title=Faker().name(), description=Faker().text(), category=random_categories, image='news/teacher2.jpg')
         elif data == 'events':
             categories = Category.objects.all().count()
             for i in range(total):
