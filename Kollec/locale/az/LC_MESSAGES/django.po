@@ -1,0 +1,266 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-14 20:34+0400\n"
+"PO-Revision-Date: 2021-12-14 13:29+0000\n"
+"Last-Translator: b'  <admin@admin.com>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.4\n"
+
+#: about/admin.py:33
+msgid "Adları"
+msgstr ""
+
+#: about/admin.py:51
+msgid "FBK-da olan ixtisaslar"
+msgstr ""
+
+#: about/apps.py:8 core/templates/base.html:86
+msgid "About"
+msgstr "Haqqımızda"
+
+#: about/models.py:10 about/models.py:29 about/models.py:41 about/models.py:58
+#: about/models.py:106 staff/models.py:27 staff/models.py:39
+msgid "Title"
+msgstr "Başlıq"
+
+#: about/models.py:13 about/models.py:43 about/models.py:60 about/models.py:76
+#: about/models.py:78 about/models.py:80 about/models.py:92 about/models.py:108
+#: staff/models.py:12
+msgid "Description"
+msgstr "Təsvir"
+
+#: about/models.py:15 about/models.py:110 staff/models.py:41
+msgid "Category"
+msgstr "Kateqoriya"
+
+#: about/models.py:17 about/models.py:45 about/models.py:62 about/models.py:94
+#: about/models.py:112
+msgid "Image"
+msgstr "Şəkil"
+
+#: about/models.py:23
+msgid "Xəbər"
+msgstr "Xəbər"
+
+#: about/models.py:24 core/templates/base.html:120
+msgid "Xəbərlər"
+msgstr "Xəbərlər"
+
+#: about/models.py:35
+msgid "Kateqoriya"
+msgstr "Kateqoriya"
+
+#: about/models.py:36
+msgid "Kateqoriyalar"
+msgstr "Kateqoriyalar"
+
+#: about/models.py:52
+msgid "FBK"
+msgstr "FBK"
+
+#: about/models.py:53
+msgid "FBKlar"
+msgstr "FBKlar"
+
+#: about/models.py:64
+msgid "Faculty"
+msgstr "Fakültə"
+
+#: about/models.py:70
+msgid "Ixtisas"
+msgstr "Ixtisas"
+
+#: about/models.py:71
+msgid "Ixtisaslar"
+msgstr "Ixtisaslar"
+
+#: about/models.py:86 about/models.py:87
+msgid "qəbul qaydaları"
+msgstr "Qəbul qaydaları"
+
+#: about/models.py:100 about/models.py:101 core/templates/base.html:82
+msgid "Haqqımızda"
+msgstr "Haqqımızda"
+
+#: about/models.py:113
+msgid "Date"
+msgstr "Tarix"
+
+#: about/models.py:119
+msgid "Event"
+msgstr "Tədbir"
+
+#: about/models.py:120
+msgid "Events"
+msgstr "Tədbirlər"
+
+#: about/templates/events.html:43
+#, fuzzy
+#| msgid "Xəbərlər"
+msgid "Tədbirlər"
+msgstr "Xəbərlər"
+
+#: core/apps.py:8
+msgid "Core"
+msgstr "Özək"
+
+#: core/models.py:9 core/models.py:17
+msgid "Sual"
+msgstr "Sual"
+
+#: core/models.py:11
+msgid "Cavab"
+msgstr "Cavab"
+
+#: core/models.py:18
+msgid "Suallar"
+msgstr "Suallar"
+
+#: core/templates/base.html:49 core/templates/base.html:226
+msgid "Lang"
+msgstr "Dil"
+
+#: core/templates/base.html:52
+msgid "AZ"
+msgstr "AZ"
+
+#: core/templates/base.html:56
+msgid "EN"
+msgstr "EN"
+
+#: core/templates/base.html:60
+msgid "RU"
+msgstr "RU"
+
+#: core/templates/base.html:85
+msgid "Yaranma tarixi"
+msgstr ""
+
+#: core/templates/base.html:87
+msgid "Missiyamiz"
+msgstr ""
+
+#: core/templates/base.html:88
+msgid "Karyera dəstəyi"
+msgstr ""
+
+#: core/templates/base.html:89
+msgid "Bizimlə əlaqə"
+msgstr ""
+
+#: core/templates/base.html:95
+msgid "Akademik"
+msgstr ""
+
+#: core/templates/base.html:109
+msgid "Qəbul"
+msgstr ""
+
+#: core/templates/base.html:130
+msgid "Onlayn Kitabxana"
+msgstr ""
+
+#: core/templates/base.html:147
+msgid "Kabinet"
+msgstr ""
+
+#: core/templates/base.html:165
+msgid "Let’s stay in touch!"
+msgstr "Əlaqə saxlayaq!"
+
+#: core/templates/base.html:174
+msgid "Enter email"
+msgstr "E-poçtu daxil edin"
+
+#: core/templates/base.html:230
+msgid "Azərbaycanca"
+msgstr "Azərbaycanca"
+
+#: core/templates/base.html:236
+msgid "İngiliscə"
+msgstr "İngiliscə"
+
+#: core/templates/base.html:241
+msgid "Rusca"
+msgstr "Rusca"
+
+#: kollec/settings.py:137
+msgid "English"
+msgstr "İngiliscə"
+
+#: kollec/settings.py:138
+msgid "Azerbaijani"
+msgstr "Azərbaycanca"
+
+#: kollec/settings.py:139
+msgid "Russian"
+msgstr "Rusca"
+
+#: staff/apps.py:8
+msgid "Staff"
+msgstr "İşçi heyəti"
+
+#: staff/models.py:10
+msgid "Full Name"
+msgstr "Tam Ad"
+
+#: staff/models.py:14
+msgid "Photo"
+msgstr "Foto"
+
+#: staff/models.py:16
+msgid "Subject"
+msgstr "Fənn"
+
+#: staff/models.py:22
+msgid "Müəllim"
+msgstr "Müəllim"
+
+#: staff/models.py:23
+msgid "Müəllimlər"
+msgstr "Müəllimlər"
+
+#: staff/models.py:33
+msgid "Fənn"
+msgstr "Fənn"
+
+#: staff/models.py:34
+msgid "Fənnlər"
+msgstr "Fənnlər"
+
+#: staff/models.py:42
+msgid "File"
+msgstr "Fayl"
+
+#: staff/models.py:48
+msgid "PDF"
+msgstr "PDF"
+
+#: staff/models.py:49
+msgid "PDFs"
+msgstr "PDFlər"
+
+#: staff/templates/library.html:79
+msgid "Search"
+msgstr "Axtar"
+
+#: staff/templates/library.html:90
+msgid "Daha çox"
+msgstr "Daha çox"
+
+#: staff/templates/teachers.html:70
+msgid "Müəllimin adı və fənn üzrə axtarış"
+msgstr "Müəllimin adı və fənn üzrə axtarış"

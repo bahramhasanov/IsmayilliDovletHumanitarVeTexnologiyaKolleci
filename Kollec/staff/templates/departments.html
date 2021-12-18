@@ -1,0 +1,106 @@
+{% extends 'base.html' %} {% load static i18n %}
+<title>
+    {% block title %} {{title}} {% endblock title %}
+</title>
+
+{% block css %}
+<link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<style>
+    @media screen and (max-width: 1200px) {
+        .muavinlik {
+            font-size: 36px;
+        }
+        .muavinad {
+            font-size: 30px;
+        }
+    }
+    
+    @media screen and (max-width: 800px) {
+        .muavinlik {
+            font-size: 28px;
+        }
+        .muavinad {
+            font-size: 24px;
+        }
+    }
+    
+    @media screen and (max-width: 600px) {
+        .muavinlik {
+            font-size: 24px;
+        }
+        .muavinad {
+            font-size: 20px;
+        }
+    }
+    
+    @media screen and (max-width: 400px) {
+        .muavinlik {
+            font-size: 20px;
+        }
+        .muavinad {
+            font-size: 18px;
+        }
+    }
+    
+    @media screen and (min-width: 1200px) {
+        .muavinlik {
+            font-size: 46px;
+        }
+        .muavinad {
+            font-size: 36px;
+        }
+    }
+</style> {% endblock css %} {% block base %}
+
+
+<div class="container mt-5">
+    <div class="card mb-3 border-0 mx-auto" style="max-width: 60%;">
+        <p class="muavinlik mt-5">Birinci şöbə müdiri</p>
+        <div class="row g-0">
+            <div class="col-12 col-xl-4">
+                <img src="https://s3-alpha-sig.figma.com/img/cdd6/3b45/dce2c2e60c3fefd1fd17ff45a473af9b?Expires=1639353600&Signature=TBwlA4qOxVhZ1nqQZXzxEdIWgwn4Mf20-2Fm-KGxCE0naf-efR2sed1hxONqcXJN0Ch2roJxWxszAugmGTKnWqNOBDFaAFvJltt~h9BHmTPTmCBL0893G4b20pg08UcAq-tRrLprQI56k4IPhbLsin9GqAxpVCkKDuV~nONiZG7PkHCguK85f3~hKXa53efnf9dJSiRLqd9~cswRPCP5GWMGbg439xp2b1T5KBjzOwhJ2M2lKYNoRAx-983VrMaMz9NMmoq4CkIEAPz3RZF0lwNyo~~Mw-vYLhM-r2anJA~ffHGX3zg3RKQgQTGu0FJSCb8R~Y7dA0ZuugYyZZvkOQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA "
+                    class="img-fluid" style="height: 346px; width: 692px; border-radius: 18px;" alt="... ">
+            </div>
+            <div class="col-12 col-xl-8">
+                <div class="card-body pl-lg-5" style="padding: 0;">
+                    <p class="card-text muavinad" style=" margin-bottom: 16px;">Kəmalə Hüseynova</p>
+                    <p class="card-text ">The incident prompted an internal investigation, and the withheld.Moore and Marino were in France as part of a weeklong trip that had been organized so the top cops could meet with French. The incident prompted an internal investigation,
+                        and the names of the LAPD officers involved are being withheld.Moore and Marino were in France as part of a weeklong trip that had been organized so the top cops could meet with French. The incident prompted an internal investigation.</p>
+                    <p class="card-text " style="margin-top: 46px;">Mobil: +994 55 555 55 55
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***************** -->
+
+    <div class="card mb-3 border-0 mx-auto" style="max-width: 60%;">
+        <p class="muavinlik mt-5">İkinci şöbə müdiri</p>
+        <div class="row g-0">
+            <div class="col-12 col-xl-4">
+                <img src="https://s3-alpha-sig.figma.com/img/cdd6/3b45/dce2c2e60c3fefd1fd17ff45a473af9b?Expires=1639353600&Signature=TBwlA4qOxVhZ1nqQZXzxEdIWgwn4Mf20-2Fm-KGxCE0naf-efR2sed1hxONqcXJN0Ch2roJxWxszAugmGTKnWqNOBDFaAFvJltt~h9BHmTPTmCBL0893G4b20pg08UcAq-tRrLprQI56k4IPhbLsin9GqAxpVCkKDuV~nONiZG7PkHCguK85f3~hKXa53efnf9dJSiRLqd9~cswRPCP5GWMGbg439xp2b1T5KBjzOwhJ2M2lKYNoRAx-983VrMaMz9NMmoq4CkIEAPz3RZF0lwNyo~~Mw-vYLhM-r2anJA~ffHGX3zg3RKQgQTGu0FJSCb8R~Y7dA0ZuugYyZZvkOQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA "
+                    class="img-fluid" style="height: 346px; width: 692px; border-radius: 18px;" alt="... ">
+            </div>
+            <div class="col-12 col-xl-8">
+                <div class="card-body pl-lg-5" style="padding: 0;">
+                    <p class="card-text muavinad" style=" margin-bottom: 16px;">Elmir Elmirov</p>
+                    <p class="card-text ">The incident prompted an internal investigation, and the withheld.Moore and Marino were in France as part of a weeklong trip that had been organized so the top cops could meet with French. The incident prompted an internal investigation,
+                        and the names of the LAPD officers involved are being withheld.Moore and Marino were in France as part of a weeklong trip that had been organized so the top cops could meet with French. The incident prompted an internal investigation.</p>
+                    <p class="card-text " style="margin-top: 46px;">Mobil: +994 55 555 55 55
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock base %} {% block js %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
+<script type='text/javascript ' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js '></script>
+{% endblock js %}
