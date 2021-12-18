@@ -80,7 +80,7 @@ function getAllSubjects(subject, type = null) {
                     }
                 }
             } else {
-                subjectDropdown.innerHTML = `<a class="dropdown-item disabled">Subject not found</a>`;
+                subjectDropdown.innerHTML = `<a class="dropdown-item disabled">Uğursuz nəticə</a>`;
             }
             if (type == "getPDFs") {
                 pdfs.children[0].innerHTML = '';

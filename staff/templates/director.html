@@ -1,3 +1,5 @@
+
+
 {% extends 'base.html' %} {% load static i18n %}
 <title>
     {% block title %} {{title}} {% endblock title %}
@@ -11,101 +13,52 @@
     rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <style>
-    @media screen and (max-width: 1200px) {
-        .directorcartright {
-            margin-bottom: 750px;
+    @media screen and (min-width: 1200px) {
+        .iconp {
+            margin-bottom: 0;
+            position: absolute;
+            bottom: 0;
         }
     }
 
-    .modal-body {
-        padding: 0 !important;
-    }
-
-    .modal-content {
-        border-radius: 20px;
-        border: none;
-        width: 405px;
-        margin: auto;
+    @media screen and (max-width: 576px) {
+        .iconsp {
+            font-size: 1rem !important;
+        }
     }
 </style>{% endblock css %} {% block base %}
-<div class="container" style="margin-top: 100px; margin-bottom: 150px;">
-    <!-- <div class="card mb-3 border-0 mx-auto" style="margin-bottom: 2000px;">
-        <div class="row g-0">
-            <div class="col-12 col-xl-5">
-                <img src="https://s3-alpha-sig.figma.com/img/cdd6/3b45/dce2c2e60c3fefd1fd17ff45a473af9b?Expires=1639353600&Signature=TBwlA4qOxVhZ1nqQZXzxEdIWgwn4Mf20-2Fm-KGxCE0naf-efR2sed1hxONqcXJN0Ch2roJxWxszAugmGTKnWqNOBDFaAFvJltt~h9BHmTPTmCBL0893G4b20pg08UcAq-tRrLprQI56k4IPhbLsin9GqAxpVCkKDuV~nONiZG7PkHCguK85f3~hKXa53efnf9dJSiRLqd9~cswRPCP5GWMGbg439xp2b1T5KBjzOwhJ2M2lKYNoRAx-983VrMaMz9NMmoq4CkIEAPz3RZF0lwNyo~~Mw-vYLhM-r2anJA~ffHGX3zg3RKQgQTGu0FJSCb8R~Y7dA0ZuugYyZZvkOQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA "
-                    class="img-fluid" style="height: 793px; width: 529px; border-radius: 24px;" alt="... ">
-            </div>
-            <div class="col-12 col-xl-5 directorcartright">
-                <div class="card-body " style="max-height: 216px; max-width: 518px;">
-                    <span style="font-size: 24px; opacity: 0.6; color: black; ">2018-ci ildən davam edir</span>
-                    <p class="card-text " style="font-size: 48px; margin-bottom: 16px;">Süleymanova Kəmalə</p>
-                    <p class="card-text ">The incident prompted an internal investigation, and the names of the LAPD officers involved are being withheld.Moore and Marino were in France as part of a weeklong trip that had been organized so the top cops could meet with French
-                        law enforcement officials to discuss security plans for both the 2024 Summer Olympic Games in France and the 2028 Olympics in Los Angeles.
-                        <br>
-                        <br>The arrest led the man who was detained and others who were walking with him to file a complaint with the French authorities. Those complaints were then reported to the U.S. consulate.Moore called the debacle an “unfortunate
-                        incident” and apologized to local officials in Marseille for the stop, the Times reported.Police officers don’t generally have the authority to make arrests outside their own jurisdiction, let alone in other countries.“When law
-                        enforcement officers leave the country, they don’t have any authority, even in other states,” Brian Higgins, a professor at John Jay College of Criminal Justice, in New York, told VICE News. “They were outside their jurisdiction,
-                        they don’t have authority, and they were completely wrong.”</p>
-                    <p class="card-text " style="margin-top: 0px;">Email: <span class="text-primary">ismayillikollec@mail.ru</span>
 
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
-    <!-- ********************************** -->
-    <div class="card m-auto border-0" style="max-width: 70%;margin-bottom: 4rem !important;">
+<div class="container" style="margin-top: 100px;margin-bottom: 100px;">
+    <h1 >Direktor Səhifesi</h1>
+
+    <div class="card mb-5 mx-auto border-0">
         <div class="row g-0 ">
-            <div class="col-lg-4 col-md-8">
-                <img src="https://s3-alpha-sig.figma.com/img/cdd6/3b45/dce2c2e60c3fefd1fd17ff45a473af9b?Expires=1639353600&Signature=TBwlA4qOxVhZ1nqQZXzxEdIWgwn4Mf20-2Fm-KGxCE0naf-efR2sed1hxONqcXJN0Ch2roJxWxszAugmGTKnWqNOBDFaAFvJltt~h9BHmTPTmCBL0893G4b20pg08UcAq-tRrLprQI56k4IPhbLsin9GqAxpVCkKDuV~nONiZG7PkHCguK85f3~hKXa53efnf9dJSiRLqd9~cswRPCP5GWMGbg439xp2b1T5KBjzOwhJ2M2lKYNoRAx-983VrMaMz9NMmoq4CkIEAPz3RZF0lwNyo~~Mw-vYLhM-r2anJA~ffHGX3zg3RKQgQTGu0FJSCb8R~Y7dA0ZuugYyZZvkOQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                    class="img-fluid " alt="..." style="width: 100%; height: 19rem;border-radius: 1.5rem;">
+            <div class="col-md-6 ">
+                <img src="https://s3-alpha-sig.figma.com/img/cdd6/3b45/dce2c2e60c3fefd1fd17ff45a473af9b?Expires=1640563200&Signature=E46rNui4uXrq0QlRAjFzs0QaUZDKJKvwD03lOfrq-VuWiHRRhsVSQGjogiYYRk4ubKtCIBY6k3T2oDUE6yjJJuM8-kj2U1wChy~PYQDxE6LDraEPw~Ms1anC12CN7kkOJ~glx85ILcebKSp6Inl2OSedsSTQIMqieSarlEZWht1XFNxnPjEh9-WZCZWG9RK0Anj0aH1iHR7KGstR8XzIv6r61teBphdlgJbr0w3V~8V0sadM~lMCMWHwAr9rmGZmO9y1dD~iB~1k3l3GocWd0o98do2catb2p1hhkLygj6vFzlEQF6RAyn3VygnlB6N4B1VXzk4KD0AwiRWiyXDe9g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" class="img-fluid" style="border-radius: 24px;" alt="...">
             </div>
-            <div class="col-lg-4" style="width: 32.25rem;">
+            <div class="col-md-6 ">
                 <div class="card-body">
-                    <span style="font-size: 24px; opacity: 0.6; color: black; ">2018-ci ildən davam edir</span>
-                    <p class="card-title text-dark"
-                        style="font-size: 40px; font-weight: 500; line-height: 56px; font-style: normal;">Kəmalə
-                        <br>Süleymanova
+                    <h2 class="card-title text-dark">
+                        Kəmalə Rüstəm qizi Süleymanlı  
+                    </h2><br>
+                    <p class="card-text text-dark">The incident prompted an internal investigation, and the names of the LAPD officers involved are being withheld.Moore and Marino were in France as part of a weeklong trip that had been organized so the top cops could meet with French law enforcement officials to discuss security plans for both the 2024 Summer Olympic Games in France and the 2028 Olympics in Los Angeles.
+
+                        The arrest led the man who was detained and others who were walking with him to file a complaint with the French authorities. Those complaints were then reported to the U.S. consulate.Moore called the debacle an “unfortunate incident” and apologized to local officials in Marseille for the stop, the Times reported.Police officers don’t generally have the authority to make arrests outside their own jurisdiction, let alone in other countries.“When law enforcement officers leave the country, they don’t have any authority, even in other states,” Brian Higgins, a professor at John Jay College of Criminal Justice, in New York, told VICE News. “They were outside their jurisdiction, they don’t have authority, were completely wrong.”</p>
+                    <p class="iconp">
+                        <span class="iconsp" style="font-size: 18px;">Qəbul günləri <span style="opacity: 0.6;"> &nbsp;(həftə içi)</span> <br>  <span style="opacity: 0.8; font-size: 16px;">10:00-dan 13:00-a &nbsp; | &nbsp; 15:00-dan 17:00-a</span>
+                             </span><br><br>
+                             <span class="iconsp" style="font-size: 18px;">Online əlaqə <span style="opacity: 0.6;"> &nbsp;(email address)</span> <br>  <span style="opacity: 0.8; font-size: 16px;">kamala.suleymanli@gmail.com</span>
+                            </span><br><br>
+                            <span class="iconsp" style="font-size: 18px;">Fəaliyyətdədir <span style="opacity: 0.6;"> &nbsp;</span> <br>  <span style="opacity: 0.8; font-size: 16px;">12.11.2015 tarixindən  indiyə qədər</span>
+                        </span><br>
                     </p>
-                    <p class="card-text" style="font-size: 18px; bottom: 0;">Email:
-                        <br><b>willie.jennings@example.com</b></p>
                 </div>
             </div>
-            <div class="col-lg-8 mt-3">
-                <p class="card-text" style="font-size: 18px;">The incident prompted an internal investigation, and the
-                    names of the LAPD officers involved are being withheld.Moore and Marino were in France as part of a
-                    weeklong trip that had been organized so the top cops could meet with French law
-                    enforcement officials to discuss security plans for both the 2024 Summer Olympic Games in France and
-                    the 2028 Olympics in Los Angeles.
-                    <br><br>The arrest led the man who was detained and others who were walking with him to file a
-                    complaint with the French authorities. Those complaints were then reported to the U.S.
-                    consulate.Moore called the debacle an “unfortunate
-                    incident” and apologized to local officials in Marseille for the stop, the Times reported.Police
-                    officers don’t generally have the authority to make arrests outside their own jurisdiction, let
-                    alone in other countries.“When law enforcement
-                    officers leave the country, they don’t have any authority, even in other states,” Brian Higgins, a
-                    professor at John Jay College of Criminal Justice, in New York, told VICE News. “They were outside
-                    their jurisdiction, they don’t have
-                    authority, were completely wrong.”
-                </p>
-            </div>
         </div>
     </div>
-</div>
 
-<div class="container" style="margin-top: 57px;">
-    <div style="display: flex; justify-content: space-between;">
-        <p style="color: #000; opacity: 0.8;">Müəllimlərimiz</p>
-        <p>
-            <a style="color: blue; text-decoration: none;" href="{% url 'teachers' %}">Hamısına bax</a>
-        </p>
-    </div>
-    <div id="teachers">
-        <div class="row">
-        </div>
-    </div>
-    <button id=" more-button " type="button " class="btn btn-outline-primary my-5 ">Daha çox</button>
+    
 </div>
 {% endblock base %} {% block js %}
 
@@ -114,4 +67,5 @@
     crossorigin="anonymous"></script>
 <script type='text/javascript'
     src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+
 {% endblock js %}

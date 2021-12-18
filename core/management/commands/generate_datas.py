@@ -23,14 +23,14 @@ class Command(BaseCommand):
                 random_subject = Subject.objects.all(
                 )[random.randint(0, subjects - 1)]
                 Teacher.objects.create(
-                    full_name_az=Faker('tr_TR').name(), full_name_ru=Faker('ru_RU').name(),  description=Faker().text(), subject=random_subject, photo='teachers/teacher2_B9SapV7.jpg')
+                    full_name_az=Faker('tr_TR').name(), full_name_ru=Faker('ru_RU').name(),  description=Faker().text(), subject=random_subject, photo='teachers/teacher2.jpg')
         elif data == 'pdfs':
             subjects = Subject.objects.all().count()
             for i in range(total):
                 random_subject = Subject.objects.all(
                 )[random.randint(0, subjects - 1)]
                 PDF.objects.create(
-                    title_az=Faker('tr_TR').name(), title_ru=Faker('ru_RU').name(), category=random_subject, file='pdf/Profile.pdf')
+                    title_az=Faker('tr_TR').name(), title_ru=Faker('ru_RU').name(), category=random_subject, file='pdf/M2._Restoran_anlayısı.docx')
         elif data == 'news':
             categories = Category.objects.all().count()
             for i in range(total):
