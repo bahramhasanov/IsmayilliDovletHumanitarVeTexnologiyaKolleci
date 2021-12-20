@@ -101,18 +101,18 @@
                             <a class="dropdown-item" href="{% url 'director' %}">{% trans 'Direktor' %}</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{% url 'deputies' %}">{% trans 'Müavin' %}</a>
-                        </li>
-                        <li><a class="dropdown-item" href="{% url 'teachers' %}">{% trans 'Müəllim' %}</a></li>
-                        <li>
-                            <a class="dropdown-item" href="{% url 'departments' %}">{% trans 'Şöbə' %}</a>
+                            <a class="dropdown-item" href="{% url 'deputies' %}">{% trans 'Müavinlər' %}</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{% url 'allfaculty' %}">{% trans 'FBK' %}</a>
+                            <a class="dropdown-item" href="{% url 'departments' %}">{% trans 'Şöbələr' %}</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="{% url 'allpractic' %}">{% trans 'Təcrübə' %}</a>
                         </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'allfaculty' %}">{% trans 'FBK-lar' %}</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'teachers' %}">{% trans 'Müəllimlər' %}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -121,9 +121,9 @@
                         {% translate 'Qəbul' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownApply">
-                        <li><a class="dropdown-item" href="{% url 'from11admissionrules' %}">11</a></li>
-                        <li><a class="dropdown-item" href="{% url 'from9admissionrules' %}">9</a></li>
-                        <li><a class="dropdown-item" href="{% url 'totaladmission' %}">{% trans 'Qəbul qaydaları' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'from11admissionrules' %}">IX sinif qəbul</a></li>
+                        <li><a class="dropdown-item" href="{% url 'from9admissionrules' %}">XI sinif qəbul</a></li>
+                        <li><a class="dropdown-item" href="{% url 'totaladmission' %}">{% trans 'Ümumi qaydalar' %}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

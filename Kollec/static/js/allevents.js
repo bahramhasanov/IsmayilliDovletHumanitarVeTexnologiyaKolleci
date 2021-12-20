@@ -1,4 +1,3 @@
-
 function getFutureEvents() {
     fetch(`http://127.0.0.1:8000/api/futureeventapi`, {
         method: 'GET',
@@ -118,5 +117,3 @@ more_button = document.getElementById('more-button');
 more_button.addEventListener('click', (event) => {
     getRecentEvents(recent_events.children.length, recent_events.children.length + 8);
 });
-
-

@@ -10,14 +10,9 @@ function getAllTeachers(start, end, search) {
     })
         .then(response => response.json())
         .then(data => {
-            teachers = document.getElementById('director');
+            teachers = document.getElementById('teachersdr');
             for (let i = 0; i < data.length; i++) {
-                teachers.children[0].innerHTML += `
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-
-                <div class="col-12  ">
+                teachers.children[0].innerHTML += `<div class="col-12 col-md-6 col-lg-3 ">
                 <div class="card my-2" style="height: 328px; border-radius: 20px;">
                 <a data-bs-target="#teacher${data[i]['id']}" data-bs-toggle="modal" style="cursor: pointer; height: 100%">
                 <img class="card-img-top" style="border-radius: 20px; height: 100%"
@@ -61,12 +56,7 @@ function getAllTeachers(start, end, search) {
                         </div>
                         </div>
                         </div>
-                        </div>
-                                            
-                  </div>
-                  </div>
-                </div>
-                        `;
+                        </div>`;
             }
             spinner.classList.add('d-none');
             if (start > 0) {

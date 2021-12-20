@@ -84,5 +84,6 @@ search.addEventListener('keyup', (event) => {
 });
 more_button = document.getElementById('more-button');
 more_button.addEventListener('click', () => {
+    console.log(teachers.children[0].children.length);
     getAllTeachers(teachers.children[0].children.length / 2, teachers.children[0].children.length / 2 + 4, search.value);
 });

@@ -23,7 +23,7 @@ class Command(BaseCommand):
                 random_subject = Subject.objects.all(
                 )[random.randint(0, subjects - 1)]
                 Teacher.objects.create(
-                    full_name_az=Faker('tr_TR').name(), full_name_ru=Faker('ru_RU').name(),  description=Faker().text(), subject=random_subject, photo='teachers/teacher2.jpg')
+                    full_name_az=Faker('tr_TR').name(), full_name_ru=Faker('ru_RU').name(),  description=Faker().text(), subject=random_subject, photo='teachers/teacher2_xAKrMBc.jpg')
         elif data == 'pdfs':
             subjects = Subject.objects.all().count()
             for i in range(total):

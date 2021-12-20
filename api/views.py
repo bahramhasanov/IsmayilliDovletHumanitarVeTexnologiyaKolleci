@@ -1,9 +1,10 @@
+
 from rest_framework.views import APIView
 from rest_framework import permissions, status
 from rest_framework.response import Response
 from django.db.models import Q
-from about.models import Category, News, Faculty, Specialty, Event, Category
-from api.serializers import NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer
+from about.models import Category, News, Faculty, Specialty, Event, Category, Gallery
+from api.serializers import NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer, GallerySerializer
 from api.serializers import EventSerializer, NewsSerializer, PDFserializer, SubjectSerializer, SubscriberSerializer, TeacherSerializer
 from datetime import datetime
 from django.utils.translation import get_language
@@ -144,7 +145,7 @@ class FutureEventAPIView(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def get(self, request):
-        events = Event.objects.filter(date__gte=datetime.now())
+        events = Event.objects.filter(date__gte=datetime.now()) # burada datetime = qoymusan boyukdur olmamalidir ki ?!
         serializer = EventSerializer(events[2:], many=True)
         return Response(serializer.data)
 
@@ -169,3 +170,31 @@ class SubscriberAPIView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class GalleryAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request):
+        start = int(request.GET.get('start'))
+        end = int(request.GET.get('end'))
+        gallery = Gallery.objects.all()
+        serializer = GallerySerializer(gallery[start:end], many=True)
+        return Response(serializer.data)
+
+    # def get(self, request):
+    #     start = int(request.GET.get('start'))
+    #     end = int(request.GET.get('end'))
+    #     search = request.GET.get('search')
+    #     lang = get_language()
+    #     if search != 'all':
+    #         if lang == 'ru':
+    #             gallery = Gallery.objects.filter(name_ru__icontains=search)
+    #         elif lang == 'en':
+    #             gallery = Gallery.objects.filter(name_en__icontains=search)
+    #         elif lang == 'az':
+    #             gallery = Gallery.objects.filter(name_az__icontains=search)
+    #     else:
+    #         gallery = Gallery.objects.all()
+    #     serializer = GallerySerializer(gallery[start:end], many=True)
+    #     return Response(serializer.data)
