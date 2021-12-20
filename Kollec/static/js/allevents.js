@@ -1,4 +1,3 @@
-
 function getFutureEvents() {
     fetch(`http://127.0.0.1:8000/api/futureeventapi`, {
         method: 'GET',
