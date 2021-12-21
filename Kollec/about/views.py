@@ -1,6 +1,6 @@
 from datetime import datetime
-from about.models import Category, Event, News, Specialty, Faculty, Admissionrules, About
-from about.models import Category, News, Specialty, Faculty, Admissionrules, About, Dateofcreate
+from about.models import CareerSupport, Category, Event, Gallery, News, Practic, Specialty, Faculty, Admissionrules, About, Dateofcreate
+from core.models import Mostquestions
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, View
 
@@ -168,4 +168,60 @@ class EventsView(ListView):
         context['recent_events'] = Event.objects.filter(
             date__lte=datetime.now())
         context['title'] = 'Tədbirlər'
+        return context
+
+
+class AllPractic(ListView):
+    model = Practic
+    template_name = 'practies.html'
+    context_object_name = 'practies'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['practies'] = Practic.objects.all()
+        context['title'] = 'Təcrübə Adları'
+        return context
+
+
+class SinglePractic(DetailView):
+    model = Practic
+    template_name = 'single-practic.html'
+    context_object_name = 'practic'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['practic'] = self.object
+        context['title'] = self.object.title
+        return context
+
+
+class GalleryView(ListView):
+    model = Gallery
+    template_name = 'galleries.html'
+    context_object_name = 'practies'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['galleries'] = Gallery.objects.all()
+        context['title'] = 'Qalereya'
+        return context
+
+
+class FAQView(ListView):
+    model = Mostquestions
+    template_name = "FAQ.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['faq'] = Mostquestions.objects.all()
+        return context
+
+
+class CareerSupportView(ListView):
+    model = CareerSupport
+    template_name = 'careersupport.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['careersupports'] = CareerSupport.objects.all()
         return context

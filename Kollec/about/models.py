@@ -141,3 +141,64 @@ class Dateofcreate(BaseModel):
     class Meta:
         verbose_name = _("Yaradilma tarixi")
         verbose_name_plural = _("Yaradilma tarixi")
+
+
+class Practic(BaseModel):
+    title = models.CharField(
+        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+    description = RichTextField(
+        verbose_name=_("Description"), blank=True, null=True)
+    image_icon = models.ImageField(
+        upload_to='practic/', default=None, verbose_name=_("Image icon"))
+    image = models.ImageField(
+        upload_to='practic/', default=None, verbose_name=_("Image"))
+
+    def __str__(self) -> str:
+        return f"{self.title}"
+
+    class Meta:
+        verbose_name = _("Practic")
+        verbose_name_plural = _("Practies")
+
+
+class PracticPlace(BaseModel):
+    title = models.CharField(
+        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+    description = RichTextField(
+        verbose_name=_("Description"), blank=True, null=True)
+    practic = models.ForeignKey(
+        Practic, on_delete=models.CASCADE, related_name="practic_place", default=None, verbose_name=_("Faculty"))
+
+    def __str__(self) -> str:
+        return f"{self.title}"
+
+    class Meta:
+        verbose_name = _("PracticPlace")
+        verbose_name_plural = _("PracticPlaces")
+
+
+class Gallery(BaseModel):
+    name = models.CharField(
+        max_length=30, verbose_name=_('Title'), help_text="Max 30 char."
+    )
+    image = models.ImageField(
+        upload_to='gallery/', default=None, verbose_name=_("Image"))
+
+    def __str__(self) -> str:
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name = _("Gallery")
+        verbose_name_plural = _("Galleries")
+
+
+class CareerSupport(BaseModel):
+    description = RichTextField(
+        verbose_name=_("Description"), blank=True, null=True)
+
+    def __str__(self) -> str:
+        return 'Career support'
+
+    class Meta:
+        verbose_name = _("karyera dəstəyi")
+        verbose_name_plural = _("karyera dəstəyi")
