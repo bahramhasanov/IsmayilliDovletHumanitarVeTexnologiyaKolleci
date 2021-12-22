@@ -214,6 +214,7 @@ class FAQView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['faq'] = Mostquestions.objects.all()
+        context['title'] = 'FAQ'
         return context
 
 

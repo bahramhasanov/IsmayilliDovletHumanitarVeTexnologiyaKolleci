@@ -73,7 +73,7 @@ class EventSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def get_date(self, obj):
-        return obj.date.strftime('%B %d, %Y')
+        return obj.date.strftime('%B %d, %Y %H:%M')
 
 
 class SubscriberSerializer(serializers.ModelSerializer):

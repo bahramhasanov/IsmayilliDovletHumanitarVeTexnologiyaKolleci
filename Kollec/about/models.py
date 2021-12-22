@@ -110,7 +110,7 @@ class Event(BaseModel):
         'about.Category', on_delete=models.CASCADE, related_name="event_category", default=None, verbose_name=_("Category"))
     image = models.ImageField(
         upload_to='event/', default=None, verbose_name=_("Image"))
-    date = models.DateField(verbose_name=_("Date"))
+    date = models.DateTimeField(verbose_name=_("DateTime"))
 
     def __str__(self) -> str:
         return f"{self.title}"
@@ -121,7 +121,7 @@ class Event(BaseModel):
 
 
 class Subscriber(BaseModel):
-    email = models.EmailField(verbose_name=_("Email"))
+    email = models.EmailField(verbose_name=_("Email"), unique=True)
 
     def __str__(self) -> str:
         return f"{self.email}"

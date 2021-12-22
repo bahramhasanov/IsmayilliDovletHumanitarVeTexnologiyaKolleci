@@ -26,6 +26,7 @@ class HomePage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['title'] = "Home"
         context['mostquestions'] = Mostquestions.objects.all()
         context['news'] = News.objects.order_by('-created_at')[:3]
         context['events'] = Event.objects.order_by('-created_at')[:2]
