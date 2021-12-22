@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}"> -->
     <link rel="apple-touch-icon" href="{% static 'apple-touch-icon.png' %}">
     <!-- all css here -->
     <script src="https://kit.fontawesome.com/a94e9ac94f.js" crossorigin="anonymous"></script>
@@ -90,11 +90,9 @@
                         {% translate 'Haqqımızda' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
-                        <li><a class="dropdown-item" href="{% url 'dateofcreate' %}">{% translate 'Yaranma tarixi'
-                                %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'dateofcreate' %}">{% translate 'Yaranma tarixi' %}</a></li>
                         <li><a class="dropdown-item" href="{% url 'about' %}">{% translate 'About' %}</a></li>
-                        <li><a class="dropdown-item" href="{% url 'careersupport' %}">{% translate 'Karyera dəstəyi'
-                                %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'careersupport' %}">{% translate 'Karyera dəstəyi' %}</a></li>
                         <li><a class="dropdown-item" href="{% url 'contact' %}">{% translate 'Bizimlə əlaqə' %}</a></li>
                     </ul>
                 </li>

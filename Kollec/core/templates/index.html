@@ -166,6 +166,9 @@
         display: flex;
         clip: rect(top, offset of right clip from left side, offset of bottom from top, left);
     }
+    .profile-pic{
+        box-shadow: none;
+    }
 </style>
 
 <div class="container" style=" margin-top: 80px;">
@@ -221,13 +224,13 @@
                 <div class="form-outline form-white " style="margin-top: 36px;">
                     <form action="{% url 'search' %}" method="get">
                         <input type="text" name="search_text"
-                        style="width: 60%; padding: 16px 16px 16px 40px; background: white; border-radius: 32px; border: none;"
-                        placeholder="{% translate 'Axtar' %}" />
+                            style="width: 60%; padding: 16px 16px 16px 40px; background: white; border-radius: 32px; border: none;"
+                            placeholder="{% translate 'Axtar' %}" />
                         <button type="submit" class="btn btn-primary" id="emailbutton"
-                        style="background: #0B52FE; border-radius: 34px; padding: 17px 24px 17px 21px;">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
+                            style="background: #0B52FE; border-radius: 34px; padding: 17px 24px 17px 21px;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -301,57 +304,21 @@
                 bax</a>
         </div>
         <div class="carousel-inner " role="listbox " style="margin-top: 1.5rem;">
-
-            <div class="col-md-4 cardcol" style="float:left; padding-left: 0; ">
+            {% for n in news %}
+            <div class="col-md-4 cardcol" style="float:left;">
                 <div class="card mb-2 " style="border-radius: 5%; overflow: hidden;">
                     <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
-                        class="card-img-top news-img cardimg"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg "
-                        alt="Card image cap ">
-                    <div class="card-body " style="padding: 2rem;">
-                        <p class="card-text news-date text-muted" style="font-size: 15px">20 Dekabr 2020 <span
-                                style="margin-right: 1rem; margin-left: 1rem">|</span> <span>Təhsil</span></p>
-                        <p class="card-text carttitle"><b>Velit officia consequat duis enim minim mollit non </b></p>
-                        <p class="card-text news-text carddescription">We conduct classes based on the Curriculum of
-                            International Certification Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                            amet sint.</p>
+                        class="card-img-top news-img cardimg" src="{{n.image.url}}" alt="Card image cap ">
+                    <div class="card-body " style="padding: 2rem; min-height: 17rem;">
+                        <p class="card-text news-date text-muted" style="font-size: 15px">{{n.created_at}} <span
+                                style="margin-right: 1rem; margin-left: 1rem">|</span> <span>{{n.category.title}}</span>
+                        </p>
+                        <p class="card-text carttitle"><b>{{n.title}} </b></p>
+                        <p class="card-text news-text carddescription">{{n.description|safe}}</p>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4 cardcol" style="float:left; padding-top: 0; ">
-                <div class="card mb-2 " style="border-radius: 5%;  overflow: hidden;">
-                    <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
-                        class="card-img-top news-img cardimg"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg "
-                        alt="Card image cap ">
-                    <div class="card-body " style="padding: 2rem;">
-                        <p class="card-text news-date text-muted" style="font-size: 15px">20 Dekabr 2020 <span
-                                style="margin-right: 1rem; margin-left: 1rem">|</span> <span>Təhsil</span></p>
-                        <p class="card-text carttitle"><b>Velit officia consequat duis enim minim mollit non </b></p>
-                        <p class="card-text news-text carddescription">We conduct classes based on the Curriculum of
-                            International Certification Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                            amet sint.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 cardcol" style="float:left; padding-right: 0; ">
-                <div class="card mb-2 " style="border-radius: 5%;  overflow: hidden;">
-                    <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
-                        class="card-img-top news-img cardimg"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg "
-                        alt="Card image cap ">
-                    <div class="card-body " style="padding: 2rem;">
-                        <p class="card-text news-date text-muted" style="font-size: 15px">20 Dekabr 2020 <span
-                                style="margin-right: 1rem; margin-left: 1rem">|</span> <span>Təhsil</span></p>
-                        <p class="card-text carttitle"><b>Velit officia consequat duis enim minim mollit non </b></p>
-                        <p class="card-text news-text carddescription">We conduct classes based on the Curriculum of
-                            International Certification Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                            amet sint.</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 
@@ -361,40 +328,31 @@
                 style="color: #0B52FE; font-size: 15px; font-weight: bold;">Hamısına bax</a></p>
         <!-- <a href="#" style="color: #0B52FE; font-size: 15px; font-weight: bold; margin-bottom: 1.75px; margin-top: 0.75px;">Hamısına bax</a> -->
         <div class="owl-carousel owl-theme ">
+            {% for g in galleries %}
+            {% if forloop.counter == 0 %}
             <div class="item first prev ">
-                <div class="row justify-content-center "> <img src="https://i.imgur.com/gazoShk.jpg "
-                        class="img-fluid profile-pic ">
+                <div class="row justify-content-center "> <img src="{{g.image.url}}" class="img-fluid profile-pic ">
                 </div>
             </div>
-            <div class="item next ">
-                <div class="row justify-content-center "> <img src="https://i.imgur.com/ndQx2Rg.jpg "
-                        class="img-fluid profile-pic ">
-                </div>
-            </div>
-            <div class="item show ">
-                <div class="row justify-content-center "> <img src="https://i.imgur.com/oW8Wpwi.jpg "
-                        class="img-fluid profile-pic ">
-                </div>
-            </div>
-            <div class="item next ">
-                <div class="row justify-content-center "> <img src="https://i.imgur.com/bgKXGOr.jpg "
-                        class="img-fluid profile-pic ">
-                </div>
-            </div>
-            <div class="item next ">
-                <div class="row justify-content-center "> <img
-                        src="https://i.pinimg.com/736x/6e/f7/86/6ef7863846a3f06ad581323d2454ac9e.jpg "
-                        class="img-fluid profile-pic ">
-                </div>
-            </div>
+            {% elif forloop.counter == galleries|length %}
             <div class="item last ">
-                <div class="row justify-content-center "> <img src="https://i.imgur.com/T5aOhwh.jpg "
-                        class="img-fluid profile-pic ">
+                <div class="row justify-content-center "> <img src="{{g.image.url}}" class="img-fluid profile-pic ">
                 </div>
             </div>
+            {% elif forloop.counter == main_gallery_image %}
+            <div class="item show ">
+                <div class="row justify-content-center "> <img src="{{g.image.url}}" class="img-fluid profile-pic ">
+                </div>
+            </div>
+            {% elif forloop.counter < main_gallery_image or forloop.counter > main_gallery_image %}
+            <div class="item next ">
+                <div class="row justify-content-center "> <img src="{{g.image.url}}" class="img-fluid profile-pic ">
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
-
 
     <div id="event " class="carousel slide carousel-multi-item container-fluid" data-ride="carousel "
         style="margin-top: 5rem; padding: 0 !important;">
@@ -406,37 +364,21 @@
         </div>
 
         <div class="carousel-inner " role="listbox " style="margin-top: 1.5rem;">
+
+            {% for event in events %}
             <div class="col-md-6 cardcol" style="float:left; ">
                 <div class="card mb-2 " style="border-radius: 5%; overflow: hidden;">
-                    <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
-                        class="card-img-top news-img cardimg"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg "
-                        alt="Card image cap ">
-                    <div class="card-body " style="padding: 2rem;">
-                        <p class="card-text news-date text-muted" style="font-size: 15px">20 Dekabr 2020</p>
-                        <p class="card-text carttitle"><b>Velit officia consequat duis enim minim mollit non </b></p>
-                        <p class="card-text news-text carddescription">We conduct classes based on the Curriculum of
-                            International Certification Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                            amet sint.</p>
+                    <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; height: 280px;"
+                        class="card-img-top news-img cardimg" src="{{event.image.url}} " alt="Event image ">
+                    <div class="card-body " style="padding: 2rem; height: 17rem;">
+                        <p class="card-text news-date text-muted" style="font-size: 15px">{{event.created_at}}</p>
+                        <p class="card-text carttitle"><b>{{event.title}} </b></p>
+                        <p class="card-text news-text carddescription">{{event.description|safe}}</p>
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
-            <div class="col-md-6 cardcol" style="float:left ">
-                <div class="card mb-2 " style="border-radius: 5%;  overflow: hidden;">
-                    <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
-                        class="card-img-top news-img cardimg"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg "
-                        alt="Card image cap ">
-                    <div class="card-body " style="padding: 2rem;">
-                        <p class="card-text news-date text-muted" style="font-size: 15px">20 Dekabr 2020</p>
-                        <p class="card-text carttitle"><b>Velit officia consequat duis enim minim mollit non </b></p>
-                        <p class="card-text news-text carddescription">We conduct classes based on the Curriculum of
-                            International Certification Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                            amet sint.</p>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>

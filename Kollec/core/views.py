@@ -3,13 +3,13 @@ from django.views.generic.base import TemplateView
 from django.utils import translation
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-
+from math import ceil
 # Create your views here.
 
 from django.views.generic import ListView
 
 from core.models import Mostquestions
-from about.models import News
+from about.models import Event, Gallery, News
 from staff.models import PDF
 
 
@@ -27,6 +27,10 @@ class HomePage(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['mostquestions'] = Mostquestions.objects.all()
+        context['news'] = News.objects.order_by('-created_at')[:3]
+        context['events'] = Event.objects.order_by('-created_at')[:2]
+        context['galleries'] = Gallery.objects.all()
+        context['main_gallery_image'] = ceil(Gallery.objects.count()/2)
         return context
 
 
