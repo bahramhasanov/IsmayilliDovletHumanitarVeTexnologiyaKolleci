@@ -141,3 +141,17 @@ class Dateofcreate(BaseModel):
     class Meta:
         verbose_name = _("Yaradilma tarixi")
         verbose_name_plural = _("Yaradilma tarixi")
+
+
+class Gallery(BaseModel):
+    name = models.CharField(
+        max_length=50, verbose_name=_('Name'), help_text="Max 50 char.")
+    image = models.ImageField(
+        upload_to='gallery/', default=None, verbose_name=_("Image"))
+
+    def __str__(self) -> str:
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name = _("Gallery")
+        verbose_name_plural = _("Galleries")
