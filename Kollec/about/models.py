@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 
 class News(BaseModel):
     title = models.CharField(
-        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
     # description = models.TextField(verbose_name="Description", null=True, blank=True)
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
@@ -26,7 +26,7 @@ class News(BaseModel):
 
 class Category(BaseModel):
     title = models.CharField(
-        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
 
     def __str__(self) -> str:
         return f"{self.title}"
@@ -38,7 +38,7 @@ class Category(BaseModel):
 
 class Faculty(BaseModel):
     title = models.CharField(
-        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
     image = models.ImageField(upload_to='faculty/',
@@ -46,7 +46,7 @@ class Faculty(BaseModel):
     # FBK = models.OneToOneField(Teacher, on_delete=models.CASCADE, related_name='faculty_teacher', default=1, null=True, blank=True)
 
     def __str__(self) -> str:
-        return 'f"{self.title}"'
+        return f"{self.title}"
 
     class Meta:
         verbose_name = _("FBK")
@@ -55,7 +55,7 @@ class Faculty(BaseModel):
 
 class Specialty(BaseModel):
     title = models.CharField(
-        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
     image_icon = models.ImageField(
@@ -103,7 +103,7 @@ class About(BaseModel):
 
 class Event(BaseModel):
     title = models.CharField(
-        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
     description = RichTextField(
         verbose_name=_("Description"))
     category = models.ForeignKey(
@@ -145,7 +145,7 @@ class Dateofcreate(BaseModel):
 
 class Practic(BaseModel):
     title = models.CharField(
-        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
     image_icon = models.ImageField(
@@ -163,7 +163,7 @@ class Practic(BaseModel):
 
 class PracticPlace(BaseModel):
     title = models.CharField(
-        max_length=30, verbose_name=_('Title'), help_text="Max 30 char.")
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
     practic = models.ForeignKey(
@@ -179,7 +179,7 @@ class PracticPlace(BaseModel):
 
 class Gallery(BaseModel):
     name = models.CharField(
-        max_length=30, verbose_name=_('Title'), help_text="Max 30 char."
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char."
     )
     image = models.ImageField(
         upload_to='gallery/', default=None, verbose_name=_("Image"))
