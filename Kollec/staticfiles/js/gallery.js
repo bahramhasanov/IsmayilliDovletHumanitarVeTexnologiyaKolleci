@@ -31,7 +31,6 @@ function getAllGallery(start, end, search) {
 }
 
 
-// *******************************************************
 
 window.addEventListener('DOMContentLoaded', () => {
     getAllGallery(0, 16, 'all');
@@ -50,4 +49,3 @@ more_button.addEventListener('click', () => {
     getAllGallery(gallery.children.length, gallery.children.length + 4, search.value);
 
 });
-// *******************************************************
