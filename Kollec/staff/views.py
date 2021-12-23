@@ -5,7 +5,7 @@ from django.views.generic import ListView, View
 from about.models import Gallery
 from math import ceil
 
-from staff.models import PDF, Teacher
+from staff.models import PDF, LibraryFAQ, Teacher
 
 
 class Deputies(View):
@@ -75,5 +75,6 @@ class Libraryinfo(View):
     def get(self, request):
         context = {
             'title': 'Kitabxana haqqında ümümi məlumat',
+            'faqs': LibraryFAQ.objects.all(),
         }
         return render(request, 'libraryinfo.html', context=context)

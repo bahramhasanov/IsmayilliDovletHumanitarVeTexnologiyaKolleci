@@ -27,6 +27,12 @@
             filter: url(blur.svg#blur);
             Backdrop-filter: blur(20px);
         }
+
+        .languages{
+            min-width: 0 !important;
+            width: 5rem;
+            left: auto;
+        }
     </style>
 
 </head>
@@ -40,36 +46,40 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="{% static 'img/AZE.png' %}" alt=""> {{lang|upper}}
+                    <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px;" class="nav-link dropdown-toggle"
+                        href="#" id="navbarDropdownLanguage" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        
+                        {% ifequal lang 'az'  %} 
+                        <img style="width: 20px; height: 20px;" src="{% static 'img/AZE.png' %}"  alt=""> {{lang|upper}}
+                        {% endifequal %}
+                        {% ifequal lang 'en'  %} 
+                        <img style="width: 20px; height: 20px;" src="{% static 'img/ENG.png' %}"  alt=""> {{lang|upper}}
+                        {% endifequal %}
+                        {% ifequal lang 'ru'  %} 
+                        <img style="width: 20px; height: 20px;" src="{% static 'img/RUS.png' %}"  alt=""> {{lang|upper}}
+                        {% endifequal %}
+                            
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
+                    <ul class="dropdown-menu languages p-0" aria-labelledby="navbarDropdownLanguage">
                         <input type="hidden" value="{% translate 'Lang' %}"> {% ifnotequal lang 'az' %}
                         <li>
-                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=az&next={{request.path}}"><img src="{% static 'img/AZE.png' %}" alt="">{% translate 'AZ' %}</a>
+                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=az&next={{request.path}}"><img
+                                style="width: 20px; height: 20px;" src="{% static 'img/AZE.png' %}" alt="">{% translate 'AZ' %}</a>
                         </li>
                         {% endifnotequal %} {% ifnotequal lang 'en' %}
                         <li>
-                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=en&next={{request.path}}"><img src="{% static 'img/AZE.png' %}" alt="">{% translate 'EN' %}</a>
+                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=en&next={{request.path}}"><img
+                                style="width: 20px; height: 20px;" src="{% static 'img/ENG.png' %}" alt="">{% translate 'EN' %}</a>
                         </li>
                         {% endifnotequal %} {% ifnotequal lang 'ru' %}
                         <li>
-                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=ru&next={{request.path}}"><img src="{% static 'img/AZE.png' %}" alt="">{% translate 'RU' %}</a>
+                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=ru&next={{request.path}}"><img
+                                style="width: 20px; height: 20px;" src="{% static 'img/RUS.png' %}" alt="">{% translate 'RU' %}</a>
                         </li>
                         {% endifnotequal %}
                     </ul>
                 </li>
-                <!-- <li class="nav-item dropdown">
-                    <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px;" class="nav-link dropdown-toggle"
-                        href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <img src="{% static 'img/AZE.png' %}" alt=""> AZ
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#"> <img src="{% static 'img/AZE.png' %}" alt=""> AZ</a>
-                        <a class="dropdown-item" href="#">RU</a>
-                    </div>
-                </li> -->
             </ul>
         </div>
         <div style="justify-content: center;" class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -80,10 +90,10 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
                         <li><a class="dropdown-item" href="{% url 'dateofcreate' %}">
-                            {% translate 'Yaranma tarixi' %}</a></li>
+                                {% translate 'Yaranma tarixi' %}</a></li>
                         <li><a class="dropdown-item" href="{% url 'about' %}">{% translate 'About' %}</a></li>
                         <li><a class="dropdown-item" href="{% url 'careersupport' %}">
-                            {% translate 'Karyera dəstəyi' %}</a></li>
+                                {% translate 'Karyera dəstəyi' %}</a></li>
                         <li><a class="dropdown-item" href="{% url 'contact' %}">{% translate 'Bizimlə əlaqə' %}</a></li>
                     </ul>
                 </li>
@@ -174,8 +184,11 @@
                 <div class="col-lg-5 col-12">
                     <!-- Email input -->
                     <div class="form-outline form-white mb-4">
-                        <input type="email" id="emailinput" style="width: 80%; padding: 16px 16px 16px 40px; background: rgba(0, 0, 0, 0.04); border-radius: 32px; border: none;" placeholder="{% translate 'Enter email' %}" />
-                        <button type="button" class="btn btn-primary" id="emailbutton" style="background: #0B52FE; border-radius: 32px; padding: 16px 20px;">
+                        <input type="email" id="emailinput"
+                            style="width: 80%; padding: 16px 16px 16px 40px; background: rgba(0, 0, 0, 0.04); border-radius: 32px; border: none;"
+                            placeholder="{% translate 'Enter email' %}" />
+                        <button type="button" class="btn btn-primary" id="emailbutton"
+                            style="background: #0B52FE; border-radius: 32px; padding: 16px 20px;">
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
@@ -205,21 +218,40 @@
             <div class="navbar-collapse col-lg-2 col-md-12" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px; width: 60%; color: rgba(0, 0, 0, 0.6);" class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{% static 'img/AZE.png' %}" alt=""> {% ifequal lang 'az' %} Azərbaycanca {% endifequal %} {% ifequal lang 'en' %} English {% endifequal %} {% ifequal lang 'ru' %} Русский {% endifequal %}
+                        <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px; width: 60%; color: rgba(0, 0, 0, 0.6);"
+                            class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            {% ifequal lang 'az' %}
+                            <img src="{% static 'img/AZE.png' %}" style="width: 20px; height: 20pxy;" alt="">
+                            Azərbaycanca
+                            {% endifequal %}
+                            {% ifequal lang 'en' %}
+                            <img src="{% static 'img/ENG.png' %}" style="width: 20px; height: 20pxy;" alt="">
+                            English
+                            {% endifequal %}
+                            {% ifequal lang 'ru' %}
+                            <img src="{% static 'img/RUS.png' %}" style="width: 20px; height: 20pxy;" alt="">
+                            Русский
+                            {% endifequal %}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
                             <input type="hidden" value="{% translate 'Lang' %}"> {% ifnotequal lang 'az' %}
                             <li>
-                                <a class="dropdown-item" href="{% url 'set_language'%}?lang=az&next={{request.path}}"><img src="{% static 'img/AZE.png' %}" alt="">{% translate 'Azərbaycanca' %}</a>
+                                <a class="dropdown-item"
+                                    href="{% url 'set_language'%}?lang=az&next={{request.path}}"><img
+                                    style="width: 20px; height: 20px;"    src="{% static 'img/AZE.png' %}" alt="">{% translate 'Azərbaycanca' %}</a>
                             </li>
                             {% endifnotequal %} {% ifnotequal lang 'en' %}
                             <li>
-                                <a class="dropdown-item" href="{% url 'set_language'%}?lang=en&next={{request.path}}"><img src="{% static 'img/AZE.png' %}" alt="">{% translate 'İngiliscə' %}</a>
+                                <a class="dropdown-item"
+                                    href="{% url 'set_language'%}?lang=en&next={{request.path}}"><img
+                                    style="width: 20px; height: 20px;"    src="{% static 'img/ENG.png' %}" alt="">{% translate 'İngiliscə' %}</a>
                             </li>
                             {% endifnotequal %} {% ifnotequal lang 'ru' %}
                             <li>
-                                <a class="dropdown-item" href="{% url 'set_language'%}?lang=ru&next={{request.path}}"><img src="{% static 'img/AZE.png' %}" alt="">{% translate 'Rusca' %}</a>
+                                <a class="dropdown-item"
+                                    href="{% url 'set_language'%}?lang=ru&next={{request.path}}"><img
+                                    style="width: 20px; height: 20px;"    src="{% static 'img/RUS.png' %}" alt="">{% translate 'Rusca' %}</a>
                             </li>
                             {% endifnotequal %}
                         </ul>

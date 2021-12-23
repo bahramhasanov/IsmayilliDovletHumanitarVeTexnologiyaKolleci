@@ -2,9 +2,9 @@ from django.contrib import admin
 # Register your models here.
 from django.utils.html import format_html
 
-from staff.models import Teacher, Subject, PDF
+from staff.models import Teacher, Subject, PDF, LibraryFAQ
 
-admin.site.register([Teacher, PDF, Subject])
+admin.site.register([Teacher, PDF, LibraryFAQ, Subject])
 
 # @admin.register(Subject)
 # class SubjectAdmin(admin.ModelAdmin):

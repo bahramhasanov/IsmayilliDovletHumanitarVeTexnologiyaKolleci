@@ -47,3 +47,14 @@ class PDF(BaseModel):
     class Meta:
         verbose_name = _("PDF")
         verbose_name_plural = _("PDFs")
+
+class LibraryFAQ(BaseModel):
+    question = models.CharField(max_length=50, verbose_name=_('Question'))
+    answer = RichTextField(verbose_name=_('Answer'))
+
+    def __str__(self):
+        return self.question
+
+    class Meta:
+        verbose_name = _('Library FAQ')
+        verbose_name_plural = _('Library FAQs')
