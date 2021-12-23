@@ -74,19 +74,38 @@
         </div>
     </div>
 
-    <!-- **** -->
     <div style="display: flex; justify-content: space-between; margin-top: 100px;">
         <h3 style="margin-bottom: 0; font-size: 36px;">Müəllimlərimiz</h3>
         <h5 style="margin-bottom: 0; display: flex; align-items: flex-end;"><a href="{% url 'teachers' %}"
                 style="font-size: 15px;">Hamısına bax</a></h5>
     </div>
-    <div id="director">
-
-        <div class="d-flex">
-
+    <div class="gallery  text-center " style="margin-top: 2.5rem;">
+        <div class="owl-carousel owl-theme ">
+            {% for g in teachers %}
+            {% if forloop.counter == 0 %}
+            <div class="item first prev ">
+                <div class="row justify-content-center "> <img src="{{g.photo.url}}" style="border-radius: 20px;" class="img-fluid profile-pic ">
+                </div>
+            </div>
+            {% elif forloop.counter == teachers|length %}
+            <div class="item last ">
+                <div class="row justify-content-center "> <img src="{{g.photo.url}}" style="border-radius: 20px;" class="img-fluid profile-pic ">
+                </div>
+            </div>
+            {% elif forloop.counter == main_teacher_image %}
+            <div class="item show ">
+                <div class="row justify-content-center "> <img src="{{g.photo.url}}" style="border-radius: 20px;" class="img-fluid profile-pic ">
+                </div>
+            </div>
+            {% elif forloop.counter < main_teacher_image or forloop.counter > main_teacher_image %}
+            <div class="item next ">
+                <div class="row justify-content-center "> <img src="{{g.photo.url}}" style="border-radius: 20px;" class="img-fluid profile-pic ">
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
-    <div id="spinner" class="spinner-border d-none"></div>
 
 
 

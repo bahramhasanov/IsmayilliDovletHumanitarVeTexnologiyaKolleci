@@ -2,7 +2,8 @@ from django.http import FileResponse, Http404
 from django.views.generic import ListView
 from django.shortcuts import render
 from django.views.generic import ListView, View
-
+from about.models import Gallery
+from math import ceil
 
 from staff.models import PDF, Teacher
 
@@ -20,6 +21,8 @@ class Director(View):
     def get(self, request):
         context = {
             'title': 'Director',
+            'teachers': Teacher.objects.all(),
+            'main_teacher_image': ceil(Teacher.objects.count()/2)
         }
         return render(request, 'director.html', context=context)
 
