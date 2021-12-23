@@ -14,8 +14,8 @@
 {% endblock css %} {% block base %}
 
 <div class="container" style="margin: 100px auto 150px auto;">
-    <p style="font-size: 48px; text-align: center;">Haqqımızda</p>
-    <p style="font-size: 20px; opacity: 0.6; width: 628px; margin: 20px auto 80px auto; ">Gələcəyini ixtisaslı kadr
+    <!-- <p style="font-size: 48px; text-align: center;">Haqqımızda</p> -->
+    <p style="font-size: 20px; width: 628px; margin: 20px auto 60px auto;color: rgb(68, 65, 65);text-align: center; ">Gələcəyini ixtisaslı kadr
         olaraq düşünürsənsə, təhsilini bizimlə qurmağa başlaya bilərsən!</p>
     <div style="width: 850px; height: 482px; margin: auto;">
 
@@ -26,7 +26,7 @@
     </div>
     {% for about in abouts %}
     <div style="width: 850px; margin: 80px auto 96px auto;">
-        <p style=" font-size: 33px; ">Who we are</p>
+        <p style=" font-size: 33px; ">Biz kimik</p>
         <p style="font-size: 20px; opacity: 0.6; ">{{about.description|safe}}</p>
     </div>
     {% endfor%}

@@ -1,3 +1,4 @@
+
 from rest_framework.views import APIView
 from rest_framework import permissions, status
 from rest_framework.response import Response
@@ -144,7 +145,7 @@ class FutureEventAPIView(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def get(self, request):
-        events = Event.objects.filter(date__gte=datetime.now())
+        events = Event.objects.filter(date__gte=datetime.now()) # burada datetime = qoymusan boyukdur olmamalidir ki ?!
         serializer = EventSerializer(events[2:], many=True)
         return Response(serializer.data)
 

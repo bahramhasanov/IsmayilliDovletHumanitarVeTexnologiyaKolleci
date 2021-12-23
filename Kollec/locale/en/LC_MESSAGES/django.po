@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-14 20:34+0400\n"
+"POT-Creation-Date: 2021-12-23 21:16+0000\n"
 "PO-Revision-Date: 2021-12-14 16:34+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,26 +19,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.9.4\n"
 
-#: about/admin.py:33
+#: about/admin.py:31
 msgid "Adları"
 msgstr "Names"
 
-#: about/admin.py:51
+#: about/admin.py:49
 msgid "FBK-da olan ixtisaslar"
 msgstr "Specialties in Faculty"
 
-#: about/apps.py:8 core/templates/base.html:86
+#: about/apps.py:8 core/templates/base.html:84
 msgid "About"
 msgstr ""
 
 #: about/models.py:10 about/models.py:29 about/models.py:41 about/models.py:58
-#: about/models.py:106 staff/models.py:27 staff/models.py:39
+#: about/models.py:106 about/models.py:148 about/models.py:166
+#: about/models.py:182 staff/models.py:27 staff/models.py:39
 msgid "Title"
 msgstr ""
 
 #: about/models.py:13 about/models.py:43 about/models.py:60 about/models.py:76
-#: about/models.py:78 about/models.py:80 about/models.py:92
-#: about/models.py:108 staff/models.py:12
+#: about/models.py:78 about/models.py:80 about/models.py:92 about/models.py:108
+#: about/models.py:136 about/models.py:150 about/models.py:168
+#: about/models.py:197 staff/models.py:12
 msgid "Description"
 msgstr "Description"
 
@@ -47,7 +49,7 @@ msgid "Category"
 msgstr ""
 
 #: about/models.py:17 about/models.py:45 about/models.py:62 about/models.py:94
-#: about/models.py:112
+#: about/models.py:112 about/models.py:154 about/models.py:185
 msgid "Image"
 msgstr ""
 
@@ -55,7 +57,7 @@ msgstr ""
 msgid "Xəbər"
 msgstr "News"
 
-#: about/models.py:24 core/templates/base.html:120
+#: about/models.py:24 core/templates/base.html:127
 msgid "Xəbərlər"
 msgstr "News"
 
@@ -75,7 +77,7 @@ msgstr ""
 msgid "FBKlar"
 msgstr "FBKs"
 
-#: about/models.py:64
+#: about/models.py:64 about/models.py:170
 msgid "Faculty"
 msgstr "Faculty"
 
@@ -91,12 +93,12 @@ msgstr "Specialties"
 msgid "qəbul qaydaları"
 msgstr "Admission rules"
 
-#: about/models.py:100 about/models.py:101 core/templates/base.html:82
+#: about/models.py:100 about/models.py:101 core/templates/base.html:79
 msgid "Haqqımızda"
 msgstr "About"
 
 #: about/models.py:113
-msgid "Date"
+msgid "DateTime"
 msgstr ""
 
 #: about/models.py:119
@@ -107,9 +109,69 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
+#: about/models.py:124
+msgid "Email"
+msgstr ""
+
+#: about/models.py:130
+msgid "Abunəçi"
+msgstr ""
+
+#: about/models.py:131
+msgid "Abunəçilər"
+msgstr ""
+
+#: about/models.py:142 about/models.py:143
+#, fuzzy
+#| msgid "Yaranma tarixi"
+msgid "Yaradilma tarixi"
+msgstr "History"
+
+#: about/models.py:152
+msgid "Image icon"
+msgstr ""
+
+#: about/models.py:160
+msgid "Practic"
+msgstr ""
+
+#: about/models.py:161
+msgid "Practies"
+msgstr ""
+
+#: about/models.py:176
+msgid "PracticPlace"
+msgstr ""
+
+#: about/models.py:177
+msgid "PracticPlaces"
+msgstr ""
+
+#: about/models.py:191
+msgid "Gallery"
+msgstr ""
+
+#: about/models.py:192
+msgid "Galleries"
+msgstr ""
+
+#: about/models.py:203 about/models.py:204
+#, fuzzy
+#| msgid "Karyera dəstəyi"
+msgid "karyera dəstəyi"
+msgstr "Career support"
+
+#: about/templates/FAQ.html:28
+msgid "Ən çox verilən suallar"
+msgstr ""
+
 #: about/templates/events.html:43
 msgid "Tədbirlər"
 msgstr "Events"
+
+#: about/templates/galleries.html:81 staff/templates/teachers.html:70
+msgid "Müəllimin adı və fənn üzrə axtarış"
+msgstr "Search for teacher name and subject"
 
 #: core/apps.py:8
 msgid "Core"
@@ -127,83 +189,137 @@ msgstr "Answer"
 msgid "Suallar"
 msgstr "Questions"
 
-#: core/templates/base.html:49 core/templates/base.html:226
+#: core/templates/base.html:47 core/templates/base.html:212
 msgid "Lang"
 msgstr ""
 
-#: core/templates/base.html:52
+#: core/templates/base.html:49
 msgid "AZ"
 msgstr ""
 
-#: core/templates/base.html:56
+#: core/templates/base.html:53
 msgid "EN"
 msgstr ""
 
-#: core/templates/base.html:60
+#: core/templates/base.html:57
 msgid "RU"
 msgstr ""
 
-#: core/templates/base.html:85
+#: core/templates/base.html:83
 msgid "Yaranma tarixi"
 msgstr "History"
 
-#: core/templates/base.html:87
-msgid "Missiyamiz"
-msgstr "Mission"
-
-#: core/templates/base.html:88
+#: core/templates/base.html:86
 msgid "Karyera dəstəyi"
 msgstr "Career support"
 
-#: core/templates/base.html:89
+#: core/templates/base.html:87
 msgid "Bizimlə əlaqə"
 msgstr "Contact us"
 
-#: core/templates/base.html:95
+#: core/templates/base.html:92
 msgid "Akademik"
-msgstr "About"
+msgstr "Academic"
+
+#: core/templates/base.html:96
+msgid "Direktor"
+msgstr ""
+
+#: core/templates/base.html:99
+msgid "Müavinlər"
+msgstr "Deputies"
+
+#: core/templates/base.html:102
+msgid "Şöbələr"
+msgstr "Departaments"
+
+#: core/templates/base.html:105
+msgid "Təcrübə"
+msgstr "Practic"
 
 #: core/templates/base.html:109
+msgid "FBK-lar"
+msgstr "FBK-s"
+
+#: core/templates/base.html:111 staff/models.py:23
+msgid "Müəllimlər"
+msgstr "Teachers"
+
+#: core/templates/base.html:116
 msgid "Qəbul"
 msgstr "Admission"
 
-#: core/templates/base.html:130
-msgid "Onlayn Kitabxana"
+#: core/templates/base.html:121
+#, fuzzy
+#| msgid "qəbul qaydaları"
+msgid "Ümumi qaydalar"
+msgstr "Admission rules"
+
+#: core/templates/base.html:138
+#, fuzzy
+#| msgid "Kitabxana"
+msgid "Kitabxana"
 msgstr "Online Library"
 
-#: core/templates/base.html:147
+#: core/templates/base.html:141
+msgid "Ümumi məlumat"
+msgstr "General Info"
+
+#: core/templates/base.html:143
+#, fuzzy
+#| msgid "Onlayn Kitabxana"
+msgid "Online kitabxana"
+msgstr "Online Library"
+
+#: core/templates/base.html:153
 msgid "Kabinet"
 msgstr "Cabinet"
 
-#: core/templates/base.html:165
-msgid "Let’s stay in touch!"
-msgstr ""
+#: core/templates/base.html:170
+msgid "Ilk sən xəbərdar ol!"
+msgstr "You may be aware first"
 
-#: core/templates/base.html:174
+#: core/templates/base.html:177
 msgid "Enter email"
-msgstr ""
+msgstr "Enter email"
 
-#: core/templates/base.html:230
+#: core/templates/base.html:214
 msgid "Azərbaycanca"
 msgstr "Azebaijani"
 
-#: core/templates/base.html:236
+#: core/templates/base.html:218
 msgid "İngiliscə"
 msgstr "English"
 
-#: core/templates/base.html:241
+#: core/templates/base.html:222
 msgid "Rusca"
 msgstr "Russian"
 
-#: kollec/settings.py:137
+#: core/templates/index.html:249
+msgid "Axtar"
+msgstr ""
+
+#: core/templates/search.html:17 staff/templates/library.html:79
+msgid "Search"
+msgstr "Search"
+
+#: core/templates/search.html:19
+msgid "results for "
+msgstr ""
+
+#: core/templates/search.html:32 core/templates/search.html:40
+msgid "Load more"
+msgstr ""
+
+#: kollec/settings.py:146
 msgid "English"
 msgstr ""
 
-#: kollec/settings.py:138
+#: kollec/settings.py:147
 msgid "Azerbaijani"
 msgstr ""
 
-#: kollec/settings.py:139
+#: kollec/settings.py:148
 msgid "Russian"
 msgstr ""
 
@@ -227,10 +343,6 @@ msgstr "Subject"
 msgid "Müəllim"
 msgstr "Teacher"
 
-#: staff/models.py:23
-msgid "Müəllimlər"
-msgstr "Teachers"
-
 #: staff/models.py:33
 msgid "Fənn"
 msgstr "Subject"
@@ -251,14 +363,9 @@ msgstr "PDF"
 msgid "PDFs"
 msgstr "PDFs"
 
-#: staff/templates/library.html:79
-msgid "Search"
-msgstr "Search"
-
 #: staff/templates/library.html:90
 msgid "Daha çox"
 msgstr "Load more"
 
-#: staff/templates/teachers.html:70
-msgid "Müəllimin adı və fənn üzrə axtarış"
-msgstr "Search for teacher name and subject"
+#~ msgid "Missiyamiz"
+#~ msgstr "Mission"
