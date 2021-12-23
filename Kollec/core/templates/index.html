@@ -348,22 +348,22 @@
             {% for g in galleries %}
             {% if forloop.counter == 0 %}
             <div class="item first prev ">
-                <div class="row justify-content-center "> <img src="{{g.image.url}}" class="img-fluid profile-pic ">
+                <div class="row justify-content-center "> <img src="{{g.image.url}}" style="border-radius: 20px;" class="img-fluid profile-pic ">
                 </div>
             </div>
             {% elif forloop.counter == galleries|length %}
             <div class="item last ">
-                <div class="row justify-content-center "> <img src="{{g.image.url}}" class="img-fluid profile-pic ">
+                <div class="row justify-content-center "> <img src="{{g.image.url}}" style="border-radius: 20px;" class="img-fluid profile-pic ">
                 </div>
             </div>
             {% elif forloop.counter == main_gallery_image %}
             <div class="item show ">
-                <div class="row justify-content-center "> <img src="{{g.image.url}}" class="img-fluid profile-pic ">
+                <div class="row justify-content-center "> <img src="{{g.image.url}}" style="border-radius: 20px;" class="img-fluid profile-pic ">
                 </div>
             </div>
             {% elif forloop.counter < main_gallery_image or forloop.counter > main_gallery_image %}
             <div class="item next ">
-                <div class="row justify-content-center "> <img src="{{g.image.url}}" class="img-fluid profile-pic ">
+                <div class="row justify-content-center "> <img src="{{g.image.url}}" style="border-radius: 20px;" class="img-fluid profile-pic ">
                 </div>
             </div>
             {% endif %}
