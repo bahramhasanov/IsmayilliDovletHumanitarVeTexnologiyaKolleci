@@ -44,7 +44,7 @@ class Command(BaseCommand):
                 random_categories = Category.objects.all(
                 )[random.randint(0, categories - 1)]
                 Event.objects.create(
-                    title=Faker().name(), description=Faker().text(), category=random_categories, image='event/2593118_RcXwNPT.jpg', date=Faker().date())
+                    title=Faker().name(), description=Faker().text(), category=random_categories, image='event/gomlek5.jpg', date=Faker().date())
         elif data == 'faculties':
             for i in range(total):
                 Faculty.objects.create(

@@ -106,6 +106,7 @@ DATABASES = {
         'PORT': os.environ.get('POSTGRES_PORT', '5432'),
         # 'PORT': 4321,
     }
+    
 }
 
 # Password validation

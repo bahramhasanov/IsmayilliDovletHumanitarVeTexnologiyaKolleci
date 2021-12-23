@@ -1,3 +1,4 @@
+ 
 function getAllTeachers(start, end, search) {
     spinner = document.getElementById('spinner');
     spinner.classList.remove('d-none');
@@ -16,7 +17,10 @@ function getAllTeachers(start, end, search) {
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 235804bbba80b3d81008aa5a5db2cec6f6c96a37
                 <div class="col-12  ">
                 <div class="card my-2" style="height: 328px; border-radius: 20px;">
                 <a data-bs-target="#teacher${data[i]['id']}" data-bs-toggle="modal" style="cursor: pointer; height: 100%">
@@ -69,14 +73,7 @@ function getAllTeachers(start, end, search) {
                         `;
             }
             spinner.classList.add('d-none');
-            if (start > 0) {
-                window.scrollTo(0, teachers.scrollHeight);
-            }
-            if (data.length < end - start) {
-                more_button.classList.add('d-none');
-            } else {
-                more_button.classList.remove('d-none');
-            }
+            
         });
 }
 
@@ -84,15 +81,15 @@ window.addEventListener('DOMContentLoaded', () => {
     getAllTeachers(0, 4, 'all');
 });
 
-search = document.getElementById('search');
-search.addEventListener('keyup', (event) => {
-    // len = teachers.children[0].children.length/2;
-    teachers.children[0].innerHTML = '';
-    console.log(event.target.value);
-    getAllTeachers(0, 4, event.target.value);
-    // getAllTeachers(0, len, event.target.value);
-});
-// more_button = document.getElementById('more-button');
-// more_button.addEventListener('click', () => {
-//     getAllTeachers(teachers.children[0].children.length / 2, teachers.children[0].children.length / 2 + 4, search.value);
+// search = document.getElementById('search');
+// search.addEventListener('keyup', (event) => {
+//     // len = teachers.children[0].children.length/2;
+//     teachers.children[0].innerHTML = '';
+//     console.log(event.target.value);
+//     getAllTeachers(0, 4, event.target.value);
+//     // getAllTeachers(0, len, event.target.value);
 // });
+// // more_button = document.getElementById('more-button');
+// // more_button.addEventListener('click', () => {
+// //     getAllTeachers(teachers.children[0].children.length / 2, teachers.children[0].children.length / 2 + 4, search.value);
+// // });

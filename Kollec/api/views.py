@@ -3,8 +3,8 @@ from rest_framework.views import APIView
 from rest_framework import permissions, status
 from rest_framework.response import Response
 from django.db.models import Q
-from about.models import Category, News, Faculty, Specialty, Event, Category, Gallery
-from api.serializers import NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer, GallerySerializer
+from about.models import Category, Gallery, News, Faculty, Specialty, Event, Category
+from api.serializers import GallerySerializer, NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer
 from api.serializers import EventSerializer, NewsSerializer, PDFserializer, SubjectSerializer, SubscriberSerializer, TeacherSerializer
 from datetime import datetime
 from django.utils.translation import get_language

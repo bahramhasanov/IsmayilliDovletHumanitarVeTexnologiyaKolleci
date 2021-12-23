@@ -1,7 +1,7 @@
 
 from django.db.models import fields
 from staff.models import PDF, Subject, Teacher
-from about.models import Category, Event, News, Subscriber, Gallery
+from about.models import Category, Event, Gallery, News, Subscriber
 from staff.models import Subject, Teacher
 from about.models import Category, News, Specialty, Faculty
 from django.contrib.auth import get_user_model
@@ -73,7 +73,7 @@ class EventSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def get_date(self, obj):
-        return obj.date.strftime('%B %d, %Y')
+        return obj.date.strftime('%B %d, %Y %H:%M')
 
 
 class SubscriberSerializer(serializers.ModelSerializer):

@@ -1,11 +1,21 @@
-{% extends 'base.html' %} {% load static i18n %} {% block title %} Homepage {% endblock title %} {% block css %}
+{% extends 'base.html' %} {% load static i18n %}
+<title>
+    {% block title %} {{title}} {% endblock title %}
+</title>
+
+{% block css %}
+
 <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
     rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<link rel="stylesheet" href="{% static 'css/index.css' %}"> {% endblock css %} {% block base %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}"> {% endblock css %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> 
+{% block base %}
 <style>
     @media screen and (max-width: 1200px) {
         .depart {
@@ -168,6 +178,18 @@
         display: flex;
         clip: rect(top, offset of right clip from left side, offset of bottom from top, left);
     }
+    .profile-pic{
+        box-shadow: none;
+    }
+
+    .accordion-button::after {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+        transform: scale(.7) !important;
+    }
+
+    .accordion-button:not(.collapsed)::after {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+    }
 </style>
 
 <div class="container" style=" margin-top: 80px;">
@@ -186,12 +208,10 @@
                         Aktiv tələbə
                     </span></div>
             </div>
-            <div class="smallblur" style="width: 148px; height: 66px; border-radius: 20px;top: 270px; left: 338px;">
+            <div class="smallblur" style="width: 148px; height: 66px; border-radius: 20px;top: 270px; left: 300px;">
                 <div
-                    style="width: 46px; height: 46px; border-radius: 12px; padding: 8px; background-color: rgba(11, 82, 254, 0.16); ;margin-top: 10px; margin-left: 10px;">
-                    <img width="100%"
-                        src="https://s3-alpha-sig.figma.com/img/f43a/bfb4/5f54337f9f44b62f819cdebbbc0f4c5e?Expires=1640563200&Signature=Wi7hwD4wbHRhPoVuUtZG0nEH78TuCP-JnW5-XbcK9DxRV4qseoWq6G0LIjqgfcrEQnlun2oSopT9hCG4yI~UR-kcDyLjjtI1e-htAzJF2108fq0OlTB6KxtDHzy8dlHRQwLqgQMcZiHgxAQTRKuHbnWWC0LoHYycFzIy3QwoPUIyUNahs5QlEjUnUhc5i4ZMajm6qAvJ4VFgjlD0w1EAwyuGUegk76hqytJhZt2-QybHxP17LaOyJ6GSuMbzngXozMkHxrJUtWjYTaiZPh9reM29VXXhNYZmHnyRvVcTn7p8A~y2JpBfQf2C-kCHOpT0qgmekCOYXYwk5ZFRf1qkdw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                        alt="">
+                    style="line-height: 36px;display: flex;justify-content: center;align-items: center;font-size: 25px;width: 46px; height: 46px; border-radius: 12px; padding: 8px; background-color: rgba(11, 82, 254, 0.16); ;margin-top: 10px; margin-left: 10px;">
+                    📘
                 </div>
                 <div style=" margin-top: 9px; margin-left: 14px;"><span>
                         <b> 12</b> <br>
@@ -200,12 +220,11 @@
             </div>
             <div class="smallblur" style="width: 156px; height: 66px; border-radius: 20px;top: 366px; left: 64px;">
                 <div
-                    style="width: 46px; height: 46px; border-radius: 12px; padding: 8px; background-color: rgba(11, 82, 254, 0.16); ;margin-top: 10px; margin-left: 10px;">
-                    <img width="100%"
-                        src="https://s3-alpha-sig.figma.com/img/f43a/bfb4/5f54337f9f44b62f819cdebbbc0f4c5e?Expires=1640563200&Signature=Wi7hwD4wbHRhPoVuUtZG0nEH78TuCP-JnW5-XbcK9DxRV4qseoWq6G0LIjqgfcrEQnlun2oSopT9hCG4yI~UR-kcDyLjjtI1e-htAzJF2108fq0OlTB6KxtDHzy8dlHRQwLqgQMcZiHgxAQTRKuHbnWWC0LoHYycFzIy3QwoPUIyUNahs5QlEjUnUhc5i4ZMajm6qAvJ4VFgjlD0w1EAwyuGUegk76hqytJhZt2-QybHxP17LaOyJ6GSuMbzngXozMkHxrJUtWjYTaiZPh9reM29VXXhNYZmHnyRvVcTn7p8A~y2JpBfQf2C-kCHOpT0qgmekCOYXYwk5ZFRf1qkdw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                        alt="">
+                    style="display: flex;justify-content: center;align-items: center;font-size: 25px; width: 46px; height: 46px; border-radius: 12px; padding: 8px; background-color: rgba(11, 82, 254, 0.16); ;margin-top: 10px; margin-left: 10px;">
+                    <!-- <img width="100%" src="../../../../Downloads/Title (1).png" alt=""> Figmadan export edersen -->
+                    🎓
                 </div>
-                <div style=" margin-top: 9px; margin-left: 14px;"><span>
+                <div style="margin-top: 9px; margin-left: 14px;"><span>
                         <b> 1 340</b> <br>
                         Məzun
                     </span></div>
@@ -224,11 +243,11 @@
                     based on the Curriculum of International Certification Examinations with the Guaranteed
                     Education System. We offer them </p>
                 <div class="form-outline form-white " style="margin-top: 36px;">
-                    <form action="{% url 'search' %}" method="GET">
+                    <form action="{% url 'search' %}" method="get">
                         <input type="text" name="search_text"
                             style="width: 60%; padding: 16px 16px 16px 40px; background: white; border-radius: 32px; border: none;"
                             placeholder="{% translate 'Axtar' %}" />
-                        <button type="button" class="btn btn-primary" id="emailbutton"
+                        <button type="submit" class="btn btn-primary"
                             style="background: #0B52FE; border-radius: 34px; padding: 17px 24px 17px 21px;">
                             <i class="fas fa-search"></i>
                         </button>
@@ -236,8 +255,6 @@
                 </div>
             </div>
         </div>
-
-
         <!-- </div> -->
     </div>
     <div class="" style="margin-top: 5rem;">
@@ -302,133 +319,88 @@
         style="margin-top: 5rem; padding: 0;" data-ride="carousel ">
 
         <div style="display: flex; justify-content: space-between;">
-            <b class="ml-3 titles">Xəbərlər</b>
-            <a href="#"
+            <b class="titles">Xəbərlər</b>
+            <a href="{% url 'allnews' %}"
                 style="color: #0B52FE; display: flex; align-items: end; justify-content: center; font-size: 15px; font-weight: bold;">Hamısına
                 bax</a>
         </div>
         <div class="carousel-inner " role="listbox " style="margin-top: 1.5rem;">
-
-            <div class="col-md-4 cardcol" style="float:left ">
+            {% for n in news %}
+            <div class="col-md-4 cardcol" style="float:left;">
                 <div class="card mb-2 " style="border-radius: 5%; overflow: hidden;">
                     <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
-                        class="card-img-top news-img cardimg"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg "
-                        alt="Card image cap ">
-                    <div class="card-body " style="padding: 2rem;">
-                        <p class="card-text news-date text-muted" style="font-size: 15px">20 Dekabr 2020 <span
-                                style="margin-right: 1rem; margin-left: 1rem">|</span> <span>Təhsil</span></p>
-                        <p class="card-text carttitle"><b>Velit officia consequat duis enim minim mollit non </b></p>
-                        <p class="card-text news-text carddescription">We conduct classes based on the Curriculum of
-                            International Certification Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                            amet sint.</p>
+                        class="card-img-top news-img cardimg" src="{{n.image.url}}" alt="Card image cap ">
+                    <div class="card-body " style="padding: 2rem; min-height: 17rem;">
+                        <p class="card-text news-date text-muted" style="font-size: 15px">{{n.created_at}} <span
+                                style="margin-right: 1rem; margin-left: 1rem">|</span> <span>{{n.category.title}}</span>
+                        </p>
+                        <p class="card-text carttitle"><b>{{n.title}} </b></p>
+                        <p class="card-text news-text carddescription">{{n.description|safe}}</p>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4 cardcol" style="float:left ">
-                <div class="card mb-2 " style="border-radius: 5%;  overflow: hidden;">
-                    <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
-                        class="card-img-top news-img cardimg"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg "
-                        alt="Card image cap ">
-                    <div class="card-body " style="padding: 2rem;">
-                        <p class="card-text news-date text-muted" style="font-size: 15px">20 Dekabr 2020 <span
-                                style="margin-right: 1rem; margin-left: 1rem">|</span> <span>Təhsil</span></p>
-                        <p class="card-text carttitle"><b>Velit officia consequat duis enim minim mollit non </b></p>
-                        <p class="card-text news-text carddescription">We conduct classes based on the Curriculum of
-                            International Certification Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                            amet sint.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 cardcol" style="float:left ">
-                <div class="card mb-2 " style="border-radius: 5%;  overflow: hidden;">
-                    <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
-                        class="card-img-top news-img cardimg"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg "
-                        alt="Card image cap ">
-                    <div class="card-body " style="padding: 2rem;">
-                        <p class="card-text news-date text-muted" style="font-size: 15px">20 Dekabr 2020 <span
-                                style="margin-right: 1rem; margin-left: 1rem">|</span> <span>Təhsil</span></p>
-                        <p class="card-text carttitle"><b>Velit officia consequat duis enim minim mollit non </b></p>
-                        <p class="card-text news-text carddescription">We conduct classes based on the Curriculum of
-                            International Certification Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                            amet sint.</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 
     <div class="gallery  text-center " style="margin-top: 5rem;">
         <p class="titles m-0"><b>Qalereya</b></p>
-        <p class="text-center mx-auto "> <a href="#"
+        <p class="text-center mx-auto "> <a href="{% url 'galleries' %}"
                 style="color: #0B52FE; font-size: 15px; font-weight: bold;">Hamısına bax</a></p>
         <!-- <a href="#" style="color: #0B52FE; font-size: 15px; font-weight: bold; margin-bottom: 1.75px; margin-top: 0.75px;">Hamısına bax</a> -->
         <div class="owl-carousel owl-theme ">
+            {% for g in galleries %}
+            {% if forloop.counter == 0 %}
             <div class="item first prev ">
-                <div class="row justify-content-center "> <img src="https://i.imgur.com/gazoShk.jpg "
-                        class="img-fluid profile-pic ">
+                <div class="row justify-content-center "> <img src="{{g.image.url}}" class="img-fluid profile-pic ">
                 </div>
             </div>
-            <div class="item next ">
-                <div class="row justify-content-center "> <img src="https://i.imgur.com/ndQx2Rg.jpg "
-                        class="img-fluid profile-pic ">
-                </div>
-            </div>
-            <div class="item show ">
-                <div class="row justify-content-center "> <img src="https://i.imgur.com/oW8Wpwi.jpg "
-                        class="img-fluid profile-pic ">
-                </div>
-            </div>
-            <div class="item next ">
-                <div class="row justify-content-center "> <img src="https://i.imgur.com/bgKXGOr.jpg "
-                        class="img-fluid profile-pic ">
-                </div>
-            </div>
-            <div class="item next ">
-                <div class="row justify-content-center "> <img
-                        src="https://i.pinimg.com/736x/6e/f7/86/6ef7863846a3f06ad581323d2454ac9e.jpg "
-                        class="img-fluid profile-pic ">
-                </div>
-            </div>
+            {% elif forloop.counter == galleries|length %}
             <div class="item last ">
-                <div class="row justify-content-center "> <img src="https://i.imgur.com/T5aOhwh.jpg "
-                        class="img-fluid profile-pic ">
+                <div class="row justify-content-center "> <img src="{{g.image.url}}" class="img-fluid profile-pic ">
                 </div>
             </div>
+            {% elif forloop.counter == main_gallery_image %}
+            <div class="item show ">
+                <div class="row justify-content-center "> <img src="{{g.image.url}}" class="img-fluid profile-pic ">
+                </div>
+            </div>
+            {% elif forloop.counter < main_gallery_image or forloop.counter > main_gallery_image %}
+            <div class="item next ">
+                <div class="row justify-content-center "> <img src="{{g.image.url}}" class="img-fluid profile-pic ">
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
 
-
-    <div id="event " class="carousel slide carousel-multi-item container-fluid " data-ride="carousel "
-        style="margin-top: 5rem;">
+    <div id="event " class="carousel slide carousel-multi-item container-fluid" data-ride="carousel "
+        style="margin-top: 5rem; padding: 0 !important;">
         <div style="display: flex; justify-content: space-between;">
-            <b class="ml-3 titles">Tədbirlər</b>
-            <a href="#"
+            <b class=" titles">Tədbirlər</b>
+            <a href="{% url 'allevents' %}"
                 style="color: #0B52FE; display: flex; align-items: end; justify-content: center; font-size: 15px; font-weight: bold;">Hamısına
                 bax</a>
         </div>
 
         <div class="carousel-inner " role="listbox " style="margin-top: 1.5rem;">
+
+            {% for event in events %}
             <div class="col-md-6 cardcol" style="float:left; ">
                 <div class="card mb-2 " style="border-radius: 5%; overflow: hidden;">
-                    <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
-                        class="card-img-top news-img cardimg"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg "
-                        alt="Card image cap ">
-                    <div class="card-body " style="padding: 2rem;">
-                        <p class="card-text news-date text-muted" style="font-size: 15px">20 Dekabr 2020</p>
-                        <p class="card-text carttitle"><b>Velit officia consequat duis enim minim mollit non </b></p>
-                        <p class="card-text news-text carddescription">We conduct classes based on the Curriculum of
-                            International Certification Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                            amet sint.</p>
+                    <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; height: 280px;"
+                        class="card-img-top news-img cardimg" src="{{event.image.url}} " alt="Event image ">
+                    <div class="card-body " style="padding: 2rem; height: 17rem;">
+                        <p class="card-text news-date text-muted" style="font-size: 15px">{{event.created_at}}</p>
+                        <p class="card-text carttitle"><b>{{event.title}} </b></p>
+                        <p class="card-text news-text carddescription">{{event.description|safe}}</p>
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
+<<<<<<< HEAD
             <div class="col-md-6 cardcol" style="float:left ">
                 <div class="card mb-2 " style="border-radius: 5%;  overflow: hidden;">
                     <img style="border-top-left-radius: 5%; border-top-right-radius: 5%; "
@@ -445,32 +417,29 @@
                     </div>
                 </div>
             </div>
+=======
+>>>>>>> 235804bbba80b3d81008aa5a5db2cec6f6c96a37
 
         </div>
     </div>
-    <div id="faq" style="max-width: 54rem; margin: auto;">
-        <div>
-            <p class="titles text-center" style="margin-top: 5rem;"><b>Ən çox verilən suallar</b></p>
-        </div>
-        <div class="accordion" id="accordionExample">
-            {% for i in mostquestions%}
-            <div class="accordion-item" style="border-radius: 10px;">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapse{{i.id}}" aria-expanded="true" aria-controls="collapse{{i.id}}">
-                        {{i.title}}
-                    </button>
-                </h2>
-                <div id="collapse{{i.id}}" class="accordion-collapse collapse " aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        {{i.description|safe}}
-                    </div>
+
+    <div>
+        <p class="titles text-center" style="margin-top: 5rem;"><b>Ən çox verilən suallar</b></p>
+    </div>
+    <div class="accordion" id="faq">
+        {% for i in mostquestions%}
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne">{{i.title}}</button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faq">
+                <div class="card-body">
+                    <p>{{i.description|safe}}</p>
                 </div>
             </div>
-            {% endfor %}
-
         </div>
+        {% endfor %}
     </div>
 
 
@@ -484,10 +453,10 @@
                 style="padding: 2rem; background-color: #f6f6f6; border-radius: 20px; border: none;">
                 <div class="card-content ">
 
-                    <div class=" p-0 ">
+                    <div class="p-0">
                         <div style="display: flex;">
                             <div class="profile "> <img
-                                    src="https://s3-alpha-sig.figma.com/img/51db/00a3/dea1ca86bb859d60ed0c85ba15e0eb89?Expires=1639958400&Signature=aNpEJ93d0akLlTkaERXXz~5Bn1CukkmfZEMbCd6M1YQyp5mIKBaExaEh2mO81s6JavjnfFRIKOGOCKoUcYzS5xIPCrnbkm6nUoqSkpD6I5VnA1hVpI7eVlE5YSYuHHYzGe-41IX3ogBBy3unbcRfVopLE5lauFW5W3T-cwFVWrAuaenp9j~nZQJ92KtwKQSMkC5WRn-G6AyJ99zbdrNh6Qgb7j~Jh406cfWlovVAt6TsNaCmaRMFxTkRmw69VdkpzGzyY9bV0EB08p-NymGFHKVgOG0G0YbZWdNjZvcvQ5SZ5J-3AH58d2YZbqd2GN7fGmrZ9cPZ-fhoOjFNn4R0eQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA">
+                                    src="">
                             </div>
                             <div class="card-title " style="margin-left: 1rem; "> <span
                                     style="font-size: 19px; font-weight: 500px; line-height: 23px;">Darlene
@@ -519,7 +488,7 @@
                     <div class=" p-0 ">
                         <div style="display: flex;">
                             <div class="profile "> <img
-                                    src="https://s3-alpha-sig.figma.com/img/0405/cfb0/607970352bdbd46d807a753eaba4faf1?Expires=1639958400&Signature=RoIaWXdfavSOVJQ8iWU2gHU7nN5HWG0gTcIspYnhBvQzroNmw~oPgaP-jNyvd8BgGIpjZOzZmRpHy00BFFzIo5wm1JDyNOHfekvmfAO7sPUgOSLSt4iRqc2-9fOIhrjhsZSRrrTKf57IdYhOMpu1En8LNxoeV9v4JiVr4ZriVMcDVORRZXoXSdpCsHLWyFpKZ-tjzHQ946VLvrZeCTe-Y9Dpf7FP8Y1K111RWgY61OCk8lpvEdgA7G1Fi51~nklgQJak1aolL9PKE~XXxlhoSI~zIn4cDvfK1Z0c84ue6828oMRMZXBNzsxHchsZg8flm2hbgg6ycjaHxfS9tgVCgA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA">
+                                    src="">
                             </div>
                             <div class="card-title " style="margin-left: 1rem; "> <span
                                     style="font-size: 19px; font-weight: 500px; line-height: 23px;">Darlene
@@ -551,7 +520,7 @@
                     <div class=" p-0 ">
                         <div style="display: flex;">
                             <div class="profile "> <img
-                                    src="https://s3-alpha-sig.figma.com/img/fd98/9dcd/4420eb656c28960fbb8c027b3e89401f?Expires=1639958400&Signature=Z-Jy6RDu8yD9fGtUULLx3KesF9zPje4LxME2C3ak5GmT36~ZZwzN7S78BDMkgp8MJ2BCalUWfGYFaCEaRPM683hJ2ax0~k6rZ4fZfEZriCBF~iEa1P86R3BmcK7VtDsUZ78lz5YA5EHZ4X1M8~iu3WJSMIAog5h0P8kAqtf6lKJragJ9KDP05QE3SXdVG3~Rn-Vootq4qfHjWEN1FxF2pdXv4T74I7o4AT504lJ5PB4XVIERcwBgVqfOG~C9~2BagqLI6jRvQ5NuoNgg9tpMoeqgYhXigqjqe29cIBmhDiKhExJH00LZ-1In18FVR7ygQkCkrK4-XrXQrrMbMhS0Dg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA">
+                                    src="">
                             </div>
                             <div class="card-title " style="margin-left: 1rem; "> <span
                                     style="font-size: 19px; font-weight: 500px; line-height: 23px;">Darlene
@@ -580,12 +549,9 @@
     </div>
 
 </div>
-{% endblock base %} {% block js %}
+{% endblock base %}
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js "
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p "
-    crossorigin="anonymous "></script>
-<script type='text/javascript'
-    src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+{% block js %}
 <script type='text/javascript' src="{% static 'js/index.js' %} "></script>
 {% endblock js %}
+    

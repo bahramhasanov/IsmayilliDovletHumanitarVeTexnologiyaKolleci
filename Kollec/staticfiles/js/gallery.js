@@ -47,8 +47,15 @@ search.addEventListener('keyup', (event) => {
 more_button = document.getElementById('more-button');
 more_button.addEventListener('click', () => {
     console.log(gallery.children.length);
+<<<<<<< HEAD
     getAllGallery(gallery.children.length , gallery.children.length + 4, search.value);
 
 });
 // *******************************************************
 
+=======
+    getAllGallery(gallery.children.length, gallery.children.length + 4, search.value);
+
+});
+// *******************************************************
+>>>>>>> 235804bbba80b3d81008aa5a5db2cec6f6c96a37

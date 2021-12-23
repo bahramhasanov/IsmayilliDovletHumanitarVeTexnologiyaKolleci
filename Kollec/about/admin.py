@@ -1,10 +1,10 @@
-from about.models import News, Category, Specialty, Faculty, Admissionrules, About, Event, Subscriber, Dateofcreate
+from about.models import News, Category, Specialty, Faculty, Admissionrules, About, Event, Subscriber, Dateofcreate, Practic, PracticPlace, Gallery, CareerSupport
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
 
 # Register your models here.
 from django.utils.html import format_html
-admin.site.register([News, Category, Specialty, Event, Subscriber])
+admin.site.register([News, Category, Specialty, Event, Subscriber, Practic, PracticPlace, Gallery, CareerSupport])
 
 
 @admin.register(Faculty)
@@ -57,7 +57,7 @@ class AboutAdmin(admin.ModelAdmin):
     )
 
     def has_add_permission(self, request):
-        return False
+        return True
 
     def has_delete_permission(self, request, obj=None):
         return False
