@@ -1,0 +1,94 @@
+{% extends 'base.html' %} {% load static i18n %}
+<title>
+    {% block title %} {{title}} {% endblock title %}
+</title>
+
+{% block css %}
+
+<link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+{% endblock css %}
+<style>
+    @media screen and (min-width: 1200px) {
+        .iconp {
+            margin-bottom: 0;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .iconsp {
+            font-size: 1rem !important;
+        }
+    }
+</style>{% block base %}
+
+<div class="container mt-5">
+    <h1 style="margin-bottom: 20px;">Təcrübə programı</h1>
+
+    <div class="card mb-5 mx-auto border-0">
+        <div class="row g-0 ">
+            <div class="col-md-6 ">
+                <img src="{{practic.image.url}}" class="img-fluid" style="border-radius: 24px;" alt="...">
+            </div>
+            <div class="col-md-6 ">
+                <div class="card-body">
+                    <h2 class="card-title text-dark">
+                        {{practic.title}}
+                    </h2>
+                    <p class="card-text text-dark">{{practic.description|safe|truncatechars:300}}</p>
+                    <p class="iconp">
+                        <span class="iconsp" style="font-size: 18px;"><span
+                                style="color: #00C808; font-size: 25px;">&#10003;</span>&nbsp; Baza bilikliklərinin
+                            təkmilləşdirilməsi </span><br>
+                        <span class="iconsp" style="font-size: 18px;"><span
+                                style="color: #00C808; font-size: 25px;">&#10003;</span>&nbsp; Kollektivlə iş
+                            bacarığının əldə edilməsi</span><br>
+                        <span class="iconsp" style="font-size: 18px;"><span
+                                style="color: #00C808; font-size: 25px;">&#10003;</span>&nbsp; Sənədlərlə iş bacarığının
+                            yüksəldilməsi</span><br>
+                        <span class="iconsp" style="font-size: 18px;"><span
+                                style="color: #00C808; font-size: 25px;">&#10003;</span>&nbsp; Akademik kommunikasiya
+                            qurmaq </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 120px;">
+        <p style="margin-bottom: 40px; font-size: 46px;">Təcrübə formaları</p>
+        <div>
+            <p style="font-size: 28px;">Tədris təcrübəsi</p>
+            <p style="opacity: 0.8;font-size: 18px;">Müddət: 4 həftə</p>
+            <p style="opacity: 0.8;font-size: 18px;">Təcrübə yeri: Tədris müəsisəsi</p>
+        </div>
+        <div style="margin-top: 52px;">
+            <p style="font-size: 28px;">İstehsalat təcrübəsi</p>
+            <p style="opacity: 0.8;font-size: 18px;">Müddət: 12 həftə</p>
+        </div>
+        <div style="margin-top: 87px;">
+            <p style="font-size: 28px;"><b>İstehasalat Təcrübəsinin Ünvanları</b></p>
+            {% for i in practic.practic_place.all %}
+            <div>
+                <p style="font-size: 24px;">{{ i.title }}</p>
+                <p style="font-size: 18px; opacity: 0.6;">{{i.description|safe}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock base %} {% block js %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+<script type='text/javascript'
+    src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+
+{% endblock js %}
