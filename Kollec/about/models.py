@@ -73,11 +73,11 @@ class Specialty(BaseModel):
 
 class Admissionrules(BaseModel):
     total_rules = RichTextField(
-        verbose_name=_("Description"), blank=True, null=True)
+        verbose_name=_("General Admission"), blank=True, null=True)
     from_9_rules = RichTextField(
-        verbose_name=_("Description"), blank=True, null=True)
+        verbose_name=_("From 9 Admission"), blank=True, null=True)
     from_11_rules = RichTextField(
-        verbose_name=_("Description"), blank=True, null=True)
+        verbose_name=_("From 11 Admission"), blank=True, null=True)
 
     def __str__(self) -> str:
         return 'qəbul'

@@ -15,7 +15,7 @@
 </style>{% endblock css %} {% block base %}
 
 
-<div class="container mt-5">
+<div class="container " style="margin-top: 70px; margin-bottom: 80px;">
     <div class="card mb-3 mx-auto border-0" style="max-width: 100%;">
         <div class="row g-0 ">
 
@@ -28,11 +28,11 @@
                     <div>
                         <div>
                             <div style="display: flex;padding-left: 170px;">
-                                <div class="profile "> <img src="https://s3-alpha-sig.figma.com/img/fd98/9dcd/4420eb656c28960fbb8c027b3e89401f?Expires=1639958400&Signature=Z-Jy6RDu8yD9fGtUULLx3KesF9zPje4LxME2C3ak5GmT36~ZZwzN7S78BDMkgp8MJ2BCalUWfGYFaCEaRPM683hJ2ax0~k6rZ4fZfEZriCBF~iEa1P86R3BmcK7VtDsUZ78lz5YA5EHZ4X1M8~iu3WJSMIAog5h0P8kAqtf6lKJragJ9KDP05QE3SXdVG3~Rn-Vootq4qfHjWEN1FxF2pdXv4T74I7o4AT504lJ5PB4XVIERcwBgVqfOG~C9~2BagqLI6jRvQ5NuoNgg9tpMoeqgYhXigqjqe29cIBmhDiKhExJH00LZ-1In18FVR7ygQkCkrK4-XrXQrrMbMhS0Dg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA">
+                                <div class="profile " > <img style="width: 40px;" src="../../media/practic/dr_img.png">
                                 </div>
-                                <div class="card-title " style="margin-left: 1rem; "> <span style="font-size: 19px; font-weight: 500px; line-height: 23px;">Darlene Robertson</span><br /> <span style="text-transform: uppercase; font-size: 13px; opacity: 0.6;">Student</span> </div>
+                                <div class="card-title " style="margin-left: 1rem; "> <span style="font-size: 19px; font-weight: 500px; line-height: 23px;">Ad Soyad</span><br /> <span style="text-transform: uppercase; font-size: 13px; opacity: 0.6;">Müəllim</span> </div>
                             </div>
-                            <div class="text-center" style="width: 460px; padding-left: 110px;">
+                            <div class="text-center" style="width: 460px; padding-left: 40px;">
                                 <p style="line-height: 50px; margin-top: 27px; border-top: 1px solid rgb(209, 207, 207);color: #0B52FE;">Əlaqə: 055 995 89 70</p>
                             </div>
                         </div>
@@ -51,14 +51,14 @@
     {% for i in faculty.specialty_faculty.all %}
     <div class="card mb-3" style="border-radius: 24px;">
         <div class="card-body d-flex">
-            <img src="{{i.image_icon.url}} " class="card-img-top " style="width: 100px; " alt="... ">
+            <img src="{{i.image_icon.url}} " class="card-img-top " style="width: 100px; height: 50px; margin-right: 20px; " alt="... ">
             <h7 class="  ">
                 <p><a class="text-dark card-title" style="text-decoration: none; font-size: 32px;" href="{{i.id}}/speciality/{{i.id}} ">{{ i.title }}</a></p>
                 <p class="card-text text-dark" style="font-size: 18px;">{{i.description|safe}}</p>
             </h7>
         </div>
     </div>
-    {% endfor %}
+    {% endfor %} <br>
 </div>
 {% endblock base %} {% block js %}
 

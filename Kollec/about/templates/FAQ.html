@@ -28,9 +28,9 @@
         <p class="titles text-center" style="margin-top: 5rem;"><b>{% translate 'Ən çox verilən suallar' %}</b></p>
     </div>
     <div class="m-4">
-        <div class="accordion" id="faq">
+        <div class="accordion " id="faq">
             {% for i in faq%}
-            <div class="accordion-item">
+            <div class="accordion-item ">
                 <h2 class="accordion-header" id="headingOne">
                     <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
                         data-bs-target="#collapse{{i.id}}">{{forloop.counter}}. {{i.title}}</button>
