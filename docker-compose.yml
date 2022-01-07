@@ -13,24 +13,31 @@ services:
     environment:
       - LC_ALL=C.UTF-8
 
-  nginx:
-    container_name: nginx
-    build: ./nginx
-    restart: "on-failure"
-    ports:
-      - 80:80
-    volumes:
-      - ./Kollec/media:/app/media
-      - ./Kollec/staticfiles:/app/static
-
-  app:
-    container_name: app
+  web:
+    container_name: kollec
     build: .
-    restart: "on-failure"
-    ports:
-      - 8000:8000
-    volumes:
-      - ./app:/usr/src/app
+    restart: "always"
     env_file: .env
-    depends_on:
+    environment:
+ #     - VIRTUAL_HOST=
+      - VIRTUAL_PORT=8000
+      - TIMEOUT=300
+      - HTTP_PORT=8000
+      - STATS_PORT=8046
+    command: >
+      sh -c "/venv/bin/python manage.py makemigrations &&
+             /venv/bin/python manage.py migrate &&
+             /venv/bin/python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/kollec
+    ports:
+      - "8000:8000"
+    links:
       - postgres
+    depends_on:
+      - "postgres"
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
