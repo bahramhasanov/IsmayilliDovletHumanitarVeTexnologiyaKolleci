@@ -133,6 +133,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-*/migrations/
+#*/migrations/
 postgredb/
 media/
