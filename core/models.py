@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 class Mostquestions(BaseModel):
     title = models.CharField(max_length=100, verbose_name=_('Sual'))
     description = RichTextField(
-        verbose_name=_("Cavab"), blank=True, null=True)
+        verbose_name=_("Cavab"))
 
     def __str__(self):
         return self.title

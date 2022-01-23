@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from staff.models import PDF, Subject, Teacher
+from staff.models import PDF, LibraryFAQ, Subject, Teacher
 
 
 @register(Teacher)
@@ -15,3 +15,7 @@ class SubjectTranslator(TranslationOptions):
 @register(PDF)
 class PDFTranslator(TranslationOptions):
     fields = ('title',)
+
+@register(LibraryFAQ)
+class LibraryFAQTranslator(TranslationOptions):
+    fields = ('question', 'answer')

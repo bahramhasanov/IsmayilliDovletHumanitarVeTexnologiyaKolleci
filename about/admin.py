@@ -4,24 +4,39 @@ from django.contrib import admin
 
 # Register your models here.
 from django.utils.html import format_html
-admin.site.register([News, Category, Specialty, Event, Subscriber, Practic, PracticPlace, Gallery, CareerSupport])
+admin.site.register([Subscriber,
+                    Practic, PracticPlace, Gallery, CareerSupport])
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    exclude = ('title',)
+
+
+@admin.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    exclude = ('title', 'description',)
+
+
+@admin.register(Specialty)
+class SpecialtyAdmin(admin.ModelAdmin):
+    exclude = ('title', 'description',)
+
+
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    exclude = ('title', 'description',)
 
 
 @admin.register(Faculty)
 class FacultyAdmin(admin.ModelAdmin):
     search_fields = ("title",)
+    exclude = ('title', 'description',)
     list_display = (
         'title',
-
     )
     readonly_fields = ("get_facultyofspecialty",)
-    fields = (
-        'title',
-        'description',
-        'image',
-        'get_facultyofspecialty'
-    )
-
+    
     # def get_readonly_fields(self, request, obj=None):
     #     if obj:
     #         return self.readonly_fields + ('title',)

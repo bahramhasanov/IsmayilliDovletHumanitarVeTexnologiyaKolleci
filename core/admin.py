@@ -4,4 +4,7 @@ from django.contrib import admin
 
 from core.models import Mostquestions
 
-admin.site.register([Mostquestions])
+
+@admin.register(Mostquestions)
+class MostquestionsAdmin(admin.ModelAdmin):
+    exclude = ('title', 'description',)
