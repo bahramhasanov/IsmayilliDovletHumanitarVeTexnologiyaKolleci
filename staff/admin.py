@@ -4,7 +4,25 @@ from django.utils.html import format_html
 
 from staff.models import Teacher, Subject, PDF, LibraryFAQ
 
-admin.site.register([Teacher, PDF, LibraryFAQ, Subject])
+
+@admin.register(Teacher)
+class TeacherAdmin(admin.ModelAdmin):
+    exclude = ('full_name', 'description')
+
+
+@admin.register(Subject)
+class SubjectAdmin(admin.ModelAdmin):
+    exclude = ('title',)
+
+
+@admin.register(PDF)
+class PDFAdmin(admin.ModelAdmin):
+    exclude = ('title',)
+
+
+@admin.register(LibraryFAQ)
+class LibraryFAQAdmin(admin.ModelAdmin):
+    exclude = ('question', 'answer')
 
 # @admin.register(Subject)
 # class SubjectAdmin(admin.ModelAdmin):

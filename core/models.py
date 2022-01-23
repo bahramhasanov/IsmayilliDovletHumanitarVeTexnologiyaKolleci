@@ -7,10 +7,7 @@ from django.utils.translation import activate, ugettext_lazy as _
 
 class Mostquestions(BaseModel):
     title = models.CharField(max_length=100, verbose_name=_('Title'))
-    description = RichTextField(
-        verbose_name=_("description"), blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    description = RichTextField(verbose_name=_("Cavab"))
 
     def __str__(self):
         return self.title
@@ -27,13 +24,11 @@ class MainPage(BaseModel):
         verbose_name=_("description"), blank=True, null=True)
     active_student_number = models.IntegerField()
     faculty_number = models.IntegerField()
-    graduate_number = models.IntegerField() 
+    graduate_number = models.IntegerField()
 
     def __str__(self):
         return self.name
 
     class Meta:
         verbose_name = _('MainPage')
-        verbose_name_plural = _('MainPage') 
-    
-
+        verbose_name_plural = _('MainPage')

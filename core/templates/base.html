@@ -28,6 +28,23 @@
             Backdrop-filter: blur(20px);
         }
 
+        @media screen and (max-width: 1200px) {
+            #footerDropdownLanguage{
+                width: 100% !important;
+            }
+        }
+        @media screen and (max-width: 992px) {
+            .navbar {
+                height: auto;
+            }
+            #navbarDropdownLanguage{
+                width: 10%;
+            }
+            #footerDropdownLanguage{
+                width: 15% !important;
+            }
+        }
+
         .languages{
             min-width: 0 !important;
             width: 5rem;
@@ -219,7 +236,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px; width: 60%; color: rgba(0, 0, 0, 0.6);"
-                            class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" data-toggle="dropdown"
+                            class="nav-link dropdown-toggle" href="#" id="footerDropdownLanguage" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             {% ifequal lang 'az' %}
                             <img src="{% static 'img/AZE.png' %}" style="width: 20px; height: 20pxy;" alt="">
@@ -234,7 +251,7 @@
                             Русский
                             {% endifequal %}
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
+                        <ul class="dropdown-menu" aria-labelledby="footerDropdownLanguage">
                             <input type="hidden" value="{% translate 'Lang' %}"> {% ifnotequal lang 'az' %}
                             <li>
                                 <a class="dropdown-item"
