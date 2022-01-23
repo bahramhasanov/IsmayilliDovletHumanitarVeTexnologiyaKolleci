@@ -3,8 +3,8 @@ from rest_framework.views import APIView
 from rest_framework import permissions, status
 from rest_framework.response import Response
 from django.db.models import Q
-from about.models import Category, Gallery, News, Faculty, Specialty, Event, Category
-from api.serializers import GallerySerializer, NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer
+from about.models import Category, Gallery, News, Faculty, Specialty, Event, Category, Testimonial
+from api.serializers import GallerySerializer, NewsSerializer, SpecialtySerializer, TeacherSerializer, FacultySerializer, TestimonialSerializer
 from api.serializers import EventSerializer, NewsSerializer, PDFserializer, SubjectSerializer, SubscriberSerializer, TeacherSerializer
 from datetime import datetime
 from django.utils.translation import get_language
@@ -198,3 +198,12 @@ class GalleryAPIView(APIView):
     #         gallery = Gallery.objects.all()
     #     serializer = GallerySerializer(gallery[start:end], many=True)
     #     return Response(serializer.data)
+
+
+class TestimonialAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request):
+        testimonial = Testimonial.objects.all()
+        serializer = TestimonialSerializer(testimonial, many=True)
+        return Response(serializer.data)

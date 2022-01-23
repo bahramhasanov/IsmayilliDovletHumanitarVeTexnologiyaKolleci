@@ -19,7 +19,7 @@ function topFunction() {
 
 const SubsciberLogic = {
 	emailManager(email) {
-		fetch('http://127.0.0.1:8000/api/subscriberapi/', {
+		fetch('/api/subscriberapi/', {
 			method: 'POST',
 			credentials: 'include',
 			headers: {

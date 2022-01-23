@@ -1,7 +1,7 @@
 function getAllTeachers(start, end, search) {
     spinner = document.getElementById('spinner');
     spinner.classList.remove('d-none');
-    fetch(`http://127.0.0.1:8000/api/teacherapi?start=${start}&end=${end}&search=${search}`, {
+    fetch(`/api/teacherapi?start=${start}&end=${end}&search=${search}`, {
         method: 'GET',
         credentials: 'include',
         headers: {

@@ -1,6 +1,6 @@
 
 function getFutureEvents() {
-    fetch(`http://127.0.0.1:8000/api/futureeventapi`, {
+    fetch(`/api/futureeventapi`, {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -60,7 +60,7 @@ function getFutureEvents() {
 function getRecentEvents(start, end) {
     spinner = document.getElementById('spinner');
     spinner.classList.remove('d-none');
-    fetch(`http://127.0.0.1:8000/api/recenteventapi?start=${start}&end=${end}`, {
+    fetch(`/api/recenteventapi?start=${start}&end=${end}`, {
         method: 'GET',
         credentials: 'include',
         headers: {

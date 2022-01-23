@@ -1,7 +1,7 @@
 function getAllPDFs(start, end, subject) {
     spinner = document.getElementById('spinner');
     spinner.classList.remove('d-none');
-    fetch(`http://127.0.0.1:8000/api/pdfapi?start=${start}&end=${end}&category=${subject}`, {
+    fetch(`/api/pdfapi?start=${start}&end=${end}&category=${subject}`, {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -62,7 +62,7 @@ function filterFunction() {
 
 
 function getAllSubjects(subject, type = null) {
-    fetch(`http://127.0.0.1:8000/api/subjectapi?subject=${subject}`, {
+    fetch(`/api/subjectapi?subject=${subject}`, {
         method: 'GET',
         credentials: 'include',
         headers: {

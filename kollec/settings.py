@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'rosetta',
+
+    'django_social_share',
 ]
 
 MIDDLEWARE = [
@@ -81,10 +83,13 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'core.context_processors.get_language_info',
+
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'kollec.wsgi.application'
 

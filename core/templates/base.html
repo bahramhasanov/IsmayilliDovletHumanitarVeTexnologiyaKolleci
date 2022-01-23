@@ -198,11 +198,11 @@
 
                 <div class="col-auto">
                     <!-- Twitter -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-dark btn-floating m-1" href="https://www.youtube.com/channel/UCYz4-twilSV_NtcGjLXNqtw" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-youtube"></i></a>
                     <!-- Instagram -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-dark btn-floating m-1" href="https://www.instagram.com/idhtk_2013_2022_/" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-instagram"></i></a>
                     <!-- Facebook -->
-                    <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-facebook"></i></a>
+                    <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/IsmayilliDovletHum.veTex.Kolleci" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-facebook"></i></a>
                     <!-- Google -->
                     <!-- <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-google"></i></a> -->
                     <!-- Linkedin -->
@@ -261,46 +261,68 @@
                 <p style="font-size: 12px;line-height: 16px;letter-spacing: 0.004em;color: rgba(0, 0, 0, 0.38);">© 2022 Sapiens, Inc. All Rights Reserved</p>
             </div>
             <div class="col-lg-2 col-md-6">
-                <p class="main-content">Haqqımızda</p>
+                <p class="main-content">{% translate 'Haqqımızda' %}</p>
                 <ul>
-                    <li>Müəllimlər</li>
-                    <li>Kollec</li>
-                    <li>Əlaqə</li>
+                    <li><a class="dropdown-item p-0" href="{% url 'dateofcreate' %}">
+                            {% translate 'Yaranma tarixi' %}</a></li>
+                    <li><a class="dropdown-item p-0" href="{% url 'about' %}">{% translate 'About' %}</a></li>
+                    <li><a class="dropdown-item p-0" href="{% url 'careersupport' %}">
+                            {% translate 'Karyera dəstəyi' %}</a></li>
+                    <li><a class="dropdown-item p-0" href="{% url 'contact' %}">{% translate 'Bizimlə əlaqə' %}</a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-md-6">
-                <p class="main-content">Xəbərlər</p>
+                <p class="main-content">{% translate 'Akademik' %}</p>
                 <ul>
-                    <li>Description</li>
-                    <li>Description</li>
+                    
+                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'director' %}">{% trans 'Direktor' %}</a></li>
+       
+                    <li>
+                        <a class="dropdown-item p-0" href="{% url 'deputies' %}">{% trans 'Müavinlər' %}</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item p-0" href="{% url 'departments' %}">{% trans 'Şöbələr' %}</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item p-0" href="{% url 'allpractic' %}">{% trans 'Təcrübə' %}</a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item p-0" href="{% url 'allfaculty' %}">{% trans 'FBK-lar' %}</a>
+                    </li>
+                    <li><a class="dropdown-item p-0" href="{% url 'teachers' %}">{% trans 'Müəllimlər' %}</a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-md-6">
-                <p class="main-content">Rəhbərlik</p>
+                <p class="main-content">{% trans 'Qəbul' %}</p>
                 <ul>
-                    <li>Description</li>
-                    <li>Description</li>
-                    <li>Description</li>
-                    <li>Description</li>
+                    <li><a class="dropdown-item p-0" href="{% url 'from11admissionrules' %}">{% trans 'IX sinif qəbul' %}</a></li>
+                    <li><a class="dropdown-item p-0" href="{% url 'from9admissionrules' %}">{% trans 'XI sinif qəbul' %}</a></li>
+                    <li><a class="dropdown-item p-0" href="{% url 'totaladmission' %}">{% trans 'Ümumi qaydalar' %}</a>
                 </ul>
             </div>
-            <div class="col-lg-2 col-md-6">
-                <p class="main-content">Onlayn Kitabxana</p>
-                <ul>
-                    <li>Description</li>
-                    <li>Description</li>
-                    <li>Description</li>
-                    <li>Description</li>
-                </ul>
-            </div>
+            
             <div class="col-lg-2">
-                <p class="main-content">Əlaqə</p>
+                <p class="main-content">{% trans 'Xəbərlər' %}</p>
                 <ul>
-                    <li>Description</li>
-                    <li>Description</li>
+                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'allnews' %}">Xəbərlər</a></li>
+                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'allevents' %}">Tədbirlər</a></li>
+                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'galleries' %}">Qalereya</a></li>
+                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'faq' %}">FAQ</a></li>
                     <a onclick="topFunction()" style="z-index: 2000;position: fixed; bottom: 5%; right: 8%; cursor: pointer;" id="myBtnn"><i
                             class="fas fa-arrow-circle-up text-primary" style="padding: 8px; background: rgba(11, 82, 254, 0.1);
                         border-radius: 12px;"></i></a>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                
+                <p class="main-content">{% trans 'Onlayn Kitabxana' %}</p>
+                <ul>
+                    <li><a class="dropdown-item text-dark p-0" href="{% url 'libraryinfo' %}">{% trans 'Ümumi məlumat' %}</a></li>
+                    <li>
+                        <a class="dropdown-item p-0" href="{% url 'library' %}">{% trans 'Online kitabxana' %}</a>
+                    </li>
                 </ul>
             </div>
 

@@ -81,3 +81,4 @@ class Search(ListView):
             'result_count': len(queryset),
         }
         return render(request, 'search.html', context=context)
+

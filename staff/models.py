@@ -14,6 +14,8 @@ class Teacher(BaseModel):
                               default='teachers/default.png', verbose_name=_('Photo'))
     subject = models.ForeignKey(
         'Subject', on_delete=models.CASCADE, related_name='subject_teachers', default=1, verbose_name=_('Subject'))
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.full_name
@@ -25,6 +27,8 @@ class Teacher(BaseModel):
 
 class Subject(BaseModel):
     title = models.CharField(max_length=50, verbose_name=_('Title'))
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -40,6 +44,8 @@ class PDF(BaseModel):
     category = models.ForeignKey(
         'staff.Subject', on_delete=models.CASCADE, related_name="pdf_category", default=None, verbose_name=_('Category'))
     file = models.FileField(upload_to='pdf/', default=None, verbose_name=_('File'))
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
@@ -51,7 +57,9 @@ class PDF(BaseModel):
 class LibraryFAQ(BaseModel):
     question = models.CharField(max_length=50, verbose_name=_('Question'))
     answer = RichTextField(verbose_name=_('Answer'))
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
     def __str__(self):
         return self.question
 

@@ -1,7 +1,7 @@
 function getAllNews(start, end, category) {
     spinner = document.getElementById('spinner');
     spinner.classList.remove('d-none');
-    fetch(`http://127.0.0.1:8000/api/newsapi?start=${start}&end=${end}&category=${category}`, {
+    fetch(`/api/newsapi?start=${start}&end=${end}&category=${category}`, {
         method: 'GET',
         credentials: 'include',
         headers: {

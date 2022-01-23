@@ -1,7 +1,7 @@
 
 from django.db.models import fields
 from staff.models import PDF, Subject, Teacher
-from about.models import Category, Event, Gallery, News, Subscriber
+from about.models import Category, Event, Gallery, News, Subscriber, Testimonial
 from staff.models import Subject, Teacher
 from about.models import Category, News, Specialty, Faculty
 from django.contrib.auth import get_user_model
@@ -86,4 +86,11 @@ class GallerySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Gallery
+        fields = '__all__'
+
+
+class TestimonialSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Testimonial
         fields = '__all__'

@@ -92,3 +92,52 @@ $(document).ready(function () {
     });
 
 });
+
+
+function getTestimonial() {
+    fetch(`http://127.0.0.1:8000/api/testmonial`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            testimonail = document.getElementById('testimonial');
+            for (let i = 0; i < data.length; i++) {
+                testimonail.innerHTML += `
+            <div class="student-card card col-md-3 my-sm-3 " style="padding: 2rem; background-color: #f6f6f6; border-radius: 20px; border: none;">
+                <div class="card-content ">
+
+                    <div class="p-0">
+                        <div style="display: flex;">
+                            <div class="profile "> <img src="${data[i]['image']}">
+                            </div>
+                            <div class="card-title " style="margin-left: 1rem; "> <span style="font-size: 19px; font-weight: 500px; line-height: 23px;">${data[i]['name']} <br>
+                            ${data[i]['surname']}</span><br /> <span style="text-transform: uppercase; font-size: 13px; opacity: 0.6;">${data[i]['status']}</span>
+                            </div>
+                        </div>
+                        <div class="card-subtitle " style="margin-top: 1.5rem;">
+                            <p style="margin-bottom: 0 !important; font-size: 20px; line-height: 28px; font-weight: 400px;">
+                            ${data[i]['description']}
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="fa fa-star "></span>
+                        <span class="fa fa-star "></span>
+                        <span class="fa fa-star "></span>
+                        <span class="fa fa-star "></span>
+                        <span class="fa fa-star "></span>
+                    </div>
+                </div>
+            </div> `;
+            }
+        });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    getTestimonial();
+});
