@@ -16,6 +16,7 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
     exclude = ('title', 'description',)
+    readonly_fields = ('slug',)
 
 
 @admin.register(Specialty)

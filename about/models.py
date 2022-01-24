@@ -1,8 +1,12 @@
+import datetime
 from django.db import models
 from ckeditor.fields import RichTextField
+from matplotlib.pyplot import title
+from pytz import timezone
 
 from kollec.utils.base_models import BaseModel
 from django.utils.translation import ugettext_lazy as _
+from django.utils.text import slugify
 
 
 class News(BaseModel):
@@ -15,9 +19,14 @@ class News(BaseModel):
         'about.Category', on_delete=models.CASCADE, related_name="news_category", default=None, verbose_name=_("Category"))
     image = models.ImageField(
         upload_to='news/', default=None, verbose_name=_("Image"))
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    
+    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            now = datetime.datetime.now(timezone('Asia/Baku'))
+            self.slug = slugify(f"{self.title}-{now}")
+        super(News, self).save(*args, **kwargs)
+
     def __str__(self) -> str:
         return f"{self.title}"
 
@@ -29,8 +38,6 @@ class News(BaseModel):
 class Category(BaseModel):
     title = models.CharField(
         max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
@@ -47,9 +54,6 @@ class Faculty(BaseModel):
         verbose_name=_("Description"), blank=True, null=True)
     image = models.ImageField(upload_to='faculty/',
                               default=None, verbose_name=_("Image"))
-    # FBK = models.OneToOneField(Teacher, on_delete=models.CASCADE, related_name='faculty_teacher', default=1, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
@@ -68,8 +72,6 @@ class Specialty(BaseModel):
         upload_to='specialty/', default=None, verbose_name=_("Image"))
     faculty = models.ForeignKey(
         Faculty, on_delete=models.CASCADE, related_name="specialty_faculty", default=None, verbose_name=_("Faculty"))
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
@@ -86,8 +88,6 @@ class Admissionrules(BaseModel):
         verbose_name=_("From 9 Admission"), blank=True, null=True)
     from_11_rules = RichTextField(
         verbose_name=_("From 11 Admission"), blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return 'qəbul'
@@ -102,8 +102,6 @@ class About(BaseModel):
         verbose_name=_("Description"), blank=True, null=True)
     image = models.ImageField(
         upload_to='about/', default=None, verbose_name=_("Image"))
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return 'Haqqımızda'
@@ -123,11 +121,16 @@ class Event(BaseModel):
     image = models.ImageField(
         upload_to='event/', default=None, verbose_name=_("Image"))
     date = models.DateTimeField(verbose_name=_("DateTime"))
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            now = datetime.datetime.now(timezone('Asia/Baku'))
+            self.slug = slugify(f"{self.title}-{now}")
+        super(Event, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("Event")
@@ -136,8 +139,6 @@ class Event(BaseModel):
 
 class Subscriber(BaseModel):
     email = models.EmailField(verbose_name=_("Email"), unique=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.email}"
@@ -150,8 +151,6 @@ class Subscriber(BaseModel):
 class Dateofcreate(BaseModel):
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return 'Yaradilma tarixi'
@@ -170,8 +169,6 @@ class Practic(BaseModel):
         upload_to='practic/', default=None, verbose_name=_("Image icon"))
     image = models.ImageField(
         upload_to='practic/', default=None, verbose_name=_("Image"))
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
@@ -188,8 +185,6 @@ class PracticPlace(BaseModel):
         verbose_name=_("Description"), blank=True, null=True)
     practic = models.ForeignKey(
         Practic, on_delete=models.CASCADE, related_name="practic_place", default=None, verbose_name=_("Faculty"))
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
@@ -205,8 +200,6 @@ class Gallery(BaseModel):
     )
     image = models.ImageField(
         upload_to='gallery/', default=None, verbose_name=_("Image"))
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f'{self.name}'
@@ -219,8 +212,6 @@ class Gallery(BaseModel):
 class CareerSupport(BaseModel):
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return 'Career support'
@@ -231,7 +222,8 @@ class CareerSupport(BaseModel):
 
 
 class Testimonial(BaseModel):
-    image = models.ImageField(upload_to='testimonal/', default=None, verbose_name=_("Image"))
+    image = models.ImageField(upload_to='testimonal/',
+                              default=None, verbose_name=_("Image"))
     name = models.CharField(
         max_length=100, verbose_name=_('name'), help_text="Max 100 char."
     )
@@ -243,8 +235,6 @@ class Testimonial(BaseModel):
     )
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f'{self.name}'

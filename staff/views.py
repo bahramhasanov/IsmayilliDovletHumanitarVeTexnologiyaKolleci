@@ -56,9 +56,9 @@ class LibraryListView(ListView):
 
 
 class LibraryDetailView(View):
-    def get(self, request, pk, status):
+    def get(self, request, slug, status):
         try:
-            pdf = PDF.objects.get(pk=pk)
+            pdf = PDF.objects.get(slug=slug)
         except PDF.DoesNotExist:
             raise Http404("File does not exist")
         response = FileResponse(open(pdf.file.path, 'rb'))
