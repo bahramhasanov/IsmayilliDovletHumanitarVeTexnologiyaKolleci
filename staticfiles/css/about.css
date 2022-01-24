@@ -1,0 +1,23 @@
+#filter-button button {
+  background: transparent !important;
+  border-radius: 12px !important;
+  padding: 12px 24px !important;
+}
+
+#filter-button button:disabled {
+  background: rgba(11, 82, 254, 0.09) !important;
+}
+
+#filter-button button:hover {
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+
+#more-button {
+  border-radius: 12px !important;
+  padding: 12px 24px !important;
+  background: rgba(11, 82, 254, 0.08) !important;
+}
+
+#more-button:hover {
+  color: #000;
+}

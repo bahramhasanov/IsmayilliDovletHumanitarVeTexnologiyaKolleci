@@ -1,0 +1,22 @@
+#more-button {
+  border-radius: 12px !important;
+  padding: 12px 24px !important;
+  background: rgba(11, 82, 254, 0.08) !important;
+}
+
+#more-button:hover {
+  color: #000;
+}
+
+.card {
+  border: none;
+}
+
+.recent-event-title:hover {
+  text-decoration: none;
+}
+
+.recent-event-title > h5:hover {
+  color: #0b52fe !important;
+  text-decoration: none !important;
+}

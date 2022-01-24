@@ -1,0 +1,40 @@
+body {
+  padding: 2em;
+}
+
+.gallery {
+  border: none;
+}
+
+img,
+.card-img-top {
+  border-radius: 0em;
+}
+
+#myDropdown {
+  background: #f6f6f6;
+  border-radius: 16px;
+}
+
+#search {
+  width: 100%;
+  background: #f6f6f6;
+  border-radius: 16px;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 8px 12px 8px 16px;
+  border: none;
+  text-align: center;
+}
+
+#search:focus {
+  outline: 3px solid #ddd;
+}
+
+.dropdown-content {
+  margin: auto;
+  max-width: 30%;
+  background-color: #f6f6f6;
+  border: 1px solid #ddd;
+  z-index: 1;
+}

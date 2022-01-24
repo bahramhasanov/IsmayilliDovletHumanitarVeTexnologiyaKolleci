@@ -1,62 +1,20 @@
 {% load static i18n %}
 <!DOCTYPE html>
-<!-- <html class="no-js" lang=""> -->
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="{% static 'apple-touch-icon.png' %}">
-    <!-- all css here -->
     <script src="https://kit.fontawesome.com/a94e9ac94f.js" crossorigin="anonymous"></script>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> {% block css %} {% endblock css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title %}{% endblock %}</title>
-
-    <style>
-        .navbar {
-            position: fixed;
-            height: 60px;
-            width: 100%;
-            clip: rect(top, offset of right clip from left side, offset of bottom from top, left);
-            -webkit-filter: blur(20px);
-            filter: blur(20px);
-            filter: url(blur.svg#blur);
-            Backdrop-filter: blur(20px);
-        }
-
-        @media screen and (max-width: 1200px) {
-            #footerDropdownLanguage{
-                width: 100% !important;
-            }
-        }
-        @media screen and (max-width: 992px) {
-            .navbar {
-                height: auto;
-            }
-            #navbarDropdownLanguage{
-                width: 10%;
-            }
-            #footerDropdownLanguage{
-                width: 15% !important;
-            }
-        }
-
-        .languages{
-            min-width: 0 !important;
-            width: 5rem;
-            left: auto;
-        }
-    </style>
-
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-light px-5 container-fluid position-fixed" style="background: rgba(255, 255, 255, 0.6); z-index: 100; top: 0;">
-        <a class="navbar-brand" style="color: #0444E2; text-transform: uppercase;" href="{% url 'home' %}">idhtk</a>
+        <a class="navbar-brand" style="color: #0444E2; text-transform: uppercase;" href="{% url 'home' %}">{% trans 'idhtk' %}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -66,7 +24,6 @@
                     <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px;" class="nav-link dropdown-toggle"
                         href="#" id="navbarDropdownLanguage" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        
                         {% ifequal lang 'az'  %} 
                         <img style="width: 20px; height: 20px;" src="{% static 'img/AZE.png' %}"  alt=""> {{lang|upper}}
                         {% endifequal %}
@@ -76,7 +33,6 @@
                         {% ifequal lang 'ru'  %} 
                         <img style="width: 20px; height: 20px;" src="{% static 'img/RUS.png' %}"  alt=""> {{lang|upper}}
                         {% endifequal %}
-                            
                     </a>
                     <ul class="dropdown-menu languages p-0" aria-labelledby="navbarDropdownLanguage">
                         <input type="hidden" value="{% translate 'Lang' %}"> {% ifnotequal lang 'az' %}
@@ -108,7 +64,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
                         <li><a class="dropdown-item" href="{% url 'dateofcreate' %}">
                                 {% translate 'Yaranma tarixi' %}</a></li>
-                        <li><a class="dropdown-item" href="{% url 'about' %}">{% translate 'About' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'about' %}">{% translate 'Haqqımızda' %}</a></li>
                         <li><a class="dropdown-item" href="{% url 'careersupport' %}">
                                 {% translate 'Karyera dəstəyi' %}</a></li>
                         <li><a class="dropdown-item" href="{% url 'contact' %}">{% translate 'Bizimlə əlaqə' %}</a></li>
@@ -131,7 +87,6 @@
                         <li>
                             <a class="dropdown-item" href="{% url 'allpractic' %}">{% trans 'Təcrübə' %}</a>
                         </li>
-
                         <li>
                             <a class="dropdown-item" href="{% url 'allfaculty' %}">{% trans 'FBK-lar' %}</a>
                         </li>
@@ -143,8 +98,8 @@
                         {% translate 'Qəbul' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownApply">
-                        <li><a class="dropdown-item" href="{% url 'from11admissionrules' %}">IX sinif qəbul</a></li>
-                        <li><a class="dropdown-item" href="{% url 'from9admissionrules' %}">XI sinif qəbul</a></li>
+                        <li><a class="dropdown-item" href="{% url 'from11admissionrules' %}">{% trans 'IX sinif qəbul' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'from9admissionrules' %}">{% trans 'XI sinif qəbul' %}</a></li>
                         <li><a class="dropdown-item" href="{% url 'totaladmission' %}">{% trans 'Ümumi qaydalar' %}</a>
                         </li>
                     </ul>
@@ -154,10 +109,10 @@
                         {% translate 'Xəbərlər' %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownNews">
-                        <li><a class="dropdown-item" href="{% url 'allnews' %}">Xəbərlər</a></li>
-                        <li><a class="dropdown-item" href="{% url 'allevents' %}">Tədbirlər</a></li>
-                        <li><a class="dropdown-item" href="{% url 'galleries' %}">Qalereya</a></li>
-                        <li><a class="dropdown-item" href="{% url 'faq' %}">FAQ</a></li>
+                        <li><a class="dropdown-item" href="{% url 'allnews' %}">{% trans 'Xəbərlər' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'allevents' %}">{% trans 'Tədbirlər' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'galleries' %}">{% trans 'Qalereya' %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'faq' %}">{% trans 'FAQ' %}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -181,14 +136,8 @@
                 </li>
             </ul>
         </div>
-
     </nav>
-
-
-
-
     {% block base %} {% endblock base %}
-
     <footer style="background-color: #F7F9FF; padding-top: 2%; position: relative; margin-top: 4%;">
         <form action="" id="footer-form" class="container" style="bottom: 80%;">
             <div class="row d-flex justify-content-center" style="background: #FFFFFF; border: 1px solid #E6E6E6; box-sizing: border-box; border-radius: 24px; padding-top: 29px;">
@@ -197,9 +146,7 @@
                         <strong>{% translate 'Ilk sən xəbərdar ol!' %}</strong>
                     </p>
                 </div>
-
                 <div class="col-lg-5 col-12">
-                    <!-- Email input -->
                     <div class="form-outline form-white mb-4">
                         <input type="email" id="emailinput"
                             style="width: 80%; padding: 16px 16px 16px 40px; background: rgba(0, 0, 0, 0.04); border-radius: 32px; border: none;"
@@ -209,29 +156,18 @@
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
-                    <!-- Submit button -->
                 </div>
-
-
                 <div class="col-auto">
-                    <!-- Twitter -->
                     <a class="btn btn-outline-dark btn-floating m-1" href="https://www.youtube.com/channel/UCYz4-twilSV_NtcGjLXNqtw" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-youtube"></i></a>
-                    <!-- Instagram -->
                     <a class="btn btn-outline-dark btn-floating m-1" href="https://www.instagram.com/idhtk_2013_2022_/" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-instagram"></i></a>
-                    <!-- Facebook -->
                     <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/IsmayilliDovletHum.veTex.Kolleci" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-facebook"></i></a>
-                    <!-- Google -->
                     <!-- <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-google"></i></a> -->
-                    <!-- Linkedin -->
                     <!-- <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-linkedin-in"></i></a> -->
-                    <!-- Github -->
                     <!-- <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-github"></i></a> -->
                 </div>
             </div>
         </form>
-
         <div class="row container-fluid p-5">
-
             <div class="navbar-collapse col-lg-2 col-md-12" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
@@ -274,8 +210,8 @@
                         </ul>
                     </li>
                 </ul>
-                <p style="font-size: 13px; line-height: 20px; letter-spacing: 0.25px; color: rgba(0, 0, 0, 0.87); ">2972 Westheimer Rd. Santa Ana, Illinois</p>
-                <p style="font-size: 12px;line-height: 16px;letter-spacing: 0.004em;color: rgba(0, 0, 0, 0.38);">© 2022 Sapiens, Inc. All Rights Reserved</p>
+                <p style="font-size: 13px; line-height: 20px; letter-spacing: 0.25px; color: rgba(0, 0, 0, 0.87); ">{% trans '2972 Westheimer Rd. Santa Ana, Illinois' %}</p>
+                <p style="font-size: 12px;line-height: 16px;letter-spacing: 0.004em;color: rgba(0, 0, 0, 0.38);">© {% trans '2022 Sapiens, Inc. All Rights Reserved' %}</p>
             </div>
             <div class="col-lg-2 col-md-6">
                 <p class="main-content">{% translate 'Haqqımızda' %}</p>
@@ -291,9 +227,7 @@
             <div class="col-lg-2 col-md-6">
                 <p class="main-content">{% translate 'Akademik' %}</p>
                 <ul>
-                    
                     <li><a  style="padding: 0" class="dropdown-item" href="{% url 'director' %}">{% trans 'Direktor' %}</a></li>
-       
                     <li>
                         <a class="dropdown-item p-0" href="{% url 'deputies' %}">{% trans 'Müavinlər' %}</a>
                     </li>
@@ -303,14 +237,12 @@
                     <li>
                         <a class="dropdown-item p-0" href="{% url 'allpractic' %}">{% trans 'Təcrübə' %}</a>
                     </li>
-
                     <li>
                         <a class="dropdown-item p-0" href="{% url 'allfaculty' %}">{% trans 'FBK-lar' %}</a>
                     </li>
                     <li><a class="dropdown-item p-0" href="{% url 'teachers' %}">{% trans 'Müəllimlər' %}</a></li>
                 </ul>
             </div>
-            
             <div class="col-lg-2 col-md-6">
                 <p class="main-content">{% trans 'Qəbul' %}</p>
                 <ul>
@@ -319,7 +251,6 @@
                     <li><a class="dropdown-item p-0" href="{% url 'totaladmission' %}">{% trans 'Ümumi qaydalar' %}</a>
                 </ul>
             </div>
-            
             <div class="col-lg-2">
                 <p class="main-content">{% trans 'Xəbərlər' %}</p>
                 <ul>
@@ -332,7 +263,6 @@
                         border-radius: 12px;"></i></a>
                 </ul>
             </div>
-
             <div class="col-lg-2 col-md-6">
                 <p class="main-content">{% trans 'Onlayn Kitabxana' %}</p>
                 <ul>
@@ -342,19 +272,11 @@
                     </li>
                 </ul>
             </div>
-
         </div>
-
     </footer>
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="{% static 'js/script.js' %}"></script>
-
     {% block js %} {% endblock js %}
-
 </body>
-
 </html>

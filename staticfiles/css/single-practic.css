@@ -1,0 +1,13 @@
+@media screen and (min-width: 1200px) {
+  .iconp {
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .iconsp {
+    font-size: 1rem !important;
+  }
+}

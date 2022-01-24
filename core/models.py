@@ -2,7 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 from kollec.utils.base_models import BaseModel
-from django.utils.translation import activate, ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 
 
 class Mostquestions(BaseModel):

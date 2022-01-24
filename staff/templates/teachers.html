@@ -5,62 +5,13 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
     rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<style>
-    .modal-body {
-        padding: 0 !important;
-    }
-
-    .modal-content {
-        border-radius: 20px;
-        border: none;
-        width: 405px;
-        margin: auto;
-    }
-
-    #myDropdown {
-        background: #F6F6F6;
-        border-radius: 16px;
-    }
-
-    #search {
-        width: 100%;
-        background: #F6F6F6;
-        border-radius: 16px;
-        box-sizing: border-box;
-        font-size: 16px;
-        padding: 8px 12px 8px 16px;
-        border: none;
-        text-align: center;
-    }
-
-    #search:focus {
-        outline: 3px solid #ddd;
-    }
-
-    .dropdown-content {
-        margin: auto;
-        max-width: 30%;
-        background-color: #f6f6f6;
-        border: 1px solid #ddd;
-        z-index: 1;
-    }
-
-    #more-button {
-        padding: 12px 24px;
-        background: rgba(11, 82, 254, 0.08);
-        border-radius: 12px;
-    }
-
-    #more-button:hover {
-        color: #000;
-    }
-</style>
+<link rel="stylesheet" href="{% static 'css/teachers.css' %}">
 {% endblock css %} {% block base %}
 <div class="container text-center" style="margin-top: 57px;">
     <h1 style="font-weight: 600; font-size: 48px; line-height: 58px; text-align: center; letter-spacing: 0.25px; color: #000000;
-    ">Müəllimlərimiz</h1>
+    ">{% trans 'Müəllimlərimiz' %}</h1>
     <p style="font-size: 20px; line-height: 28px; text-align: center; letter-spacing: 0.15px; color: rgba(0, 0, 0, 0.6);
-    ">We’re happy to answer any questions you may have, just send us a message via our in-app chat</p>
+    ">{% trans 'We’re happy to answer any questions you may have, just send us a message via our in-app chat' %}</p>
     <div id="myDropdown" class="dropdown-content">
         <input type="text" placeholder="&#128269 {% translate 'Müəllimin adı və fənn üzrə axtarış' %}" id="search">
     </div>
@@ -70,10 +21,9 @@
     </div>
     <div id="spinner" class="spinner-border d-none"></div>
     <br>
-    <button id="more-button" type="button" class="btn btn-outline-primary my-5">Daha çox</button>
+    <button id="more-button" type="button" class="btn btn-outline-primary my-5">{% trans 'Daha çox' %}</button>
 </div>
 {% endblock base %} {% block js %}
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js "
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p "
     crossorigin="anonymous "></script>

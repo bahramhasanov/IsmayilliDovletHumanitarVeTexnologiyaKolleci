@@ -1,5 +1,6 @@
 from django.db.models.query_utils import Q
 from django.views.generic.base import TemplateView
+from django.utils.translation import ugettext_lazy as _
 from django.utils import translation
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -26,7 +27,7 @@ class HomePage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Home"
+        context['title'] = _("Home")
         context['mostquestions'] = Mostquestions.objects.all()
         context['news'] = News.objects.order_by('-created_at')[:3]
         context['events'] = Event.objects.order_by('-created_at')[:2]
@@ -75,7 +76,7 @@ class Search(ListView):
                 Q(title__icontains=search_text) | Q(category__title__icontains=search_text)))
 
         context = {
-            'title': 'Search',
+            'title': _('Search'),
             'results': queryset,
             'search_text': search_text,
             'result_count': len(queryset),

@@ -1,315 +1,18 @@
 {% extends 'base.html' %} {% load static i18n %}
-<title>
     {% block title %} {{title}} {% endblock title %}
-</title>
-
 {% block css %}
-
 <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<link rel="stylesheet" href="{% static 'css/index.css' %}"> {% endblock css %}
-
+<link rel="stylesheet" href="{% static 'css/index.css' %}"> 
+{% endblock css %}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 {% block base %}
-<style>
-    @media screen and (max-width: 1200px) {
-        .depart {
-            font-size: 42px;
-        }
-        .titles {
-            font-size: 26px;
-        }
-        .carttitle {
-            font-size: 22px;
-        }
-    }
-    
-    @media screen and (max-width: 767px) {
-        .depart {
-            font-size: 40px;
-        }
-        .titles {
-            font-size: 24px;
-        }
-        .carttitle {
-            font-size: 21px;
-        }
-        .cardcol {
-            margin-bottom: 50px;
-            padding: 0px;
-        }
-        .carddiv {
-            padding: 0px;
-        }
-    }
-    
-    .carousell {
-        height: 22rem;
-    }
-    
-    @media screen and (max-width: 600px) {
-        .depart {
-            font-size: 38px;
-        }
-        .titles {
-            font-size: 23px;
-        }
-        .carttitle {
-            font-size: 20px;
-        }
-    }
-    
-    @media screen and (max-width: 400px) {
-        .depart {
-            font-size: 36px;
-        }
-        .titles {
-            font-size: 22px;
-        }
-        .carttitle {
-            font-size: 19px;
-        }
-        .shobecard {
-            padding: 0px !important;
-        }
-    }
-    
-    @media screen and (max-width: 300px) {
-        .depart {
-            font-size: 35px;
-        }
-        .titles {
-            font-size: 21px;
-        }
-        .carttitle {
-            font-size: 18px;
-        }
-    }
-    
-    @media screen and (min-width: 1200px) {
-        .depart {
-            font-size: 46px;
-        }
-        .titles {
-            font-size: 33px;
-        }
-        .carttitle {
-            font-size: 24px;
-        }
-        .carddescription {
-            font-size: 17px;
-        }
-        .carousell {
-            height: 33.5rem;
-        }
-    }
-    
-    @media screen and (min-width: 767px) {
-        .carousell {
-            height: 27.5rem;
-        }
-    }
-    
-    .cardimg {
-        transition: 1s;
-    }
-    
-    .cardimg:hover {
-        transform: scale(1.1);
-        transition: 1s;
-    }
-    
-    .carousell {
-        background: rgb(239, 255, 246);
-        background: linear-gradient(90deg, rgba(239, 255, 246, 1) 0%, rgba(255, 240, 238, 1) 0%, rgba(239, 255, 246, 1) 100%);
-    }
-    
-    .imgdivcarousel {
-        /* background-image: url(https://www.mozilla.org/media/img/logos/firefox/logo-quantum.9c5e96634f92.png); */
-        /* width: 100%; */
-        height: 100%;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        background-image: url('https://s3-alpha-sig.figma.com/img/453b/a41f/99a8acac6635521d11c45266ac5cd48d?Expires=1642377600&Signature=dzHUgyCIGPzwFudlIbMjqtetGqyMN7Wt3yy4pB0hTb9LSriMMbZVc~Wfy8EE14jVoO~LO1XcIrAYMaJlWJHdf2wSyeuWhrqGv-FC4VBLPzOrXRhI27z52rXilb5XZhymm97KY7gqp3Xz0lnNLnWNuUQGkkuH-m2wovoy1T--wnTIj~3YsYxvrc-gQk6gH-2vA~JEJnuOHzrIo1Jsd5OZKRzA3lqowIOWzIvYTgFgHglE0m1u97dmM51B~N2TtxGlLNkCbzonBJGW5gZdZmACEN-QC-n4-Q-1HzXzQ4uLmDAjL79BAGdS1rW6nr1BhlTiB9~NnY0Gvc8lfIFW5q724g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
-    }
-    
-    .bashla {
-        background: #FF7777;
-        background: -webkit-linear-gradient(to right, #FF7777 0%, #F1DC5D 48%, #4BDF41 97%);
-        background: -moz-linear-gradient(to right, #FF7777 0%, #F1DC5D 48%, #4BDF41 97%);
-        background: linear-gradient(to right, #FF7777 0%, #F1DC5D 48%, #4BDF41 97%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    
-    .smallblur {
-        /* background: #000; */
-        background: rgba(255, 255, 255, 0.9);
-        opacity: 0.8;
-        -webkit-filter: blur(20px);
-        filter: blur(20px);
-        filter: url(blur.svg#blur);
-        Backdrop-filter: blur(20px);
-        position: absolute;
-        color: #000;
-        display: flex;
-        clip: rect(top, offset of right clip from left side, offset of bottom from top, left);
-    }
-    
-    .profile-pic {
-        box-shadow: none;
-    }
-    
-    .accordion-button::after {
-        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
-        transform: scale(.7) !important;
-    }
-    
-    .accordion-button:not(.collapsed)::after {
-        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
-    }
-    @media screen and (max-width: 1200px) {
-        #faculty {
-            margin-left: 55% !important;
-        }
-
-        #slide_text1{
-            font-size: 18px !important;
-        }
-        #slide_text2{
-            line-height: 3.5rem !important;
-            font-size: 3rem !important;
-        }
-        #slide_text3{
-            margin-top: 0% !important;
-            font-size: 0.9rem !important;
-        }
-        
-    }
-    @media screen and (max-width: 992px) {
-        #faculty {
-            margin-left: 10% !important;
-            width: 183px !important;
-            margin-top: 75% !important;
-        }
-        #graduate {
-            margin-left: 10% !important;
-            width: 183px !important;
-            margin-top: 100% !important;
-        }
-        #active_student {
-            margin-left: 10% !important;
-            width: 183px !important;
-        }
-
-        #slide_text1{
-            font-size: 14px !important;
-        }
-        #slide_text2{
-            font-size: 2.5rem !important;
-        }
-        #slide_text3{
-            font-size: 0.8rem !important;
-        }
-        
-    }
-    @media screen and (max-width: 768px) {
-        #faculty {
-            margin-left: 10% !important;
-            width: 150px !important;
-            margin-top: 90% !important;
-        }
-        #graduate {
-            margin-left: 10% !important;
-            width: 150px !important;
-            margin-top: 130% !important;
-        }
-        #active_student {
-            margin-left: 10% !important;
-            width: 150px !important;
-            margin-top: 40% !important;
-            height: 5.5rem !important;
-        }
-
-        #slide_text1{
-            margin-top: 40% !important;
-            font-size: 12px !important;
-        }
-        #slide_text2{
-            line-height: 2.5rem !important;
-            font-size: 2rem !important;
-        }
-        #slide_text3{
-            display: none !important;
-        }
-        #slide_div{
-            height: 450px !important;
-        }
-    }
-
-    @media screen and (max-width: 576px) {
-        #slide_text1{
-            font-size: 12px !important;
-        }
-        #slide_text2{
-            font-size: 1.8rem !important;
-        }
-    }
-    @media screen and (max-width: 480px) {
-        #faculty, #graduate, #active_student {
-            display: none !important;
-        }
-        #slide_text1{
-            font-size: 12px !important;
-        }
-        #slide_text2{
-            font-size: 1.8rem !important;
-        }
-        #right_slide{
-            text-align: center !important;
-            flex: 0 0 88.333333% !important;
-            max-width: 88.333333% !important;
-        }
-        #left_slide{
-            flex: 0 0 0% !important;
-            max-width: 0% !important;
-        }
-    }
-    @media screen and (max-width: 320px) {
-        #faculty, #graduate, #active_student {
-            display: none !important;
-        }
-        #slide_text1{
-            font-size: 10px !important;
-        }
-        #slide_text2{
-            font-size: 1.4rem !important;
-        }
-        #right_slide{
-            text-align: center !important;
-            flex: 0 0 80% !important;
-            max-width: 80% !important;
-        }
-        #left_slide{
-            flex: 0 0 0% !important;
-            max-width: 0% !important;
-        }
-        #search_form{
-            margin-top: 0 !important;
-        }
-        #search_form input, #search_form button{
-            padding: 10px !important;
-        }
-    }
-</style>
-
 <div class="container" style="margin-top: 80px;">
     <div id="slide_div" class="carousell row" style="width: 100%; height: 536px;  border-radius: 24px;">
-        <!-- <div class="row"> -->
         <div id="left_slide" class="col-5 imgdivcarousel">
             <div id="active_student" class="smallblur" style="width: 183px; height: 4rem; border-radius: 20px; margin-top: 50%;">
                 <div style="width: 46px; height: 46px; border-radius: 12px; padding: 8px; background-color: rgba(255, 59, 0, 0.14); ;margin-top: 10px; margin-left: 10px;">
@@ -318,7 +21,7 @@
                 </div>
                 <div style="margin-top: 9px; margin-left: 14px;"><span>
                         <b>2 000+</b> <br>
-                        Aktiv tələbə
+                        {% trans 'Aktiv tələbə' %}
                     </span></div>
             </div>
             <div id="faculty" class="smallblur" style="width: 148px; height: 4rem; border-radius: 20px; margin-top: 60%; margin-left: 60%;">
@@ -327,17 +30,16 @@
                 </div>
                 <div style="margin-top: 9px; margin-left: 14px;"><span>
                         <b> 14</b> <br>
-                        Fakültə
+                        {% trans 'Fakültə' %}
                     </span></div>
             </div>
             <div id="graduate" class="smallblur" style="width: 156px; height: 4rem; border-radius: 20px; margin-top: 80%; margin-left: 10%;">
                 <div style="display: flex;justify-content: center;align-items: center;font-size: 25px; width: 46px; height: 46px; border-radius: 12px; padding: 8px; background-color: rgba(11, 82, 254, 0.16); ;margin-top: 10px; margin-left: 10px;">
-                    <!-- <img width="100%" src="../../../../Downloads/Title (1).png" alt=""> Figmadan export edersen -->
                     🎓
                 </div>
                 <div style="margin-top: 9px; margin-left: 14px;"><span>
                         <b> 1 340</b> <br>
-                        Məzun
+                        {% trans 'Məzun' %}
                     </span></div>
             </div>
         </div>
@@ -345,12 +47,11 @@
 
         <div id="right_slide" class="col-7">
             <div style="margin-top: 4rem;padding-right: 3rem;">
-                <p id="slide_text1" style="font-size: 20px; line-height: 28px;">İsmayıllı Dövlət Humanitar ve Texnologiya Kolleci</p>
+                <p id="slide_text1" style="font-size: 20px; line-height: 28px;">{% trans 'İsmayıllı Dövlət Humanitar ve Texnologiya Kolleci' %}</p>
                 <p id="slide_text2" style="margin-top: 1rem; font-size: 4rem; line-height: 68px;"><b>
-                        Parlaq gələcəyə
-                        bizimlə <span class="bashla">başla!</span>
+                        Parlaq gələcəyə bizimlə <span class="bashla">başla!</span>
                     </b></p>
-                <p id="slide_text3" style="margin-top: 28px; font-size: 1rem; opacity: 0.6; line-height: 24px;">We conduct classes based on the Curriculum of International Certification Examinations with the Guaranteed Education System. We offer them </p>
+                <p id="slide_text3" style="margin-top: 28px; font-size: 1rem; opacity: 0.6; line-height: 24px;">{% trans 'We conduct classes based on the Curriculum of International Certification Examinations with the Guaranteed Education System. We offer them ' %}</p>
                 <div id="search_form" class="form-outline form-white " style="margin-top: 36px;">
                     <form action="{% url 'search' %}" method="get">
                         <input type="text" name="search_text" style="width: 60%; padding: 16px 16px 16px 40px; background: white; border-radius: 32px; border: none;" placeholder="{% translate 'Axtar' %}" />
@@ -361,24 +62,21 @@
                 </div>
             </div>
         </div>
-        <!-- </div> -->
     </div>
     <div class="" style="margin-top: 5rem;">
-        <h2 class=" mb-3 titles"><b>Şöbələrimiz</b></h2>
+        <h2 class=" mb-3 titles"><b>{% trans 'Şöbələrimiz' %}</b></h2>
         <div class="row" style="justify-content: space-around;">
-
             <div class="col-md-6 text-center cardcol" style="float:left;">
                 <div class="card mb-2" style="border-radius: 20px; background-color: #f6f6f6; border: none;">
                     <div class="card-body shobecard" style="padding-left: 2.5rem; padding-right: 2.5rem; padding-top: 3.5rem; padding-bottom: 3rem;">
-                        <p class="card-title depart">Birinci şöbə</p>
-                        <p class="card-text news-text " style="font-size: 20px; line-height: 28px; margin-bottom: 2rem;">Fənn Birləşdirmə Komissiyalarına keçid üçün aşağıdakı adları seçin
-
+                        <p class="card-title depart">{% trans 'Birinci şöbə' %}</p>
+                        <p class="card-text news-text " style="font-size: 20px; line-height: 28px; margin-bottom: 2rem;">{% trans 'Fənn Birləşdirmə Komissiyalarına keçid üçün aşağıdakı adları seçin' %}
                         </p>
-                        <div style="margin-bottom: 1.5rem;"><a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">Ümumtəhsil və idman </a><span class="text-muted " style="margin-left: 1rem; margin-right: 1rem;"> |</span>
-                            <a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">Turizm</a>
+                        <div style="margin-bottom: 1.5rem;"><a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">{% trans 'Ümumtəhsil və idman' %} </a><span class="text-muted " style="margin-left: 1rem; margin-right: 1rem;"> |</span>
+                            <a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline">{% trans 'Turizm' %}</a>
                         </div>
-                        <div><a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">Tibb və təbiət</a><span class="text-muted" style="margin-left: 1rem; margin-right: 1rem;"> |</span>
-                            <a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">Qida məhsulları</a>
+                        <div><a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline">{% trans 'Tibb və təbiət' %}</a><span class="text-muted" style="margin-left: 1rem; margin-right: 1rem;"> |</span>
+                            <a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline">{% trans 'Qida məhsulları' %}</a>
                         </div>
                     </div>
                 </div>
@@ -386,28 +84,24 @@
             <div class="col-md-6 text-center cardcol" style="float:left;">
                 <div class="card mb-2" style="border-radius: 20px; background-color: #f6f6f6; border: none;">
                     <div class="card-body shobecard" style="padding-left: 2.5rem; padding-right: 2.5rem; padding-top: 3.5rem; padding-bottom: 3rem;">
-                        <p class="card-title depart">Ikinci şöbə</p>
-                        <p class="card-text news-text " style="font-size: 20px; line-height: 28px; margin-bottom: 2rem;">Fənn Birləşdirmə Komissiyalarına keçid üçün aşağıdakı adları seçin
+                        <p class="card-title depart">{% trans 'Ikinci şöbə' %}</p>
+                        <p class="card-text news-text " style="font-size: 20px; line-height: 28px; margin-bottom: 2rem;">{% trans 'Fənn Birləşdirmə Komissiyalarına keçid üçün aşağıdakı adları seçin' %}
                         </p>
-                        <div style="margin-bottom: 1.5rem;"><a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">Humanitar fənnlər</a><span class="text-muted " style="margin-left: 1rem; margin-right: 1rem;"> |</span>
-                            <a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">Riyaziyyat-İnformatika</a>
+                        <div style="margin-bottom: 1.5rem;"><a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">{% trans 'Humanitar fənnlər' %}</a><span class="text-muted " style="margin-left: 1rem; margin-right: 1rem;"> |</span>
+                            <a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">{% trans 'Riyaziyyat-İnformatika' %}</a>
                         </div>
-                        <div><a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">Sosial-İqtisadi</a><span class="text-muted" style="margin-left: 1rem; margin-right: 1rem;"> |</span>
-                            <a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">Aqrar Texnologiyalar</a>
+                        <div><a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">{% trans 'Sosial-İqtisadi' %}</a><span class="text-muted" style="margin-left: 1rem; margin-right: 1rem;"> |</span>
+                            <a style="cursor: pointer; font-size: 20px; line-height: 28px; color: #0B52FE;" class="news-readmore  btn btn-primary-outline ">{% trans 'Aqrar Texnologiyalar' %}</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
     <div id="news " class="carousel slide carousel-multi-item container-fluid carddiv" style="margin-top: 5rem; padding: 0;" data-ride="carousel ">
-
         <div style="display: flex; justify-content: space-between;">
             <b class="titles">Xəbərlər</b>
-            <a href="{% url 'allnews' %}" style="color: #0B52FE; display: flex; align-items: end; justify-content: center; font-size: 15px; font-weight: bold;">Hamısına
-                bax</a>
+            <a href="{% url 'allnews' %}" style="color: #0B52FE; display: flex; align-items: end; justify-content: center; font-size: 15px; font-weight: bold;">{% trans 'Hamısına bax' %}</a>
         </div>
         <div class="carousel-inner " role="listbox " style="margin-top: 1.5rem;">
             {% for n in news %}
@@ -420,18 +114,16 @@
                         <p class="card-text news-date text-muted" style="font-size: 15px">{{n.created_at}} <span style="margin-right: 1rem; margin-left: 1rem">|</span> <span>{{n.category.title}}</span>
                         </p>
                         <p class="card-text carttitle"><b>{{n.title}} </b></p>
-                        <p class="card-text news-text carddescription">{{n.description|safe}}</p>
+                        <p class="card-text news-text carddescription">{{n.description|safe|truncatechars:100}}</p>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
-    
-
     <div class="gallery  text-center " style="margin-top: 5rem;">
-        <p class="titles m-0"><b>Qalereya</b></p>
-        <p class="text-center mx-auto "> <a href="{% url 'galleries' %}" style="color: #0B52FE; font-size: 15px; font-weight: bold;">Hamısına bax</a></p>
+        <p class="titles m-0"><b>{% trans 'Qalereya' %}</b></p>
+        <p class="text-center mx-auto "> <a href="{% url 'galleries' %}" style="color: #0B52FE; font-size: 15px; font-weight: bold;">{% trans 'Hamısına bax' %}</a></p>
         <div class="owl-carousel owl-theme ">
             {% for g in galleries %} {% if forloop.counter == 0 %}
             <div class="item first prev ">
@@ -456,16 +148,12 @@
                 {% endif %} {% endfor %}
         </div>
     </div>
-
     <div id="event " class="carousel slide carousel-multi-item container-fluid" data-ride="carousel " style="margin-top: 5rem; padding: 0 !important;">
         <div style="display: flex; justify-content: space-between;">
-            <b class=" titles">Tədbirlər</b>
-            <a href="{% url 'allevents' %}" style="color: #0B52FE; display: flex; align-items: end; justify-content: center; font-size: 15px; font-weight: bold;">Hamısına
-                bax</a>
+            <b class=" titles">{% trans 'Tədbirlər' %}</b>
+            <a href="{% url 'allevents' %}" style="color: #0B52FE; display: flex; align-items: end; justify-content: center; font-size: 15px; font-weight: bold;">{% trans 'Hamısına bax' %}</a>
         </div>
-
         <div class="carousel-inner " role="listbox " style="margin-top: 1.5rem;">
-
             {% for event in events %}
             <div class="col-md-6 cardcol" style="float:left; ">
                 <div class="card mb-2 " style="border-radius: 5%; overflow: hidden;">
@@ -475,18 +163,15 @@
                     <div class="card-body " style="padding: 2rem; height: 17rem;">
                         <p class="card-text news-date text-muted" style="font-size: 15px">{{event.created_at}}</p>
                         <p class="card-text carttitle"><b>{{event.title}} </b></p>
-                        <p class="card-text news-text carddescription">{{event.description|safe}}</p>
+                        <p class="card-text news-text carddescription">{{event.description|safe|truncatechars:100}}</p>
                     </div>
                 </div>
             </div>
             {% endfor %}
-
-
         </div>
     </div>
-
     <div>
-        <p class="titles text-center" style="margin-top: 5rem;"><b>Ən çox verilən suallar</b></p>
+        <p class="titles text-center" style="margin-top: 5rem;"><b>{% trans 'Ən çox verilən suallar' %}</b></p>
     </div>
     <div class="accordion" id="faq">
         {% for i in mostquestions%}
@@ -502,94 +187,13 @@
         </div>
         {% endfor %}
     </div>
-
-
     <div id="students " class="mt-5 " style="margin-bottom: 5rem;">
         <div class="student-header ">
-            <div class=" titles " style="margin-top: 5rem; margin-bottom: 1.5rem;"><b>Haqqımızda düşüncələr</b></div>
+            <div class=" titles " style="margin-top: 5rem; margin-bottom: 1.5rem;"><b>{% trans 'Haqqımızda düşüncələr' %}</b></div>
         </div>
         <div id="testimonial" class="row " style="justify-content: space-between ">
-            <!-- <div class="student-card card col-md-3 my-sm-3 " style="padding: 2rem; background-color: #f6f6f6; border-radius: 20px; border: none;">
-                <div class="card-content ">
-
-                    <div class="p-0">
-                        <div style="display: flex;">
-                            <div class="profile "> <img src="../../media/practic/dr_img.png">
-                            </div>
-                            <div class="card-title " style="margin-left: 1rem; "> <span style="font-size: 19px; font-weight: 500px; line-height: 23px;">Muradova <br>
-                                    Nihal</span><br /> <span style="text-transform: uppercase; font-size: 13px; opacity: 0.6;">Tələbə</span>
-                            </div>
-                        </div>
-                        <div class="card-subtitle " style="margin-top: 1.5rem;">
-                            <p style="margin-bottom: 0 !important; font-size: 20px; line-height: 28px; font-weight: 400px;">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque pariatur sunt fuga facilis officiis doloribus magni perferendis. Officiis, eveniet eum?
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="fa fa-star "></span>
-                        <span class="fa fa-star "></span>
-                        <span class="fa fa-star "></span>
-                        <span class="fa fa-star "></span>
-                        <span class="fa fa-star "></span>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- <div class="student-card card col-md-3 my-sm-3 " style="padding: 2rem; background-color: #f6f6f6; border-radius: 20px; border: none;">
-                <div class="card-content ">
-                    <div class=" p-0 ">
-                        <div style="display: flex;">
-                            <div class="profile "> <img src="../../media/practic/dr_img.png">
-                            </div>
-                            <div class="card-title " style="margin-left: 1rem; "> <span style="font-size: 19px; font-weight: 500px; line-height: 23px;">Aydınov <br> Rəvan
-                                </span><br /> <span style="text-transform: uppercase; font-size: 13px; opacity: 0.6;">Tələbə</span>
-                            </div>
-                        </div>
-                        <div class="card-subtitle " style="margin-top: 1.5rem;">
-                            <p style="margin-bottom: 0 !important; font-size: 20px; line-height: 28px; font-weight: 400px;">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque pariatur sunt fuga facilis officiis doloribus magni perferendis. Officiis, eveniet eum?
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="fa fa-star "></span>
-                        <span class="fa fa-star "></span>
-                        <span class="fa fa-star "></span>
-                        <span class="fa fa-star "></span>
-                        <span class="fa fa-star "></span>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- <div class="student-card card col-md-3 my-sm-3 " style="padding: 2rem; background-color: #f6f6f6; border-radius: 20px; border: none;">
-                <div class="card-content ">
-                    <div class=" p-0 ">
-                        <div style="display: flex;">
-                            <div class="profile "> <img src="../../media/practic/dr_img.png">
-                            </div>
-                            <div class="card-title " style="margin-left: 1rem; "> <span style="font-size: 19px; font-weight: 500px; line-height: 23px;">Məmmədova Solmaz
-                                </span><br /> <span style="text-transform: uppercase; font-size: 13px; opacity: 0.6;">Tələbə</span>
-                            </div>
-                        </div>
-                        <div class="card-subtitle " style="margin-top: 1.5rem;">
-                            <p style="margin-bottom: 0 !important; font-size: 20px; line-height: 28px; font-weight: 400px;">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque pariatur sunt fuga facilis officiis doloribus magni perferendis. Officiis, eveniet eum?
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="fa fa-star "></span>
-                        <span class="fa fa-star "></span>
-                        <span class="fa fa-star "></span>
-                        <span class="fa fa-star "></span>
-                        <span class="fa fa-star "></span>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
-
 </div>
 {% endblock base %} {% block js %}
 <script type='text/javascript' src="{% static 'js/index.js' %} "></script>

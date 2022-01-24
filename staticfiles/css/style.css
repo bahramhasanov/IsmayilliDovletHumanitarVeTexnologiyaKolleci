@@ -208,3 +208,42 @@ footer ul {
 .nav-link {
   color: black !important;
 }
+
+.navbar {
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  clip: rect(
+    top,
+    offset of right clip from left side,
+    offset of bottom from top,
+    left
+  );
+  -webkit-filter: blur(20px);
+  filter: blur(20px);
+  filter: url(blur.svg#blur);
+  backdrop-filter: blur(20px);
+}
+
+@media screen and (max-width: 1200px) {
+  #footerDropdownLanguage {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 992px) {
+  .navbar {
+    height: auto;
+  }
+  #navbarDropdownLanguage {
+    width: 10%;
+  }
+  #footerDropdownLanguage {
+    width: 15% !important;
+  }
+}
+
+.languages {
+  min-width: 0 !important;
+  width: 5rem;
+  left: auto;
+}

@@ -1,0 +1,9 @@
+.btnn:hover {
+  background-color: #d1e1f1;
+}
+
+@media screen and (min-width: 992px) {
+  .leftbtn {
+    margin-right: 2rem;
+  }
+}

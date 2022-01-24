@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, View
 
 # Create your views here.
+from django.utils.translation import ugettext_lazy as _
 
 
 class SingleNews(DetailView):
@@ -28,7 +29,7 @@ class AllNews(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
-        context['title'] = 'Bütün xəbərlər'
+        context['title'] = _('Bütün xəbərlər')
         return context
 
 
@@ -36,7 +37,7 @@ class Contact(View):
 
     def get(self, request):
         context = {
-            'title': 'Əlaqə',
+            'title': _('Əlaqə',)
         }
         return render(request, 'contact.html', context=context)
 
@@ -45,7 +46,7 @@ class FBK(View):
 
     def get(self, request):
         context = {
-            'title': 'FBK',
+            'title': _('FBK'),
         }
         return render(request, 'FBK.html', context=context)
 
@@ -58,7 +59,7 @@ class AllFaculty(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['faculities'] = Faculty.objects.all().order_by('updated_at')
-        context['title'] = 'fbklar'
+        context['title'] = 'FBKlar'
         return context
 
 
@@ -81,7 +82,7 @@ class AllSpeciality(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['specialties'] = Specialty.objects.all()
-        context['title'] = 'Ixtisaslar'
+        context['title'] = _('Ixtisaslar')
         return context
 
 
@@ -105,7 +106,7 @@ class Totaladmissionrules(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['totaladmissionrules'] = Admissionrules.objects.all()
-        context['title'] = 'Ümumi qəbul qaydaları'
+        context['title'] = _('Ümumi qəbul qaydaları')
         return context
 
 
@@ -117,7 +118,7 @@ class From9admissionrules(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['totaladmissionrules'] = Admissionrules.objects.all()
-        context['title'] = '9-cu sinifdən qəbul qaydaları'
+        context['title'] = _('9-cu sinifdən qəbul qaydaları')
         return context
 
 
@@ -129,7 +130,7 @@ class From11admissionrules(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['totaladmissionrules'] = Admissionrules.objects.all()
-        context['title'] = '11-cu sinifdən qəbul qaydaları'
+        context['title'] = _('11-cu sinifdən qəbul qaydaları')
         return context
 
 
@@ -141,7 +142,7 @@ class AboutView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['abouts'] = About.objects.all()
-        context['title'] = 'Haqqımızda'
+        context['title'] = _('Haqqımızda')
         return context
 
 
@@ -153,7 +154,7 @@ class DateofcreateView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['dateofcreates'] = Dateofcreate.objects.all()
-        context['title'] = 'Yaradılma tarixi'
+        context['title'] = _('Yaradılma tarixi')
         return context
 
 
@@ -167,7 +168,7 @@ class EventsView(ListView):
             date__gte=datetime.now())
         context['recent_events'] = Event.objects.filter(
             date__lte=datetime.now())
-        context['title'] = 'Tədbirlər'
+        context['title'] = _('Tədbirlər')
         return context
 
 
@@ -179,7 +180,7 @@ class AllPractic(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['practies'] = Practic.objects.all()
-        context['title'] = 'Təcrübə Adları'
+        context['title'] = _('Təcrübə Adları')
         return context
 
 
@@ -203,7 +204,7 @@ class GalleryView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['galleries'] = Gallery.objects.all()
-        context['title'] = 'Qalereya'
+        context['title'] = _('Qalereya')
         return context
 
 
@@ -214,7 +215,7 @@ class FAQView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['faq'] = Mostquestions.objects.all()
-        context['title'] = 'FAQ'
+        context['title'] = _('FAQ')
         return context
 
 

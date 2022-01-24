@@ -1,0 +1,49 @@
+@media screen and (max-width: 1200px) {
+  .muavinlik {
+    font-size: 36px;
+  }
+
+  .muavinad {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .muavinlik {
+    font-size: 28px;
+  }
+
+  .muavinad {
+    font-size: 29px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .muavinlik {
+    font-size: 24px;
+  }
+
+  .muavinad {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .muavinlik {
+    font-size: 20px;
+  }
+
+  .muavinad {
+    font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .muavinlik {
+    font-size: 46px;
+  }
+
+  .muavinad {
+    font-size: 36px;
+  }
+}
