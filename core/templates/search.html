@@ -19,11 +19,11 @@
     <div class="row">
         {% for result in results %}
         <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card" style="height: 15rem;">
+            <div class="card" style="height: 20rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{result.title}}</h5>
                     {% if result.description %}
-                    <p class="card-text">{{result.description}}</p>
+                    <p class="card-text">{{result.description|truncatechars:150|safe}}</p>
                     <a href="{% url 'news' result.id %}"
                         style="left: 0; right: 0; margin-left: auto; margin-right: auto; width: 100px;">
                         {% translate 'Load more' %}</a>

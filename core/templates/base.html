@@ -152,18 +152,34 @@
                             style="width: 80%; padding: 16px 16px 16px 40px; background: rgba(0, 0, 0, 0.04); border-radius: 32px; border: none;"
                             placeholder="{% translate 'Enter email' %}" />
                         <button type="button" class="btn btn-primary" id="emailbutton"
+                            data-toggle="modal" data-target="#subscribeModal"
                             style="background: #0B52FE; border-radius: 32px; padding: 16px 20px;">
                             <i class="fas fa-arrow-right"></i>
                         </button>
+                        <div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="subscribeModalTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="subscribeModalLongTitle"></h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans 'Close' %}</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                     </div>
                 </div>
                 <div class="col-auto">
-                    <a class="btn btn-outline-dark btn-floating m-1" href="https://www.youtube.com/channel/UCYz4-twilSV_NtcGjLXNqtw" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-outline-dark btn-floating m-1" href="https://www.instagram.com/idhtk_2013_2022_/" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/IsmayilliDovletHum.veTex.Kolleci" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-facebook"></i></a>
-                    <!-- <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-google"></i></a> -->
-                    <!-- <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-linkedin-in"></i></a> -->
-                    <!-- <a class="btn btn-outline-dark btn-floating m-1" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-github"></i></a> -->
+                    <a class="btn btn-outline-dark btn-floating m-1" target="_blank" href="https://www.youtube.com/channel/UCYz4-twilSV_NtcGjLXNqtw" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-dark btn-floating m-1" target="_blank" href="https://www.instagram.com/idhtk_2013_2022_/" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-dark btn-floating m-1" target="_blank" href="https://www.facebook.com/IsmayilliDovletHum.veTex.Kolleci" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none; color: rgba(0, 0, 0, 0.38);" role="button"><i class="fab fa-facebook"></i></a>
+                    <!-- <a class="btn btn-outline-dark btn-floating m-1" target="_blank" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-google"></i></a> -->
+                    <!-- <a class="btn btn-outline-dark btn-floating m-1" target="_blank" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-linkedin-in"></i></a> -->
+                    <!-- <a class="btn btn-outline-dark btn-floating m-1" target="_blank" href="#!" style="padding: 8px; background: rgba(0, 0, 0, 0.04); border-radius: 12px; border: none;" role="button"><i class="fab fa-github"></i></a> -->
                 </div>
             </div>
         </form>

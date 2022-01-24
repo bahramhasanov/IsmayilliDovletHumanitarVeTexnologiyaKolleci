@@ -9,6 +9,7 @@ from api.serializers import EventSerializer, NewsSerializer, PDFserializer, Subj
 from datetime import datetime
 from django.utils.translation import get_language
 from staff.models import PDF, Subject, Teacher
+from django.utils.translation import ugettext_lazy as _
 
 
 class NewsAPIView(APIView):
@@ -168,7 +169,9 @@ class SubscriberAPIView(APIView):
         serializer = SubscriberSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            message = {'success': True,
+                    'message': _('Successfully subscribed.')}
+            return Response(message, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 

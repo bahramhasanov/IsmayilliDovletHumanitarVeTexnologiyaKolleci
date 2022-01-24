@@ -25,7 +25,7 @@ function getAllNews(start, end, category) {
                 <p class="card-text" style="color: rgba(0, 0, 0, 0.6);">${data[i]['created_at']} | ${data[i]['category']['title']}</p>
                 <p class="card-title" style="font-weight: 600; font-size: 24px; line-height: 32px; color: #000000;">${data[i]['title']} </p>
                 <p class="card-text" style="font-size: 17px; line-height: 24px; letter-spacing: 0.15px; color: rgba(0, 0, 0, 0.6);
-                ">${data[i]['description']}</p>
+                ">${data[i]['description'].substring(0, 500)}</p>
                 </div>
                             </div>
                             </div>

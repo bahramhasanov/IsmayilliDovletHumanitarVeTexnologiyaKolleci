@@ -1,20 +1,20 @@
 mybutton = document.getElementById("myBtnn");
 
 // When the user scrolls down 1000px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
+	if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+		mybutton.style.display = "block";
+	} else {
+		mybutton.style.display = "none";
+	}
 }
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+	document.body.scrollTop = 0; // For Safari
+	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
 const SubsciberLogic = {
@@ -31,7 +31,15 @@ const SubsciberLogic = {
 		})
 			.then(response => response.json())
 			.then(data => {
-
+				console.log(data);
+				subscribeModalLongTitle = document.getElementById('subscribeModalLongTitle');
+				if (data['success'] === true) {
+					emailinput.value = '';
+					emailinput.placeholder = 'Enter your email';
+					subscribeModalLongTitle.innerText = data['message'];
+				} else {
+					subscribeModalLongTitle.innerText = data['email'][0];
+				}
 			});
 	}
 }
@@ -40,6 +48,6 @@ emailbutton = document.getElementById('emailbutton')
 emailinput = document.getElementById('emailinput')
 
 emailbutton.onclick = function () {
-    const email = emailinput.value;
-    SubsciberLogic.emailManager(email);
+	const email = emailinput.value;
+	SubsciberLogic.emailManager(email);
 }
