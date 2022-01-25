@@ -34,8 +34,10 @@ class News(BaseModel):
 
     def reduce_image_size(self, image):
         img = Image.open(image)
+        rgb_im = img.convert('RGB')
+        rgb_im.save(f'{image}.jpg')
         thumb_io = BytesIO()
-        img.save(thumb_io, 'jpeg', quality=50)
+        rgb_im.save(thumb_io, 'jpeg', quality=50)
         new_image = File(thumb_io, name=image.name)
         return new_image
 

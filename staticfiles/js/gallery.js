@@ -1,4 +1,4 @@
-function getAllGallery(start, end, search) {
+function getAllGallery(start, end, search='') {
     spinner = document.getElementById('spinner');
     spinner.classList.remove('d-none');
     fetch(`/api/galleryapi?start=${start}&end=${end}&search=${search}`, {
@@ -33,7 +33,7 @@ function getAllGallery(start, end, search) {
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    getAllGallery(0, 16, 'all');
+    getAllGallery(0, 16);
 });
 
 search = document.getElementById('search');

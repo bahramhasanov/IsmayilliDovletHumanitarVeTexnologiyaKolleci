@@ -181,7 +181,8 @@ class GalleryAPIView(APIView):
     def get(self, request):
         start = int(request.GET.get('start'))
         end = int(request.GET.get('end'))
-        gallery = Gallery.objects.all()
+        search = request.GET.get('search')
+        gallery = Gallery.objects.filter(name__icontains=search)
         serializer = GallerySerializer(gallery[start:end], many=True)
         return Response(serializer.data)
 
