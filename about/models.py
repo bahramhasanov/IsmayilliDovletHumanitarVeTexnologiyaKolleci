@@ -33,7 +33,6 @@ class News(BaseModel):
         super().save(*args, **kwargs)
 
     def reduce_image_size(self, image):
-        print(image)
         img = Image.open(image)
         thumb_io = BytesIO()
         img.save(thumb_io, 'jpeg', quality=50)

@@ -113,7 +113,7 @@
                     <div class="card-body " style="padding: 2rem; min-height: 17rem;">
                         <p class="card-text news-date text-muted" style="font-size: 15px">{{n.created_at}} <span style="margin-right: 1rem; margin-left: 1rem">|</span> <span>{{n.category.title}}</span>
                         </p>
-                        <p class="card-text carttitle"><b>{{n.title}} </b></p>
+                        <p class="card-text carttitle"><b>{{n.title|safe|truncatechars:30}} </b></p>
                         <p class="card-text news-text carddescription">{{n.description|safe|truncatechars:100}}</p>
                     </div>
                 </div>
