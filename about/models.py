@@ -1,4 +1,5 @@
 import datetime
+from io import BytesIO
 from django.db import models
 from ckeditor.fields import RichTextField
 from matplotlib.pyplot import title
@@ -7,6 +8,8 @@ from pytz import timezone
 from kollec.utils.base_models import BaseModel
 from django.utils.translation import ugettext_lazy as _
 from django.utils.text import slugify
+from django.core.files import File
+from PIL import Image
 
 
 class News(BaseModel):
@@ -25,7 +28,17 @@ class News(BaseModel):
         if not self.slug:
             now = datetime.datetime.now(timezone('Asia/Baku'))
             self.slug = slugify(f"{self.title}-{now}")
-        super(News, self).save(*args, **kwargs)
+            new_image = self.reduce_image_size(self.image)
+            self.image = new_image
+        super().save(*args, **kwargs)
+
+    def reduce_image_size(self, image):
+        print(image)
+        img = Image.open(image)
+        thumb_io = BytesIO()
+        img.save(thumb_io, 'jpeg', quality=50)
+        new_image = File(thumb_io, name=image.name)
+        return new_image
 
     def __str__(self) -> str:
         return f"{self.title}"
