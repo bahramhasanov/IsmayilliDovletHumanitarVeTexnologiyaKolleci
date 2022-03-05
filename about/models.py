@@ -28,8 +28,8 @@ class News(BaseModel):
         if not self.slug:
             now = datetime.datetime.now(timezone('Asia/Baku'))
             self.slug = slugify(f"{self.title}-{now}")
-            new_image = self.reduce_image_size(self.image)
-            self.image = new_image
+            # new_image = self.reduce_image_size(self.image)
+            # self.image = new_image
         super().save(*args, **kwargs)
 
     def reduce_image_size(self, image):
@@ -66,9 +66,16 @@ class Faculty(BaseModel):
         verbose_name=_("Description"), blank=True, null=True)
     image = models.ImageField(upload_to='faculty/',
                               default=None, verbose_name=_("Image"))
+    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            now = datetime.datetime.now(timezone('Asia/Baku'))
+            self.slug = slugify(f"{self.title}-{now}")
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("FBK")
@@ -84,9 +91,16 @@ class Specialty(BaseModel):
         upload_to='specialty/', default=None, verbose_name=_("Image"))
     faculty = models.ForeignKey(
         Faculty, on_delete=models.CASCADE, related_name="specialty_faculty", default=None, verbose_name=_("Faculty"))
+    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            now = datetime.datetime.now(timezone('Asia/Baku'))
+            self.slug = slugify(f"{self.title}-{now}")
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("Ixtisas")

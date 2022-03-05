@@ -72,19 +72,8 @@ class FacultyAdmin(admin.ModelAdmin):
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
-    fields = (
-        'description',
-        'image',
-    )
+    exclude = ('title', 'description',)
 
-    def has_add_permission(self, request):
-        return True
-
-    def has_delete_permission(self, request, obj=None):
-        return False
-
-    def has_change_permission(self, request, obj=None):
-        return True
 
 
 @admin.register(Admissionrules)
@@ -95,14 +84,6 @@ class AdmissionrulesAdmin(admin.ModelAdmin):
         'from_11_rules',
     )
 
-    def has_add_permission(self, request):
-        return True
-
-    def has_delete_permission(self, request, obj=None):
-        return False
-
-    def has_change_permission(self, request, obj=None):
-        return True
 
 
 @admin.register(Dateofcreate)
@@ -110,12 +91,3 @@ class DateofcreateAdmin(admin.ModelAdmin):
     fields = (
         'description',
     )
-
-    def has_add_permission(self, request):
-        return True
-
-    def has_delete_permission(self, request, obj=None):
-        return False
-
-    def has_change_permission(self, request, obj=None):
-        return True

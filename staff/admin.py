@@ -18,7 +18,7 @@ class SubjectAdmin(admin.ModelAdmin):
 @admin.register(PDF)
 class PDFAdmin(admin.ModelAdmin):
     exclude = ('title',)
-
+    readonly_fields = ('slug',)
 
 @admin.register(LibraryFAQ)
 class LibraryFAQAdmin(admin.ModelAdmin):
@@ -29,13 +29,14 @@ class ReceptionDaysOfDirectorInline(admin.TabularInline):
 
 @admin.register(Director)
 class DirectorAdmin(admin.ModelAdmin):
+    exclude = ('full_name', 'description')
     inlines = [
         ReceptionDaysOfDirectorInline,
     ]
 
 @admin.register(Deputy)
 class DeputyAdmin(admin.ModelAdmin):
-    exclude = ('full_name',)
+    exclude = ('full_name', 'description')
 
 @admin.register(DeputyCategory)
 class DeputyCategoryAdmin(admin.ModelAdmin):
