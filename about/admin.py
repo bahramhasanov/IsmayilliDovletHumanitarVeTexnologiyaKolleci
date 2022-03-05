@@ -1,16 +1,21 @@
-from about.models import News, Category, Specialty, Faculty, Admissionrules, About, Event, Subscriber, Dateofcreate, Practic, PracticPlace, Gallery, CareerSupport,Testimonial
+from about.models import Contact, News, Category, Specialty, Faculty, Admissionrules, About, Event, Subscriber, Dateofcreate, Practic, PracticPlace, Gallery, CareerSupport, Testimonial
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
 
 # Register your models here.
 from django.utils.html import format_html
 admin.site.register([Subscriber,
-                    Practic, PracticPlace, Gallery, CareerSupport])
+                    Practic, PracticPlace, Gallery, CareerSupport,])
 
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     exclude = ('title',)
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    exclude = ('title', 'address')
 
 
 @admin.register(News)
@@ -37,7 +42,7 @@ class FacultyAdmin(admin.ModelAdmin):
         'title',
     )
     readonly_fields = ("get_facultyofspecialty",)
-    
+
     # def get_readonly_fields(self, request, obj=None):
     #     if obj:
     #         return self.readonly_fields + ('title',)

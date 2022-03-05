@@ -110,10 +110,14 @@ class Admissionrules(BaseModel):
 
 
 class About(BaseModel):
+    title = models.CharField(
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
     image = models.ImageField(
         upload_to='about/', default=None, verbose_name=_("Image"))
+    ytb_link = models.CharField(
+        max_length=100, verbose_name=_('Youtube Link'), help_text="Max 100 char.")
 
     def __str__(self) -> str:
         return 'Haqqımızda'
@@ -161,6 +165,8 @@ class Subscriber(BaseModel):
 
 
 class Dateofcreate(BaseModel):
+    title = models.CharField(
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
 
@@ -254,3 +260,20 @@ class Testimonial(BaseModel):
     class Meta:
         verbose_name = _("Testimonial")
         verbose_name_plural = _("Testimonials")
+
+
+class Contact(BaseModel):
+    title = models.CharField(
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
+    address = RichTextField(
+        verbose_name=_("Address"), blank=True, null=True)
+    phone = models.CharField(
+        max_length=100, verbose_name=_('Phone'), help_text="Max 100 char.")
+    email = models.EmailField(verbose_name=_("Email"))
+
+    def __str__(self) -> str:
+        return f"{self.title}"
+
+    class Meta:
+        verbose_name = _("Əlaqə")
+        verbose_name_plural = _("Əlaqə")

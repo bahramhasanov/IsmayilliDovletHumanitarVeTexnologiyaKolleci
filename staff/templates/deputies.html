@@ -10,62 +10,27 @@
 <link rel="stylesheet" href="{% static 'css/deputies.css' %}">
 {% endblock css %} {% block base %}
 <div class="container mt-5" style="margin-bottom: 100px !important;">
+    {% for deputy in deputies %}
     <div class="card mb-3 border-0 mx-auto" style="max-width: 60%;">
-        <p class="muavinlik mt-5">{% trans 'Təsərrüfat üzrə Müavin' %}</p>
+        <p class="muavinlik mt-5">{{deputy.category.title}}</p>
         <div class="row g-0">
             <div class="col-12 col-xl-4 " style="padding: 0 !important;">
-                <img src="../../media/gallery/menimg.jpeg"
+                <img src="{{deputy.image}}"
                     class="img-fluid" style="height: 346px; width: 692px; border-radius: 18px;" alt="... ">
             </div>
             <div class="col-12 col-xl-8">
                 <div class="card-body pl-lg-5" style="padding: 0 !important;">
-                    <p class="card-text muavinad" style=" margin-bottom: 16px;">{% trans 'Çingiz Çingizov' %}</p>
-                    <p class="card-text ">{% trans 'The incident prompted an internal investigation, and the withheld.Moore and Marino were in France as part of a weeklong trip that had been organized so the top cops could meet with French. The incident prompted an internal investigation, and the names of the LAPD officers involved are being withheld.Moore and Marino were in France as part of a weeklong trip that had been organized so the top cops could meet with French. The incident prompted an internal investigation.' %}</p>
-                    <p class="card-text " style="margin-top: 46px;">{% trans 'Mobil' %}: +994 55 555 55 55
+                    <p class="card-text muavinad" style=" margin-bottom: 16px;">{{deputy.full_name}}</p>
+                    <p class="card-text">{{deputy.description|safe}}</p>
+                    <p class="card-text" style="margin-top: 46px;">{% trans 'Mobil' %}: {{deputy.phone}}
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ***************** -->
+    {% endfor %}
 
-    <div class="card mb-3 border-0 mx-auto" style="max-width: 60%;">
-        <p class="muavinlik mt-5">Tərbiyyə üzrə Müavin</p>
-        <div class="row g-0">
-            <div class="col-12 col-xl-4 " style="padding: 0 !important;">
-                <img src="../../media/practic/dr_img.png"
-                    class="img-fluid" style="height: 346px; width: 692px; border-radius: 18px;" alt="... ">
-            </div>
-            <div class="col-12 col-xl-8">
-                <div class="card-body pl-lg-5" style="padding: 0 !important;">
-                    <p class="card-text muavinad" style=" margin-bottom: 16px;">Cahan Muradova</p>
-                    <p class="card-text ">{% trans 'The incident prompted an internal investigation, and the withheld.Moore and Marino were in France as part of a weeklong trip that had been organized so the top cops could meet with French. The incident prompted an internal investigation, and the names of the LAPD officers involved are being withheld.Moore and Marino were in France as part of a weeklong trip that had been organized so the top cops could meet with French. The incident prompted an internal investigation.' %}</p>
-                    <p class="card-text " style="margin-top: 46px;">{% trans 'Mobil' %}: +994 55 555 55 55
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- ************************* -->
-
-    <div class="card mb-3 border-0 mx-auto" style="max-width: 60%;">
-        <p class="muavinlik mt-5">Tədris üzrə Müavin</p>
-        <div class="row g-0">
-            <div class="col-12 col-xl-4 " style="padding: 0 !important;">
-                <img src="../../media/practic/dr_img.png"
-                    class="img-fluid" style="height: 346px; width: 692px; border-radius: 18px;" alt="... ">
-            </div>
-            <div class="col-12 col-xl-8">
-                <div class="card-body pl-lg-5" style="padding: 0 !important;">
-                    <p class="card-text muavinad" style=" margin-bottom: 16px;">Günay Cabbarova</p>
-                    <p class="card-text ">{% trans 'The incident prompted an internal investigation, and the withheld.Moore and Marino were in France as part of a weeklong trip that had been organized so the top cops could meet with French. The incident prompted an internal investigation, and the names of the LAPD officers involved are being withheld.Moore and Marino were in France as part of a weeklong trip that had been organized so the top cops could meet with French. The incident prompted an internal investigation.' %}</p>
-                    <p class="card-text " style="margin-top: 46px;">{% trans 'Mobil' %}: +994 55 555 55 55
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 {% endblock base %} {% block js %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js "

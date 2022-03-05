@@ -9,7 +9,7 @@ from math import ceil
 
 from django.views.generic import ListView
 
-from core.models import Mostquestions
+from core.models import MainPage, Mostquestions
 from about.models import Event, Gallery, News
 from staff.models import PDF
 
@@ -33,6 +33,7 @@ class HomePage(TemplateView):
         context['events'] = Event.objects.order_by('-created_at')[:2]
         context['galleries'] = Gallery.objects.all()
         context['main_gallery_image'] = ceil(Gallery.objects.count()/2)
+        context['mainpage'] = MainPage.objects.last()
         return context
 
 

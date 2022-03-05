@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from about.models import Category, Event, Faculty, News, Specialty, Testimonial
+from about.models import Category, Contact, Event, Faculty, News, Specialty, Testimonial
 
 
 @register(News)
@@ -30,3 +30,7 @@ class EventTranslator(TranslationOptions):
 @register(Testimonial)
 class TestimonialTranslator(TranslationOptions):
     fields = ('name', 'description')
+
+@register(Contact)
+class ContactTranslator(TranslationOptions):
+    fields = ('title', 'address')

@@ -20,7 +20,7 @@
                         alt="">
                 </div>
                 <div style="margin-top: 9px; margin-left: 14px;"><span>
-                        <b>2 000+</b> <br>
+                        <b>{{mainpage.active_student_number}}</b> <br>
                         {% trans 'Aktiv tələbə' %}
                     </span></div>
             </div>
@@ -29,7 +29,7 @@
                     📘
                 </div>
                 <div style="margin-top: 9px; margin-left: 14px;"><span>
-                        <b> 14</b> <br>
+                        <b> {{mainpage.faculty_number}}</b> <br>
                         {% trans 'Fakültə' %}
                     </span></div>
             </div>
@@ -38,7 +38,7 @@
                     🎓
                 </div>
                 <div style="margin-top: 9px; margin-left: 14px;"><span>
-                        <b> 1 340</b> <br>
+                        <b> {{mainpage.graduate_number}}</b> <br>
                         {% trans 'Məzun' %}
                     </span></div>
             </div>
@@ -47,11 +47,11 @@
 
         <div id="right_slide" class="col-7">
             <div style="margin-top: 4rem;padding-right: 3rem;">
-                <p id="slide_text1" style="font-size: 20px; line-height: 28px;">{% trans 'İsmayıllı Dövlət Humanitar ve Texnologiya Kolleci' %}</p>
+                <p id="slide_text1" style="font-size: 20px; line-height: 28px;">{{mainpage.name}}</p>
                 <p id="slide_text2" style="margin-top: 1rem; font-size: 4rem; line-height: 68px;"><b>
-                        Parlaq gələcəyə bizimlə <span class="bashla">başla!</span>
+                        {{mainpage.slogan|safe}}
                     </b></p>
-                <p id="slide_text3" style="margin-top: 28px; font-size: 1rem; opacity: 0.6; line-height: 24px;">{% trans 'We conduct classes based on the Curriculum of International Certification Examinations with the Guaranteed Education System. We offer them ' %}</p>
+                <p id="slide_text3" style="margin-top: 28px; font-size: 1rem; opacity: 0.6; line-height: 24px;">{{mainpage.description|safe}}</p>
                 <div id="search_form" class="form-outline form-white " style="margin-top: 36px;">
                     <form action="{% url 'search' %}" method="get">
                         <input type="text" name="search_text" style="width: 60%; padding: 16px 16px 16px 40px; background: white; border-radius: 32px; border: none;" placeholder="{% translate 'Axtar' %}" />

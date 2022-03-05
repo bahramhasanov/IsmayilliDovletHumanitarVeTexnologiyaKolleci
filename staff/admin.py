@@ -2,7 +2,7 @@ from django.contrib import admin
 # Register your models here.
 from django.utils.html import format_html
 
-from staff.models import Teacher, Subject, PDF, LibraryFAQ
+from staff.models import Deputy, DeputyCategory, Director, Library, ReceptionDaysOfDirector, Teacher, Subject, PDF, LibraryFAQ
 
 
 @admin.register(Teacher)
@@ -24,34 +24,23 @@ class PDFAdmin(admin.ModelAdmin):
 class LibraryFAQAdmin(admin.ModelAdmin):
     exclude = ('question', 'answer')
 
-# @admin.register(Subject)
-# class SubjectAdmin(admin.ModelAdmin):
-#     search_fields = ("title",)
-#     list_display = (
-#         'title',
+class ReceptionDaysOfDirectorInline(admin.TabularInline):
+    model = ReceptionDaysOfDirector
 
-#         )
-#     readonly_fields = ("get_subjectofteacher",)
-#     fields = (
-#         'title',
-#         'get_subjectofteacher'
-#         )
+@admin.register(Director)
+class DirectorAdmin(admin.ModelAdmin):
+    inlines = [
+        ReceptionDaysOfDirectorInline,
+    ]
 
-#     def get_subjectofteacher(self, obj):
-#         html = """
-#         <table class="table">
-#                 <thead class="thead-dark">
-#                     <tr>
-#                     <th scope="col">adları</th>
-#                     </tr>
-#                 </thead>
-#                 <tbody>
-#         """
-#         for i in obj.subject_teachers.all():
-#             html +=f'''
-#                     <tr>
-#                         <td>{i.full_name}</td>
-#                     </tr>
-#             '''
-#         return format_html(html + "</tbody></table>")
-#     get_subjectofteacher.short_description = 'FBK-dakı ixtisaslar'
+@admin.register(Deputy)
+class DeputyAdmin(admin.ModelAdmin):
+    exclude = ('full_name',)
+
+@admin.register(DeputyCategory)
+class DeputyCategoryAdmin(admin.ModelAdmin):
+    exclude = ('title',)
+
+@admin.register(Library)
+class LibraryAdmin(admin.ModelAdmin):
+    exclude = ('title', 'description')

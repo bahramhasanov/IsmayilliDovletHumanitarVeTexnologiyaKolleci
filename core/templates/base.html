@@ -24,6 +24,8 @@
                     <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px;" class="nav-link dropdown-toggle"
                         href="#" id="navbarDropdownLanguage" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
+                        {{lang|upper}}
+                        {% comment %}
                         {% ifequal lang 'az'  %} 
                         <img style="width: 20px; height: 20px;" src="{% static 'img/AZE.png' %}"  alt=""> {{lang|upper}}
                         {% endifequal %}
@@ -33,22 +35,20 @@
                         {% ifequal lang 'ru'  %} 
                         <img style="width: 20px; height: 20px;" src="{% static 'img/RUS.png' %}"  alt=""> {{lang|upper}}
                         {% endifequal %}
+                        {% endcomment %}
                     </a>
                     <ul class="dropdown-menu languages p-0" aria-labelledby="navbarDropdownLanguage">
                         <input type="hidden" value="{% translate 'Lang' %}"> {% ifnotequal lang 'az' %}
                         <li>
-                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=az&next={{request.path}}"><img
-                                style="width: 20px; height: 20px;" src="{% static 'img/AZE.png' %}" alt="">{% translate 'AZ' %}</a>
+                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=az&next={{request.path}}">{% translate 'AZ' %}</a>
                         </li>
                         {% endifnotequal %} {% ifnotequal lang 'en' %}
                         <li>
-                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=en&next={{request.path}}"><img
-                                style="width: 20px; height: 20px;" src="{% static 'img/ENG.png' %}" alt="">{% translate 'EN' %}</a>
+                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=en&next={{request.path}}">{% translate 'EN' %}</a>
                         </li>
                         {% endifnotequal %} {% ifnotequal lang 'ru' %}
                         <li>
-                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=ru&next={{request.path}}"><img
-                                style="width: 20px; height: 20px;" src="{% static 'img/RUS.png' %}" alt="">{% translate 'RU' %}</a>
+                            <a class="dropdown-item" href="{% url 'set_language'%}?lang=ru&next={{request.path}}">{% translate 'RU' %}</a>
                         </li>
                         {% endifnotequal %}
                     </ul>
@@ -191,15 +191,12 @@
                             class="nav-link dropdown-toggle" href="#" id="footerDropdownLanguage" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             {% ifequal lang 'az' %}
-                            <img src="{% static 'img/AZE.png' %}" style="width: 20px; height: 20pxy;" alt="">
                             Azərbaycanca
                             {% endifequal %}
                             {% ifequal lang 'en' %}
-                            <img src="{% static 'img/ENG.png' %}" style="width: 20px; height: 20pxy;" alt="">
                             English
                             {% endifequal %}
                             {% ifequal lang 'ru' %}
-                            <img src="{% static 'img/RUS.png' %}" style="width: 20px; height: 20pxy;" alt="">
                             Русский
                             {% endifequal %}
                         </a>
@@ -207,27 +204,24 @@
                             <input type="hidden" value="{% translate 'Lang' %}"> {% ifnotequal lang 'az' %}
                             <li>
                                 <a class="dropdown-item"
-                                    href="{% url 'set_language'%}?lang=az&next={{request.path}}"><img
-                                    style="width: 20px; height: 20px;"    src="{% static 'img/AZE.png' %}" alt="">{% translate 'Azərbaycanca' %}</a>
+                                    href="{% url 'set_language'%}?lang=az&next={{request.path}}">{% translate 'Azərbaycanca' %}</a>
                             </li>
                             {% endifnotequal %} {% ifnotequal lang 'en' %}
                             <li>
                                 <a class="dropdown-item"
-                                    href="{% url 'set_language'%}?lang=en&next={{request.path}}"><img
-                                    style="width: 20px; height: 20px;"    src="{% static 'img/ENG.png' %}" alt="">{% translate 'İngiliscə' %}</a>
+                                    href="{% url 'set_language'%}?lang=en&next={{request.path}}">{% translate 'İngiliscə' %}</a>
                             </li>
                             {% endifnotequal %} {% ifnotequal lang 'ru' %}
                             <li>
                                 <a class="dropdown-item"
-                                    href="{% url 'set_language'%}?lang=ru&next={{request.path}}"><img
-                                    style="width: 20px; height: 20px;"    src="{% static 'img/RUS.png' %}" alt="">{% translate 'Rusca' %}</a>
+                                    href="{% url 'set_language'%}?lang=ru&next={{request.path}}">{% translate 'Rusca' %}</a>
                             </li>
                             {% endifnotequal %}
                         </ul>
                     </li>
                 </ul>
-                <p style="font-size: 13px; line-height: 20px; letter-spacing: 0.25px; color: rgba(0, 0, 0, 0.87); ">{% trans '2972 Westheimer Rd. Santa Ana, Illinois' %}</p>
-                <p style="font-size: 12px;line-height: 16px;letter-spacing: 0.004em;color: rgba(0, 0, 0, 0.38);">© {% trans '2022 Sapiens, Inc. All Rights Reserved' %}</p>
+                <p style="font-size: 13px; line-height: 20px; letter-spacing: 0.25px; color: rgba(0, 0, 0, 0.87); ">{% trans 'Ismayıllı Humanitar və Texnologiya Kolleci' %}</p>
+                <p style="font-size: 12px;line-height: 16px;letter-spacing: 0.004em;color: rgba(0, 0, 0, 0.38);">© {{year}} {% trans 'Sapiens, Inc. All Rights Reserved' %}</p>
             </div>
             <div class="col-lg-2 col-md-6">
                 <p class="main-content">{% translate 'Haqqımızda' %}</p>
@@ -270,10 +264,10 @@
             <div class="col-lg-2">
                 <p class="main-content">{% trans 'Xəbərlər' %}</p>
                 <ul>
-                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'allnews' %}">Xəbərlər</a></li>
-                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'allevents' %}">Tədbirlər</a></li>
-                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'galleries' %}">Qalereya</a></li>
-                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'faq' %}">FAQ</a></li>
+                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'allnews' %}">{% trans 'Xəbərlər' %}</a></li>
+                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'allevents' %}">{% trans 'Tədbirlər' %}</a></li>
+                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'galleries' %}">{% trans 'Qalereya' %}</a></li>
+                    <li><a  style="padding: 0" class="dropdown-item" href="{% url 'faq' %}">{% trans 'FAQ' %}</a></li>
                     <a onclick="topFunction()" style="z-index: 2000;position: fixed; bottom: 5%; right: 8%; cursor: pointer;" id="myBtnn"><i
                             class="fas fa-arrow-circle-up text-primary" style="padding: 8px; background: rgba(11, 82, 254, 0.1);
                         border-radius: 12px;"></i></a>

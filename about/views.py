@@ -1,5 +1,5 @@
 from datetime import datetime
-from about.models import CareerSupport, Category, Event, Gallery, News, Practic, Specialty, Faculty, Admissionrules, About, Dateofcreate
+from about.models import CareerSupport, Category, Contact, Event, Gallery, News, Practic, Specialty, Faculty, Admissionrules, About, Dateofcreate
 from core.models import Mostquestions
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, View
@@ -33,16 +33,17 @@ class AllNews(ListView):
         return context
 
 
-class Contact(View):
+class ContactView(View):
 
     def get(self, request):
         context = {
-            'title': _('Əlaqə',)
+            'title': _('Əlaqə',),
+            'contact': Contact.objects.last()
         }
         return render(request, 'contact.html', context=context)
 
 
-class FBK(View):
+class FBKView(View):
 
     def get(self, request):
         context = {
@@ -134,28 +135,45 @@ class From11admissionrules(ListView):
         return context
 
 
-class AboutView(ListView):
-    model = About
-    template_name = 'about.html'
-    context_object_name = 'abouts'
+# class AboutView(ListView):
+#     model = About
+#     template_name = 'about.html'
+#     context_object_name = 'abouts'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['abouts'] = About.objects.all()
-        context['title'] = _('Haqqımızda')
-        return context
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['abouts'] = About.objects.all()
+#         context['title'] = _('Haqqımızda')
+#         return context
 
 
-class DateofcreateView(ListView):
-    model = Dateofcreate
-    template_name = 'dateofcreate.html'
-    context_object_name = 'dateofcreates'
+class AboutView(View):
+    def get(self, request):
+        context = {
+            'title': _('Haqqımızda'),
+            'about': About.objects.last()
+        }
+        return render(request, 'about.html', context=context)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['dateofcreates'] = Dateofcreate.objects.all()
-        context['title'] = _('Yaradılma tarixi')
-        return context
+
+# class DateofcreateView(ListView):
+#     model = Dateofcreate
+#     template_name = 'dateofcreate.html'
+#     context_object_name = 'dateofcreates'
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['dateofcreates'] = Dateofcreate.objects.all()
+#         context['title'] = _('Yaradılma tarixi')
+#         return context
+
+class DateOfCreateView(View):
+    def get(self, request):
+        context = {
+            'title': _('Yaradılma tarixi'),
+            'dateofcreate': Dateofcreate.objects.last()
+        }
+        return render(request, 'dateofcreate.html', context=context)
 
 
 class EventsView(ListView):
