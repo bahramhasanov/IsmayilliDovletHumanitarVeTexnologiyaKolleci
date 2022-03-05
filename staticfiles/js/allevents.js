@@ -21,13 +21,14 @@ function getFutureEvents() {
                     <img class="card-img-top" style="border-radius: 24px; height: 312px;"
                     src="${data[counter]['image']}"
                     alt="Card image cap">
+                    <a class="stretched-link" href="${data[counter]['slug']}"> </a>
                     <div class="card-body">
                     <a class="btn"
                     style="padding: 3px 16px 5px; background: rgba(11, 82, 254, 0.12); border-radius: 100px; color: #0B52FE;">${data[counter]['category']['title']}</a>
                     <h4 class="card-title"
                     style="font-weight: 600; font-size: 24px; line-height: 32px; color: #000000; ">${data[counter]['title']}</h4>
-                                <p class="card-text"
-                                style="font-weight: 600; font-size: 15px; line-height: 24px; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(0, 0, 0, 0.6); ">
+                    <p class="card-text"
+                    style="font-weight: 600; font-size: 15px; line-height: 24px; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(0, 0, 0, 0.6); ">
                                 ${data[counter]['date']}</p>
                                 </div>
                                 </div>
@@ -40,6 +41,7 @@ function getFutureEvents() {
                                 <img class="card-img-top" style="border-radius: 24px; height: 312px;"
                                 src="${data[counter + 1]['image']}"
                                 alt="Card image cap">
+                                <a class="stretched-link" href="${data[counter]['slug']}"> </a>
                                 <div class="card-body">
                                 <a class="btn"
                                 style="padding: 3px 16px 5px; background: rgba(11, 82, 254, 0.12); border-radius: 100px; color: #0B52FE;">${data[counter + 1]['category']['title']}</a>
@@ -69,6 +71,7 @@ function getRecentEvents(start, end) {
     })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             recent_events = document.getElementById('recent-events');
             for (let i = 0; i < data.length; i++) {
                 recent_events.innerHTML += `
@@ -77,14 +80,15 @@ function getRecentEvents(start, end) {
                     <div class="col-md-5">
                         <img src="${data[i]['image']}"
                             class="img-fluid rounded" alt="..." style="height: 152px;">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="card-body pt-0 pl-0">
+                            </div>
+                            <div class="col-md-7">
+                            <div class="card-body pt-0 pl-0">
                             <a class="btn"
-                                style="padding: 3px 16px 5px; background: rgba(11, 82, 254, 0.12); border-radius: 100px; color: #0B52FE;">${data[i]['category']['title']}</a>
+                            style="padding: 3px 16px 5px; background: rgba(11, 82, 254, 0.12); border-radius: 100px; color: #0B52FE;">${data[i]['category']['title']}</a>
                             <a class="recent-event-title" href="">
-                                <h5 class="card-title"
-                                    style="font-weight: 600; font-size: 24px; line-height: 32px; color: #000000; ">${data[i]['title']}</h5>
+                            <h5 class="card-title"
+                            style="font-weight: 600; font-size: 24px; line-height: 32px; color: #000000; ">${data[i]['title']}</h5>
+                            <a class="stretched-link" href="${data[i]['slug']}"> </a>
                             </a>
                             <p class="card-text"
                                 style="font-weight: 600; font-size: 15px; line-height: 24px; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(0, 0, 0, 0.6); ">

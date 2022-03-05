@@ -13,17 +13,18 @@
     {% for i in practies %}
     <div class="card mb-5 mx-auto border-0" style="max-width: 850px;">
         <div class="row g-0 " style="border: 1px solid rgb(216, 213, 213); border-radius: 20px;">
+            <a href=" {% url 'singlepractic' i.slug %} " class="stretched-link"></a>
             <div class="col-md-4 " style="max-width: 8%; padding-top: 15px;">
                 <img src="{{i.image_icon.url}}" class="img facultyimage" style="border-radius: 24px;" alt="...">
             </div>
             <div class="col-md-8 ">
                 <div class="card-body facultycard">
                     <h5 class="card-title text-dark">
-                        <a class="text-dark facultytitle" style="text-decoration: none;" href="{{i.id}}">{{i.title}}
+                        <a class="text-dark facultytitle" style="text-decoration: none;" href="{% url 'singlepractic' i.slug %}">{{i.title}}
                         </a>
                     </h5>
                     <p class="card-text text-dark facultydescription">{{i.description|safe|truncatechars:180}}</p>
-                    <a href=" {{i.id}} " class="btn border-0 facultyreadmore"
+                    <a href=" {% url 'singlepractic' i.slug %} " class="btn border-0 facultyreadmore"
                         style=" color: #0B52FE; background-color: rgba(11, 82, 254, 0.08); border-radius: 12px; ">{% trans 'Ətraflı oxu' %}</a>
                 </div>
             </div>

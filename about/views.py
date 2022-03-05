@@ -21,6 +21,19 @@ class SingleNews(DetailView):
         return context
 
 
+class SingleEvent(DetailView):
+    model = Event
+    template_name = 'single-event.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['event'] = self.object
+        context['title'] = self.object.title
+        context['related_event'] = Event.objects.filter(
+            category=self.object.category).exclude(id=self.object.id)[0:4]
+        return context
+
+
 class AllNews(ListView):
     model = News
     template_name = 'all-news.html'

@@ -20,11 +20,11 @@
             <div class="col-md-8 ">
                 <div class="card-body facultycard">
                     <h5 class="card-title text-dark">
-                        <a class="text-dark facultytitle" style="text-decoration: none;" href="{{i.id}}">{{i.title}}
+                        <a class="text-dark facultytitle" style="text-decoration: none;" href="{% url 'faculty' i.slug %}">{{i.title}}
                         </a>
                     </h5>
                     <p class="card-text text-dark facultydescription">{{i.description|safe|truncatechars:180}}</p>
-                    <a href=" {{i.id}} " class="btn border-0 facultyreadmore"
+                    <a href=" {% url 'faculty' i.slug %} " class="btn border-0 facultyreadmore"
                         style=" color: #0B52FE; background-color: rgba(11, 82, 254, 0.08); border-radius: 12px; ">Ətraflı
                         oxu</a>
                 </div>

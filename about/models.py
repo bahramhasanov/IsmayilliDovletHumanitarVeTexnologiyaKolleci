@@ -201,9 +201,16 @@ class Practic(BaseModel):
         upload_to='practic/', default=None, verbose_name=_("Image icon"))
     image = models.ImageField(
         upload_to='practic/', default=None, verbose_name=_("Image"))
+    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            now = datetime.datetime.now(timezone('Asia/Baku'))
+            self.slug = slugify(f"{self.title}-{now}")
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("Practic")

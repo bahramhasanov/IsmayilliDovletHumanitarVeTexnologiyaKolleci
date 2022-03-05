@@ -147,7 +147,7 @@
                     </p>
                 </div>
                 <div class="col-lg-5 col-12">
-                    <div class="form-outline form-white mb-4">
+                    <div class="form-outline form-white mb-4 subscriber-form">
                         <input type="email" id="emailinput"
                             style="width: 80%; padding: 16px 16px 16px 40px; background: rgba(0, 0, 0, 0.04); border-radius: 32px; border: none;"
                             placeholder="{% translate 'Enter email' %}" />
@@ -183,9 +183,9 @@
                 </div>
             </div>
         </form>
-        <div class="row container-fluid p-5">
+        <div class="row container-fluid p-5 text-center">
             <div class="navbar-collapse col-lg-2 col-md-12" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+                <ul id="lang-ul" class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a style="background: rgba(0, 0, 0, 0.04); border-radius: 12px; width: 60%; color: rgba(0, 0, 0, 0.6);"
                             class="nav-link dropdown-toggle" href="#" id="footerDropdownLanguage" data-toggle="dropdown"
@@ -223,7 +223,7 @@
                 <p style="font-size: 13px; line-height: 20px; letter-spacing: 0.25px; color: rgba(0, 0, 0, 0.87); ">{% trans 'Ismayıllı Humanitar və Texnologiya Kolleci' %}</p>
                 <p style="font-size: 12px;line-height: 16px;letter-spacing: 0.004em;color: rgba(0, 0, 0, 0.38);">© {{year}} {% trans 'Sapiens, Inc. All Rights Reserved' %}</p>
             </div>
-            <div class="col-lg-2 col-md-6">
+            <div class="col-lg-2 col-md-12">
                 <p class="main-content">{% translate 'Haqqımızda' %}</p>
                 <ul>
                     <li><a class="dropdown-item p-0" href="{% url 'dateofcreate' %}">
@@ -234,7 +234,7 @@
                     <li><a class="dropdown-item p-0" href="{% url 'contact' %}">{% translate 'Bizimlə əlaqə' %}</a></li>
                 </ul>
             </div>
-            <div class="col-lg-2 col-md-6">
+            <div class="col-lg-2 col-md-12">
                 <p class="main-content">{% translate 'Akademik' %}</p>
                 <ul>
                     <li><a  style="padding: 0" class="dropdown-item" href="{% url 'director' %}">{% trans 'Direktor' %}</a></li>
@@ -253,7 +253,7 @@
                     <li><a class="dropdown-item p-0" href="{% url 'teachers' %}">{% trans 'Müəllimlər' %}</a></li>
                 </ul>
             </div>
-            <div class="col-lg-2 col-md-6">
+            <div class="col-lg-2 col-md-12">
                 <p class="main-content">{% trans 'Qəbul' %}</p>
                 <ul>
                     <li><a class="dropdown-item p-0" href="{% url 'from11admissionrules' %}">{% trans 'IX sinif qəbul' %}</a></li>
@@ -273,7 +273,7 @@
                         border-radius: 12px;"></i></a>
                 </ul>
             </div>
-            <div class="col-lg-2 col-md-6">
+            <div class="col-lg-2 col-md-12">
                 <p class="main-content">{% trans 'Onlayn Kitabxana' %}</p>
                 <ul>
                     <li><a class="dropdown-item text-dark p-0" href="{% url 'libraryinfo' %}">{% trans 'Ümumi məlumat' %}</a></li>

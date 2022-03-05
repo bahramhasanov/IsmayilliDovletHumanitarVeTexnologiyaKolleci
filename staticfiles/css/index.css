@@ -444,6 +444,7 @@ button:focus {
   }
 }
 @media screen and (max-width: 992px) {
+  
   #faculty {
     margin-left: 10% !important;
     width: 183px !important;
@@ -509,6 +510,9 @@ button:focus {
   }
   #slide_text2 {
     font-size: 1.8rem !important;
+  }
+  .department{
+    padding: 1rem !important;
   }
 }
 @media screen and (max-width: 480px) {

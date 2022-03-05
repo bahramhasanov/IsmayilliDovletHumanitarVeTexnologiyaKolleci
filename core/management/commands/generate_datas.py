@@ -23,7 +23,7 @@ class Command(BaseCommand):
                 random_subject = Subject.objects.all(
                 )[random.randint(0, subjects - 1)]
                 Teacher.objects.create(
-                    full_name_az=Faker('tr_TR').name(), full_name_ru=Faker('ru_RU').name(),  description=Faker().text(), subject=random_subject, photo='teachers/1540580465108_C3KSrBb.jpeg')
+                    full_name_az=Faker('tr_TR').name(), full_name_ru=Faker('ru_RU').name(),  description=Faker().text(), subject=random_subject, photo='teachers/1491483227_5914040.jpeg')
         elif data == 'pdfs':
             subjects = Subject.objects.all().count()
             for i in range(total):
@@ -37,14 +37,14 @@ class Command(BaseCommand):
                 random_categories = Category.objects.all(
                 )[random.randint(0, categories - 1)]
                 News.objects.create(
-                    title=Faker().name(), description=Faker().text(), category=random_categories, image='news/teacher2.jpg')
+                    title=Faker().name(), description=Faker().text(), category=random_categories, image='news/1491483227_5914040.jpg')
         elif data == 'events':
             categories = Category.objects.all().count()
             for i in range(total):
                 random_categories = Category.objects.all(
                 )[random.randint(0, categories - 1)]
                 Event.objects.create(
-                    title=Faker().name(), description=Faker().text(), category=random_categories, image='event/gomlek5.jpg', date=Faker().date())
+                    title=Faker().name(), description=Faker().text(), category=random_categories, image='event/1491483227_5914040.jpg', date=Faker().date())
         elif data == 'faculties':
             for i in range(total):
                 Faculty.objects.create(
@@ -55,6 +55,6 @@ class Command(BaseCommand):
                 random_faculties = Faculty.objects.all(
                 )[random.randint(0, categories - 1)]
                 Specialty.objects.create(
-                    title=Faker().name(), description=Faker().text(), faculty=random_faculties, image_icon='specialty/logo_7HIRLrP.png')
+                    title=Faker().name(), description=Faker().text(), faculty=random_faculties, image_icon='specialty/1491483227_5914040.png')
         self.stdout.write(self.style.SUCCESS(
             'Successfully created {} {}'.format(total, data)))
