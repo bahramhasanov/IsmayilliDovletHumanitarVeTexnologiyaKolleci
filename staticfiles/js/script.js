@@ -31,7 +31,6 @@ const SubsciberLogic = {
 		})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data);
 				subscribeModalLongTitle = document.getElementById('subscribeModalLongTitle');
 				if (data['success'] === true) {
 					emailinput.value = '';

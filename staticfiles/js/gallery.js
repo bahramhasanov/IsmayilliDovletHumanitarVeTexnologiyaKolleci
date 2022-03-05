@@ -39,13 +39,11 @@ window.addEventListener('DOMContentLoaded', () => {
 search = document.getElementById('search');
 search.addEventListener('keyup', (event) => {
     gallery.innerHTML = '';
-    console.log(event.target.value);
     getAllGallery(0, 4, event.target.value);
 
 });
 more_button = document.getElementById('more-button');
 more_button.addEventListener('click', () => {
-    console.log(gallery.children.length);
     getAllGallery(gallery.children.length, gallery.children.length + 4, search.value);
 
 });

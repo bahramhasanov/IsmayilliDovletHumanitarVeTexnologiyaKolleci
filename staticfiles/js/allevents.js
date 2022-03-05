@@ -71,7 +71,6 @@ function getRecentEvents(start, end) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             recent_events = document.getElementById('recent-events');
             for (let i = 0; i < data.length; i++) {
                 recent_events.innerHTML += `

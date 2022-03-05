@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kollec</title>
+</head>
+<body>
+    <div class="container">
+        {% for event in events %}
+        <div class="col-md-12" style="float:left">
+            <div class="card mb-2">
+                <img class="card-img-top" style="border-radius: 24px; height: 312px;" src="{{event.image.url}}"
+                    alt="Card image cap">
+                <a href="{% url 'event' event.slug %}" class="stretched-link"></a>
+                <div class="card-body">
+                    <a class="btn"
+                        style="padding: 3px 16px 5px; background: rgba(11, 82, 254, 0.12); border-radius: 100px; color: #0B52FE;">{{event.category.title}}</a>
+                    <h4 class="card-title"
+                        style="font-weight: 600; font-size: 24px; line-height: 32px; color: #000000; ">
+                        {{event.title}}</h4>
+                    <p class="card-text"
+                        style="font-weight: 600; font-size: 15px; line-height: 24px; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(0, 0, 0, 0.6); ">
+                        {{event.date|date:"d F, Y H:i"}}</p>
+                </div>
+            </div>
+            <hr style="background: rgba(0, 0, 0, 0.08); border-radius: 1px; ">
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

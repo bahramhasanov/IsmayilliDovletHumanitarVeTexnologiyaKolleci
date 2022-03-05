@@ -1,3 +1,5 @@
+from http.client import HTTPResponse
+import os
 from django.http import FileResponse, Http404
 from django.views.generic import ListView
 from django.shortcuts import render
@@ -68,6 +70,11 @@ class LibraryDetailView(View):
             response['Content-Disposition'] = 'attachment; filename="{}"'.format(
                 pdf.file.name)
         else:
+            # filepath = os.path.join('media', pdf.file.name)
+            # return FileResponse(open(filepath, 'rb'), content_type='application/pdf')
+            # image_data = open(pdf, "rb").read()
+            # return HTTPResponse(image_data, contenttype='application/pdf')
+            # print('pdf.file.path')
             response['Content-Disposition'] = 'inline; filename="{}"'.format(
                 pdf.file.name)
         return response
