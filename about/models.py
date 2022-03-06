@@ -2,7 +2,6 @@ import datetime
 from io import BytesIO
 from django.db import models
 from ckeditor.fields import RichTextField
-from matplotlib.pyplot import title
 from pytz import timezone
 
 from kollec.utils.base_models import BaseModel
@@ -28,8 +27,8 @@ class News(BaseModel):
         if not self.slug:
             now = datetime.datetime.now(timezone('Asia/Baku'))
             self.slug = slugify(f"{self.title}-{now}")
-            new_image = self.reduce_image_size(self.image)
-            self.image = new_image
+            # new_image = self.reduce_image_size(self.image)
+            # self.image = new_image
         super().save(*args, **kwargs)
 
     def reduce_image_size(self, image):
@@ -68,9 +67,17 @@ class Faculty(BaseModel):
         verbose_name=_("Description"), blank=True, null=True)
     image = models.ImageField(upload_to='faculty/',
                               default=None, verbose_name=_("Image"))
-
+    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
+    department = models.ForeignKey(
+        'staff.Department', on_delete=models.CASCADE, related_name="faculty_department", verbose_name=_("Department"), null=True, blank=True)
     def __str__(self) -> str:
         return f"{self.title}"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            now = datetime.datetime.now(timezone('Asia/Baku'))
+            self.slug = slugify(f"{self.title}-{now}")
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("FBK")
@@ -86,9 +93,16 @@ class Specialty(BaseModel):
         upload_to='specialty/', default=None, verbose_name=_("Image"))
     faculty = models.ForeignKey(
         Faculty, on_delete=models.CASCADE, related_name="specialty_faculty", default=None, verbose_name=_("Faculty"))
+    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            now = datetime.datetime.now(timezone('Asia/Baku'))
+            self.slug = slugify(f"{self.title}-{now}")
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("Ixtisas")
@@ -112,10 +126,14 @@ class Admissionrules(BaseModel):
 
 
 class About(BaseModel):
+    title = models.CharField(
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
     image = models.ImageField(
         upload_to='about/', default=None, verbose_name=_("Image"))
+    ytb_link = models.CharField(
+        max_length=100, verbose_name=_('Youtube Link'), help_text="Max 100 char.")
 
     def __str__(self) -> str:
         return 'Haqqımızda'
@@ -163,6 +181,8 @@ class Subscriber(BaseModel):
 
 
 class Dateofcreate(BaseModel):
+    title = models.CharField(
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
 
@@ -183,9 +203,16 @@ class Practic(BaseModel):
         upload_to='practic/', default=None, verbose_name=_("Image icon"))
     image = models.ImageField(
         upload_to='practic/', default=None, verbose_name=_("Image"))
+    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            now = datetime.datetime.now(timezone('Asia/Baku'))
+            self.slug = slugify(f"{self.title}-{now}")
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("Practic")
@@ -256,3 +283,20 @@ class Testimonial(BaseModel):
     class Meta:
         verbose_name = _("Testimonial")
         verbose_name_plural = _("Testimonials")
+
+
+class Contact(BaseModel):
+    title = models.CharField(
+        max_length=100, verbose_name=_('Title'), help_text="Max 100 char.")
+    address = RichTextField(
+        verbose_name=_("Address"), blank=True, null=True)
+    phone = models.CharField(
+        max_length=100, verbose_name=_('Phone'), help_text="Max 100 char.")
+    email = models.EmailField(verbose_name=_("Email"))
+
+    def __str__(self) -> str:
+        return f"{self.title}"
+
+    class Meta:
+        verbose_name = _("Əlaqə")
+        verbose_name_plural = _("Əlaqə")

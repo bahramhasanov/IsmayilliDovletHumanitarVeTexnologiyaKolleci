@@ -17,15 +17,17 @@ function getAllNews(start, end, category) {
                 ${newsCounter % 8 != 0 && newsCounter % 8 != 1 ? `
                 <div class="col-sm-4 my-3">
                 <div class="card" style="height: 100%; border-radius: 20px;">
-                <a href="${data[i]['slug']}"><img class="card-img-top" style="height: 240px; border-top-left-radius: 20px; border-top-right-radius: 20px;" src="${data[i].image}" alt="Card image cap"></a>` :
+                <a class="stretched-link" href="${data[i]['slug']}"><img class="card-img-top" style="height: 240px; border-top-left-radius: 20px; border-top-right-radius: 20px;" src="${data[i].image}" alt="Card image cap"></a>` :
                         `<div class="col-sm-6 my-3">
                 <div class="card" style="height: 100%; border-radius: 20px;">
-                <a href="${data[i]['slug']}"><img class="card-img-top" style="height: 240px; border-top-left-radius: 20px; border-top-right-radius: 20px;" src="${data[i]['image']}" alt="Card image cap"> </a>`}
+                <a class="stretched-link" href="${data[i]['slug']}"><img class="card-img-top" style="height: 240px; border-top-left-radius: 20px; border-top-right-radius: 20px;" src="${data[i]['image']}" alt="Card image cap"> </a>`}
                 <div class="card-body text-left">
                 <p class="card-text" style="color: rgba(0, 0, 0, 0.6);">${data[i]['created_at']} | ${data[i]['category']['title']}</p>
                 <p class="card-title" style="font-weight: 600; font-size: 24px; line-height: 32px; color: #000000;">${data[i]['title']} </p>
                 <p class="card-text" style="font-size: 17px; line-height: 24px; letter-spacing: 0.15px; color: rgba(0, 0, 0, 0.6);
-                ">${data[i]['description'].substring(0, 500)}</p>
+                ">
+                ${(data[i]['description'] ? `${data[i]['description'].substring(0, 500)}` : `${data[i]['description']}`)}
+                </p>
                 </div>
                             </div>
                             </div>

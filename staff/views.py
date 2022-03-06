@@ -1,28 +1,32 @@
+from http.client import HTTPResponse
+import os
 from django.http import FileResponse, Http404
 from django.views.generic import ListView
 from django.shortcuts import render
 from django.views.generic import ListView, View
-from about.models import Gallery
+from django.utils.translation import ugettext_lazy as _
 from math import ceil
 
-from staff.models import PDF, LibraryFAQ, Teacher
+from staff.models import PDF, Deputy, HeadOfDepartment, Library, LibraryFAQ, Teacher, Director
 
 
-class Deputies(View):
+class DeputiesView(View):
 
     def get(self, request):
         context = {
-            'title': 'Rehberlik',
+            'title': _('Rəhbərlik'),
+            'deputies': Deputy.objects.all()
         }
         return render(request, 'deputies.html', context=context)
 
 
-class Director(View):
+class DirectorView(View):
     def get(self, request):
         context = {
-            'title': 'Director',
+            'title': _('Director'),
             'teachers': Teacher.objects.all(),
-            'main_teacher_image': ceil(Teacher.objects.count()/2)
+            'main_teacher_image': ceil(Teacher.objects.count()/2),
+            'director': Director.objects.last(),
         }
         return render(request, 'director.html', context=context)
 
@@ -33,16 +37,19 @@ class TeacherListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Teachers'
+        context['title'] = _('Teachers')
         return context
 
 
-class Departments(View):
-    def get(self, request):
-        context = {
-            'title': 'Şöbələr',
-        }
-        return render(request, 'departments.html', context=context)
+class DepartmentsView(ListView):
+    model = HeadOfDepartment
+    template_name = 'departments.html'
+    context_object_name = 'headofdepartment'
+        
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = _('Departments')
+        return context
 
 
 class LibraryListView(ListView):
@@ -51,7 +58,7 @@ class LibraryListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Onlayn Kitabxana'
+        context['title'] = _('Onlayn Kitabxana')
         return context
 
 
@@ -66,15 +73,21 @@ class LibraryDetailView(View):
             response['Content-Disposition'] = 'attachment; filename="{}"'.format(
                 pdf.file.name)
         else:
+            # filepath = os.path.join('media', pdf.file.name)
+            # return FileResponse(open(filepath, 'rb'), content_type='application/pdf')
+            # image_data = open(pdf, "rb").read()
+            # return HTTPResponse(image_data, contenttype='application/pdf')
+            # print('pdf.file.path')
             response['Content-Disposition'] = 'inline; filename="{}"'.format(
                 pdf.file.name)
         return response
 
 
-class Libraryinfo(View):
+class LibraryInfoView(View):
     def get(self, request):
         context = {
-            'title': 'Kitabxana haqqında ümümi məlumat',
+            'title': _('Kitabxana haqqında ümümi məlumat'),
             'faqs': LibraryFAQ.objects.all(),
+            'library' : Library.objects.last()
         }
         return render(request, 'libraryinfo.html', context=context)

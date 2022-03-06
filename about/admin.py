@@ -1,16 +1,21 @@
-from about.models import News, Category, Specialty, Faculty, Admissionrules, About, Event, Subscriber, Dateofcreate, Practic, PracticPlace, Gallery, CareerSupport,Testimonial
+from about.models import Contact, News, Category, Specialty, Faculty, Admissionrules, About, Event, Subscriber, Dateofcreate, Practic, PracticPlace, Gallery, CareerSupport, Testimonial
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
 
 # Register your models here.
 from django.utils.html import format_html
 admin.site.register([Subscriber,
-                    Practic, PracticPlace, Gallery, CareerSupport])
+                    Practic, PracticPlace, Gallery, CareerSupport,])
 
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     exclude = ('title',)
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    exclude = ('title', 'address')
 
 
 @admin.register(News)
@@ -22,6 +27,7 @@ class NewsAdmin(admin.ModelAdmin):
 @admin.register(Specialty)
 class SpecialtyAdmin(admin.ModelAdmin):
     exclude = ('title', 'description',)
+    readonly_fields = ('slug',)
 
 
 @admin.register(Event)
@@ -36,8 +42,8 @@ class FacultyAdmin(admin.ModelAdmin):
     list_display = (
         'title',
     )
-    readonly_fields = ("get_facultyofspecialty",)
-    
+    readonly_fields = ("get_facultyofspecialty", "slug",)
+
     # def get_readonly_fields(self, request, obj=None):
     #     if obj:
     #         return self.readonly_fields + ('title',)
@@ -67,19 +73,8 @@ class FacultyAdmin(admin.ModelAdmin):
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
-    fields = (
-        'description',
-        'image',
-    )
+    exclude = ('title', 'description',)
 
-    def has_add_permission(self, request):
-        return True
-
-    def has_delete_permission(self, request, obj=None):
-        return False
-
-    def has_change_permission(self, request, obj=None):
-        return True
 
 
 @admin.register(Admissionrules)
@@ -90,14 +85,6 @@ class AdmissionrulesAdmin(admin.ModelAdmin):
         'from_11_rules',
     )
 
-    def has_add_permission(self, request):
-        return True
-
-    def has_delete_permission(self, request, obj=None):
-        return False
-
-    def has_change_permission(self, request, obj=None):
-        return True
 
 
 @admin.register(Dateofcreate)
@@ -105,12 +92,3 @@ class DateofcreateAdmin(admin.ModelAdmin):
     fields = (
         'description',
     )
-
-    def has_add_permission(self, request):
-        return True
-
-    def has_delete_permission(self, request, obj=None):
-        return False
-
-    def has_change_permission(self, request, obj=None):
-        return True

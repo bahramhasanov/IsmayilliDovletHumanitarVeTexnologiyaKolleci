@@ -9,9 +9,9 @@ from math import ceil
 
 from django.views.generic import ListView
 
-from core.models import Mostquestions
+from core.models import MainPage, Mostquestions
 from about.models import Event, Gallery, News
-from staff.models import PDF
+from staff.models import PDF, Department
 
 
 class Base(TemplateView):
@@ -33,6 +33,8 @@ class HomePage(TemplateView):
         context['events'] = Event.objects.order_by('-created_at')[:2]
         context['galleries'] = Gallery.objects.all()
         context['main_gallery_image'] = ceil(Gallery.objects.count()/2)
+        context['mainpage'] = MainPage.objects.last()
+        context['departments'] = Department.objects.all()
         return context
 
 
@@ -47,24 +49,6 @@ def change_language(request):
 class Search(ListView):
     template_name = "search.html"
     context_object_name = 'news'
-    # paginate_by = 10
-
-    # def get_queryset(self):
-    #     queryset = None
-    #     search_text = self.request.GET.get('search_text')
-    #     if search_text:
-    #         print(search_text)
-    #         queryset = News.objects.all()
-    #         # queryset = News.objects.filter(
-    #         #     Q(title__icontains=search_text) | Q(description__icontains=search_text))
-    #     print(queryset)
-    #     return queryset
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['search_text'] = self.request.GET.get('search_text')
-    #     context['title'] = 'Search'
-    #     return context
 
     def get(self, request, *args, **kwargs):
         queryset = None
@@ -82,4 +66,3 @@ class Search(ListView):
             'result_count': len(queryset),
         }
         return render(request, 'search.html', context=context)
-

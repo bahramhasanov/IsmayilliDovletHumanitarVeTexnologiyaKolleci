@@ -9,13 +9,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 {% endblock css %} {% block base %}
 <div class="container" style="margin: 70px auto 100px auto;">
-    {% for dtfcrt in dateofcreates %}
     <div>
-        <p class="h3" style="text-align: center;">{% trans 'Ismayıllı Humanitar və Texnologiya Kollecinin yaranması' %}
+        <p class="h3" style="text-align: center;">{{dateofcreate.title}}
         </p>
-        <p style="font-size: 20px; opacity: 0.6; ">{{dtfcrt.description|safe}}</p>
+        <p style="font-size: 20px; opacity: 0.6; ">{{dateofcreate.description|safe}}</p>
     </div>
-    {% endfor%}
 </div>
 {% endblock base %} {% block js %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js "

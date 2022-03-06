@@ -204,6 +204,7 @@ footer ul {
     width: 100%;
     /* Need a specific value to work */
   }
+  
 }
 .nav-link {
   color: black !important;
@@ -240,10 +241,23 @@ footer ul {
   #footerDropdownLanguage {
     width: 15% !important;
   }
+  #lang-ul {
+    display: none !important;
+  }
 }
 
 .languages {
   min-width: 0 !important;
   width: 5rem;
   left: auto;
+}
+
+
+.subscriber-form {
+  text-align: center !important;
+}
+@media screen and (max-width: 768px) {
+  #myBtnn{
+    display: none !important;
+  }
 }

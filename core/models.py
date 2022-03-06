@@ -19,7 +19,7 @@ class Mostquestions(BaseModel):
 
 class MainPage(BaseModel):
     name = models.CharField(max_length=100, verbose_name=_('Name'))
-    slogan = models.CharField(max_length=100, verbose_name=_('Name'))
+    slogan = RichTextField(verbose_name=_("Slogan"))
     description = RichTextField(
         verbose_name=_("description"), blank=True, null=True)
     active_student_number = models.IntegerField()
