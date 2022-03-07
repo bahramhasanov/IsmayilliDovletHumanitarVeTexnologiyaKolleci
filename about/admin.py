@@ -1,11 +1,20 @@
-from about.models import Contact, News, Category, Specialty, Faculty, Admissionrules, About, Event, Subscriber, Dateofcreate, Practic, PracticPlace, Gallery, CareerSupport, Testimonial
+from about.models import Contact, FBKTeacher, News, Category, Specialty, Faculty, Admissionrules, About, Event, Subscriber, Dateofcreate, Practic, PracticPlace, Gallery, CareerSupport, Testimonial
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
 
 # Register your models here.
 from django.utils.html import format_html
 admin.site.register([Subscriber,
-                    Practic, PracticPlace, Gallery, CareerSupport,])
+                    PracticPlace, Gallery, CareerSupport,])
+
+@admin.register(Practic)
+class PracticAdmin(admin.ModelAdmin):
+    readonly_fields = ('slug',)
+
+
+@admin.register(FBKTeacher)
+class FBKTeacherAdmin(admin.ModelAdmin):
+    exclude = ('full_name',)
 
 
 @admin.register(Category)
@@ -33,6 +42,7 @@ class SpecialtyAdmin(admin.ModelAdmin):
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     exclude = ('title', 'description',)
+    readonly_fields = ('slug',)
 
 
 @admin.register(Faculty)

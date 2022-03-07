@@ -2,6 +2,7 @@ import datetime
 from io import BytesIO
 from django.db import models
 from ckeditor.fields import RichTextField
+from matplotlib import image
 from pytz import timezone
 
 from kollec.utils.base_models import BaseModel
@@ -9,6 +10,25 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.text import slugify
 from django.core.files import File
 from PIL import Image
+
+
+class FBKTeacher(BaseModel):
+    full_name = models.CharField(max_length=255, verbose_name=_("Full name"))
+    number = models.CharField(max_length=255, verbose_name=_("Number"))
+    image = models.ImageField(upload_to='teachers', verbose_name=_("Image"))
+    fbk = models.ForeignKey(
+        "Faculty",
+        on_delete=models.CASCADE,
+        verbose_name=_("FBK"),
+        related_name="teachers",
+    )
+    
+    def __str__(self) -> str:
+        return self.full_name
+    
+    class Meta:
+        verbose_name = _("FBK teacher")
+        verbose_name_plural = _("FBK teachers")
 
 
 class News(BaseModel):
@@ -225,7 +245,7 @@ class PracticPlace(BaseModel):
     description = RichTextField(
         verbose_name=_("Description"), blank=True, null=True)
     practic = models.ForeignKey(
-        Practic, on_delete=models.CASCADE, related_name="practic_place", default=None, verbose_name=_("Faculty"))
+        Practic, on_delete=models.CASCADE, related_name="practic_place", default=None, verbose_name=_("Practic"))
 
     def __str__(self) -> str:
         return f"{self.title}"

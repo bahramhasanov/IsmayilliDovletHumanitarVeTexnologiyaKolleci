@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
 search = document.getElementById('search');
 search.addEventListener('keyup', (event) => {
     gallery.innerHTML = '';
-    getAllGallery(0, 4, event.target.value);
+    getAllGallery(0, 16, event.target.value);
 
 });
 more_button = document.getElementById('more-button');

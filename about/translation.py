@@ -1,5 +1,9 @@
 from modeltranslation.translator import register, TranslationOptions
-from about.models import About, Category, Contact, Event, Faculty, News, Specialty, Testimonial
+from about.models import About, Category, Contact, Event, FBKTeacher, Faculty, News, Specialty, Testimonial
+
+@register(FBKTeacher)
+class FBKTeacherTranslationOptions(TranslationOptions):
+    fields = ('full_name',)
 
 
 @register(News)

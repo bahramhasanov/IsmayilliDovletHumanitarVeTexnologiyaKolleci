@@ -77,6 +77,7 @@ function getRecentEvents(start, end) {
             <div class="card col-md-6 mb-3 px-4">
                 <div class="row">
                     <div class="col-md-5">
+                    <a class="stretched-link" href="${data[i]['slug']}"> </a>
                         <img src="${data[i]['image']}"
                             class="img-fluid rounded" alt="..." style="height: 152px;">
                             </div>
@@ -87,7 +88,6 @@ function getRecentEvents(start, end) {
                             <a class="recent-event-title" href="">
                             <h5 class="card-title"
                             style="font-weight: 600; font-size: 24px; line-height: 32px; color: #000000; ">${data[i]['title']}</h5>
-                            <a class="stretched-link" href="${data[i]['slug']}"> </a>
                             </a>
                             <p class="card-text"
                                 style="font-weight: 600; font-size: 15px; line-height: 24px; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(0, 0, 0, 0.6); ">

@@ -256,5 +256,6 @@ class CareerSupportView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['title'] = _('Career Support')
         context['careersupports'] = CareerSupport.objects.all()
         return context
