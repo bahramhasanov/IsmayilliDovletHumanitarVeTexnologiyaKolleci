@@ -25,10 +25,14 @@
                                  </span>
                                  <span class="iconsp" style="font-size: 18px; margin-top: 10px; display: block;">{% trans 'Online əlaqə' %} <span style="opacity: 0.6;"> &nbsp;({% trans 'email address' %})</span> <br>  <span style="opacity: 0.8; font-size: 16px;">{{director.email}}</span>
                                 </span>
+                            {% if director.start_date %}
                                 <span class="iconsp" style="font-size: 18px; margin-top: 10px; display: block;">{% trans 'Start Date' %} <span style="opacity: 0.6;"> &nbsp;</span> <br>  <span style="opacity: 0.8; font-size: 16px;">{{director.start_date}}</span>
                             </span>
+                            {% endif %}
+                            {% if director.end_date %}
                             <span class="iconsp" style="font-size: 18px; margin-top: 10px; display: block;">{% trans 'End Date' %} <span style="opacity: 0.6;"></span> <br>  <span style="opacity: 0.8; font-size: 16px;">{{director.end_date}}</span>
                                 </span><br>
+                            {% endif %}
                         </p></div>
                     </div>
                     <div>

@@ -114,7 +114,7 @@ class Director(BaseModel):
     start_date = models.DateField(
         verbose_name=_('Start Date'), default=None, null=True)
     end_date = models.DateField(
-        verbose_name=_('End Date'), default=None, null=True)
+        verbose_name=_('End Date'), default=None, null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.full_name}"
