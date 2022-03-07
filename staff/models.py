@@ -33,6 +33,17 @@ class Teacher(BaseModel):
                               default='teachers/default.png', verbose_name=_('Photo'))
     subject = models.ForeignKey(
         'Subject', on_delete=models.CASCADE, related_name='subject_teachers', default=1, verbose_name=_('Subject'))
+    text_color = models.CharField(
+        max_length=50, default='#ffffff', verbose_name=_('Text Color'))
+    # text_color = models.IntegerField(
+    #     choices=((0, '#ffffff'), (1, '#000000')), default=0, verbose_name=_('Text color'))
+
+    def __str__(self) -> str:
+        return self.full_name
+
+    class Meta:
+        verbose_name = _('Teacher')
+        verbose_name_plural = _('Teachers')
 
     def __str__(self):
         return self.full_name
