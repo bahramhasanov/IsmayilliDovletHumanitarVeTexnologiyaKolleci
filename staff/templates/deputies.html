@@ -9,14 +9,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="{% static 'css/deputies.css' %}">
 {% endblock css %} {% block base %}
-<div class="container mt-5" style="margin-bottom: 100px !important;">
+<div class="container my-5">
     {% for deputy in deputies %}
-    <div class="card mb-3 border-0 mx-auto" style="max-width: 60%;">
+    <div class="card mb-4 border-0 mx-auto" >
         <p class="muavinlik mt-5">{{deputy.category.title}}</p>
         <div class="row g-0">
             <div class="col-12 col-xl-4 " style="padding: 0 !important;">
-                <img src="{{deputy.image}}"
-                    class="img-fluid" style="height: 346px; width: 692px; border-radius: 18px;" alt="... ">
+                <img src="{{deputy.image.url}}"
+                    class="img-fluid" style="border-radius: 18px; height: 100%; width: 100%; object-fit: cover;" alt="... ">
             </div>
             <div class="col-12 col-xl-8">
                 <div class="card-body pl-lg-5" style="padding: 0 !important;">

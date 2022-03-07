@@ -35,11 +35,11 @@
                             <a class="btn"
                                 style="padding: 3px 16px 5px; background: rgba(11, 82, 254, 0.12); border-radius: 100px; color: #0B52FE;">{{event.category.title}}</a>
                             <h4 class="card-title"
-                                style="font-weight: 600; font-size: 24px; line-height: 32px; color: #000000; ">
-                                {{event.title}}</h4>
+                            style="font-weight: 600; font-size: 24px; line-height: 32px; color: #000000; ">
+                            {{event.title}}</h4>
                             <p class="card-text"
-                                style="font-weight: 600; font-size: 15px; line-height: 24px; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(0, 0, 0, 0.6); ">
-                                {{event.date|date:"d F, Y H:i"}}</p>
+                            style="font-weight: 600; font-size: 15px; line-height: 24px; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(0, 0, 0, 0.6); ">
+                            {{event.date|date:"d F, Y H:i"}}</p>
                         </div>
                     </div>
                     <hr style="background: rgba(0, 0, 0, 0.08); border-radius: 1px; ">
@@ -50,7 +50,7 @@
         </div>
     </div>
     <h2
-        style="font-weight: 600; font-size: 33px; line-height: 40px; letter-spacing: 0.25px; color: #000000; margin-bottom: 40px;">
+    style="font-weight: 600; font-size: 33px; line-height: 40px; letter-spacing: 0.25px; color: #000000; margin-bottom: 40px;">
         {% trans 'Recent Events' %}
     </h2>
     <div class="row" id="recent-events">
@@ -64,8 +64,8 @@
 {% endblock base %}
 {% block js %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+crossorigin="anonymous"></script>
 <script type='text/javascript'
     src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
 <script src="{% static 'js/allevents.js' %}"></script>

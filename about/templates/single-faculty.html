@@ -7,17 +7,18 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
     rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/specialty.css' %}">
 {% endblock css %} {% block base %}
 <div class="container " style="margin-top: 70px; margin-bottom: 80px;">
     <div class="card mb-3 mx-auto border-0" style="max-width: 100%;">
         <div class="row g-0 ">
-            <a class="stretched-link" href="{% url 'faculty' faculty.slug %}"></a>
             <div class="col-md-6 facultycard">
                 <div class="card-body ">
                     <h5 class="card-title text-dark">
                         <a class="text-dark facultytitle" style="text-decoration: none; font-size: 40px;" href="{% url 'faculty' faculty.slug %}">{{faculty.title}}</a>
                     </h5>
                     <p class="card-text text-dark facultydescription" style="font-size: 18px;">{{faculty.description|safe|truncatechars:500}}</p>
+                    {% if faculty.teachers.first %}
                     <div>
                         <div>
                             <div style="display: flex;padding-left: 170px;">
@@ -30,6 +31,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-md-6 ">
@@ -38,15 +40,15 @@
         </div>
     </div>
     <br><br>
-    <p>{% trans 'Ixtisaslar' %}</p>
+    <h2>{% trans 'Ixtisaslar' %}</h2>
     {% for i in faculty.specialty_faculty.all %}
-    <div class="card mb-3" style="border-radius: 24px;">
+    <div id="specialty" class="card mb-3" style="border-radius: 24px;">
         <div class="card-body d-flex">
             <a class="stretched-link" href="{% url 'speciality' i.slug i.slug %}"></a>
-            <img src="{{i.image_icon.url}} " class="card-img-top " style="width: 100px; height: 50px; margin-right: 20px; " alt="... ">
+            <img src="{{i.image_icon.url}} " class="card-img-top " style="width: 8%; height: 100%; margin-right: 2rem; object-fit: cover; border-radius: 100%;" alt="... ">
             <h7 class="  ">
                 <p><a class="text-dark card-title" style="text-decoration: none; font-size: 32px;" href="{% url 'speciality' i.slug i.slug %}">{{ i.title }}</a></p>
-                <p class="card-text text-dark" style="font-size: 18px;">{{i.description|safe}}</p>
+                <p class="card-text text-dark" style="font-size: 18px;">{{i.description|safe|truncatechars:400}}</p>
             </h7>
         </div>
     </div>

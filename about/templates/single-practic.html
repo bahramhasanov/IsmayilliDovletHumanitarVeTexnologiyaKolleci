@@ -13,26 +13,16 @@
 <div class="container" style="margin-top: 57px;">
     <h1 style="margin-bottom: 20px;">{% trans 'Təcrübə proqramı' %}</h1>
     <div class="card mb-5 mx-auto border-0">
+        <h1 class="text-center">
+            {{practic.title}}
+        </h1>
         <div class="row g-0 ">
-            <div class="col-md-6 " style="display: flex; justify-content: center; align-items: center;">
-                <img src="{{practic.image.url}}" class="img-fluid" style="border-radius: 24px;" alt="...">
+            <div class="col-md-6 " style="display: flex; justify-content: center; align-items: flex-start;">
+                <img src="{{practic.image.url}}" class="img-fluid" style="border-radius: 24px; width: 100%; object-fit: cover;" alt="...">
             </div>
             <div class="col-md-6 ">
-                <div class="card-body">
-                    <h2 class="card-title text-dark">
-                        {{practic.title}}
-                    </h2>
-                    <p class="card-text text-dark">{{practic.description|safe|truncatechars:300}}</p>
-                    <!-- <p class="iconp">
-                        <span class="iconsp" style="font-size: 18px;"><span
-                                style="color: #00C808; font-size: 25px;">&#10003;</span>&nbsp; {% trans 'Baza bilikliklərinin təkmilləşdirilməsi' %} </span><br>
-                        <span class="iconsp" style="font-size: 18px;"><span
-                                style="color: #00C808; font-size: 25px;">&#10003;</span>&nbsp; {% trans 'Kollektivlə iş bacarığının əldə edilməsi' %}</span><br>
-                        <span class="iconsp" style="font-size: 18px;"><span
-                                style="color: #00C808; font-size: 25px;">&#10003;</span>&nbsp; {% trans 'Sənədlərlə iş bacarığının yüksəldilməsi' %}</span><br>
-                        <span class="iconsp" style="font-size: 18px;"><span
-                                style="color: #00C808; font-size: 25px;">&#10003;</span>&nbsp; {% trans 'Akademik kommunikasiya qurmaq' %} </span>
-                    </p> -->
+                <div class="">
+                    <p class="card-text text-dark">{{practic.description|safe}}</p>
                 </div>
             </div>
         </div>
@@ -48,6 +38,7 @@
             <p style="font-size: 28px;">{% trans 'İstehsalat təcrübəsi' %}</p>
             <p style="opacity: 0.8;font-size: 18px;">{% trans 'Müddət: 12 həftə' %}</p>
         </div>
+        {% if practic.practic_place.exists %}
         <div style="margin-top: 87px;">
             <p style="font-size: 28px;"><b>{% trans 'İstehasalat Təcrübəsinin Ünvanları' %}</b></p>
             {% for i in practic.practic_place.all %}
@@ -57,6 +48,7 @@
             </div>
             {% endfor %}
         </div>
+        {% endif %}
     </div>
 </div>
 {% endblock base %} {% block js %}

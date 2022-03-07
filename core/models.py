@@ -22,6 +22,8 @@ class MainPage(BaseModel):
     slogan = RichTextField(verbose_name=_("Slogan"))
     description = RichTextField(
         verbose_name=_("description"), blank=True, null=True)
+    image = models.ImageField(
+        upload_to='main_page/', verbose_name=_('Image'), blank=True, null=True)
     active_student_number = models.IntegerField()
     faculty_number = models.IntegerField()
     graduate_number = models.IntegerField()

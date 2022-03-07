@@ -75,11 +75,11 @@ function getRecentEvents(start, end) {
             for (let i = 0; i < data.length; i++) {
                 recent_events.innerHTML += `
             <div class="card col-md-6 mb-3 px-4">
+            <a class="stretched-link" href="${data[i]['slug']}"> </a>
                 <div class="row">
                     <div class="col-md-5">
-                    <a class="stretched-link" href="${data[i]['slug']}"> </a>
-                        <img src="${data[i]['image']}"
-                            class="img-fluid rounded" alt="..." style="height: 152px;">
+                    <img src="${data[i]['image']}"
+                    class="img-fluid rounded" alt="..." style="height: 152px;">
                             </div>
                             <div class="col-md-7">
                             <div class="card-body pt-0 pl-0">

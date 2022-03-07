@@ -436,7 +436,7 @@ button:focus {
   }
   #slide_text2 {
     line-height: 3.5rem !important;
-    font-size: 3rem !important;
+    font-size: 2rem !important;
   }
   #slide_text3 {
     margin-top: 0% !important;
@@ -464,7 +464,8 @@ button:focus {
     font-size: 14px !important;
   }
   #slide_text2 {
-    font-size: 2.5rem !important;
+    font-size: 1.5rem !important;
+    line-height: 3rem !important;
   }
   #slide_text3 {
     font-size: 0.8rem !important;
@@ -493,8 +494,8 @@ button:focus {
     font-size: 12px !important;
   }
   #slide_text2 {
-    line-height: 2.5rem !important;
-    font-size: 2rem !important;
+    line-height: 2rem !important;
+    font-size: 1.5rem !important;
   }
   #slide_text3 {
     display: none !important;
@@ -509,7 +510,7 @@ button:focus {
     font-size: 12px !important;
   }
   #slide_text2 {
-    font-size: 1.8rem !important;
+    font-size: 1rem !important;
   }
   .department{
     padding: 1rem !important;
@@ -525,7 +526,7 @@ button:focus {
     font-size: 12px !important;
   }
   #slide_text2 {
-    font-size: 1.8rem !important;
+    font-size: 1rem !important;
   }
   #right_slide {
     text-align: center !important;
@@ -535,6 +536,7 @@ button:focus {
   #left_slide {
     flex: 0 0 0% !important;
     max-width: 0% !important;
+    background-image: none !important;
   }
 }
 @media screen and (max-width: 320px) {
@@ -544,10 +546,11 @@ button:focus {
     display: none !important;
   }
   #slide_text1 {
-    font-size: 10px !important;
+    font-size: 30px !important;
   }
   #slide_text2 {
-    font-size: 1.4rem !important;
+    font-size: 1rem !important;
+    display: none !important;
   }
   #right_slide {
     text-align: center !important;

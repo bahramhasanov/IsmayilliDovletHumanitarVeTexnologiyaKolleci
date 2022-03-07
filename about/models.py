@@ -251,8 +251,8 @@ class PracticPlace(BaseModel):
         return f"{self.title}"
 
     class Meta:
-        verbose_name = _("PracticPlace")
-        verbose_name_plural = _("PracticPlaces")
+        verbose_name = _("Practic Place")
+        verbose_name_plural = _("Practic Places")
 
 
 class Gallery(BaseModel):

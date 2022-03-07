@@ -13,12 +13,16 @@
         <h1 style="text-align: center;" class="mb-5">{% trans 'Ismayıllı Humanitar və Texnologiya Kollecinin Direktoru' %}</h1>
         <div class="card mb-5 mx-auto border-0">
             <div class="row g-0 m-auto" style="max-width: 737px;">
-                <div style="margin-right: 40px;border-radius: 24px;width: 297px; height: 306px; background-size: 100% 100%; background-image: url('{{director.image}}');">
-                </div>
-                <div style="width: 400px;">
-                        <div style=" margin-bottom: 48px;"><h2 style="color: black !important; line-height: 40px; opacity: 0.8;">
+                <!-- <div style="margin-right: 40px;border-radius: 24px;width: 297px; height: 306px; background-size: 100% 100%; background-image: url('{{director.image}}');">
+                </div> -->
+                    <div class="col-md-6 mb-3">
+                        <img src="{{director.image.url}}" style="width: 100%; border-radius: 24px; object-fit: cover;" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <div style=" margin-bottom: 1.5rem;"><h2 style="color: black !important; line-height: 40px; opacity: 0.8;">
                             <b>{{director.full_name}}</b>
-                        </h2></div>
+                        </h2>
+                    </div>
     
                         <div><p class="iconp">
                             <span class="iconsp" style="font-size: 18px; display: block;">{% trans 'Qəbul günləri' %} <span style="opacity: 0.6;"> &nbsp;({% trans 'həftə içi' %})</span> <br>  <span style="opacity: 0.8; font-size: 16px;"> {% for day in director.director_days.all %}  &nbsp; {{day.start_time}} - {{day.end_time}}   <br> {% endfor %} </span>
@@ -50,22 +54,22 @@
             {% for g in teachers %}
             {% if forloop.counter == 0 %}
             <div class="item first prev ">
-                <div class="row justify-content-center "> <img src="{{g.photo.url}}" style="border-radius: 20px;" class="img-fluid profile-pic ">
+                <div class="row justify-content-center "> <img src="{{g.photo.url}}" style="border-radius: 20px; object-fit: cover;" class="img-fluid profile-pic ">
                 </div>
             </div>
             {% elif forloop.counter == teachers|length %}
             <div class="item last ">
-                <div class="row justify-content-center "> <img src="{{g.photo.url}}" style="border-radius: 20px;" class="img-fluid profile-pic ">
+                <div class="row justify-content-center "> <img src="{{g.photo.url}}" style="border-radius: 20px; object-fit: cover;" class="img-fluid profile-pic ">
                 </div>
             </div>
             {% elif forloop.counter == main_teacher_image %}
             <div class="item show ">
-                <div class="row justify-content-center "> <img src="{{g.photo.url}}" style="border-radius: 20px;" class="img-fluid profile-pic ">
+                <div class="row justify-content-center "> <img src="{{g.photo.url}}" style="border-radius: 20px; object-fit: cover;" class="img-fluid profile-pic ">
                 </div>
             </div>
             {% elif forloop.counter < main_teacher_image or forloop.counter > main_teacher_image %}
             <div class="item next ">
-                <div class="row justify-content-center "> <img src="{{g.photo.url}}" style="border-radius: 20px;" class="img-fluid profile-pic ">
+                <div class="row justify-content-center "> <img src="{{g.photo.url}}" style="border-radius: 20px; object-fit: cover;" class="img-fluid profile-pic ">
                 </div>
             </div>
             {% endif %}

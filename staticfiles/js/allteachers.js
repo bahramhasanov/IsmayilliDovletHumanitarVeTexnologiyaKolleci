@@ -15,7 +15,7 @@ function getAllTeachers(start, end, search) {
                 teachers.children[0].innerHTML += `<div class="col-12 col-md-6 col-lg-3 ">
                 <div class="card my-2" style="height: 328px; border-radius: 20px;">
                 <a data-bs-target="#teacher${data[i]['id']}" data-bs-toggle="modal" style="cursor: pointer; height: 100%">
-                <img class="card-img-top" style="border-radius: 20px; height: 100%"
+                <img class="card-img-top" style="border-radius: 20px; height: 100%; object-fit: cover;"
                 src="${data[i]['photo']}"
                 alt="Card image">
                 <div style="position: absolute; bottom: 0; padding: 20px; top: inherit;"

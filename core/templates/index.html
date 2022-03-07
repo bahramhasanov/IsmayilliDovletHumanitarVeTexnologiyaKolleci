@@ -13,7 +13,7 @@
 {% block base %}
 <div class="container" style="margin-top: 80px;">
     <div id="slide_div" class="carousell row" style="height: 536px;  border-radius: 24px;">
-        <div id="left_slide" class="col-5 imgdivcarousel">
+        <div id="left_slide" class="col-5 imgdivcarousel" {% if mainpage.image %} style="background-image: url({{mainpage.image.url}});"{% endif %}> 
             <div id="active_student" class="smallblur" style="width: 183px; height: 4rem; border-radius: 20px; margin-top: 50%;">
                 <div style="width: 46px; height: 46px; border-radius: 12px; padding: 8px; background-color: rgba(255, 59, 0, 0.14); ;margin-top: 10px; margin-left: 10px;">
                     <img width="100%" src="https://s3-alpha-sig.figma.com/img/f43a/bfb4/5f54337f9f44b62f819cdebbbc0f4c5e?Expires=1644192000&Signature=YGXSbt6svZoQXsqCK25z7cn4k9qYULvnYdfIfRpD8ei3CcDl3B8fJCbsWsAJUNuy8~nxACGej06MyzLb8ggD7OgFw0H90oSVtbsS553U3BcWYFdNk~UcHVEvX53M-laDz5y5wKydrJ3~f8j26mk6x5BWpQT8brUViElQu1M4TDge~zTDQlHYkq5k1yciWOFKUiDpqvBKBkPPBmJS-fY3qpxv3nftodfQUKWJUoe6KLrjJU2SHPd-8wjYomPLKbAzpEl1jqHt9vegRVBay3vt7SZfaTZKRK~cf4gmDs0yQj63xRJH1BZf36RQEPHd7EU8HkSjZLjBBa4BMA2kQQQGWA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
@@ -45,13 +45,13 @@
         </div>
 
 
-        <div id="right_slide" class="col-7">
+        <div id="right_slide" class="col-7 text-center">
             <div style="margin-top: 4rem;padding-right: 3rem;">
-                <p id="slide_text1" style="font-size: 20px; line-height: 28px;">{{mainpage.name}}</p>
-                <p id="slide_text2" style="margin-top: 1rem; font-size: 4rem; line-height: 68px;"><b>
-                        {{mainpage.slogan|safe}}
-                    </b></p>
-                <p id="slide_text3" style="margin-top: 28px; font-size: 1rem; opacity: 0.6; line-height: 24px;">{{mainpage.description|safe}}</p>
+                <div id="slide_text1" style="font-size: 20px; line-height: 2rem;">{{mainpage.name}}</div>
+                <div id="slide_text2" style="margin-top: 1rem; font-size: 2rem; line-height: 4rem;"><b>
+                        {{mainpage.slogan|safe|truncatechars:100}}
+                    </b></div>
+                <div id="slide_text3" style="margin-top: 28px; font-size: 1rem; opacity: 0.6; line-height: 24px;">{{mainpage.description|safe|truncatechars:150}}</div>
                 <div id="search_form" class="form-outline form-white " style="margin-top: 36px;">
                     <form action="{% url 'search' %}" method="get">
                         <input type="text" name="search_text" style="width: 60%; padding: 16px 16px 16px 40px; background: white; border-radius: 32px; border: none;" placeholder="{% translate 'Axtar' %}" />
