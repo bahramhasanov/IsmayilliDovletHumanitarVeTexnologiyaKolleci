@@ -7,9 +7,11 @@ from django.utils.text import slugify
 from pytz import timezone
 # Create your models here.
 
+
 class Department(BaseModel):
     title = models.CharField(max_length=255, verbose_name=_('Title'))
-    slug = models.SlugField(max_length=255, unique=True, verbose_name=_('Slug'), blank=True, null=True)
+    slug = models.SlugField(max_length=255, unique=True,
+                            verbose_name=_('Slug'), blank=True, null=True)
     description = RichTextField(verbose_name=_('Description'))
 
     def save(self, *args, **kwargs):
@@ -24,6 +26,18 @@ class Department(BaseModel):
         verbose_name_plural = _('Departments')
 
 
+class TeacherTextColor(BaseModel):
+    title = models.CharField(max_length=255, verbose_name=_('Title'), help_text=_('Must be written in English'))
+    code = models.CharField(max_length=255, verbose_name=_('Code'), help_text=_('For example: #000000'))
+
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        verbose_name = _('Teacher text color')
+        verbose_name_plural = _('Teacher text colors')
+
+
 class Teacher(BaseModel):
     full_name = models.CharField(
         verbose_name=_('Full Name'), max_length=50, default="")
@@ -33,19 +47,10 @@ class Teacher(BaseModel):
                               default='teachers/default.png', verbose_name=_('Photo'))
     subject = models.ForeignKey(
         'Subject', on_delete=models.CASCADE, related_name='subject_teachers', default=1, verbose_name=_('Subject'))
-    text_color = models.CharField(
-        max_length=50, default='#ffffff', verbose_name=_('Text Color'))
-    # text_color = models.IntegerField(
-    #     choices=((0, '#ffffff'), (1, '#000000')), default=0, verbose_name=_('Text color'))
+    text_color = models.ForeignKey(
+        'TeacherTextColor', on_delete=models.CASCADE, related_name='teacher_text_color', default=1, verbose_name=_('Text color'))
 
     def __str__(self) -> str:
-        return self.full_name
-
-    class Meta:
-        verbose_name = _('Teacher')
-        verbose_name_plural = _('Teachers')
-
-    def __str__(self):
         return self.full_name
 
     class Meta:
@@ -192,12 +197,11 @@ class HeadOfDepartment(BaseModel):
     phone = models.CharField(
         verbose_name=_('Phone'), max_length=50, default="")
     image = models.ImageField(upload_to='department/',
-                                default=None, verbose_name=_('Image'))
-    
+                              default=None, verbose_name=_('Image'))
+
     def __str__(self) -> str:
         return f"{self.full_name}"
 
-    class  Meta:
+    class Meta:
         verbose_name = _("Head Of Department")
         verbose_name_plural = _("Head Of Departments")
-    

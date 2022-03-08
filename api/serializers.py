@@ -1,6 +1,6 @@
 
 from django.db.models import fields
-from staff.models import PDF, Subject, Teacher
+from staff.models import PDF, Subject, Teacher, TeacherTextColor
 from about.models import Category, Event, Gallery, News, Subscriber, Testimonial
 from staff.models import Subject, Teacher
 from about.models import Category, News, Specialty, Faculty
@@ -31,9 +31,15 @@ class SubjectSerializer(serializers.ModelSerializer):
         model = Subject
         fields = ('title',)
 
+class TeacherTextColorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TeacherTextColor
+        fields = '__all__'
+
 
 class TeacherSerializer(serializers.ModelSerializer):
     subject = SubjectSerializer()
+    text_color = TeacherTextColorSerializer()
 
     class Meta:
         model = Teacher

@@ -2,7 +2,11 @@ from django.contrib import admin
 # Register your models here.
 from django.utils.html import format_html
 
-from staff.models import Deputy, DeputyCategory, Director, Library, ReceptionDaysOfDirector, Teacher, Subject, PDF, LibraryFAQ,HeadOfDepartment, Department
+from staff.models import Deputy, DeputyCategory, Director, Library, ReceptionDaysOfDirector, Teacher, Subject, PDF, LibraryFAQ,HeadOfDepartment, Department, TeacherTextColor
+
+@admin.register(TeacherTextColor)
+class TeacherTextColorAdmin(admin.ModelAdmin):
+    pass
 
 @admin.register(Department)
 class DepartmentAdmin(admin.ModelAdmin):

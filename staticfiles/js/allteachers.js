@@ -21,10 +21,10 @@ function getAllTeachers(start, end, search) {
                 <div style="position: absolute; bottom: 0; padding: 20px; top: inherit;"
                 class="card-img-overlay text-light text-left">
                 <p class="card-text"
-                style="font-weight: 500; font-size: 15px; line-height: 18px; letter-spacing: 0.15px; color: ${data[i]['text_color']};">
+                style="font-weight: 500; font-size: 15px; line-height: 18px; letter-spacing: 0.15px; color: ${data[i]['text_color']['code']};">
                 ${data[i]['subject']['title']}</p>
                 <h4 class="card-title" 
-                style="font-weight: 600; font-size: 24px; line-height: 29px; color: ${data[i]['text_color']}; margin-bottom: 0 !important;">${data[i]['full_name']} 
+                style="font-weight: 600; font-size: 24px; line-height: 29px; color: ${data[i]['text_color']['code']}; margin-bottom: 0 !important;">${data[i]['full_name']} 
                 </h4>
                 </div>
                 </a>
@@ -35,7 +35,7 @@ function getAllTeachers(start, end, search) {
                 <div class="modal-content">
                 <div class="modal-body">
                 <h5 class="modal-title" id="teacher${data[i]['id']}Label" style="display: none;"></h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="z-index: 1; position: absolute; top: 20px; left: 20px;"></button>
+                <button type="button" class="btn-close btn-close-${data[i]['text_color']['title'].toLowerCase()}" data-bs-dismiss="modal" aria-label="Close" style="z-index: 1; position: absolute; top: 20px; left: 20px;"></button>
                 <div class="card" style="border-radius: 20px; border: none; position: relative;">
                 <img class="card-img-top" style="height: 400px; border-top-left-radius: 20px; border-top-right-radius: 20px;"
                 src="${data[i]['photo']}"
@@ -43,10 +43,10 @@ function getAllTeachers(start, end, search) {
                 <div class="card-img-overlay text-light text-left">
                 <div style="margin-top: 80%;"> 
                 <p class="card-text"
-                style="font-weight: 500; font-size: 15px; line-height: 18px; letter-spacing: 0.15px; color: ${data[i]['text_color']};">
+                style="font-weight: 500; font-size: 15px; line-height: 18px; letter-spacing: 0.15px; color: ${data[i]['text_color']['code']};">
                 ${data[i]['subject']['title']}</p>
                 <h4 class="card-title "
-                style="font-weight: 600; font-size: 24px; line-height: 29px; color: ${data[i]['text_color']}; margin-bottom: 0 !important;">${data[i]['full_name']} 
+                style="font-weight: 600; font-size: 24px; line-height: 29px; color: ${data[i]['text_color']['code']}; margin-bottom: 0 !important;">${data[i]['full_name']} 
                 </h4>
                 </div>
                 </div>
