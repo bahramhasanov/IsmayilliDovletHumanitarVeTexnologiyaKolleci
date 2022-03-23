@@ -107,7 +107,7 @@ function getTestimonial() {
             testimonail = document.getElementById('testimonial');
             for (let i = 0; i < data.length; i++) {
                 testimonail.innerHTML += `
-            <div class="student-card card col-md-3 my-sm-3 " style="padding: 2rem; background-color: #f6f6f6; border-radius: 20px; border: none;">
+            <div class="student-card card col-md-3 my-sm-3 mt-3" style="padding: 2rem; background-color: #f6f6f6; border-radius: 20px; border: none;">
                 <div class="card-content ">
 
                     <div class="p-0">

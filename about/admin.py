@@ -7,6 +7,11 @@ from django.utils.html import format_html
 admin.site.register([Subscriber,
                     PracticPlace, Gallery, CareerSupport,])
 
+
+@admin.register(Testimonial)
+class TestimonialAdmin(admin.ModelAdmin):
+    exclude = ('description','name')
+
 @admin.register(Practic)
 class PracticAdmin(admin.ModelAdmin):
     readonly_fields = ('slug',)
