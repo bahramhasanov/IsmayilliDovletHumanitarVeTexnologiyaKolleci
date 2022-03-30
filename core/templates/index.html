@@ -71,7 +71,7 @@
                 <div class="card mb-2" style="border-radius: 20px; background-color: #f6f6f6; border: none;">
                     <div class="card-body shobecard" style="padding-left: 2.5rem; padding-right: 2.5rem; padding-top: 3.5rem; padding-bottom: 3rem;">
                         <p class="card-title depart">{{department.title}}</p>
-                        <p class="card-text news-text " style="font-size: 20px; line-height: 28px; margin-bottom: 2rem;">{{department.description|safe}}
+                        <p class="card-text news-text " style="font-size: 20px; line-height: 28px; margin-bottom: 2rem;">{{department.description|safe|truncatechars:350}}
                         </p>
                         <div class="row" style="margin-bottom: 1.5rem;">
                             {% for i in department.faculty_department.all %}
@@ -157,7 +157,7 @@
                     <div class="card-body " style="padding: 2rem; height: 17rem;">
                         <p class="card-text news-date text-muted" style="font-size: 15px">{{event.created_at}}</p>
                         <p class="card-text carttitle"><b>{{event.title}} </b></p>
-                        <p class="card-text news-text carddescription">{{event.description|safe|truncatechars:100}}</p>
+                        <p class="card-text news-text carddescription">{{event.description|safe|truncatechars:250}}</p>
                     </div>
                 </div>
             </div>
